@@ -19,4 +19,11 @@ public class Frame {
 		frame.setLayout(null);
 		frame.setVisible(true);
 	}
+	
+	public int getXSize(){
+		return xSize;
+	}
+	public int getYSize(){
+		return ySize;
+	}
 }
