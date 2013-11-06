@@ -1,3 +1,10 @@
+/**
+ * @author Geoffrey Long
+ * 
+ * The purpose of this class is to provide the frame that will be used 
+ * throughout the game.  All panels will be added to and removed from 
+ * this frame.
+ */
 package start;
 
 import java.awt.Toolkit;
@@ -9,6 +16,13 @@ public class Frame {
 	private int xSize;
 	private int ySize;
 	
+	/**
+	 * This is the constructor for the frame.  
+	 * It sets the bounds of the frame so that it takes up the entire screen.  
+	 * The xSize and ySize will hold the sizes for the x and the y,  
+	 * as these are expected to vary from screen to screen.  
+	 * Therefore, the panels can retrieve these sizes to construct a dynamic layout.
+	 */
 	public Frame(){
 		frame = new JFrame();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
@@ -20,9 +34,17 @@ public class Frame {
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * Getter for the xSize
+	 * @return xSize  The size of the frame in the horizontal position
+	 */
 	public int getXSize(){
 		return xSize;
 	}
+	/**
+	 * Getter for the ySize
+	 * @return xSize  The size of the frame in the horizontal position
+	 */
 	public int getYSize(){
 		return ySize;
 	}
