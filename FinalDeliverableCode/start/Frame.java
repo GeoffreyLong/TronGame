@@ -58,5 +58,6 @@ public class Frame {
 	public static void addPanel(JPanel panel){
 		frame.add(panel);
         frame.validate();
+        frame.repaint();
 	}
 }
