@@ -7,6 +7,10 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements KeyListener {
+	public MapPanel(){
+		addKeyListener(this);
+	}
+	
 	@Override
 	public void paintComponents(Graphics g){
 		super.paintComponents(g);
