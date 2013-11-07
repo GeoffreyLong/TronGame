@@ -11,18 +11,22 @@ import javax.swing.JPanel;
 
 public class Frame{
 	
+	private static int xSize;
+        private static int ySize;
+        static JFrame frame;
+	
 	public Frame(){
 		
 	}
 	
 	public static int getXSize(){
 		
-		return 0;
+		return xSize;
 	}
 	
 	public static int getYSize(){
 		
-		return 0;
+		return ySize;
 	}
 	
 	public static void addPanel(JPanel panel){
