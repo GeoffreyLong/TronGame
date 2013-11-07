@@ -7,6 +7,8 @@
  */
 package start;
 
+import startscreen.WelcomePanel;
+
 /**
  * The main method will start the program by instantiating the GUI 
  * via the frame.
@@ -21,6 +23,7 @@ public class Main {
 	}
 	
 	public static void start(){
-		
+		WelcomePanel welcome = new WelcomePanel();
+		frame.addPanel(welcome);
 	}
 }
