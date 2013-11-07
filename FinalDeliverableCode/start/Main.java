@@ -16,7 +16,7 @@ import startscreen.WelcomePanel;
  * @throws java.lang.Exception if the GUI cannot be instantiated
  */
 public class Main {
-	static Frame frame;
+	public static Frame frame;
 	public static void main (String[] args){
 		frame = new Frame();
 		start();
