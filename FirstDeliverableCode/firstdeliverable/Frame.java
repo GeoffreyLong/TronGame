@@ -26,19 +26,16 @@ public class Frame{
 	}
 	
 	public static int getXSize(){
-		
 		return xSize;
 	}
 	
 	public static int getYSize(){
-		
 		return ySize;
 	}
 	
 	public static void addPanel(JPanel panel){
 		frame.add(panel);
-                frame.pack();
-                frame.validate();
-		
+        frame.pack();
+        frame.validate();
 	}
 }
