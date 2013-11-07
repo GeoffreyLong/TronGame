@@ -46,8 +46,8 @@ public class Panel extends JPanel implements ActionListener{
 	}
 	
 	@Override
-        public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
         	
-        }
+    }
 
 }
