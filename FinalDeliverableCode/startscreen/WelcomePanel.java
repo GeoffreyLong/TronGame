@@ -1,5 +1,7 @@
 package startscreen;
 
-public class WelcomePanel {
+import javax.swing.JPanel;
+
+public class WelcomePanel extends JPanel {
 
 }
