@@ -48,7 +48,9 @@ public class StartPanel extends JPanel implements ActionListener{
 	@Override
     public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Start Game")){
-
+			GameMaster master = new GameMaster();
+			master.gameInit();
+			master.gameStart();
 		}
     }
 
