@@ -6,7 +6,7 @@ package firstdeliverable;
 
 public class Main{
         public static void main(String[] args){ 
-                Panel panel = new Panel();
+                StartPanel panel = new StartPanel();
                 Frame frame = new Frame();
                 Frame.addPanel(panel);
         }
