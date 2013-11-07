@@ -10,6 +10,7 @@ package start;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Frame {
 	static JFrame frame = new JFrame();
@@ -47,5 +48,11 @@ public class Frame {
 	 */
 	public int getYSize(){
 		return ySize;
+	}
+	
+	public static void addPanel(JPanel panel){
+		frame.add(panel);
+		frame.pack();
+        frame.validate();
 	}
 }
