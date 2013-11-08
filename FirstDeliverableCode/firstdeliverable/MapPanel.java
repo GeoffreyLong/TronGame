@@ -12,6 +12,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int xSize;
 	private int ySize;
 	PlayerControl cont;
+	Cycle[] cycles;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
@@ -20,6 +21,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		
 		Cycle cycleOne = new Cycle(200, 400, 1, 1, true);
 		Cycle cycleTwo = new Cycle(400, 400, 0, 2, true);
+		cycles = new Cycle[]{cycleOne, cycleTwo};
+		
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
 		addKeyListener(this);
