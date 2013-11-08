@@ -9,7 +9,11 @@ public class Cycle {
   public boolean isAlive;
   
   public Cycle(int xPos, int yPos, int curHeading, int playerNum, boolean isAlive){
-    
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.curHeading = curHeading;
+    this.playerNum = playerNum;
+    this.isAlive = isAlive;
   }
 
 }
