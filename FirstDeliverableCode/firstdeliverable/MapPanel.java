@@ -13,7 +13,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int ySize;
 	PlayerControl cont;
 	Cycle[] cycles;
-	private boolean gameStart = false;
+	private boolean gameStart = true;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
