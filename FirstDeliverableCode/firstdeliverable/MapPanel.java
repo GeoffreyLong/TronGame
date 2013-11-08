@@ -70,6 +70,8 @@ public class MapPanel extends JPanel implements KeyListener {
 					xPosTwo = cycle.getXPos();
 					yPosTwo = cycle.getYPos();
 				}
+				map[xPosOne][yPosOne]=1;
+				map[xPosTwo][yPosTwo]=1;
 			}
 		}
 	}
