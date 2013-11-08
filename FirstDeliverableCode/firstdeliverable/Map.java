@@ -13,10 +13,22 @@ public class Map {
         
   
         public int[][] getMap(){
-          return map;
+                return map;
         }
         
         private void setBorder(int height, int width){
+          
+                 for (int i = 0; i<height; i++){
+                        for (int j = 0; j<width; j++){
+                                if (i==0 || j==0 || j==width-1 || i==height-1){
+                                        map[i][j] = 1;
+                                }
+                                else{
+                                        map[i][j] = 0;
+                                }
+                        }
+                  }
+          
           
         }
         
