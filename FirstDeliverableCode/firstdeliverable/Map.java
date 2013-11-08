@@ -33,6 +33,10 @@ public class Map {
         }
         
         public void setDefaultMap(){
+                map = new int[DEFAULT_MAP_SIZE][DEFAULT_MAP_SIZE];
+                setBorder(DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE);
+                this.xSize = DEFAULT_MAP_SIZE;
+                this.ySize = DEFAULT_MAP_SIZE;
           
         }
         
