@@ -8,4 +8,7 @@ public class PlayerControl {
 		this.cycleOne = cycleOne;
 		this.cycleTwo = cycleTwo;
 	}
+	public void setHeading(int i){
+		
+	}
 }
