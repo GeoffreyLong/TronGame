@@ -1,5 +1,6 @@
 package firstdeliverable;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,6 +23,10 @@ public class MapPanel extends JPanel implements KeyListener {
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
 		addKeyListener(this);
+	}
+	
+	public Dimension getPreferredSize() {
+        return new Dimension(Frame.getXSize(),Frame.getYSize());
 	}
 	
 	@Override
