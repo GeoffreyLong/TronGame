@@ -62,7 +62,14 @@ public class MapPanel extends JPanel implements KeyListener {
 				GameMaster.gameEnd();
 			}
 			else{
-				
+				if (cycle.getPlayerNum() == 1){
+					xPosOne = cycle.getXPos();
+					yPosOne = cycle.getYPos();
+				}
+				else{
+					xPosTwo = cycle.getXPos();
+					yPosTwo = cycle.getYPos();
+				}
 			}
 		}
 	}
