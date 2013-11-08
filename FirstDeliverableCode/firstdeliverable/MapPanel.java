@@ -38,7 +38,22 @@ public class MapPanel extends JPanel implements KeyListener {
 	public void updateMap(){
         this.requestFocusInWindow();
 		for (Cycle cycle : cycles){
-			
+			switch (cycle.getCurHeading()){
+				case 0:
+					cycle.setXPos(cycle.getXPos()-5);
+					break;
+				case 1:
+					cycle.setXPos(cycle.getXPos()+5);
+					break;
+				case 2:
+					cycle.setYPos(cycle.getYPos()+5);
+					break;
+				case 3:
+					cycle.setYPos(cycle.getYPos()-5);
+					break;
+				default:
+					break;
+			}
 		}
 	}
 	
