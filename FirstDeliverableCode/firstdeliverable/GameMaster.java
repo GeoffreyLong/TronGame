@@ -12,7 +12,7 @@ import javax.swing.Timer;
 public class GameMaster {
 	private Map map;
 	private MapPanel mapPanel;
-	private Timer timer;
+	private static Timer timer;
 	
 	public void gameInit(){
 		map = new Map();
