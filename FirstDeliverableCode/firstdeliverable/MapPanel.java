@@ -1,5 +1,6 @@
 package firstdeliverable;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -89,6 +90,12 @@ public class MapPanel extends JPanel implements KeyListener {
 				}
 			}
 			gameStart = false;
+		}
+		else{
+			g.setColor(Color.RED);
+			g.fillRect(xPosOne, yPosOne, 5, 5);
+			g.setColor(Color.BLUE);
+			g.fillRect(xPosTwo, yPosTwo, 5, 5);
 		}
 	}
 	@Override
