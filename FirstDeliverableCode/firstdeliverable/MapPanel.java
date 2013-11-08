@@ -16,6 +16,9 @@ public class MapPanel extends JPanel implements KeyListener {
 		this.xSize = map.getXSize();
 		this.ySize = map.getYSize();
 		
+		Cycle cycleOne = new Cycle(200, 400, 1, 1, true);
+		Cycle cycleTwo = new Cycle(400, 400, 0, 2, true);
+		
 		addKeyListener(this);
 	}
 	
