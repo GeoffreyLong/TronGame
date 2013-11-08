@@ -40,7 +40,7 @@ public class MapPanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub	
+		cont.setHeading(e.getKeyCode());
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
