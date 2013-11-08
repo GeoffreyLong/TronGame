@@ -8,8 +8,13 @@ import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements KeyListener {
 	private int[][] map;
+	private int xSize;
+	private int ySize;
+	
 	public MapPanel(Map map){
 		this.map = map.getMap();
+		this.xSize = map.getXSize();
+		this.ySize = map.getYSize();
 		
 		addKeyListener(this);
 	}
