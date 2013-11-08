@@ -7,7 +7,10 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 
 public class MapPanel extends JPanel implements KeyListener {
+	private int[][] map;
 	public MapPanel(Map map){
+		this.map = map.getMap();
+		
 		addKeyListener(this);
 	}
 	
