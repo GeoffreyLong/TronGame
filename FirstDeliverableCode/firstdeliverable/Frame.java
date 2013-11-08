@@ -38,4 +38,8 @@ public class Frame{
         frame.pack();
         frame.validate();
 	}
+	public static MapPanel start(Map map){
+		MapPanel mapPanel = new MapPanel(map);
+		return mapPanel;
+	}
 }
