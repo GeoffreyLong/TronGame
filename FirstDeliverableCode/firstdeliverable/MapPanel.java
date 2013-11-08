@@ -37,6 +37,9 @@ public class MapPanel extends JPanel implements KeyListener {
 	
 	public void updateMap(){
         this.requestFocusInWindow();
+		for (Cycle cycle : cycles){
+			
+		}
 	}
 	
 	@Override
