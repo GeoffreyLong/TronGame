@@ -16,6 +16,7 @@ public class GameMaster {
 	
 	public void gameInit(){
 		map = new Map();
+		map.setDefaultMap();
 		mapPanel= Frame.start(map);
 	}		
 	public void gameStart(){
