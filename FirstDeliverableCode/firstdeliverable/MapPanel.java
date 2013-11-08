@@ -54,6 +54,12 @@ public class MapPanel extends JPanel implements KeyListener {
 				default:
 					break;
 			}
+			if (map[cycle.getXPos()][cycle.getYPos()]!=0){
+				GameMaster.gameEnd();
+			}
+			else{
+				
+			}
 		}
 	}
 	
