@@ -23,6 +23,14 @@ public class Map {
         public void setDefaultMap(){
           
         }
+        
+        public int getXSize(){
+                return this.xSize;
+        }
+        
+        public int getYSize(){
+                return this.ySize;
+        }
   
   
 }
