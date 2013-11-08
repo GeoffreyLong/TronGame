@@ -13,6 +13,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int ySize;
 	PlayerControl cont;
 	Cycle[] cycles;
+	private boolean gameStart = false;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
@@ -40,12 +41,15 @@ public class MapPanel extends JPanel implements KeyListener {
 	
 	@Override
 	public void paintComponent(Graphics g){
-		for (int i=0; i<xSize; i++){
-			for (int j=0; j<ySize; j++){
-				if (map[i][j]==1){
-					g.fillRect(i, j, 5, 5);
+		if (gameStart){
+			for (int i=0; i<xSize; i++){
+				for (int j=0; j<ySize; j++){
+					if (map[i][j]==1){
+						g.fillRect(i, j, 5, 5);
+					}
 				}
 			}
+			gameStart = false;
 		}
 	}
 	@Override
