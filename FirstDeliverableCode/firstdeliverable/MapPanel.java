@@ -28,16 +28,18 @@ public class MapPanel extends JPanel implements KeyListener {
 		addKeyListener(this);
 		setVisible(true);
 	}
-	
 	public Dimension getPreferredSize() {
         return new Dimension(Frame.getXSize(),Frame.getYSize());
+	}
+	
+	public void updateMap(){
+		
 	}
 	
 	@Override
 	public void paintComponents(Graphics g){
 		super.paintComponents(g);
 	}
-
 	@Override
 	public void keyPressed(KeyEvent e) {
 		cont.setHeading(e.getKeyCode());
