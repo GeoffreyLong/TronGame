@@ -18,11 +18,11 @@ public class Frame{
 	public Frame(){
 		frame = new JFrame();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
-                xSize = ((int) tk.getScreenSize().getWidth());  
-                ySize = ((int) tk.getScreenSize().getHeight());
-                frame.setBounds(0,0,xSize,ySize);  
-                frame.setVisible(true);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        xSize = ((int) tk.getScreenSize().getWidth());  
+        ySize = ((int) tk.getScreenSize().getHeight());
+        frame.setBounds(0,0,xSize,ySize);  
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public static int getXSize(){
