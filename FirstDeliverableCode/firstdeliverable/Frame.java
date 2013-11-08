@@ -40,6 +40,12 @@ public class Frame{
 	}
 	public static MapPanel start(Map map){
 		MapPanel mapPanel = new MapPanel(map);
+		
+		frame.getContentPane().removeAll();
+		frame.add(mapPanel);
+		frame.validate();
+		frame.repaint();
+		
 		return mapPanel;
 	}
 }
