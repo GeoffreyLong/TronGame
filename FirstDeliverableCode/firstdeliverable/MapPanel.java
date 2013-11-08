@@ -39,8 +39,8 @@ public class MapPanel extends JPanel implements KeyListener {
 	}
 	
 	@Override
-	public void paintComponents(Graphics g){
-		super.paintComponents(g);
+	public void paintComponent(Graphics g){
+
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
