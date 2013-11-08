@@ -40,7 +40,13 @@ public class MapPanel extends JPanel implements KeyListener {
 	
 	@Override
 	public void paintComponent(Graphics g){
-
+		for (int i=0; i<xSize; i++){
+			for (int j=0; j<ySize; j++){
+				if (map[i][j]==1){
+					g.fillRect(i, j, 5, 5);
+				}
+			}
+		}
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
