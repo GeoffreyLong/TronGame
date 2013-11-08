@@ -23,6 +23,6 @@ public class GameMaster {
 		timer.start();
 	}
 	public static void gameEnd(){
-
+		timer.stop();
 	}
 }
