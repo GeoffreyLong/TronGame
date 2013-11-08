@@ -23,6 +23,7 @@ public class MapPanel extends JPanel implements KeyListener {
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
 		addKeyListener(this);
+		setVisible(true);
 	}
 	
 	public Dimension getPreferredSize() {
