@@ -27,6 +27,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		
 		addKeyListener(this);
 		setVisible(true);
+		this.setFocusable(true);
+        this.requestFocusInWindow();
 	}
 	public Dimension getPreferredSize() {
         return new Dimension(Frame.getXSize(),Frame.getYSize());
