@@ -72,6 +72,8 @@ public class MapPanel extends JPanel implements KeyListener {
 				}
 				map[xPosOne][yPosOne]=1;
 				map[xPosTwo][yPosTwo]=1;
+				paintImmediately(xPosOne,yPosOne,5,5);
+				paintImmediately(xPosTwo,yPosTwo,5,5);
 			}
 		}
 	}
