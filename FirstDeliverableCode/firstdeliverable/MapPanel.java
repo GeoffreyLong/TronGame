@@ -117,6 +117,12 @@ public class MapPanel extends JPanel implements KeyListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				explosionCount++;
+				if(!isAliveOne){
+					paintImmediately(xPosOne, yPosOne, explosionCount, explosionCount);
+				}
+				if(!isAliveTwo){
+					paintImmediately(xPosTwo, yPosTwo, explosionCount, explosionCount);
+				}
 			}
 		});
 	}
