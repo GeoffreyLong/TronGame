@@ -157,6 +157,7 @@ public class MapPanel extends JPanel implements KeyListener {
 				}
 			}
 		});
+		explosionTimer.start();
 	}
 	
 	@Override
