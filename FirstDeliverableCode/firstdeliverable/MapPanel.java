@@ -153,12 +153,7 @@ public class MapPanel extends JPanel implements KeyListener {
 				}
 			}
 			else{
-				if(explosionCount<80){
-					
-				}
-				else{
-					explosionTimer.stop();
-				}
+				explosionTimer.stop();
 			}
 		}
 	}
