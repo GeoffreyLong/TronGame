@@ -74,6 +74,7 @@ public class MapPanel extends JPanel implements KeyListener {
 				else{
 					isAliveTwo = false;
 				}
+				explosion();
 			}
 			else{
 				if (cycle.getPlayerNum() == 1){
