@@ -19,6 +19,8 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int yPosOne;
 	private int xPosTwo;
 	private int yPosTwo;
+	private boolean isAliveOne = true;
+	private boolean isAliveTwo = true;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
@@ -61,6 +63,12 @@ public class MapPanel extends JPanel implements KeyListener {
 			}
 			if (map[cycle.getXPos()][cycle.getYPos()]!=0){
 				GameMaster.gameEnd();
+				if (cycle.getPlayerNum() == 1){
+					isAliveOne = false;
+				}
+				else{
+					isAliveTwo = false;
+				}
 			}
 			else{
 				if (cycle.getPlayerNum() == 1){
