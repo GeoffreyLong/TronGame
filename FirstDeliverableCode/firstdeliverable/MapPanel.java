@@ -153,6 +153,7 @@ public class MapPanel extends JPanel implements KeyListener {
 								else{
 									hexDiffs /= 2;
 								}
+								hexDiffs = (int) (Math.random()*hexDiffs);
 								int hex = 0;
 								for (int k=0; k<6; k++){
 									hex += (int) (hexDiffs*Math.pow(16, k));
