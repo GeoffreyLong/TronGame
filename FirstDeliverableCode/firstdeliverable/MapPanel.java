@@ -119,20 +119,22 @@ public class MapPanel extends JPanel implements KeyListener {
 					for (int j=0; j<explosionCount; j++){
 						int jOffset = Math.abs(j-explosionCount/2);
 						int color = (int) (20*Math.random());
-						if (color<15){
-							if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
-								g.setColor(Color.BLACK);
+						if (!((iOffset+jOffset)>explosionCount/5)){
+							if (color<15){
+								if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
+									g.setColor(Color.BLACK);
+								}
+								else{
+									g.setColor(Color.RED);
+								}
 							}
-							else{
-								g.setColor(Color.RED);
-							}
-						}
-						if (color>=15){
-							if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
-								g.setColor(Color.GRAY);
-							}
-							else{
-								g.setColor(Color.ORANGE);
+							if (color>=15){
+								if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
+									g.setColor(Color.GRAY);
+								}
+								else{
+									g.setColor(Color.ORANGE);
+								}
 							}
 						}
 					}
