@@ -86,7 +86,6 @@ public class MapPanel extends JPanel implements KeyListener {
 			}
 		}
 	}
-	
 	@Override
 	public void paintComponent(Graphics g){
 		if (gameStart){
@@ -106,6 +105,11 @@ public class MapPanel extends JPanel implements KeyListener {
 			g.fillRect(xPosTwo, yPosTwo, 5, 5);
 		}
 	}
+	
+	private void explosion(){
+		
+	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		cont.setHeading(e.getKeyCode());
