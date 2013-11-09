@@ -146,7 +146,18 @@ public class MapPanel extends JPanel implements KeyListener {
 								}
 							}
 							else{
-								
+								int hexDiffs = 62-explosionCount;
+								if(hexDiffs<=0){
+									hexDiffs = 0;
+								}
+								else{
+									hexDiffs /= 2;
+								}
+								int hex = 0;
+								for (int k=0; k<6; k++){
+									hex += (int) (hexDiffs*Math.pow(16, k));
+								}
+								hex = ~hex;
 							}
 							if (!isAliveOne){
 								g.fillOval(xPosOne-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
