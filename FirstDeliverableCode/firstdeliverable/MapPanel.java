@@ -146,18 +146,19 @@ public class MapPanel extends JPanel implements KeyListener {
 								}
 							}
 							else{
-								if (!isAliveOne){
-									g.fillOval(xPosOne-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-											yPosOne-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-											(int)(i*Math.random())+(int)(j/2*Math.random()), 
-											(int)(i/1.5*Math.random())+(int)(j*Math.random()));
-								}
-								if (!isAliveTwo){
-									g.fillOval(xPosTwo-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-											yPosTwo-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-											(int)(i*Math.random())+(int)(j/2*Math.random()), 
-											(int)(i/1.5*Math.random())+(int)(j*Math.random()));
-								}
+								
+							}
+							if (!isAliveOne){
+								g.fillOval(xPosOne-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										yPosOne-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										(int)(i*Math.random())+(int)(j/2*Math.random()), 
+										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
+							}
+							if (!isAliveTwo){
+								g.fillOval(xPosTwo-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										yPosTwo-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										(int)(i*Math.random())+(int)(j/2*Math.random()), 
+										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
 							}
 						}
 					}
