@@ -127,7 +127,7 @@ public class MapPanel extends JPanel implements KeyListener {
 						int jOffset = Math.abs(j-explosionSize/2);
 						int color = (int) (20*Math.random());
 						if (!((iOffset+jOffset)>explosionSize/5)){
-							if (explosionSize != 30){
+							if (explosionSize < 30){
 								if (color<15){
 									if (iOffset > explosionSize/6 || jOffset > explosionSize/6){
 										g.setColor(Color.BLACK);
