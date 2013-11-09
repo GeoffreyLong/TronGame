@@ -113,7 +113,11 @@ public class MapPanel extends JPanel implements KeyListener {
 		}
 		else{
 			if (explosionCount<30){
-				
+				for (int i = 0; i<explosionCount; i++){
+					for (int j=0; j<explosionCount; j++){
+						
+					}
+				}
 			}
 			else{
 				explosionTimer.stop();
