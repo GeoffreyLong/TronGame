@@ -93,21 +93,26 @@ public class MapPanel extends JPanel implements KeyListener {
 	}
 	@Override
 	public void paintComponent(Graphics g){
-		if (gameStart){
-			for (int i=0; i<xSize; i++){
-				for (int j=0; j<ySize; j++){
-					if (map[i][j]==1){
-						g.fillRect(i, j, 5, 5);
+		if (isAliveOne && isAliveTwo){
+			if (gameStart){
+				for (int i=0; i<xSize; i++){
+					for (int j=0; j<ySize; j++){
+						if (map[i][j]==1){
+							g.fillRect(i, j, 5, 5);
+						}
 					}
 				}
+				gameStart = false;
 			}
-			gameStart = false;
+			else{
+				g.setColor(Color.RED);
+				g.fillRect(xPosOne, yPosOne, 5, 5);
+				g.setColor(Color.BLUE);
+				g.fillRect(xPosTwo, yPosTwo, 5, 5);
+			}
 		}
 		else{
-			g.setColor(Color.RED);
-			g.fillRect(xPosOne, yPosOne, 5, 5);
-			g.setColor(Color.BLUE);
-			g.fillRect(xPosTwo, yPosTwo, 5, 5);
+			
 		}
 	}
 	
