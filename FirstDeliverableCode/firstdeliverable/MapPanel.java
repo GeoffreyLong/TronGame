@@ -113,7 +113,14 @@ public class MapPanel extends JPanel implements KeyListener {
 			}
 		}
 		else{
-			if (explosionCount<30){
+			if (explosionCount<80){
+				int explosionSize;
+				if (explosionCount>80){
+					explosionSize = 30;
+				}
+				else{
+					explosionSize = explosionCount;
+				}
 				for (int i = 0; i<explosionCount; i++){
 					int iOffset = Math.abs(i-explosionCount/2);
 					for (int j=0; j<explosionCount; j++){
