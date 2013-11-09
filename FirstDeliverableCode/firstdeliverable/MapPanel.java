@@ -25,6 +25,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private boolean isAliveOne = true;
 	private boolean isAliveTwo = true;
 	private Timer explosionTimer;
+	private int explosionCount;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
@@ -111,9 +112,11 @@ public class MapPanel extends JPanel implements KeyListener {
 	}
 	
 	private void explosion(){
+		explosionCount = 0;
 		explosionTimer = new Timer(33, new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				explosionCount++;
 			}
 		});
 	}
