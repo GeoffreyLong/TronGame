@@ -128,10 +128,10 @@ public class MapPanel extends JPanel implements KeyListener {
 			public void actionPerformed(ActionEvent e) {
 				explosionCount++;
 				if(!isAliveOne){
-					paintImmediately(xPosOne, yPosOne, explosionCount, explosionCount);
+					paintImmediately(xPosOne-((int)(explosionCount/2)), yPosOne-((int)(explosionCount/2)), (int)(explosionCount*1.5), (int)(explosionCount*1.5));
 				}
 				if(!isAliveTwo){
-					paintImmediately(xPosTwo, yPosTwo, explosionCount, explosionCount);
+					paintImmediately(xPosTwo-((int)(explosionCount/2)), yPosTwo-((int)(explosionCount/2)), (int)(explosionCount*1.5), (int)(explosionCount*1.5));
 				}
 			}
 		});
