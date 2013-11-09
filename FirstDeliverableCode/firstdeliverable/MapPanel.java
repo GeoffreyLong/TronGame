@@ -136,6 +136,18 @@ public class MapPanel extends JPanel implements KeyListener {
 									g.setColor(Color.ORANGE);
 								}
 							}
+							if (!isAliveOne){
+								g.fillOval(xPosOne-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										yPosOne-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										(int)(i*Math.random())+(int)(j/2*Math.random()), 
+										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
+							}
+							if (!isAliveTwo){
+								g.fillOval(xPosTwo-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										yPosTwo-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										(int)(i*Math.random())+(int)(j/2*Math.random()), 
+										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
+							}
 						}
 					}
 				}
