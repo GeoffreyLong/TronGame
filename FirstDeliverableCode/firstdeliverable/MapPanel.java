@@ -3,10 +3,13 @@ package firstdeliverable;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class MapPanel extends JPanel implements KeyListener {
 	private int[][] map;
@@ -21,6 +24,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int yPosTwo;
 	private boolean isAliveOne = true;
 	private boolean isAliveTwo = true;
+	private Timer explosionTimer;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
@@ -107,7 +111,11 @@ public class MapPanel extends JPanel implements KeyListener {
 	}
 	
 	private void explosion(){
-		
+		explosionTimer = new Timer(33, new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 	}
 	
 	@Override
