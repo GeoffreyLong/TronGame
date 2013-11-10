@@ -36,6 +36,11 @@ public class MapPanel extends JPanel implements KeyListener {
 		Cycle cycleTwo = new Cycle(400, 400, 0, 2, true);
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		
+		xPosOne = cycles[0].getXPos();
+		yPosOne = cycles[0].getYPos();
+		xPosTwo = cycles[1].getXPos();
+		yPosTwo = cycles[1].getYPos();
+		
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
 		addKeyListener(this);
