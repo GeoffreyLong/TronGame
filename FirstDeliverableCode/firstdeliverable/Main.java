@@ -9,5 +9,5 @@ public class Main{
                 StartPanel panel = new StartPanel();
                 Frame frame = new Frame();
                 Frame.addPanel(panel);
-        }
+         }
 }

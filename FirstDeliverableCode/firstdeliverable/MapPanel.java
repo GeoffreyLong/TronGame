@@ -66,7 +66,16 @@ public class MapPanel extends JPanel implements KeyListener {
 				default:
 					break;
 			}
-			if (map[cycle.getXPos()][cycle.getYPos()]!=0){
+			if (cycle.getXPos() >= map.length || cycle.getYPos() >= map[0].length) {
+				GameMaster.gameEnd();
+				if (cycle.getPlayerNum() == 1){
+					isAliveOne = false;
+				}
+				else{
+					isAliveTwo = false;
+				}
+				explosion();
+			} else if (map[cycle.getXPos()][cycle.getYPos()]!=0){
 				GameMaster.gameEnd();
 				if (cycle.getPlayerNum() == 1){
 					isAliveOne = false;
