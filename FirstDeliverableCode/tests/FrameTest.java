@@ -1,7 +1,7 @@
 /** 
  * @author Ashley Simpson
  * @version 2013/11/10
- * Cycle Testing Class
+ * Frame Testing Class
  */
 
 package tests;
