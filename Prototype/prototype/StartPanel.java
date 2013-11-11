@@ -15,11 +15,15 @@ import java.awt.event.*;
 
 public class StartPanel extends JPanel implements ActionListener{
 	
+	/* The following are the JComponents which would be used in the class implementation */
+	
 	private JLabel title;
 	private JLabel description;
 	private JButton start;
 	private JLabel rules;
-
+        /* This is the constructor for the class which basically makes the components and the 
+         * layout of the JPanel
+         */
 	public StartPanel(){
 		makeComponents();
 		makeLayout();
@@ -28,6 +32,10 @@ public class StartPanel extends JPanel implements ActionListener{
 	public Dimension getPreferredSize() {
 		return new Dimension(Frame.getXSize(),Frame.getYSize());
 	}
+	
+	/* The method initializes the components for the layout and sets bounds for them to 
+	 * place them in the right position
+	 */
 
 	private void makeComponents(){
 		title = new JLabel("Prototype Demonstration I");
@@ -58,6 +66,10 @@ public class StartPanel extends JPanel implements ActionListener{
 		description.setFont(new Font("Times", Font.BOLD, 10));
 		description.setBounds(100, 600, 510, 45);
 	}
+	
+	/* The following method initializes the layout to null, which is what we need and then
+	 * adds all the JComponents to the the layout
+	 */
 
 	private void makeLayout(){
 		setLayout(null);
@@ -66,6 +78,10 @@ public class StartPanel extends JPanel implements ActionListener{
 		add(start);
 		add(rules);
 	}
+	
+	/* This is the ActionListener which listens to the button press and when it does,
+	 * it initializes the main gameplay
+	 */
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
