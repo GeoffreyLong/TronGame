@@ -16,8 +16,12 @@ public class EndScreen extends JPanel implements ActionListener{
     
     private JLabel title;
     private JButton replay;
+    private int winCondition;
+    private int playerOneWins;
+    private int playerTwoWins;
 	
-    public EndScreen(){
+    public EndScreen(int winCondition, int playerOneWins, int playerTwoWins){
+    	this.winCondition = winCondition;
     	makeComponents();
     	makeLayout();
     }

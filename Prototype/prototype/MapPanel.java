@@ -106,7 +106,15 @@ public class MapPanel extends JPanel implements KeyListener {
 					}
 					else{
 						explosionTimer.stop();
-						Frame.endGame();
+						if (cycles[0].isAlive){
+							Frame.endGame(1);
+						}
+						else if (cycles[1].isAlive){
+							Frame.endGame(2);
+						}
+						else{
+							Frame.endGame(3);
+						}
 					}
 				}
 			}
