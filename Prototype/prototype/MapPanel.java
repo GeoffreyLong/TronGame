@@ -219,6 +219,9 @@ public class MapPanel extends JPanel implements KeyListener {
 	/**
 	 * This method is called when one or more cycles have crashed.  
 	 * It will start a timer that will generate an explosion graphic.  
+	 * When the explosionCounter passes a threshold the explosion will stop, 
+	 * and the win condition will be piped to the Frame class which will 
+	 * call GameEnd.
 	 */
 	private void explosion(){
 		Color transparent = new Color(0,0,0,0);
