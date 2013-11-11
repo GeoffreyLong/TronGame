@@ -101,8 +101,12 @@ public class MapPanel extends JPanel implements KeyListener {
 				for (int i=0; i<xSize; i++){
 					for (int j=0; j<ySize; j++){
 						if (map[i][j]==1){
-							g.fillRect(i, j, 5, 5);
+							g.setColor(Color.BLACK);
 						}
+						else{
+							g.setColor(Color.WHITE);
+						}
+						g.fillRect(i, j, 1, 1);
 					}
 				}
 				gameStart = false;
