@@ -11,60 +11,61 @@ import javax.swing.JPanel;
 
 public class Frame{
 	
-	private static int xSize;
+    private static int xSize;
     private static int ySize;
     static JFrame frame;
     private static int playerOneWins = 0;
     private static int playerTwoWins = 0;
 	
 	public Frame(){
-		frame = new JFrame();
-		Toolkit tk = Toolkit.getDefaultToolkit();  
-        xSize = ((int) tk.getScreenSize().getWidth());  
-        ySize = ((int) tk.getScreenSize().getHeight());
-        frame.setBounds(0,0,xSize,ySize);  
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame = new JFrame();
+      	    Toolkit tk = Toolkit.getDefaultToolkit();  
+            xSize = ((int) tk.getScreenSize().getWidth());  
+            ySize = ((int) tk.getScreenSize().getHeight());
+            frame.setBounds(0,0,xSize,ySize);  
+            frame.setVisible(true);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public static int getXSize(){
-		return xSize;
+	    return xSize;
 	}
 	
 	public static int getYSize(){
-		return ySize;
+	    return ySize;
 	}
 	
 	public static void addPanel(JPanel panel){
-		frame.add(panel);
-        frame.pack();
-        frame.validate();
+	    frame.add(panel);
+            frame.pack();
+            frame.validate();
 	}
 	public static MapPanel start(Map map){
-		MapPanel mapPanel = new MapPanel(map);
+	    MapPanel mapPanel = new MapPanel(map);
 		
-		frame.getContentPane().removeAll();
-		frame.add(mapPanel);
-		frame.validate();
-		frame.repaint();
+	    frame.getContentPane().removeAll();
+	    frame.add(mapPanel);
+	    frame.validate();
+	    frame.repaint();
 		
-		return mapPanel;
+	    return mapPanel;
 	}
 	public static void endGame(int winCondition){
-		frame.getContentPane().removeAll();
-		switch (winCondition){
-			case 1:
-				playerOneWins++;
-				break;
-			case 2:
-				playerTwoWins++;
-				break;
-			default:
-				break;
-		}
-		EndScreen end = new EndScreen(winCondition, playerOneWins, playerTwoWins);
-		frame.add(end);
-		frame.validate();
-		frame.repaint();
+	    frame.getContentPane().removeAll();
+	    switch (winCondition){
+	        case 1:
+		    playerOneWins++;
+		    break;
+		case 2:
+		    playerTwoWins++;
+		    break;
+		default:
+		    break;
+	    }
+	    
+	    EndScreen end = new EndScreen(winCondition, playerOneWins, playerTwoWins);
+	    frame.add(end);
+	    frame.validate();
+	    frame.repaint();
 	}
 }
