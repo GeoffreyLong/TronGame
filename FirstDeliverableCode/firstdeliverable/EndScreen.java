@@ -1,5 +1,26 @@
+/**
+ * @author: Rishabh Tandon 
+ *
+ */
+
+
 package firstdeliverable;
 
-public class EndScreen{
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class EndScreen extends JPanel implements ActionListener{
+	
+	public EndScreen(){
+		
+	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
