@@ -134,60 +134,19 @@ public class MapPanel extends JPanel implements KeyListener {
 		}
 		else{
 			if (explosionCount<80){
-				for (int i = 0; i<explosionCount; i++){
-					int iOffset = Math.abs(i-explosionCount/2);
-					for (int j=0; j<explosionCount; j++){
-						int jOffset = Math.abs(j-explosionCount/2);
-						int color = (int) (20*Math.random());
-						if (!((iOffset+jOffset)>explosionCount/5)){
-							if (explosionCount < 30){
-								if (color<15){
-									if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
-										g.setColor(Color.BLACK);
-									}
-									else{
-										g.setColor(Color.RED);
-									}
-								}
-								if (color>=15){
-									if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
-										g.setColor(Color.GRAY);
-									}
-									else{
-										g.setColor(Color.ORANGE);
-									}
-								}
-							}
-							else{
-								int hexDiffs = 62-explosionCount;
-								if(hexDiffs<=0){
-									hexDiffs = 0;
-								}
-								else{
-									hexDiffs /= 2;
-								}
-								hexDiffs = (int) (Math.random()*hexDiffs);
-								int hex = 0;
-								for (int k=0; k<6; k++){
-									hex += (int) (hexDiffs*Math.pow(16, k));
-								}
-								hex = ~hex;
-								Color smoke = new Color(hex);
-								g.setColor(smoke);
-							}
-							if (!isAliveOne){
-								g.fillOval(xPosOne-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-										yPosOne-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-										(int)(i*Math.random())+(int)(j/2*Math.random()), 
-										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
-							}
-							if (!isAliveTwo){
-								g.fillOval(xPosTwo-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-										yPosTwo-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-										(int)(i*Math.random())+(int)(j/2*Math.random()), 
-										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
-							}
-						}
+				for (Color color : getExplosionColors()){
+					g.setColor(color);
+					if (!isAliveOne){
+						g.fillOval(xPosOne-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+								yPosOne-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+								(int)(explosionCount*Math.random()), 
+								(int)(explosionCount*Math.random()));
+					}
+					if (!isAliveTwo){
+						g.fillOval(xPosTwo-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+								yPosTwo-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+								(int)(explosionCount*Math.random()), 
+								(int)(explosionCount*Math.random()));
 					}
 				}
 			}
@@ -198,7 +157,51 @@ public class MapPanel extends JPanel implements KeyListener {
 		}
 	}
 	private List<Color> getExplosionColors(){
-		List<Color> colors = new LinkedList<Color>();
+		LinkedList<Color> colors = new LinkedList<Color>();
+		for (int i = 0; i<explosionCount; i++){
+			int iOffset = Math.abs(i-explosionCount/2);
+			for (int j=0; j<explosionCount; j++){
+				int jOffset = Math.abs(j-explosionCount/2);
+				int color = (int) (20*Math.random());
+				if (!((iOffset+jOffset)>explosionCount/5)){
+					if (explosionCount < 30){
+						if (color<15){
+							if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
+								colors.add(Color.BLACK);
+							}
+							else{
+								colors.add(Color.RED);
+							}
+						}
+						if (color>=15){
+							if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
+								colors.add(Color.GRAY);
+							}
+							else{
+								colors.add(Color.ORANGE);
+							}
+						}
+					}
+					else{
+						int hexDiffs = 62-explosionCount;
+						if(hexDiffs<=0){
+							hexDiffs = 0;
+						}
+						else{
+							hexDiffs /= 2;
+						}
+						hexDiffs = (int) (Math.random()*hexDiffs);
+						int hex = 0;
+						for (int k=0; k<6; k++){
+							hex += (int) (hexDiffs*Math.pow(16, k));
+						}
+						hex = ~hex;
+						Color smoke = new Color(hex);
+						colors.add(smoke);
+					}
+				}
+			}
+		}
 		return colors;
 	}
 	private void explosion(){
