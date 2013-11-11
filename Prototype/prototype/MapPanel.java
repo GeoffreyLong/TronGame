@@ -26,7 +26,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int explosionCount;
 	private int xOffset;
 	private int yOffset;
-	private int increment;
+	private int increment = 5;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
@@ -36,8 +36,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		xOffset = (Frame.getXSize() - xSize) / 2;
 		yOffset = (Frame.getYSize() - ySize) / 2;
 		
-		Cycle cycleOne = new Cycle(100, 400, Heading.RIGHT, 1, true, Color.RED);
-		Cycle cycleTwo = new Cycle(400, 400, Heading.LEFT, 2, true, Color.BLUE);
+		Cycle cycleOne = new Cycle(100, 400, null, 1, true, Color.RED);
+		Cycle cycleTwo = new Cycle(400, 400, null, 2, true, Color.BLUE);
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
@@ -54,16 +54,19 @@ public class MapPanel extends JPanel implements KeyListener {
 	public void updateMap(){
 		this.requestFocusInWindow();
 		for (Cycle cycle : cycles){
-			cycle.travel(increment);
-			if (map[cycle.getXPos()][cycle.getYPos()]!=0){
-				GameMaster.gameEnd();
-				cycle.isAlive = false;
-				explosion();
+			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
+				gameStart = false;
+				cycle.travel(increment);
+				if (map[cycle.getXPos()][cycle.getYPos()]!=0){
+					GameMaster.gameEnd();
+					cycle.isAlive = false;
+					explosion();
+				}
+				else{
+					map[cycle.getXPos()][cycle.getYPos()]=1;
+				}
+				repaint();
 			}
-			else{
-				map[cycle.getXPos()][cycle.getYPos()]=1;
-			}
-			repaint();
 		}
 	}
 	@Override
@@ -81,10 +84,9 @@ public class MapPanel extends JPanel implements KeyListener {
 				}
 			}
 			g.setColor(cycles[0].getColor());
-			g.fillRect(cycles[0].getXPos(), cycles[0].getYPos(), increment, increment);
+			g.fillRect(cycles[0].getXPos() + xOffset, cycles[0].getYPos() + yOffset, increment, increment);
 			g.setColor(cycles[1].getColor());
-			g.fillRect(cycles[1].getXPos(), cycles[1].getYPos(), increment, increment);
-			gameStart = false;
+			g.fillRect(cycles[1].getXPos() + xOffset, cycles[1].getYPos() + yOffset, increment, increment);
 		}
 		else{
 			for (Cycle cycle : cycles){
