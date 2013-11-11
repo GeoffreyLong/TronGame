@@ -1,3 +1,17 @@
+/**
+ * @author Geoffrey Long
+ * 
+ * This class is responsible for the gui for the gameplay.  
+ * The map is instantiated to the map that is passed in.
+ * The gui begins by populating the panel with this map and the player cycles.  
+ * The players will remain stagnant until both press buttons corresponding to 
+ * updating their headings.  Once both players have selected a heading then the 
+ * game officially starts.  The players will be free to move around the map.  
+ * They will continue moving until they hit a wall or a trail.  Once this happens 
+ * then an explosion will emerge from the crashed cycle, and a player will be declared 
+ * and the outcome will be passed back to the frame, then to EndGame.
+ */
+
 package prototype;
 
 import java.awt.Color;
@@ -28,6 +42,10 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int yOffset;
 	private int increment = 5;
 	
+	/**
+	 * Instantiate all the class variables that are necessary for game function.  
+	 * @param map
+	 */
 	public MapPanel(Map map){
 		this.map = map.getMap();
 		this.xSize = map.getXSize();
@@ -47,10 +65,23 @@ public class MapPanel extends JPanel implements KeyListener {
         this.requestFocusInWindow();
 	}
 	
+	/**
+	 * Method used as standard in many swing applications.
+	 */
 	public Dimension getPreferredSize() {
         return new Dimension(Frame.getXSize(),Frame.getYSize());
 	}
 	
+	/**
+	 * This method is responsible for the brunt of the gameplay.  
+	 * It is called every time the timer times out.  
+	 * It will perform the following functions: check to see if the cycles 
+	 * have set an initial start heading; check to see if the cycles are in bounds;
+	 * call the explosion method if the cycles are not in bounds; 
+	 * move the cycles as per their heading; 
+	 * set the map at the cycle's new location to out of bounds; 
+	 * and call to repaint to update the graphics.
+	 */
 	public void updateMap(){
 		this.requestFocusInWindow();
 		for (Cycle cycle : cycles){
@@ -69,6 +100,29 @@ public class MapPanel extends JPanel implements KeyListener {
 			}
 		}
 	}
+	
+	/**
+	 * This method is standard in swing graphics.  It is called every time 
+	 * the panel is considered to be invalidated.  This is when the window has been 
+	 * resized or a painting function has been called.  Traditionally this would 
+	 * include a call to super.paintComponents(g), however, by omitting this call
+	 * bounds for the paintComponents do not have to be established, thereby eliminating
+	 * the need to handle extra cases.  
+	 * 
+	 * This method has several cases: 
+	 * 1) When the game has not started yet: This is the case where the players 
+	 * have yet to pick their position, or when the panel has first been painted.  
+	 * The panel is painted white with black borders.  The player objects are also 
+	 * painted at this time.  
+	 * 2) When the cycles are both alive: The trails will be painted behind the 
+	 * cycles at each movement.  
+	 * 3) When one or more cycles are no longer alive: The explosion method will be called. 
+	 * This will paint an expanding explosion on the map at the crashed player's location.  
+	 * The explosion colors are generated using the getExplosionColors method.  
+	 * The colors will then be painted on the map at randomized locations near the 
+	 * crashed cycle location.  These colors will fill random ellipse sizes and shapes.
+	 * @param g
+	 */
 	@Override
 	public void paintComponent(Graphics g){
 		if (gameStart){
@@ -120,6 +174,13 @@ public class MapPanel extends JPanel implements KeyListener {
 			}
 		}
 	}
+	
+	/**
+	 * This will generate colors for the explosion.  This is done by using randomizers 
+	 * and distance from the player location.  When the timer has timed for a specific 
+	 * amount of time the colors will shift to greyscale and will slowly fade out.  
+	 * @return LinkedList<Color> colors
+	 */
 	private List<Color> getExplosionColors(){
 		LinkedList<Color> colors = new LinkedList<Color>();
 		for (int i = 0; i<explosionCount; i++){
@@ -168,6 +229,11 @@ public class MapPanel extends JPanel implements KeyListener {
 		}
 		return colors;
 	}
+	
+	/**
+	 * This method is called when one or more cycles have crashed.  
+	 * It will start a timer that will generate an explosion graphic.  
+	 */
 	private void explosion(){
 		Color transparent = new Color(0,0,0,0);
 		cycles[0].setColor(transparent);
@@ -183,6 +249,11 @@ public class MapPanel extends JPanel implements KeyListener {
 		explosionTimer.start();
 	}
 	
+	/**
+	 * This method will get the KeyEvents from the KeyListener and will pass 
+	 * them to the PlayerControl to make the appropriate changes to the player heading.
+	 * @param e
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		cont.setHeading(e.getKeyCode());
