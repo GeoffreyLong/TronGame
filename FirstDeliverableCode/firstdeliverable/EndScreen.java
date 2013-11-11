@@ -15,6 +15,7 @@ import java.awt.event.*;
 public class EndScreen extends JPanel implements ActionListener{
     
     private JLabel title;
+    private JButton replay;
 	
     public EndScreen(){
     	makeComponents();
@@ -25,6 +26,9 @@ public class EndScreen extends JPanel implements ActionListener{
     	title = new JLabel("Thank you for playing Tron");
     	title.setFont(new Font("Times", Font.BOLD, 37));
     	title.setBounds(300, 30, 500, 40);
+    	
+    	replay = new JButton("Replay");
+    	replay.setBounds(440, 166, 200, 60);
     	
     }
     
