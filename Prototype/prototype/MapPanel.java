@@ -26,6 +26,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int explosionCount;
 	private int xOffset;
 	private int yOffset;
+	private int increment;
 	
 	public MapPanel(Map map){
 		this.map = map.getMap();
@@ -53,7 +54,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	public void updateMap(){
 		this.requestFocusInWindow();
 		for (Cycle cycle : cycles){
-			cycle.travel(5);
+			cycle.travel(increment);
 			if (map[cycle.getXPos()][cycle.getYPos()]!=0){
 				GameMaster.gameEnd();
 				cycle.isAlive = false;
@@ -80,16 +81,16 @@ public class MapPanel extends JPanel implements KeyListener {
 				}
 			}
 			g.setColor(cycles[0].getColor());
-			g.fillRect(cycles[0].getXPos(), cycles[0].getYPos(), 5, 5);
+			g.fillRect(cycles[0].getXPos(), cycles[0].getYPos(), increment, increment);
 			g.setColor(cycles[1].getColor());
-			g.fillRect(cycles[1].getXPos(), cycles[1].getYPos(), 5, 5);
+			g.fillRect(cycles[1].getXPos(), cycles[1].getYPos(), increment, increment);
 			gameStart = false;
 		}
 		else{
 			for (Cycle cycle : cycles){
 				if (cycle.isAlive){
 					g.setColor(cycle.getColor());
-					g.fillRect(cycle.getXPos()+xOffset, cycle.getYPos()+yOffset, 5, 5);
+					g.fillRect(cycle.getXPos()+xOffset, cycle.getYPos()+yOffset, increment, increment);
 				}
 				else{
 					if (explosionCount<80){
