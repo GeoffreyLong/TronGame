@@ -41,6 +41,9 @@ public class StartPanel extends JPanel implements ActionListener{
                 "<li>Player two controllers the racer by using the arrow keys\n" +
                 "<li>The racers follow the same direction, i.e. the one in which the key is pressed until another key is pressed\n" +
                 "<li>The players must choose and initial heading before the game starts\n" +
+                "<li>The players may not go backwards, doing so results in explosion of the racer\n" +
+                "<li>As the player moves there is a wall built with his path in color of the racer\n" +
+                "<li>If the players collide with the wall, and/or each other, it results in an explosion\n" +
                 "</ul>\n";
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
