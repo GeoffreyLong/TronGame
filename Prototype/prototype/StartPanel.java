@@ -34,7 +34,10 @@ public class StartPanel extends JPanel implements ActionListener{
 		start.addActionListener(this);
 		
 		String rulesOfGame = "<html>\n" +
-                "Rules of the game are as follows:\n";
+                "Rules of the game are as follows:\n" + 
+                "<ul>\n" +
+                "<li>Player one is <font color=red>red</font> and Player two is <font color=blue>blue</font>\n" +
+                "</ul>\n";
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
 		description.setFont(new Font("Times", Font.BOLD, 10));
