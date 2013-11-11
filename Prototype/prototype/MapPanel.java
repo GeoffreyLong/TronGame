@@ -45,6 +45,7 @@ public class MapPanel extends JPanel implements KeyListener {
 		this.setFocusable(true);
         this.requestFocusInWindow();
 	}
+	
 	public Dimension getPreferredSize() {
         return new Dimension(Frame.getXSize(),Frame.getYSize());
 	}
@@ -78,6 +79,10 @@ public class MapPanel extends JPanel implements KeyListener {
 					g.fillRect(i+xOffset, j+yOffset, 1, 1);
 				}
 			}
+			g.setColor(cycles[0].getColor());
+			g.fillRect(cycles[0].getXPos(), cycles[0].getYPos(), 5, 5);
+			g.setColor(cycles[1].getColor());
+			g.fillRect(cycles[1].getXPos(), cycles[1].getYPos(), 5, 5);
 			gameStart = false;
 		}
 		else{
