@@ -47,7 +47,7 @@ public class StartPanel extends JPanel implements ActionListener{
                 "</ul>\n";
                 
                 rules = new JLabel(rulesOfGame);
-		rules.setBounds(100, 100, 600, 300);
+		rules.setBounds(100, 100, 600, 500);
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
 		description.setFont(new Font("Times", Font.BOLD, 10));
