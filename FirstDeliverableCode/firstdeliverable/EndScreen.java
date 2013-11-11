@@ -35,6 +35,7 @@ public class EndScreen extends JPanel implements ActionListener{
     public void makeLayout(){
     	setLayout(null);
     	add(title);
+    	add(replay);
     	
     }
     
