@@ -26,7 +26,7 @@ public class StartPanel extends JPanel implements ActionListener{
 	private void makeComponents(){
 		title = new JLabel("Prototype Demonstration I");
 		title.setFont(new Font("Times", Font.BOLD, 37));
-		title.setBounds(270, 10, 600, 45);
+		title.setBounds(470, 10, 600, 45);
 
 		start = new JButton("Start Game");
 		start.setBounds(440, 166, 200, 60);
