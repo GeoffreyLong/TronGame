@@ -29,7 +29,7 @@ public class StartPanel extends JPanel implements ActionListener{
 		title.setBounds(470, 10, 600, 45);
 
 		start = new JButton("Start Game");
-		start.setBounds(440, 166, 200, 60);
+		start.setBounds(600, 166, 200, 60);
 		start.addActionListener(this);
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
