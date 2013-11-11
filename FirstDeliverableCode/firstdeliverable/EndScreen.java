@@ -41,7 +41,7 @@ public class EndScreen extends JPanel implements ActionListener{
     }
     
     public Dimension getPreferredSize() {
-		
+	return new Dimension(Frame.getXSize(),Frame.getYSize());
     }
 	
     @Override
