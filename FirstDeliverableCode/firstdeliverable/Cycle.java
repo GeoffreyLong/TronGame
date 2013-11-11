@@ -50,5 +50,22 @@ public class Cycle {
         public int getPlayerNum(){
                 return playerNum;
         }
-
+        public void travel(int size){
+			switch (getCurHeading()){
+				case 0:
+					xPos-=size;
+					break;
+				case 1:
+					xPos+=size;
+					break;
+				case 2:
+					yPos+=size;
+					break;
+				case 3:
+					yPos-=size;
+					break;
+				default:
+					break;
+			}
+        }
 }
