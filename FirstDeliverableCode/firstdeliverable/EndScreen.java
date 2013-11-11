@@ -29,6 +29,7 @@ public class EndScreen extends JPanel implements ActionListener{
     	
     	replay = new JButton("Replay");
     	replay.setBounds(440, 166, 200, 60);
+    	replay.addActionListener(this);
     	
     }
     
