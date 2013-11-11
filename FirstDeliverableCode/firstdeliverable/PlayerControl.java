@@ -9,41 +9,31 @@ public class PlayerControl {
 		this.cycleTwo = cycleTwo;
 	}
 	public void setHeading(int i){
-		//cycleTwo methods
-		//left
-		if (i==65){
+		switch(i){
+		case 65:
 			cycleOne.setCurHeading(0);
-		}
-		//right
-		if (i==68){
+			break;
+		case 68:
 			cycleOne.setCurHeading(1);
-		}
-		//up
-		if (i==87){
+			break;
+		case 87:
 			cycleOne.setCurHeading(3);
-		}
-		//down
-		if (i==83){
+			break;
+		case 83:
 			cycleOne.setCurHeading(2);
-		}
-		
-		
-		//cycleOne methods
-		//left
-		if (i==37){
+			break;
+		case 37:
 			cycleTwo.setCurHeading(0);
-		}
-		//right
-		if (i==39){
+			break;
+		case 39:
 			cycleTwo.setCurHeading(1);
-		}
-		//up
-		if (i==38){
+			break;
+		case 38:
 			cycleTwo.setCurHeading(3);
-		}
-		//down
-		if (i==40){
+			break;
+		case 40:
 			cycleTwo.setCurHeading(2);
+			break;
 		}
 	}
 }
