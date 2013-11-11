@@ -45,6 +45,9 @@ public class StartPanel extends JPanel implements ActionListener{
                 "<li>As the player moves there is a wall built with his path in color of the racer\n" +
                 "<li>If the players collide with the wall, and/or each other, it results in an explosion\n" +
                 "</ul>\n";
+                
+                rules = new JLabel(rulesOfGame);
+		rules.setBounds(30, 100, 600, 300);
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
 		description.setFont(new Font("Times", Font.BOLD, 10));
@@ -56,6 +59,7 @@ public class StartPanel extends JPanel implements ActionListener{
 		add(title);
 		add(description);
 		add(start);
+		add(rules);
 	}
 
 	@Override
