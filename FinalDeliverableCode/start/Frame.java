@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 
 public class Frame {
 	static JFrame frame = new JFrame();
-	private int xSize;
-	private int ySize;
+	private static int xSize;
+	private static int ySize;
 	
 	/**
 	 * This is the constructor for the frame.  
@@ -39,14 +39,14 @@ public class Frame {
 	 * Getter for the xSize
 	 * @return xSize  The size of the frame in the horizontal position
 	 */
-	public int getXSize(){
+	public static int getXSize(){
 		return xSize;
 	}
 	/**
 	 * Getter for the ySize
 	 * @return xSize  The size of the frame in the horizontal position
 	 */
-	public int getYSize(){
+	public static int getYSize(){
 		return ySize;
 	}
 	
