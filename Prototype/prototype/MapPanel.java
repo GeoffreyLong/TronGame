@@ -149,26 +149,12 @@ public class MapPanel extends JPanel implements KeyListener {
 					g.fillRect(cycle.getXPos()+xOffset, cycle.getYPos()+yOffset, increment, increment);
 				}
 				else{
-					if (explosionCount<80){
-						for (Color color : getExplosionColors()){
-							g.setColor(color);
-							g.fillOval(xOffset+cycle.getXPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-									yOffset+cycle.getYPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-									(int)(explosionCount*Math.random()), 
-									(int)(explosionCount*Math.random()));
-						}
-					}
-					else{
-						explosionTimer.stop();
-						if (cycles[0].isAlive){
-							Frame.endGame(1);
-						}
-						else if (cycles[1].isAlive){
-							Frame.endGame(2);
-						}
-						else{
-							Frame.endGame(3);
-						}
+					for (Color color : getExplosionColors()){
+						g.setColor(color);
+						g.fillOval(xOffset+cycle.getXPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+								yOffset+cycle.getYPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+								(int)(explosionCount*Math.random()), 
+								(int)(explosionCount*Math.random()));
 					}
 				}
 			}
@@ -242,8 +228,22 @@ public class MapPanel extends JPanel implements KeyListener {
 		explosionTimer = new Timer(33, new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				explosionCount++;
-				repaint();
+				if(explosionCount<80){
+					explosionCount++;
+					repaint();
+				}
+				else{
+					explosionTimer.stop();
+					if (cycles[0].isAlive){
+						Frame.endGame(1);
+					}
+					else if (cycles[1].isAlive){
+						Frame.endGame(2);
+					}
+					else{
+						Frame.endGame(3);
+					}
+				}
 			}
 		});
 		explosionTimer.start();
