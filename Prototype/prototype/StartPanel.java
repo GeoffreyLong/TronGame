@@ -1,5 +1,10 @@
-/**@author Rishabh Tandon
-*/
+/*
+ * @author Rishabh Tandon
+ *
+ * This class is responsible for creating the JPanel which would be used
+ * in the first prototype demonstration. It basically gives the rules of the game,
+ * and redirects to the main gameplay when the start button is pressed
+ */
 
 package prototype;
 
