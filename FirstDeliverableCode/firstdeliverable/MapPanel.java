@@ -197,9 +197,9 @@ public class MapPanel extends JPanel implements KeyListener {
 			}
 		}
 	}
-	private List<Integer> getExplosionColors(){
-		List<Integer> explosionColors = new LinkedList<Integer>();
-		return explosionColors;
+	private List<Color> getExplosionColors(){
+		List<Color> colors = new LinkedList<Color>();
+		return colors;
 	}
 	private void explosion(){
 		explosionCount = 0;
