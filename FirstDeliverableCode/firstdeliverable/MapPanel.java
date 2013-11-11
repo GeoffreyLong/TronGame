@@ -34,6 +34,10 @@ public class MapPanel extends JPanel implements KeyListener {
 		this.xSize = map.getXSize();
 		this.ySize = map.getYSize();
 		
+		int xOffset = (Frame.getXSize() - xSize) / 2;
+		int yOffset = (Frame.getYSize() - ySize) / 2;
+		
+		
 		Cycle cycleOne = new Cycle(200, 400, 1, 1, true);
 		Cycle cycleTwo = new Cycle(400, 400, 0, 2, true);
 		cycles = new Cycle[]{cycleOne, cycleTwo};
