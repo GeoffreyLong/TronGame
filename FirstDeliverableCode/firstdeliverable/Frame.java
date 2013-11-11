@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 public class Frame{
 	
 	private static int xSize;
-        private static int ySize;
-        static JFrame frame;
+    private static int ySize;
+    static JFrame frame;
 	
 	public Frame(){
 		frame = new JFrame();

@@ -38,6 +38,11 @@ public class MapPanel extends JPanel implements KeyListener {
 		Cycle cycleTwo = new Cycle(400, 400, 0, 2, true);
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		
+		xPosOne = cycles[0].getXPos();
+		yPosOne = cycles[0].getYPos();
+		xPosTwo = cycles[1].getXPos();
+		yPosTwo = cycles[1].getYPos();
+		
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
 		addKeyListener(this);
@@ -68,7 +73,16 @@ public class MapPanel extends JPanel implements KeyListener {
 				default:
 					break;
 			}
-			if (map[cycle.getXPos()][cycle.getYPos()]!=0){
+			if (cycle.getXPos() >= map.length || cycle.getYPos() >= map[0].length) {
+				GameMaster.gameEnd();
+				if (cycle.getPlayerNum() == 1){
+					isAliveOne = false;
+				}
+				else{
+					isAliveTwo = false;
+				}
+				explosion();
+			} else if (map[cycle.getXPos()][cycle.getYPos()]!=0){
 				GameMaster.gameEnd();
 				if (cycle.getPlayerNum() == 1){
 					isAliveOne = false;
@@ -200,10 +214,10 @@ public class MapPanel extends JPanel implements KeyListener {
 			public void actionPerformed(ActionEvent e) {
 				explosionCount++;
 				if(!isAliveOne){
-					paintImmediately(xPosOne-((int)(explosionCount/2)), yPosOne-((int)(explosionCount/2)), (int)(explosionCount*1.5), (int)(explosionCount*1.5));
+					paintImmediately(xPosOne-((int)(explosionCount/2)), yPosOne-((int)(explosionCount/2)), (int)(explosionCount), (int)(explosionCount));
 				}
 				if(!isAliveTwo){
-					paintImmediately(xPosTwo-((int)(explosionCount/2)), yPosTwo-((int)(explosionCount/2)), (int)(explosionCount*1.5), (int)(explosionCount*1.5));
+					paintImmediately(xPosTwo-((int)(explosionCount/2)), yPosTwo-((int)(explosionCount/2)), (int)(explosionCount), (int)(explosionCount));
 				}
 			}
 		});
