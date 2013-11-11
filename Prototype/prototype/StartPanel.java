@@ -34,7 +34,7 @@ public class StartPanel extends JPanel implements ActionListener{
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
 		description.setFont(new Font("Times", Font.BOLD, 10));
-		description.setBounds(100, 500, 510, 45);
+		description.setBounds(100, 600, 510, 45);
 	}
 
 	private void makeLayout(){
