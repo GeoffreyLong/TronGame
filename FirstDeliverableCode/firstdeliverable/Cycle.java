@@ -6,6 +6,8 @@
 
 package firstdeliverable;
 
+import java.awt.Color;
+
 public class Cycle {
   
         private int xPos;
@@ -13,13 +15,15 @@ public class Cycle {
         private Heading curHeading;
         private int playerNum;
         public boolean isAlive;
+        private Color color;
   
-        public Cycle(int xPos, int yPos, Heading curHeading, int playerNum, boolean isAlive){
+        public Cycle(int xPos, int yPos, Heading curHeading, int playerNum, boolean isAlive, Color color){
                 this.xPos = xPos;
                 this.yPos = yPos;
                 this.curHeading = curHeading;
                 this.playerNum = playerNum;
                 this.isAlive = isAlive;
+                this.color = color;
         }
         
         public enum Heading{
@@ -52,6 +56,12 @@ public class Cycle {
         
         public int getPlayerNum(){
                 return playerNum;
+        }
+        public void setColor(Color color){
+        	this.color = color;
+        }
+        public Color getColor(){
+        	return color;
         }
         public void travel(int size){
 			switch (getCurHeading()){
