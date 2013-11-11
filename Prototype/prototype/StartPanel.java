@@ -50,10 +50,10 @@ public class StartPanel extends JPanel implements ActionListener{
                 "Rules of the game are as follows:\n" + 
                 "<ul>\n" +
                 "<li>Player one is <font color=red>red</font> and Player two is <font color=blue>blue</font>\n" +
-                "<li>Player one controllers the racer by W(up), A(left), S(down) and D(right)\n" +
-                "<li>Player two controllers the racer by using the arrow keys\n" +
-                "<li>The racers follow the same direction, i.e. the one in which the key is pressed until another key is pressed\n" +
-                "<li>The players must choose and initial heading before the game starts\n" +
+                "<li>Player one controls the racer by W(up), A(left), S(down) and D(right)\n" +
+                "<li>Player two controls the racer by using the arrow keys\n" +
+                "<li>The racers continue in the same direction until another key is pressed\n" +
+                "<li>The players must both choose and initial heading before either begin moving\n" +
                 "<li>The players may not go backwards, doing so results in explosion of the racer\n" +
                 "<li>As the player moves there is a wall built with his path in color of the racer\n" +
                 "<li>If the players collide with the wall, and/or each other, it results in an explosion\n" +
