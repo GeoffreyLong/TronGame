@@ -39,6 +39,8 @@ public class StartPanel extends JPanel implements ActionListener{
                 "<li>Player one is <font color=red>red</font> and Player two is <font color=blue>blue</font>\n" +
                 "<li>Player one controllers the racer by W(up), A(left), S(down) and D(right)\n" +
                 "<li>Player two controllers the racer by using the arrow keys\n" +
+                "<li>The racers follow the same direction, i.e. the one in which the key is pressed until another key is pressed\n" +
+                "<li>The players must choose and initial heading before the game starts\n" +
                 "</ul>\n";
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
