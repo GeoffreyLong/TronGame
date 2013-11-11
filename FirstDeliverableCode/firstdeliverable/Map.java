@@ -20,7 +20,7 @@ public class Map {
           
                  for (int i = 0; i<height; i++){
                         for (int j = 0; j<width; j++){
-                                if (i==0 || j==0 || j==width-1 || i==height-1){
+                                if (i<=4|| j<=4 || j>=width-5 || i>=height-5){
                                         map[i][j] = 1;
                                 }
                                 else{
