@@ -51,6 +51,7 @@ public class Frame{
 		return mapPanel;
 	}
 	public static void endGame(int winCondition){
+		frame.getContentPane().removeAll();
 		switch (winCondition){
 			case 1:
 				playerOneWins++;
