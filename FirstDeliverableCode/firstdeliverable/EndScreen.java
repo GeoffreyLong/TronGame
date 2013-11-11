@@ -13,6 +13,8 @@ import java.awt.event.*;
 
 
 public class EndScreen extends JPanel implements ActionListener{
+    
+    private JLabel title;
 	
     public EndScreen(){
     	makeComponents();
@@ -20,6 +22,9 @@ public class EndScreen extends JPanel implements ActionListener{
     }
     
     public void makeComponents(){
+    	title = new JLabel("Thank you for playing Tron");
+    	title.setFont(new Font("Times", Font.BOLD, 37));
+    	title.setBounds(300, 30, 500, 40);
     	
     }
     
