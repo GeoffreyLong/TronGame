@@ -1,7 +1,7 @@
 /**@author Rishabh Tandon
 */
 
-package firstdeliverable;
+package prototype;
 
 import javax.swing.*;
 

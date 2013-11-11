@@ -4,7 +4,7 @@
  */
 
 
-package firstdeliverable;
+package prototype;
 import javax.swing.*;
 
 import java.awt.Dimension;

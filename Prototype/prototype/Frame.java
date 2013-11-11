@@ -2,7 +2,7 @@
  * @author Rishabh Tandon
  */
  
-package firstdeliverable;
+package prototype;
 
 import java.awt.Toolkit;
 

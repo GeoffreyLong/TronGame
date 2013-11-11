@@ -1,6 +1,6 @@
-package firstdeliverable;
+package prototype;
 
-import firstdeliverable.Cycle.Heading;
+import prototype.Cycle.Heading;
 
 public class PlayerControl {
 	Cycle cycleOne;

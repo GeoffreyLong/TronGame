@@ -1,4 +1,4 @@
-package firstdeliverable;
+package prototype;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,7 +13,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import firstdeliverable.Cycle.Heading;
+import prototype.Cycle.Heading;
 
 public class MapPanel extends JPanel implements KeyListener {
 	private int[][] map;

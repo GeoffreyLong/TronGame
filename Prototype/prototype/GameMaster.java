@@ -5,7 +5,7 @@
  * These functions include 
  * initializing the MapPanel, starting the game, and ending the game.
  */
-package firstdeliverable;
+package prototype;
 
 import javax.swing.Timer;
 

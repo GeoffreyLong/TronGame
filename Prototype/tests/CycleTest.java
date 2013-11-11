@@ -9,7 +9,8 @@ package tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import firstdeliverable.Cycle;
+
+import prototype.Cycle;
 
 public class CycleTest {
 	private int testXPos = 1;

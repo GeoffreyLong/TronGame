@@ -4,7 +4,7 @@
 
 
 
-package firstdeliverable;
+package prototype;
 
 import java.awt.Color;
 

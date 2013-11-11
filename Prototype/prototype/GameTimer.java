@@ -1,4 +1,4 @@
-package firstdeliverable;
+package prototype;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

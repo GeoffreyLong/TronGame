@@ -6,8 +6,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import prototype.Frame;
 import start.Main;
-import firstdeliverable.Frame;
 
 public class WelcomePanel extends JPanel {
 	public WelcomePanel(){
