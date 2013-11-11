@@ -1,3 +1,10 @@
+/**
+ * @author Geoffrey Long
+ * 
+ * This class takes as input the keystrokes made by the players, 
+ * and makes the appropriate change on the cycle heading.
+ */
+
 package prototype;
 
 import prototype.Cycle.Heading;
@@ -6,12 +13,24 @@ public class PlayerControl {
 	Cycle cycleOne;
 	Cycle cycleTwo;
 	
+	/**
+	 * Instantiate both cycles as class variables.  
+	 * This will allow changes to be made on the cycles.
+	 * @param cycleOne
+	 * @param cycleTwo
+	 */
 	PlayerControl(Cycle cycleOne, Cycle cycleTwo){
 		this.cycleOne = cycleOne;
 		this.cycleTwo = cycleTwo;
 	}
-	public void setHeading(int i){
-		switch(i){
+	
+	/**
+	 * This method will map the keyCodes from the keystrokes to specific player actions.  
+	 * The cycle headings will be updated appropriately.
+	 * @param keyCode
+	 */
+	public void setHeading(int keyCode){
+		switch(keyCode){
 		case 65:
 			cycleOne.setCurHeading(Heading.LEFT);
 			break;
