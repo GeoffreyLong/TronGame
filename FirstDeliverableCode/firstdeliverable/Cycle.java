@@ -10,11 +10,11 @@ public class Cycle {
   
         private int xPos;
         private int yPos;
-        private int curHeading;
+        private Heading curHeading;
         private int playerNum;
         public boolean isAlive;
   
-        public Cycle(int xPos, int yPos, int curHeading, int playerNum, boolean isAlive){
+        public Cycle(int xPos, int yPos, Heading curHeading, int playerNum, boolean isAlive){
                 this.xPos = xPos;
                 this.yPos = yPos;
                 this.curHeading = curHeading;
@@ -22,6 +22,9 @@ public class Cycle {
                 this.isAlive = isAlive;
         }
         
+        public enum Heading{
+        	LEFT,RIGHT,UP,DOWN;
+        }
         
         public void setXPos(int i){
                 xPos = i;
@@ -39,11 +42,11 @@ public class Cycle {
                 return yPos;
         }
         
-        public void setCurHeading(int i){
-                curHeading = i;
+        public void setCurHeading(Heading heading){
+                curHeading = heading;
         }
         
-        public int getCurHeading(){
+        public Heading getCurHeading(){
                 return curHeading;
         }
         
@@ -52,17 +55,17 @@ public class Cycle {
         }
         public void travel(int size){
 			switch (getCurHeading()){
-				case 0:
+				case LEFT:
 					xPos-=size;
 					break;
-				case 1:
+				case RIGHT:
 					xPos+=size;
 					break;
-				case 2:
-					yPos+=size;
-					break;
-				case 3:
+				case UP:
 					yPos-=size;
+					break;
+				case DOWN:
+					yPos+=size;
 					break;
 				default:
 					break;

@@ -1,5 +1,7 @@
 package firstdeliverable;
 
+import firstdeliverable.Cycle.Heading;
+
 public class PlayerControl {
 	Cycle cycleOne;
 	Cycle cycleTwo;
@@ -11,28 +13,28 @@ public class PlayerControl {
 	public void setHeading(int i){
 		switch(i){
 		case 65:
-			cycleOne.setCurHeading(0);
+			cycleOne.setCurHeading(Heading.LEFT);
 			break;
 		case 68:
-			cycleOne.setCurHeading(1);
+			cycleOne.setCurHeading(Heading.RIGHT);
 			break;
 		case 87:
-			cycleOne.setCurHeading(3);
+			cycleOne.setCurHeading(Heading.UP);
 			break;
 		case 83:
-			cycleOne.setCurHeading(2);
+			cycleOne.setCurHeading(Heading.DOWN);
 			break;
 		case 37:
-			cycleTwo.setCurHeading(0);
+			cycleTwo.setCurHeading(Heading.LEFT);
 			break;
 		case 39:
-			cycleTwo.setCurHeading(1);
+			cycleTwo.setCurHeading(Heading.RIGHT);
 			break;
 		case 38:
-			cycleTwo.setCurHeading(3);
+			cycleTwo.setCurHeading(Heading.UP);
 			break;
 		case 40:
-			cycleTwo.setCurHeading(2);
+			cycleTwo.setCurHeading(Heading.DOWN);
 			break;
 		}
 	}
