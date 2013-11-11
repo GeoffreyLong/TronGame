@@ -1,5 +1,8 @@
 /**
  * @author Rishabh Tandon
+ * 
+ * This is the main class that initializes the JFrame and adds the StartPanel to it.
+ * This class is used as the main to run the game. 
  */
 
 package prototype;
