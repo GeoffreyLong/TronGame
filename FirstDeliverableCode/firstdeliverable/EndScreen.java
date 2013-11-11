@@ -47,7 +47,12 @@ public class EndScreen extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     // TODO Auto-generated method stub
-		
+	
+	if(e.getSource() == replay){
+	    GameMaster master = new GameMaster();
+	    master.gameInit();
+            master.gameStart();
+	}
     }
 
 }
