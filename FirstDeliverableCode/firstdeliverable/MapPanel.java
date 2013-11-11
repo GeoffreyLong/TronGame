@@ -22,12 +22,6 @@ public class MapPanel extends JPanel implements KeyListener {
 	PlayerControl cont;
 	Cycle[] cycles;
 	private boolean gameStart = true;
-	private int xPosOne;
-	private int yPosOne;
-	private int xPosTwo;
-	private int yPosTwo;
-	private boolean isAliveOne = true;
-	private boolean isAliveTwo = true;
 	private Timer explosionTimer;
 	private int explosionCount;
 	private int xOffset;
@@ -41,15 +35,9 @@ public class MapPanel extends JPanel implements KeyListener {
 		xOffset = (Frame.getXSize() - xSize) / 2;
 		yOffset = (Frame.getYSize() - ySize) / 2;
 		
-		Cycle cycleOne = new Cycle(100, 400, Heading.RIGHT, 1, true);
-		Cycle cycleTwo = new Cycle(400, 400, Heading.LEFT, 2, true);
+		Cycle cycleOne = new Cycle(100, 400, Heading.RIGHT, 1, true, Color.RED);
+		Cycle cycleTwo = new Cycle(400, 400, Heading.LEFT, 2, true, Color.BLUE);
 		cycles = new Cycle[]{cycleOne, cycleTwo};
-		
-		xPosOne = cycles[0].getXPos();
-		yPosOne = cycles[0].getYPos();
-		xPosTwo = cycles[1].getXPos();
-		yPosTwo = cycles[1].getYPos();
-		
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
 		addKeyListener(this);
@@ -67,75 +55,52 @@ public class MapPanel extends JPanel implements KeyListener {
 			cycle.travel(5);
 			if (map[cycle.getXPos()][cycle.getYPos()]!=0){
 				GameMaster.gameEnd();
-				if (cycle.getPlayerNum() == 1){
-					isAliveOne = false;
-				}
-				else{
-					isAliveTwo = false;
-				}
+				cycle.isAlive = false;
 				explosion();
 			}
 			else{
-				if (cycle.getPlayerNum() == 1){
-					xPosOne = cycle.getXPos();
-					yPosOne = cycle.getYPos();
-				}
-				else{
-					xPosTwo = cycle.getXPos();
-					yPosTwo = cycle.getYPos();
-				}
-				map[xPosOne][yPosOne]=1;
-				map[xPosTwo][yPosTwo]=1;
-				paintImmediately(xPosOne+xOffset,yPosOne+yOffset,5,5);
-				paintImmediately(xPosTwo+xOffset,yPosTwo+yOffset,5,5);
+				map[cycle.getXPos()][cycle.getYPos()]=1;
 			}
+			repaint();
 		}
 	}
 	@Override
 	public void paintComponent(Graphics g){
-		if (isAliveOne && isAliveTwo){
-			if (gameStart){
-				for (int i=0; i<xSize; i++){
-					for (int j=0; j<ySize; j++){
-						if (map[i][j]==1){
-							g.setColor(Color.BLACK);
-						}
-						else{
-							g.setColor(Color.WHITE);
-						}
-						g.fillRect(i+xOffset, j+yOffset, 1, 1);
+		if (gameStart){
+			for (int i=0; i<xSize; i++){
+				for (int j=0; j<ySize; j++){
+					if (map[i][j]==1){
+						g.setColor(Color.BLACK);
 					}
+					else{
+						g.setColor(Color.WHITE);
+					}
+					g.fillRect(i+xOffset, j+yOffset, 1, 1);
 				}
-				gameStart = false;
 			}
-			else{
-				g.setColor(Color.RED);
-				g.fillRect(xPosOne+xOffset, yPosOne+yOffset, 5, 5);
-				g.setColor(Color.BLUE);
-				g.fillRect(xPosTwo+xOffset, yPosTwo+yOffset, 5, 5);
-			}
+			gameStart = false;
 		}
 		else{
-			if (explosionCount<80){
-				for (Color color : getExplosionColors()){
-					g.setColor(color);
-					if (!isAliveOne){
-						g.fillOval(xOffset+xPosOne-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-								yOffset+yPosOne-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-								(int)(explosionCount*Math.random()), 
-								(int)(explosionCount*Math.random()));
+			for (Cycle cycle : cycles){
+				if (cycle.isAlive){
+					g.setColor(cycle.getColor());
+					g.fillRect(cycle.getXPos()+xOffset, cycle.getYPos()+yOffset, 5, 5);
+				}
+				else{
+					if (explosionCount<80){
+						for (Color color : getExplosionColors()){
+							g.setColor(color);
+							g.fillOval(xOffset+cycle.getXPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+									yOffset+cycle.getYPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+									(int)(explosionCount*Math.random()), 
+									(int)(explosionCount*Math.random()));
+						}
 					}
-					if (!isAliveTwo){
-						g.fillOval(xOffset+xPosTwo-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-								yOffset+yPosTwo-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-								(int)(explosionCount*Math.random()), 
-								(int)(explosionCount*Math.random()));
+					else{
+						explosionTimer.stop();
+						Frame.endGame();
 					}
 				}
-			}
-			else{
-				explosionTimer.stop();
-				Frame.endGame();
 			}
 		}
 	}
@@ -188,17 +153,15 @@ public class MapPanel extends JPanel implements KeyListener {
 		return colors;
 	}
 	private void explosion(){
+		Color transparent = new Color(0,0,0,0);
+		cycles[0].setColor(transparent);
+		cycles[1].setColor(transparent);
 		explosionCount = 0;
 		explosionTimer = new Timer(33, new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				explosionCount++;
-				if(!isAliveOne){
-					repaint();
-				}
-				if(!isAliveTwo){
-					repaint();
-				}
+				repaint();
 			}
 		});
 		explosionTimer.start();
