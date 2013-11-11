@@ -27,7 +27,7 @@ public class EndScreen extends JPanel implements ActionListener{
     	title.setFont(new Font("Times", Font.BOLD, 37));
     	title.setBounds(250, 30, 700, 40);
     	
-    	replay = new JButton("Replay");
+    	replay = new JButton("Replay?");
     	replay.setBounds(440, 166, 200, 60);
     	replay.addActionListener(this);
     	
