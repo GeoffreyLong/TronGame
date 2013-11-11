@@ -10,6 +10,7 @@ package start;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Frame {
 	static JFrame frame = new JFrame();
@@ -47,5 +48,16 @@ public class Frame {
 	 */
 	public int getYSize(){
 		return ySize;
+	}
+	
+	/**
+	 * This method will allow classes to add panels to the frame
+	 * without creating a new instance (and therefore a new frame) of the frame
+	 * @param panel  The panel that is to be added
+	 */
+	public static void addPanel(JPanel panel){
+		frame.add(panel);
+        frame.validate();
+        frame.repaint();
 	}
 }
