@@ -48,4 +48,10 @@ public class Frame{
 		
 		return mapPanel;
 	}
+	public static void endGame(){
+		EndScreen end = new EndScreen();
+		frame.add(end);
+		frame.validate();
+		frame.repaint();
+	}
 }
