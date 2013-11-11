@@ -134,22 +134,15 @@ public class MapPanel extends JPanel implements KeyListener {
 		}
 		else{
 			if (explosionCount<80){
-				int explosionSize;
-				if (explosionCount>80){
-					explosionSize = 30;
-				}
-				else{
-					explosionSize = explosionCount;
-				}
-				for (int i = 0; i<explosionSize; i++){
-					int iOffset = Math.abs(i-explosionSize/2);
-					for (int j=0; j<explosionSize; j++){
-						int jOffset = Math.abs(j-explosionSize/2);
+				for (int i = 0; i<explosionCount; i++){
+					int iOffset = Math.abs(i-explosionCount/2);
+					for (int j=0; j<explosionCount; j++){
+						int jOffset = Math.abs(j-explosionCount/2);
 						int color = (int) (20*Math.random());
-						if (!((iOffset+jOffset)>explosionSize/5)){
-							if (explosionSize < 30){
+						if (!((iOffset+jOffset)>explosionCount/5)){
+							if (explosionCount < 30){
 								if (color<15){
-									if (iOffset > explosionSize/6 || jOffset > explosionSize/6){
+									if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
 										g.setColor(Color.BLACK);
 									}
 									else{
@@ -157,7 +150,7 @@ public class MapPanel extends JPanel implements KeyListener {
 									}
 								}
 								if (color>=15){
-									if (iOffset > explosionSize/6 || jOffset > explosionSize/6){
+									if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
 										g.setColor(Color.GRAY);
 									}
 									else{
@@ -183,14 +176,14 @@ public class MapPanel extends JPanel implements KeyListener {
 								g.setColor(smoke);
 							}
 							if (!isAliveOne){
-								g.fillOval(xPosOne-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-										yPosOne-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+								g.fillOval(xPosOne-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										yPosOne-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
 										(int)(i*Math.random())+(int)(j/2*Math.random()), 
 										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
 							}
 							if (!isAliveTwo){
-								g.fillOval(xPosTwo-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
-										yPosTwo-((int)(explosionSize/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+								g.fillOval(xPosTwo-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
+										yPosTwo-((int)(explosionCount/2))+(int)(j*Math.random())+(int)(i*Math.random()), 
 										(int)(i*Math.random())+(int)(j/2*Math.random()), 
 										(int)(i/1.5*Math.random())+(int)(j*Math.random()));
 							}
