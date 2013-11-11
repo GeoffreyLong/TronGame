@@ -200,6 +200,7 @@ public class MapPanel extends JPanel implements KeyListener {
 			}
 			else{
 				explosionTimer.stop();
+				Frame.endGame();
 			}
 		}
 	}
