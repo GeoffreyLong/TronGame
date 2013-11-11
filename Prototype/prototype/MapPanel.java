@@ -36,8 +36,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		xOffset = (Frame.getXSize() - xSize) / 2;
 		yOffset = (Frame.getYSize() - ySize) / 2;
 		
-		Cycle cycleOne = new Cycle(100, 400, null, 1, true, Color.RED);
-		Cycle cycleTwo = new Cycle(400, 400, null, 2, true, Color.BLUE);
+		Cycle cycleOne = new Cycle(100, 400, null, true, Color.RED);
+		Cycle cycleTwo = new Cycle(400, 400, null, true, Color.BLUE);
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		

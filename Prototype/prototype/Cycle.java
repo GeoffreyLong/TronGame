@@ -13,15 +13,13 @@ public class Cycle {
         private int xPos;
         private int yPos;
         private Heading curHeading;
-        private int playerNum;
         public boolean isAlive;
         private Color color;
   
-        public Cycle(int xPos, int yPos, Heading curHeading, int playerNum, boolean isAlive, Color color){
+        public Cycle(int xPos, int yPos, Heading curHeading, boolean isAlive, Color color){
                 this.xPos = xPos;
                 this.yPos = yPos;
                 this.curHeading = curHeading;
-                this.playerNum = playerNum;
                 this.isAlive = isAlive;
                 this.color = color;
         }
@@ -54,9 +52,6 @@ public class Cycle {
                 return curHeading;
         }
         
-        public int getPlayerNum(){
-                return playerNum;
-        }
         public void setColor(Color color){
         	this.color = color;
         }
