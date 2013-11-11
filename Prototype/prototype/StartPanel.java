@@ -13,6 +13,7 @@ public class StartPanel extends JPanel implements ActionListener{
 	private JLabel title;
 	private JLabel description;
 	private JButton start;
+	private JLabel rules;
 
 	public StartPanel(){
 		makeComponents();
@@ -31,6 +32,9 @@ public class StartPanel extends JPanel implements ActionListener{
 		start = new JButton("Start Game");
 		start.setBounds(600, 166, 200, 60);
 		start.addActionListener(this);
+		
+		String rulesOfGame = "<html>\n" +
+                "Rules of the game are as follows:\n";
 
 		description = new JLabel("© Copyright of Group 7, ECSE 321, McGill University");
 		description.setFont(new Font("Times", Font.BOLD, 10));
