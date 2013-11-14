@@ -1,7 +1,7 @@
 /** 
  * @author Ashley Simpson
  * @version 2013/11/14
- * Cycle Testing Class
+ * AllTests Testing Class
  */
 
 package tests;

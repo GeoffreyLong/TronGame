@@ -1,6 +1,6 @@
 /** 
  * @author Ashley Simpson
- * @version 2013/11/10
+ * @version 2013/11/14
  * Cycle Testing Class
  */
 
