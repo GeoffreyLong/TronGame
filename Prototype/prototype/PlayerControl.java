@@ -19,7 +19,7 @@ public class PlayerControl {
 	 * @param cycleOne
 	 * @param cycleTwo
 	 */
-	PlayerControl(Cycle cycleOne, Cycle cycleTwo){
+	public PlayerControl(Cycle cycleOne, Cycle cycleTwo){
 		this.cycleOne = cycleOne;
 		this.cycleTwo = cycleTwo;
 	}
@@ -56,5 +56,15 @@ public class PlayerControl {
 			cycleTwo.setCurHeading(Heading.DOWN);
 			break;
 		}
+	}
+	
+	// For testing purposes
+	public Cycle getCycleOne() {
+		return cycleOne;
+	}
+
+	// For testing purposes
+	public Cycle getCycleTwo() {
+		return cycleTwo;
 	}
 }

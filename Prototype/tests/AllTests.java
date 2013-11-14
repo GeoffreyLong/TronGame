@@ -11,7 +11,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({MapTest.class, CycleTest.class, FrameTest.class})
+@SuiteClasses({MapTest.class, CycleTest.class, FrameTest.class, PlayerControlTest.class})
 public class AllTests {
 	
 }
