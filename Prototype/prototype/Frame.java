@@ -37,8 +37,8 @@ public class Frame{
 	
 	public static void addPanel(JPanel panel){
 	    frame.add(panel);
-            frame.pack();
-            frame.validate();
+        frame.pack();
+        frame.validate();
 	}
 	public static MapPanel start(Map map){
 	    MapPanel mapPanel = new MapPanel(map);
