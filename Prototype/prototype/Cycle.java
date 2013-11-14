@@ -66,13 +66,13 @@ public class Cycle {
 	        xPos-=size;
 		break;
 	    case RIGHT:
-		xPos+=size;
+	    	xPos+=size;
 		break;
 	    case UP:
-		yPos-=size;
+	    	yPos-=size;
 		break;
 	    case DOWN:
-		yPos+=size;
+	    	yPos+=size;
 		break;
 	    default:
 		break;
