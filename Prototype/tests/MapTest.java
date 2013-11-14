@@ -31,5 +31,9 @@ public class MapTest {
 		assertEquals(testX, mapSize);
 		int testY = map.getYSize();
 		assertEquals(testY, mapSize);
+		int[][] testMap = new int[mapSize][mapSize];
+		int[][] getMap = map.getMap();
+		assertEquals(getMap.length, testMap.length);
+		assertEquals(getMap[0].length, testMap[0].length);
 	}
 }
