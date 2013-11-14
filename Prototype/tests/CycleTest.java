@@ -15,7 +15,7 @@ import org.junit.Test;
 import prototype.Cycle;
 import prototype.Cycle.Heading;
 
-public class CycleTest {/*
+public class CycleTest {
 	private int testXPos = 1;
 	private int testYPos = 1;
 	private Heading testHeading;
@@ -43,5 +43,5 @@ public class CycleTest {/*
 		 assertEquals(testCycle.getYPos(), testSetYPos);
 		 //testCycle.setCurHeading(testSetHeading);
 		 assertEquals(testCycle.getCurHeading(), testSetHeading);
-		 }*/
+		 }
 }
