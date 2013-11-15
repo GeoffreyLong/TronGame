@@ -6,4 +6,8 @@ public class Player {
 	public Player(int playerNumber){
 		this.playerNumber = playerNumber;
 	}
+	
+	public int getPlayerNumber(){
+		return this.playerNumber;
+	}
 }
