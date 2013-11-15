@@ -5,6 +5,7 @@ public class Player {
 	private String userName;
 	
 	public Player(int playerNumber){
+		this.userName = "anonymous";
 		this.playerNumber = playerNumber;
 	}
 	
