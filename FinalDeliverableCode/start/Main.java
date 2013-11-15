@@ -7,6 +7,7 @@
  */
 package start;
 
+import startscreen.PlayerPanel;
 import startscreen.WelcomePanel;
 
 /**
@@ -24,6 +25,10 @@ public class Main {
 	
 	public static void start(){
 		WelcomePanel welcome = new WelcomePanel();
+		PlayerPanel paneOne = new PlayerPanel(1);
+		PlayerPanel paneTwo = new PlayerPanel(2);
+		frame.addPanel(paneOne);
+		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);
 	}
 }
