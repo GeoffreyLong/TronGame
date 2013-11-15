@@ -16,6 +16,8 @@ public class Frame {
 	static JFrame frame = new JFrame();
 	private static int xSize;
 	private static int ySize;
+	private static int xCenter;
+	private static int yCenter;
 	
 	/**
 	 * This is the constructor for the frame.  
@@ -29,6 +31,8 @@ public class Frame {
 		Toolkit tk = Toolkit.getDefaultToolkit();  
 		xSize = ((int) tk.getScreenSize().getWidth());  
 		ySize = ((int) tk.getScreenSize().getHeight());  
+		xCenter = xSize/2;
+		yCenter = ySize/2;
 		frame.setBounds(0,0,xSize,ySize);  
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
@@ -59,5 +63,11 @@ public class Frame {
 		frame.add(panel);
         frame.validate();
         frame.repaint();
+	}
+	public static int getYCenter(){
+		return xCenter;
+	}
+	public static int getXCenter(){
+		return yCenter;
 	}
 }
