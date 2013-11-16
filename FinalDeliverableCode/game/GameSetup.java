@@ -18,4 +18,27 @@ public class GameSetup {
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
 	}
+	
+	public int getGameDifficulty(){
+		return this.gameDifficulty;
+	}
+	public void setGameDifficulty(int gameDifficulty){
+		this.gameDifficulty = gameDifficulty;
+	}
+	
+	public Map getMap(){
+		return this.map;
+	}
+	public void setMap(){
+		
+	}
+	
+	public Color getPlayerColor(int playerNum){
+		if (playerNum == 1){
+			return this.colorPOne;
+		}
+		else{
+			return this.colorPTwo;
+		}
+	}
 }
