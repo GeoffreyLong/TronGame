@@ -16,10 +16,12 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private int yCenter;
 	private int xSize;
 	private int ySize;
+	private GameSetup gameSetup;
 	
-	public SetupPanel(Player playerOne, Player playerTwo){
+	public SetupPanel(Player playerOne, Player playerTwo, GameSetup gameSetup){
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
+		this.gameSetup = gameSetup;
 		
 		xCenter = start.Frame.getXCenter();
 		yCenter = start.Frame.getYCenter();

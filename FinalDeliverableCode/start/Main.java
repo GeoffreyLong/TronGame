@@ -44,7 +44,7 @@ public class Main {
 	public static void startGameSetup(){
 		Frame.removeAll();
 		GameSetup setup = new GameSetup(playerOne, playerTwo);
-		SetupPanel setupPanel = new SetupPanel(playerOne, playerTwo);
+		SetupPanel setupPanel = new SetupPanel(playerOne, playerTwo, setup);
 		Frame.addPanel(setupPanel);
 	}
 }
