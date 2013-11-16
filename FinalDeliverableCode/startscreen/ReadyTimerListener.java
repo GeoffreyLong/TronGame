@@ -19,4 +19,12 @@ public class ReadyTimerListener implements ActionListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
+    public boolean isReady(){
+    	boolean isReady = false;
+    	if (this.playerOneReady.getText()==this.playerTwoReady.getText() && this.playerOneReady.getText().equals("READY")){
+    		isReady = true;
+    	}
+    	return isReady;
+    }
 }
