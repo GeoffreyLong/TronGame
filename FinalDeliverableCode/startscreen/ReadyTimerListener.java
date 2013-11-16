@@ -20,6 +20,7 @@ public class ReadyTimerListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(isReady()){
 			Main.startGameSetup();
+			ReadyActionListener.timer.stop();
 		}
 	}
 	
