@@ -17,6 +17,7 @@ import user.Player;
 public class PlayerPanel extends JPanel implements ActionListener{
 	private Player player;
 	public JButton playerLog;
+	public JLabel playerStatus;
 	
 	public PlayerPanel(Player player){
 		this.player = player;
@@ -56,9 +57,13 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			add(playerLog);
 		}
 		
+		playerStatus = new JLabel("NOT READY");
+		playerStatus.setBounds(140, 425, 300, 30);
+		
 		add(playerLabel);
 		add(playerStats);
 		add(playerNameLabel);
+		add(playerStatus);
 	}
 
 	@Override
