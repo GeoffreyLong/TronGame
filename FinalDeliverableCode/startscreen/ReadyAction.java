@@ -14,7 +14,11 @@ public class ReadyAction extends AbstractAction{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+    	if (playerStatus.getText().equals("NOT READY")){
+    		playerStatus.setText("READY");
+    	}
+    	else {
+    		playerStatus.setText("NOT READY");
+    	}
 	}
 }
