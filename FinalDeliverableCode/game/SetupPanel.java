@@ -3,6 +3,7 @@ package game;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -32,8 +33,11 @@ public class SetupPanel extends JPanel implements ActionListener{
 		JLabel pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
 		pageTitle.setBounds(50, 50, 400, 100);
 		
+		JButton changeMap = new JButton("Change the Map");
+		changeMap.setBounds(100, 200, 400, 100);
 		
 		add(pageTitle);
+		add(changeMap);
 	}
 
 	@Override
