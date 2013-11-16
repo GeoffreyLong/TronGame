@@ -7,6 +7,7 @@
  */
 package start;
 
+import startscreen.ReadyActionListener;
 import startscreen.PlayerPanel;
 import startscreen.WelcomePanel;
 import user.Player;
@@ -33,6 +34,7 @@ public class Main {
 		WelcomePanel welcome = new WelcomePanel();
 		PlayerPanel paneOne = new PlayerPanel(playerOne);
 		PlayerPanel paneTwo = new PlayerPanel(playerTwo);
+		ReadyActionListener listen = new ReadyActionListener(paneOne, paneTwo);
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);
