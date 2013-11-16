@@ -38,8 +38,20 @@ public class SetupPanel extends JPanel implements ActionListener{
 		JButton changeMap = new JButton("Change the Map");
 		changeMap.setBounds(100, 200, 400, 100);
 		
+		JButton minusButton = new JButton("-");
+		minusButton.setBounds(225, 375, 50, 50);
+		
+		JLabel changeDifficulty = new JLabel("<html> <div style='text-align:center'> Change the Difficulty <br> Current difficulty is <br>"+ gameSetup.getGameDifficulty() +"</div></html>");
+		changeDifficulty.setBounds(300, 350, 200, 100);
+		
+		JButton plusButton = new JButton("+");
+		plusButton.setBounds(500, 375, 50, 50);
+		
 		add(pageTitle);
 		add(changeMap);
+		add(minusButton);
+		add(changeDifficulty);
+		add(plusButton);
 	}
 
 	@Override
