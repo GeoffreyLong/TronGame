@@ -47,11 +47,21 @@ public class SetupPanel extends JPanel implements ActionListener{
 		JButton plusButton = new JButton("+");
 		plusButton.setBounds(500, 375, 50, 50);
 		
+		JButton changePOneColor = new JButton("<html> <div style='text-align:center; color:#000000'> Change the Color of PlayerOne's LightCycle <br> Current color is this color </div><html>");
+		changePOneColor.setBackground(gameSetup.getPlayerColor(1));
+		changePOneColor.setBounds(100, 500, 300, 100);
+		
+		JButton changePTwoColor = new JButton("<html> <div style='text-align:center; color:#000000'> Change the Color of PlayerTwo's LightCycle <br> Current color is this color </div><html>");
+		changePTwoColor.setBackground(gameSetup.getPlayerColor(2));
+		changePTwoColor.setBounds(500, 500, 300, 100);
+		
 		add(pageTitle);
 		add(changeMap);
 		add(minusButton);
 		add(changeDifficulty);
 		add(plusButton);
+		add(changePOneColor);
+		add(changePTwoColor);
 	}
 
 	@Override
