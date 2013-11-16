@@ -7,6 +7,8 @@
  */
 package start;
 
+import game.GameSetup;
+import game.SetupPanel;
 import startscreen.ReadyActionListener;
 import startscreen.PlayerPanel;
 import startscreen.WelcomePanel;
@@ -38,5 +40,11 @@ public class Main {
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);
+	}
+	public static void startGameSetup(){
+		Frame.removeAll();
+		GameSetup setup = new GameSetup(playerOne, playerTwo);
+		SetupPanel setupPanel = new SetupPanel(playerOne, playerTwo);
+		Frame.addPanel(setupPanel);
 	}
 }
