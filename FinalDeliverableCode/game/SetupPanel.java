@@ -3,6 +3,7 @@ package game;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import user.Player;
@@ -27,6 +28,12 @@ public class SetupPanel extends JPanel implements ActionListener{
 		setLayout(null);
 		setBounds(0,0,xSize,ySize);
 		setVisible(true);
+		
+		JLabel pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
+		pageTitle.setBounds(50, 50, 400, 100);
+		
+		
+		add(pageTitle);
 	}
 
 	@Override
