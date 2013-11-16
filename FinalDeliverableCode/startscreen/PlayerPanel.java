@@ -11,7 +11,11 @@ import start.Frame;
 import user.Player;
 
 public class PlayerPanel extends JPanel{
+	private Player player;
+	
 	public PlayerPanel(Player player){
+		this.player = player;
+		
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(null);
 		setVisible(true);
