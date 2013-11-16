@@ -16,8 +16,9 @@ public class ReadyTimerListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(isReady()){
+			
+		}
 	}
 	
     public boolean isReady(){
