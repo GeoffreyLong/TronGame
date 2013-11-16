@@ -9,6 +9,7 @@ package start;
 
 import startscreen.PlayerPanel;
 import startscreen.WelcomePanel;
+import user.Player;
 
 /**
  * The main method will start the program by instantiating the GUI 
@@ -18,6 +19,9 @@ import startscreen.WelcomePanel;
  */
 public class Main {
 	public static Frame frame;
+	public static Player playerOne;
+	public static Player playerTwo;
+	
 	public static void main (String[] args){
 		frame = new Frame();
 		start();
