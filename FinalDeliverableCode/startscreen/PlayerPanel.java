@@ -12,6 +12,7 @@ import user.Player;
 
 public class PlayerPanel extends JPanel{
 	private Player player;
+	public JButton playerLog;
 	
 	public PlayerPanel(Player player){
 		this.player = player;
@@ -37,9 +38,16 @@ public class PlayerPanel extends JPanel{
 		JLabel playerNameLabel = new JLabel("Logged in as : " + player.getUserName());
 		playerNameLabel.setBounds(140, 325, 300, 30);
 		
-		JButton playerLog = new JButton("Login");
-		playerLog.setBounds(140, 125, 300, 70);
-		add(playerLog);
+		if (player.getUserName().equals("anonymous")){
+			playerLog = new JButton("Login");
+			playerLog.setBounds(140, 125, 300, 70);
+			add(playerLog);
+		}
+		else{
+			playerLog = new JButton("Logout");
+			playerLog.setBounds(140, 125, 300, 70);
+			add(playerLog);
+		}
 		
 		add(playerLabel);
 		add(playerStats);
