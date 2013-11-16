@@ -24,6 +24,8 @@ public class Main {
 	
 	public static void main (String[] args){
 		frame = new Frame();
+		playerOne = new Player(1);
+		playerTwo = new Player(2);
 		start();
 	}
 	
