@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +19,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	private Player player;
 	public JButton playerLog;
 	public JLabel playerStatus;
+	public InputMap inputMap;
 	
 	public PlayerPanel(Player player){
 		this.player = player;
@@ -59,6 +61,8 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		
 		playerStatus = new JLabel("NOT READY");
 		playerStatus.setBounds(140, 425, 300, 30);
+		
+		inputMap = this.getInputMap(WHEN_IN_FOCUSED_WINDOW);
 		
 		add(playerLabel);
 		add(playerStats);
