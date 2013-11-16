@@ -29,8 +29,8 @@ public class Main {
 	
 	public static void start(){
 		WelcomePanel welcome = new WelcomePanel();
-		PlayerPanel paneOne = new PlayerPanel(1);
-		PlayerPanel paneTwo = new PlayerPanel(2);
+		PlayerPanel paneOne = new PlayerPanel(playerOne);
+		PlayerPanel paneTwo = new PlayerPanel(playerTwo);
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);

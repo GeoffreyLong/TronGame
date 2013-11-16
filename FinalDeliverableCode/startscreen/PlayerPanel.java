@@ -8,15 +8,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import start.Frame;
+import user.Player;
 
 public class PlayerPanel extends JPanel{
-	public PlayerPanel(int playerNum){
+	public PlayerPanel(Player player){
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(null);
 		setVisible(true);
 		
 		JLabel playerLabel;
-		if (playerNum==1){
+		if (player.getPlayerNumber()==1){
 			setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 			playerLabel = new JLabel("PLAYER ONE");
 		}
