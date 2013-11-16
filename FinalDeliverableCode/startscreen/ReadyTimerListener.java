@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
+import start.Main;
+
 public class ReadyTimerListener implements ActionListener{
 	private JLabel playerOneReady;
 	private JLabel playerTwoReady;
@@ -17,7 +19,7 @@ public class ReadyTimerListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(isReady()){
-			
+			Main.startGameSetup();
 		}
 	}
 	
