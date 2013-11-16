@@ -1,6 +1,8 @@
 package startscreen;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -10,7 +12,7 @@ import javax.swing.JPanel;
 import start.Frame;
 import user.Player;
 
-public class PlayerPanel extends JPanel{
+public class PlayerPanel extends JPanel implements ActionListener{
 	private Player player;
 	public JButton playerLog;
 	
@@ -52,5 +54,11 @@ public class PlayerPanel extends JPanel{
 		add(playerLabel);
 		add(playerStats);
 		add(playerNameLabel);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
