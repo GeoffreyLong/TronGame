@@ -37,6 +37,10 @@ public class PlayerPanel extends JPanel{
 		JLabel playerNameLabel = new JLabel("Logged in as : " + player.getUserName());
 		playerNameLabel.setBounds(140, 325, 300, 30);
 		
+		JButton playerLog = new JButton("Login");
+		playerLog.setBounds(140, 125, 300, 70);
+		add(playerLog);
+		
 		add(playerLabel);
 		add(playerStats);
 		add(playerNameLabel);
