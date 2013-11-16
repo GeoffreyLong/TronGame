@@ -55,6 +55,9 @@ public class SetupPanel extends JPanel implements ActionListener{
 		changePTwoColor.setBackground(gameSetup.getPlayerColor(2));
 		changePTwoColor.setBounds(500, 500, 300, 100);
 		
+		JButton startGame = new JButton("START THE GAME");
+		startGame.setBounds(100, 610, 700, 50);
+		
 		add(pageTitle);
 		add(changeMap);
 		add(minusButton);
@@ -62,6 +65,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		add(plusButton);
 		add(changePOneColor);
 		add(changePTwoColor);
+		add(startGame);
 	}
 
 	@Override
