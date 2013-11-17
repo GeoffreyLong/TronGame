@@ -6,13 +6,13 @@ package gameplay;
 
 public class Map {
   
-        private int[][] map;
+        private Tile[][] tiles;
         private int DEFAULT_MAP_SIZE = 500;
         private int xSize;
         private int ySize;
   
-        public int[][] getMap(){
-                return map;
+        public Tile[][] getMap(){
+                return tiles;
         }
         
         private void setBorder(int height, int width){
@@ -20,10 +20,10 @@ public class Map {
                  for (int i = 0; i<height; i++){
                         for (int j = 0; j<width; j++){
                                 if (i<=4|| j<=4 || j>=width-5 || i>=height-5){
-                                        map[i][j] = 1;
+                                        tiles[i][j] = Tile.WALL;
                                 }
                                 else{
-                                        map[i][j] = 0;
+                                        tiles[i][j] = Tile.EMPTY;
                                 }
                         }
                   }
@@ -32,7 +32,7 @@ public class Map {
         }
         
         public void setDefaultMap(){
-                map = new int[DEFAULT_MAP_SIZE][DEFAULT_MAP_SIZE];
+                tiles = new Tile[DEFAULT_MAP_SIZE][DEFAULT_MAP_SIZE];
                 setBorder(DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE);
                 this.xSize = DEFAULT_MAP_SIZE;
                 this.ySize = DEFAULT_MAP_SIZE;
