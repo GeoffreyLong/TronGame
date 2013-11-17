@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -117,6 +118,19 @@ public class SetupPanel extends JPanel implements ActionListener{
 			GameMaster master = new GameMaster(gameSetup);
 			master.gameInit();
 			master.gameStart();
+		}
+	}
+
+	public enum Colors{
+		RED(Color.RED), BLUE(Color.BLUE), YELLOW(Color.YELLOW), 
+		PURPLE(Color.MAGENTA), GREEN(Color.GREEN), 
+		PINK(Color.PINK), BLACK(Color.BLACK);
+		private final Color color;
+		Colors(Color color){
+			this.color = color;
+		}
+		public Color getColor(){
+			return this.color;
 		}
 	}
 }
