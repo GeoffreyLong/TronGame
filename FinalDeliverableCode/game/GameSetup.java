@@ -22,10 +22,12 @@ public class GameSetup {
 	public int getGameDifficulty(){
 		return this.gameDifficulty;
 	}
-	public void setGameDifficulty(int gameDifficulty){
-		this.gameDifficulty = gameDifficulty;
+	public void incrementGameDifficulty(){
+		gameDifficulty++;
 	}
-	
+	public void decrementGameDifficulty(){
+		gameDifficulty--;
+	}
 	public Map getMap(){
 		return this.map;
 	}
