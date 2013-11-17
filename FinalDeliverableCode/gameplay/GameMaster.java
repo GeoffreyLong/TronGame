@@ -7,6 +7,8 @@
  */
 package gameplay;
 
+import java.awt.Color;
+
 import javax.swing.Timer;
 
 import start.Frame;
@@ -16,6 +18,9 @@ public class GameMaster {
 	private MapPanel mapPanel;
 	private static Timer timer;
 	
+	public GameMaster(Map map, int gameDifficulty, Color pOneColor, Color pTwoColor){
+		
+	}
 	/**
 	 * This will initialize the game.  
 	 * It will do this by setting up the map and the cycle objects.

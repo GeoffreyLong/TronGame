@@ -114,7 +114,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 			
 		}
 		if(e.getActionCommand().equals("START THE GAME")){
-			GameMaster master = new GameMaster();
+			GameMaster master = new GameMaster(gameSetup.getMap(), gameSetup.getGameDifficulty(), gameSetup.getPlayerColor(1), gameSetup.getPlayerColor(2));
 			master.gameInit();
 			master.gameStart();
 		}
