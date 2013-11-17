@@ -17,6 +17,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private int xSize;
 	private int ySize;
 	private GameSetup gameSetup;
+	private JLabel changeDifficulty;
 	
 	public SetupPanel(Player playerOne, Player playerTwo, GameSetup gameSetup){
 		this.playerOne = playerOne;
@@ -43,7 +44,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		minusButton.setBounds(225, 375, 50, 50);
 		minusButton.addActionListener(this);
 		
-		JLabel changeDifficulty = new JLabel("<html> <div style='text-align:center'> "
+		changeDifficulty = new JLabel("<html> <div style='text-align:center'> "
 				+ "Change the Difficulty <br> Current difficulty is <br>"
 				+ gameSetup.getGameDifficulty() +"</div></html>");
 		changeDifficulty.setBounds(300, 350, 200, 100);
@@ -86,10 +87,20 @@ public class SetupPanel extends JPanel implements ActionListener{
 			
 		}
 		if(e.getActionCommand().equals("-")){
-			
+			if (gameSetup.getGameDifficulty()>0){
+				gameSetup.decrementGameDifficulty();
+			}
+			changeDifficulty.setText("<html> <div style='text-align:center'> "
+					+ "Change the Difficulty <br> Current difficulty is <br>"
+					+ gameSetup.getGameDifficulty() +"</div></html>");
 		}
 		if(e.getActionCommand().equals("+")){
-			
+			if (gameSetup.getGameDifficulty()<10){
+				gameSetup.incrementGameDifficulty();
+			}
+			changeDifficulty.setText("<html> <div style='text-align:center'> "
+					+ "Change the Difficulty <br> Current difficulty is <br>"
+					+ gameSetup.getGameDifficulty() +"</div></html>");
 		}
 		if(e.getActionCommand().equals("<html> <div style='text-align:center; color:#000000'> Change the Color of PlayerOne's LightCycle <br> Current color is this color </div><html>")){
 			
