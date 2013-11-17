@@ -61,21 +61,21 @@ public class Cycle {
     }
     
     public void travel(int size){
-	switch (getCurHeading()){
-	    case LEFT:
-	        xPos-=size;
-		break;
-	    case RIGHT:
-		xPos+=size;
-		break;
-	    case UP:
-		yPos-=size;
-		break;
-	    case DOWN:
-		yPos+=size;
-		break;
-	    default:
-		break;
-	}
+        switch (getCurHeading()){
+            case LEFT:
+                xPos-=size;
+                break;
+            case RIGHT:
+                xPos+=size;
+                break;
+            case UP:
+                yPos-=size;
+                break;
+            case DOWN:
+                yPos+=size;
+                break;
+            default:
+                break;
+        }
     }
 }

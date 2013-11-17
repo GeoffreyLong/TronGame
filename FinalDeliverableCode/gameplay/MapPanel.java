@@ -34,7 +34,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int[][] map;
 	private int xSize;
 	private int ySize;
-	//PlayerControl cont;
+	PlayerControl cont;
 	Cycle[] cycles;
 	private boolean gameStart = true;
 	private Timer explosionTimer;
@@ -58,7 +58,7 @@ public class MapPanel extends JPanel implements KeyListener {
 		Cycle cycleOne = new Cycle(100, 400, null, true, Color.RED);
 		Cycle cycleTwo = new Cycle(400, 400, null, true, Color.BLUE);
 		cycles = new Cycle[]{cycleOne, cycleTwo};
-		//cont = new PlayerControl(cycleOne, cycleTwo);
+		cont = new PlayerControl(cycleOne, cycleTwo);
 		
 		addKeyListener(this);
 		setVisible(true);
@@ -126,6 +126,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	 */
 	@Override
 	public void paintComponent(Graphics g){
+		System.out.println("painting");
 		if (gameStart){
 			for (int i=0; i<xSize; i++){
 				for (int j=0; j<ySize; j++){
@@ -260,7 +261,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
-		//cont.setHeading(e.getKeyCode());
+		cont.setHeading(e.getKeyCode());
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
