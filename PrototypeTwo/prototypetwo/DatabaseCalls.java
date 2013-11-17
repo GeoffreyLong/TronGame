@@ -12,7 +12,22 @@ public class DatabaseCalls {
 	
 	public boolean createUser(String userName, String password){
 
-		return false;
+		boolean pass = false;
+		
+		String query = "INSERT INTO authentication.login (" + userName + "," + password + ") VALUES (userName, password) ";
+		
+		try{
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			pass = true;
+		} 
+        
+        	catch (SQLException e) {
+			//System.out.println("User already exists");
+        		pass = false;
+		}
+		
+		return pass;
 		
 		
 	}
