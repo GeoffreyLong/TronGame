@@ -134,7 +134,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 			else{
 				changePTwoColor.setForeground(Color.BLACK);
 			}
-			gameSetup.setPOneColor(pTwoColor.getColor());
+			gameSetup.setPTwoColor(pTwoColor.getColor());
 		}
 		if(e.getActionCommand().equals("START THE GAME")){
 			GameMaster master = new GameMaster(gameSetup);
