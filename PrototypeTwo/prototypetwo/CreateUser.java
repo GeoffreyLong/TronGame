@@ -11,6 +11,8 @@ public class CreateUser extends JPanel implements ActionListener{
 	private JLabel title;
 	private JLabel username;
 	private JTextField usernameField;
+	private JLabel password;
+	private JPasswordField passwordField;
 	
 	
 	
@@ -31,7 +33,13 @@ public class CreateUser extends JPanel implements ActionListener{
 		usernameField = new JTextField(40);
 		usernameField.setBounds(200, 170, 170, 25);
 		
+
+		password = new JLabel("Password : ");
+		password.setFont(new Font("Times", Font.BOLD, 18));
+		password.setBounds(20, 200, 140, 25);
 		
+		passwordField = new JPasswordField(40);
+		passwordField.setBounds(200, 200, 170, 25);	
 		
 		
 	}
