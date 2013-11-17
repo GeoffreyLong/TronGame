@@ -20,8 +20,10 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private int ySize;
 	private GameSetup gameSetup;
 	private JLabel changeDifficulty;
-	private Colors pOneColor;
-	private Colors pTwoColor;
+	private Colors pOneColor = Colors.RED;
+	private Colors pTwoColor = Colors.BLUE;
+	private JButton changePOneColor;
+	private JButton changePTwoColor;
 	
 	public SetupPanel(Player playerOne, Player playerTwo, GameSetup gameSetup){
 		this.playerOne = playerOne;
@@ -57,18 +59,20 @@ public class SetupPanel extends JPanel implements ActionListener{
 		plusButton.setBounds(500, 375, 50, 50);
 		plusButton.addActionListener(this);
 		
-		JButton changePOneColor = new JButton("<html> <div style='text-align:center; color:#000000'> "
+		changePOneColor = new JButton("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerOne's LightCycle <br> "
 				+ "Current color is this color </div><html>");
 		changePOneColor.setBackground(gameSetup.getPlayerColor(1));
 		changePOneColor.setBounds(100, 500, 300, 100);
+		changePOneColor.setForeground(Color.BLACK);
 		changePOneColor.addActionListener(this);
 		
-		JButton changePTwoColor = new JButton("<html> <div style='text-align:center; color:#000000'> "
+		changePTwoColor = new JButton("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerTwo's LightCycle <br> "
 				+ "Current color is this color </div><html>");
 		changePTwoColor.setBackground(gameSetup.getPlayerColor(2));
 		changePTwoColor.setBounds(500, 500, 300, 100);
+		changePTwoColor.setForeground(Color.BLACK);
 		changePTwoColor.addActionListener(this);
 		
 		JButton startGame = new JButton("START THE GAME");
@@ -106,15 +110,31 @@ public class SetupPanel extends JPanel implements ActionListener{
 					+ "Change the Difficulty <br> Current difficulty is <br>"
 					+ gameSetup.getGameDifficulty() +"</div></html>");
 		}
-		if(e.getActionCommand().equals("<html> <div style='text-align:center; color:#000000'> "
+		if(e.getActionCommand().equals("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerOne's LightCycle <br> "
 				+ "Current color is this color </div><html>")){
-			
+			pOneColor = colorChange(pOneColor);
+			changePOneColor.setBackground(pOneColor.getColor());
+			if (pOneColor == Colors.BLACK){
+				changePOneColor.setForeground(Color.WHITE);
+			}
+			else{
+				changePOneColor.setForeground(Color.BLACK);
+			}
+			gameSetup.setPOneColor(pOneColor.getColor());
 		}
-		if(e.getActionCommand().equals("<html> <div style='text-align:center; color:#000000'> "
+		if(e.getActionCommand().equals("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerTwo's LightCycle <br> "
 				+ "Current color is this color </div><html>")){
-			
+			pTwoColor = colorChange(pTwoColor);
+			changePTwoColor.setBackground(pTwoColor.getColor());
+			if (pTwoColor == Colors.BLACK){
+				changePTwoColor.setForeground(Color.WHITE);
+			}
+			else{
+				changePTwoColor.setForeground(Color.BLACK);
+			}
+			gameSetup.setPOneColor(pTwoColor.getColor());
 		}
 		if(e.getActionCommand().equals("START THE GAME")){
 			GameMaster master = new GameMaster(gameSetup);
@@ -122,15 +142,34 @@ public class SetupPanel extends JPanel implements ActionListener{
 			master.gameStart();
 		}
 	}
-	public void colorChange(Colors color){
+	public Colors colorChange(Colors color){
 		switch(color){
 			case RED:
+				color = Colors.BLUE;
+				break;
 			case BLUE:
+				color = Colors.YELLOW;
+				break;
 			case YELLOW:
+				color = Colors.MAGENTA;
+				break;
 			case MAGENTA:
+				color = Colors.GREEN;
+				break;
 			case GREEN:
+				color = Colors.BLACK;
+				break;
 			case BLACK:
+				color = Colors.RED;
+				break;
 			default:
+				break;
+		}
+		if (color == pOneColor || color == pTwoColor){
+			return colorChange(color);
+		}
+		else{
+			return color;
 		}
 	}
 	public enum Colors{
