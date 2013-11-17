@@ -8,10 +8,29 @@ import java.sql.Connection;
 
 public class CreateUser extends JPanel implements ActionListener{
   
-  
-  @Override
+	
+	
+	public CreateUser(){
+		makeComponents();
+		makeLayout();		
+	}
+	
+	private void makeComponents(){
+		
+		
+		
+	}
+	
+	private void makeLayout(){
+		setLayout(null);
+		
+	}
+
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
+		
 		
 	}
 
