@@ -12,6 +12,9 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import gameplay.Map;
+import gameplay.MapPanel;
+
 public class Frame {
 	static JFrame frame = new JFrame();
 	private static int xSize;
@@ -64,8 +67,19 @@ public class Frame {
         frame.validate();
         frame.repaint();
 	}
+	public static MapPanel start(Map map){
+	    MapPanel mapPanel = new MapPanel(map);
+		
+	    frame.getContentPane().removeAll();
+	    frame.add(mapPanel);
+	    frame.validate();
+	    frame.repaint();
+		
+	    return mapPanel;
+	}
 	public static void removeAll(){
 		frame.getContentPane().removeAll();
+		frame.validate();
 		frame.repaint();
 	}
 	public static int getYCenter(){
