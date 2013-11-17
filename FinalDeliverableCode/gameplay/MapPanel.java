@@ -27,7 +27,6 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import gameplay.Cycle.Heading;
 import start.Frame;
 
 public class MapPanel extends JPanel implements KeyListener {
@@ -54,6 +53,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		
 		xOffset = (Frame.getXSize() - xSize) / 2;
 		yOffset = (Frame.getYSize() - ySize) / 2;
+		
+		setBounds(0,0,Frame.getXSize(),Frame.getYSize());
 		
 		Cycle cycleOne = new Cycle(100, 400, null, true, Color.RED);
 		Cycle cycleTwo = new Cycle(400, 400, null, true, Color.BLUE);
