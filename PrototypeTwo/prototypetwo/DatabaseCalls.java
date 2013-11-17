@@ -19,9 +19,35 @@ public class DatabaseCalls {
 	
 	
 	public boolean login(String userName, String password){
+
+		boolean pass = false;
+		String check = "";
+		
+		String query = "SELECT * FROM authentication.login WHERE userName= \'" + userName + "\'";
+		
+		try{
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			
+			if(rs.next()){
+				System.out.println(rs.getString("password"));
+				check = rs.getString("password");
+			}
+			
+			if(check.equals(password)){
+				pass = true;
+			}
+			
+			
+		} 
+        
+       	        catch (SQLException e) {
+			System.out.println("Check your username/password");
+		}
+		
+		return pass;
 		
 		
-		return false;
 	}
 
 
