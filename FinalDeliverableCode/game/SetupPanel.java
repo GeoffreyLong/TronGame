@@ -20,6 +20,8 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private int ySize;
 	private GameSetup gameSetup;
 	private JLabel changeDifficulty;
+	private Colors pOneColor;
+	private Colors pTwoColor;
 	
 	public SetupPanel(Player playerOne, Player playerTwo, GameSetup gameSetup){
 		this.playerOne = playerOne;
@@ -120,10 +122,20 @@ public class SetupPanel extends JPanel implements ActionListener{
 			master.gameStart();
 		}
 	}
-
+	public void colorChange(Colors color){
+		switch(color){
+			case RED:
+			case BLUE:
+			case YELLOW:
+			case MAGENTA:
+			case GREEN:
+			case BLACK:
+			default:
+		}
+	}
 	public enum Colors{
 		RED(Color.RED), BLUE(Color.BLUE), YELLOW(Color.YELLOW), 
-		PURPLE(Color.MAGENTA), GREEN(Color.GREEN), 
+		MAGENTA(Color.MAGENTA), GREEN(Color.GREEN), 
 		PINK(Color.PINK), BLACK(Color.BLACK);
 		private final Color color;
 		Colors(Color color){
