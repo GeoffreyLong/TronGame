@@ -59,8 +59,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		
 		setBounds(0,0,Frame.getXSize(),Frame.getYSize());
 		
-		Cycle cycleOne = new Cycle(100, 400, null, true, Color.RED);
-		Cycle cycleTwo = new Cycle(400, 400, null, true, Color.BLUE);
+		Cycle cycleOne = new Cycle(100, 400, null, true, gameSetup.getPlayerColor(1));
+		Cycle cycleTwo = new Cycle(400, 400, null, true, gameSetup.getPlayerColor(2));
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
