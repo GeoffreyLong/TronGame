@@ -7,6 +7,8 @@
  */
 package gameplay;
 
+import game.GameSetup;
+
 import java.awt.Color;
 
 import javax.swing.Timer;
@@ -17,9 +19,11 @@ public class GameMaster {
 	private Map map;
 	private MapPanel mapPanel;
 	private static Timer timer;
+	private GameSetup gameSetup;
 	
-	public GameMaster(Map map, int gameDifficulty, Color pOneColor, Color pTwoColor){
-		
+	
+	public GameMaster(GameSetup gameSetup){
+		this.gameSetup = gameSetup;
 	}
 	/**
 	 * This will initialize the game.  
