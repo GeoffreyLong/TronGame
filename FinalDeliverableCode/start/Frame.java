@@ -12,6 +12,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import game.GameSetup;
 import gameplay.Map;
 import gameplay.MapPanel;
 
@@ -67,8 +68,8 @@ public class Frame {
         frame.validate();
         frame.repaint();
 	}
-	public static MapPanel start(Map map){
-	    MapPanel mapPanel = new MapPanel(map);
+	public static MapPanel start(GameSetup gameSetup){
+	    MapPanel mapPanel = new MapPanel(gameSetup);
 		
 	    frame.getContentPane().removeAll();
 	    frame.add(mapPanel);

@@ -14,6 +14,8 @@
 
 package gameplay;
 
+import game.GameSetup;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -46,18 +48,19 @@ public class MapPanel extends JPanel implements KeyListener {
 	 * Instantiate all the class variables that are necessary for game function.  
 	 * @param map
 	 */
-	public MapPanel(Map map){
-		this.map = map.getMap();
-		this.xSize = map.getXSize();
-		this.ySize = map.getYSize();
+	public MapPanel(GameSetup gameSetup){
+		Map mapper = gameSetup.getMap();
+		map = mapper.getMap();
+		xSize = mapper.getXSize();
+		ySize = mapper.getYSize();
 		
 		xOffset = (Frame.getXSize() - xSize) / 2;
 		yOffset = (Frame.getYSize() - ySize) / 2;
 		
 		setBounds(0,0,Frame.getXSize(),Frame.getYSize());
 		
-		Cycle cycleOne = new Cycle(100, 400, null, true, Color.RED);
-		Cycle cycleTwo = new Cycle(400, 400, null, true, Color.BLUE);
+		Cycle cycleOne = new Cycle(100, 400, null, true, gameSetup.getPlayerColor(1));
+		Cycle cycleTwo = new Cycle(400, 400, null, true, gameSetup.getPlayerColor(2));
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
@@ -151,10 +154,10 @@ public class MapPanel extends JPanel implements KeyListener {
 								g.setColor(Color.WHITE);
 								break;
 							case PONE:
-								g.setColor(Color.RED);
+								g.setColor(cycles[0].getColor());
 								break;
 							case PTWO:
-								g.setColor(Color.BLUE);
+								g.setColor(cycles[1].getColor());
 								break;
 						}
 						g.fillRect(i+xOffset, j+yOffset, 5, 5);
