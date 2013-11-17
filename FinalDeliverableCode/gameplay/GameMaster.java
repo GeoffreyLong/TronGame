@@ -30,9 +30,7 @@ public class GameMaster {
 	 * It will do this by setting up the map and the cycle objects.
 	 */
 	public void gameInit(){
-		map = new Map();
-		map.setDefaultMap();
-		mapPanel= Frame.start(map);
+		mapPanel= Frame.start(gameSetup);
 	}
 	
 	/**

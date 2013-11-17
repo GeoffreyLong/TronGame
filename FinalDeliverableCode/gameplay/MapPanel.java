@@ -14,6 +14,8 @@
 
 package gameplay;
 
+import game.GameSetup;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -46,10 +48,11 @@ public class MapPanel extends JPanel implements KeyListener {
 	 * Instantiate all the class variables that are necessary for game function.  
 	 * @param map
 	 */
-	public MapPanel(Map map){
-		this.map = map.getMap();
-		this.xSize = map.getXSize();
-		this.ySize = map.getYSize();
+	public MapPanel(GameSetup gameSetup){
+		Map mapper = gameSetup.getMap();
+		map = mapper.getMap();
+		xSize = mapper.getXSize();
+		ySize = mapper.getYSize();
 		
 		xOffset = (Frame.getXSize() - xSize) / 2;
 		yOffset = (Frame.getYSize() - ySize) / 2;
