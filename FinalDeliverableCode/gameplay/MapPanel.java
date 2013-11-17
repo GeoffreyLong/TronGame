@@ -127,7 +127,6 @@ public class MapPanel extends JPanel implements KeyListener {
 	 */
 	@Override
 	public void paintComponent(Graphics g){
-		System.out.println("painting");
 		if (gameStart){
 			for (int i=0; i<xSize; i++){
 				for (int j=0; j<ySize; j++){
