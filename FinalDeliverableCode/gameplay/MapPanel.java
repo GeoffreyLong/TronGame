@@ -154,10 +154,10 @@ public class MapPanel extends JPanel implements KeyListener {
 								g.setColor(Color.WHITE);
 								break;
 							case PONE:
-								g.setColor(Color.RED);
+								g.setColor(cycles[0].getColor());
 								break;
 							case PTWO:
-								g.setColor(Color.BLUE);
+								g.setColor(cycles[1].getColor());
 								break;
 						}
 						g.fillRect(i+xOffset, j+yOffset, 5, 5);
