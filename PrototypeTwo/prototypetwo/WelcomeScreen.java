@@ -39,6 +39,9 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 	private void makeLayout(){
 		setLayout(null);
 		add(title);
+		add(title);
+		add(createAccount);
+		add(login);
 		
 	}
 	
