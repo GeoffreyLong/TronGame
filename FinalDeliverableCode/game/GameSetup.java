@@ -35,7 +35,12 @@ public class GameSetup {
 	public void setMap(){
 		
 	}
-	
+	public void setPOneColor(Color color){
+		colorPOne = color;
+	}
+	public void setPTwoColor(Color color){
+		colorPTwo = color;
+	}
 	public Color getPlayerColor(int playerNum){
 		if (playerNum == 1){
 			return this.colorPOne;
