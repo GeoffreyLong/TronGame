@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import gameplay.GameMaster;
 import user.Player;
 
 public class SetupPanel extends JPanel implements ActionListener{
@@ -102,14 +103,20 @@ public class SetupPanel extends JPanel implements ActionListener{
 					+ "Change the Difficulty <br> Current difficulty is <br>"
 					+ gameSetup.getGameDifficulty() +"</div></html>");
 		}
-		if(e.getActionCommand().equals("<html> <div style='text-align:center; color:#000000'> Change the Color of PlayerOne's LightCycle <br> Current color is this color </div><html>")){
+		if(e.getActionCommand().equals("<html> <div style='text-align:center; color:#000000'> "
+				+ "Change the Color of PlayerOne's LightCycle <br> "
+				+ "Current color is this color </div><html>")){
 			
 		}
-		if(e.getActionCommand().equals("<html> <div style='text-align:center; color:#000000'> Change the Color of PlayerTwo's LightCycle <br> Current color is this color </div><html>")){
+		if(e.getActionCommand().equals("<html> <div style='text-align:center; color:#000000'> "
+				+ "Change the Color of PlayerTwo's LightCycle <br> "
+				+ "Current color is this color </div><html>")){
 			
 		}
 		if(e.getActionCommand().equals("START THE GAME")){
-			
+			GameMaster master = new GameMaster();
+			master.gameInit();
+			master.gameStart();
 		}
 	}
 }
