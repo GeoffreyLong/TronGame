@@ -7,6 +7,8 @@ import java.awt.event.*;
 
 public class WelcomeScreen extends JPanel implements ActionListener{
 	
+	private JLabel title;
+	
 	
 	public WelcomeScreen(){
 		makeComponents();
@@ -15,12 +17,17 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 	
 	private void makeComponents(){
 		
+		title = new JLabel("Protoype II");
+		title.setFont(new Font("Times", Font.BOLD, 37));
+		title.setBounds(170, 10, 510, 45);
+		
 		
 		
 	}
 	
 	private void makeLayout(){
 		setLayout(null);
+		add(title);
 		
 	}
 	
@@ -30,7 +37,9 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		
+		
 	}
+
 
 
 }
