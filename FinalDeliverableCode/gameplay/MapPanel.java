@@ -27,7 +27,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import prototype.Cycle.Heading;
+import gameplay.Cycle.Heading;
 import start.Frame;
 
 public class MapPanel extends JPanel implements KeyListener {
