@@ -17,6 +17,7 @@ public class GameSetup {
 	public GameSetup(Player playerOne, Player playerTwo){
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
+		map.setDefaultMap();
 	}
 	
 	public int getGameDifficulty(){
