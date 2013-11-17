@@ -30,7 +30,7 @@ import javax.swing.Timer;
 import start.Frame;
 
 public class MapPanel extends JPanel implements KeyListener {
-	private int[][] map;
+	private Tile[][] map;
 	private int xSize;
 	private int ySize;
 	PlayerControl cont;
@@ -61,6 +61,9 @@ public class MapPanel extends JPanel implements KeyListener {
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
+		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
+		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
+		
 		addKeyListener(this);
 		setVisible(true);
 		this.setFocusable(true);
@@ -86,21 +89,29 @@ public class MapPanel extends JPanel implements KeyListener {
 	 */
 	public void updateMap(){
 		this.requestFocusInWindow();
+		boolean cycleOne = true;
 		for (Cycle cycle : cycles){
 			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
-				gameStart = false;
 				cycle.travel(increment);
-				if (map[cycle.getXPos()][cycle.getYPos()]!=0){
+				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
+						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
+						map[cycle.getXPos()][cycle.getYPos()]==Tile.PTWO){
 					GameMaster.gameEnd();
 					cycle.isAlive = false;
 					explosion();
 				}
 				else{
-					map[cycle.getXPos()][cycle.getYPos()]=1;
+					if (cycleOne){
+						map[cycle.getXPos()][cycle.getYPos()]=Tile.PONE;
+					}
+					else {
+						map[cycle.getXPos()][cycle.getYPos()]=Tile.PTWO;
+					}
 				}
-				repaint();
 			}
+			cycleOne = false;
 		}
+		repaint();
 	}
 	
 	/**
@@ -127,37 +138,36 @@ public class MapPanel extends JPanel implements KeyListener {
 	 */
 	@Override
 	public void paintComponent(Graphics g){
-		if (gameStart){
-			for (int i=0; i<xSize; i++){
-				for (int j=0; j<ySize; j++){
-					if (map[i][j]==1){
-						g.setColor(Color.BLACK);
+		for(Cycle cycle:cycles){
+			if (cycles[0].isAlive && cycles[1].isAlive){
+				super.paintComponent(g);
+				for (int i=0; i<xSize; i+=5){
+					for (int j=0; j<ySize; j+=5){
+						switch(map[i][j]){
+							case WALL:
+								g.setColor(Color.BLACK);
+								break;
+							case EMPTY:
+								g.setColor(Color.WHITE);
+								break;
+							case PONE:
+								g.setColor(Color.RED);
+								break;
+							case PTWO:
+								g.setColor(Color.BLUE);
+								break;
+						}
+						g.fillRect(i+xOffset, j+yOffset, 5, 5);
 					}
-					else{
-						g.setColor(Color.WHITE);
-					}
-					g.fillRect(i+xOffset, j+yOffset, 1, 1);
 				}
 			}
-			g.setColor(cycles[0].getColor());
-			g.fillRect(cycles[0].getXPos() + xOffset, cycles[0].getYPos() + yOffset, increment, increment);
-			g.setColor(cycles[1].getColor());
-			g.fillRect(cycles[1].getXPos() + xOffset, cycles[1].getYPos() + yOffset, increment, increment);
-		}
-		else{
-			for (Cycle cycle : cycles){
-				if (cycle.isAlive){
-					g.setColor(cycle.getColor());
-					g.fillRect(cycle.getXPos()+xOffset, cycle.getYPos()+yOffset, increment, increment);
-				}
-				else{
-					for (Color color : getExplosionColors()){
-						g.setColor(color);
-						g.fillOval(xOffset+cycle.getXPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-								yOffset+cycle.getYPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-								(int)(explosionCount*Math.random()), 
-								(int)(explosionCount*Math.random()));
-					}
+			else if (!cycle.isAlive){
+				for (Color color : getExplosionColors()){
+					g.setColor(color);
+					g.fillOval(xOffset+cycle.getXPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+							yOffset+cycle.getYPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+							(int)(explosionCount*Math.random()), 
+							(int)(explosionCount*Math.random()));
 				}
 			}
 		}
