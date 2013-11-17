@@ -1,4 +1,4 @@
-package Prototype2;
+package prototypetwo;
 
 import java.sql.*;
  
