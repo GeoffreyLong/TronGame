@@ -8,6 +8,9 @@ import java.awt.event.*;
 public class WelcomeScreen extends JPanel implements ActionListener{
 	
 	private JLabel title;
+
+	private JButton createAccount;
+	private JButton login;
 	
 	
 	public WelcomeScreen(){
@@ -20,6 +23,14 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		title = new JLabel("Protoype II");
 		title.setFont(new Font("Times", Font.BOLD, 37));
 		title.setBounds(170, 10, 510, 45);
+
+		createAccount = new JButton("Create your account");
+		createAccount.setBounds(100, 150, 300, 80);
+		createAccount.addActionListener(this);
+		
+		login = new JButton("Login to your account");
+		login.setBounds(100, 250, 300, 80);
+		login.addActionListener(this);
 		
 		
 		
