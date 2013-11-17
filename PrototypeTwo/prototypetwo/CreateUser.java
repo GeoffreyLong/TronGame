@@ -49,6 +49,8 @@ public class CreateUser extends JPanel implements ActionListener{
 		add(title);
 		add(username);
 		add(usernameField);
+		add(password);
+		add(passwordField);
 		
 	}
 
