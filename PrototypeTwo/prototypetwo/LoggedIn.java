@@ -13,6 +13,7 @@ public class LoggedIn extends JPanel implements ActionListener{
 	private JLabel username;
 	private JButton back;
 	private Players player;
+	private JButton start;
 	
 	public LoggedIn(String username, Players player){
 		this.player = player;
@@ -36,12 +37,16 @@ public class LoggedIn extends JPanel implements ActionListener{
 		back.setBounds(20, 500, 80, 30);
 		back.addActionListener(this);
 		
+		start = new JButton("Start the Game");
+		start.setBounds(100,350,300,80);
+		start.addActionListener(this);
 	}
 	
 	private void makeLayout(){
 		setLayout(null);
 		add(username);
 		add(back);
+		add(start);
 	}
 
 	@Override
@@ -58,6 +63,14 @@ public class LoggedIn extends JPanel implements ActionListener{
 				welcome.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
 			}
 			Frame.addPanel(welcome);
+		}
+		
+		else if(e.getActionCommand().equals("Start the Game")){
+			if (Frame.playerOneLogged && Frame.playerTwoLogged){
+				GameMaster game = new GameMaster();
+				game.gameInit();
+				game.gameStart();
+			}
 		}
 		
 	}
