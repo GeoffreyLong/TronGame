@@ -13,9 +13,10 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 	private JButton createAccount;
 	private JButton login;
 	private JButton start;
+	private Players player;
 	
-	
-	public WelcomeScreen(){
+	public WelcomeScreen(Players player){
+		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents();
 		makeLayout();
@@ -55,8 +56,15 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == createAccount){
-			Frame.removeAll();
-			Frame.addPanel(new CreateUser());
+			CreateUser create = new CreateUser();
+			Frame.removePanel(this);
+			if (player == Players.ONE){
+				create.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			else{
+				create.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			Frame.addPanel(create);
 		}
 		
 		else if(e.getSource() == login){
