@@ -10,6 +10,7 @@ public class Map {
         private int DEFAULT_MAP_SIZE = 500;
         private int xSize;
         private int ySize;
+        private int numberOfMaps = 1;
   
         public Tile[][] getMap(){
                 return tiles;
@@ -46,7 +47,18 @@ public class Map {
         public int getYSize(){
                 return this.ySize;
         }
-        
+        public int getNumberOfMaps(){
+        	return numberOfMaps;
+        }
+        public Tile[][] getMap(int i){
+        	Map map;
+        	switch(i){
+        	case 0:
+        		setDefaultMap();
+        		break;
+        	}
+        	return tiles;
+        }
         public int getDefaultMapSize() {
         	return this.DEFAULT_MAP_SIZE;  			
         }
