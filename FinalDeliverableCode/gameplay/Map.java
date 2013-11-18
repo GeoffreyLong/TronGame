@@ -70,14 +70,14 @@ public class Map {
         	return this.DEFAULT_MAP_SIZE;  			
         }
         
-        private class MapTwo{
+        private class MapOne{
         	private Tile[][] tiles;
         	
         	//Add one to the sizes for the border
         	private final int X_SIZE = 76;
         	private final int Y_SIZE = 51;
         	
-        	public MapTwo(){
+        	public MapOne(){
         		setMap();
         	}
         	private void setMap(){
