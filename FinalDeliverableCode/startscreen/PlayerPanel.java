@@ -103,10 +103,10 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			CreateUser create = new CreateUser(player);
 			Frame.removePanel(this);
 			if (player.getPlayerNumber() == 1){
-				create.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+				create.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 			}
 			else{
-				create.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+				create.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 			}
 			Frame.addPanel(create);
 		}
