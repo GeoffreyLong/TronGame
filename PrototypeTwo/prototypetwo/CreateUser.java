@@ -13,6 +13,9 @@ public class CreateUser extends JPanel implements ActionListener{
 	private JTextField usernameField;
 	private JLabel password;
 	private JPasswordField passwordField;
+	private JLabel rePassword;
+	private JPasswordField rePasswordField;
+	private JButton createAccount;
 	
 	
 	
@@ -39,7 +42,18 @@ public class CreateUser extends JPanel implements ActionListener{
 		password.setBounds(20, 200, 140, 25);
 		
 		passwordField = new JPasswordField(40);
-		passwordField.setBounds(200, 200, 170, 25);	
+		passwordField.setBounds(200, 200, 170, 25);
+
+		rePassword = new JLabel("Re-enter Password : ");
+		rePassword.setFont(new Font("Times", Font.BOLD, 18));
+		rePassword.setBounds(20, 230, 190, 25);
+		
+		rePasswordField = new JPasswordField(40);
+		rePasswordField.setBounds(200, 230, 170, 25);
+		
+		createAccount = new JButton("Create Account");
+		createAccount.setBounds(200, 260, 140, 30);
+		createAccount.addActionListener(this);	
 		
 		
 	}
