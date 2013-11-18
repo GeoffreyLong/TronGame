@@ -49,6 +49,12 @@ public class LoginGUI extends JPanel implements ActionListener{
 	
 	private void makeLayout(){
 		setLayout(null);
+		add(title);
+		add(username);
+		add(usernameField);
+		add(password);
+		add(passwordField);
+		add(login);
 		
 	}
 
