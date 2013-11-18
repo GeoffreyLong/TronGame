@@ -25,7 +25,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import prototype.Cycle.Heading;
+import prototypetwo.Cycle.Heading;
 
 public class MapPanel extends JPanel implements KeyListener {
 	private int[][] map;
