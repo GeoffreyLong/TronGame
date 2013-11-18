@@ -11,11 +11,12 @@ public class LoggedIn extends JPanel implements ActionListener{
 	
 	private JLabel username;
 	private JButton back;
+	private Players player;
 	
-	public LoggedIn(String username){
+	public LoggedIn(String username, Players player){
+		this.player = player;
 		makeComponents(username);
 		makeLayout();
-		
 	}
 	
 	private void makeComponents(String username){
@@ -41,7 +42,7 @@ public class LoggedIn extends JPanel implements ActionListener{
 		
 		if(e.getSource() == back){
 			Frame.removeAll();
-			Frame.addPanel(new WelcomeScreen());
+			Frame.addPanel(new WelcomeScreen(player));
 		}
 		
 	}

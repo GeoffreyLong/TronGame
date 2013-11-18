@@ -15,9 +15,10 @@ public class LoginGUI extends JPanel implements ActionListener{
 	private JLabel password;
 	private JPasswordField passwordField;
 	private JButton login;	
-
+	private Players player;
 	
-	public LoginGUI(){
+	public LoginGUI(Players player){
+		this.player = player;
 		makeComponents();
 		makeLayout();
 	}
@@ -82,7 +83,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 			
 			if(pass){
 				Frame.removeAll();
-				Frame.addPanel(new LoggedIn(usernameField.getText()));
+				Frame.addPanel(new LoggedIn(usernameField.getText(), player));
 			}
 			
 			else{

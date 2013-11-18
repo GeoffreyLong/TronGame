@@ -17,10 +17,11 @@ public class CreateUser extends JPanel implements ActionListener{
 	private JLabel rePassword;
 	private JPasswordField rePasswordField;
 	private JButton createAccount;
+	private Players player;
 	
 	
-	
-	public CreateUser(){
+	public CreateUser(Players player){
+		this.player = player;
 		makeComponents();
 		makeLayout();		
 	}
@@ -88,7 +89,7 @@ public class CreateUser extends JPanel implements ActionListener{
 					if(pass){
 						conn.close();
 						Frame.removeAll();
-						Frame.addPanel(new LoggedIn(usernameField.getText()));
+						Frame.addPanel(new LoggedIn(usernameField.getText(), player));
 					}
 					
 					else{

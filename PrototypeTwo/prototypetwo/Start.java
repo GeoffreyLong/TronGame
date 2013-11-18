@@ -35,9 +35,9 @@ public class Start extends JFrame{
 //        JPanel framePanel = new JPanel(new GridLayout(1,2));
 //        JPanel buttonPanel = new JPanel(new GridLayout(1,1));
 		
-		players[0] = new LoginGUI();		
+		players[0] = new LoginGUI(Players.ONE);		
 		
-		players[1] = new LoginGUI();
+		players[1] = new LoginGUI(Players.TWO);
 		
 		frame.add(players[0]);
 		frame.add(players[1]);
