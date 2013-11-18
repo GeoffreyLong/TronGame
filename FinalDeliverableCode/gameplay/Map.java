@@ -10,6 +10,10 @@ public class Map {
         private int numberOfMaps = 1;
         private int xSize;
         private int ySize;
+    	private final int pOneXStart = 0;
+    	private final int pTwoXStart = 0;
+    	private final int pOneYStart = 0;
+    	private final int pTwoYStart = 0;
   
         public Tile[][] getMap(){
                 return tiles;
@@ -49,6 +53,19 @@ public class Map {
         		break;
         	}
         }
+        
+    	public int getPOneXStart(){
+    		return pOneXStart;
+    	}
+    	public int getPTwoXStart(){
+    		return pTwoXStart;
+    	}
+    	public int getPOneYStart(){
+    		return pOneYStart;
+    	}
+    	public int getPTwoYStart(){
+    		return pTwoYStart;
+    	}
         
         private class MapOne{
         	private Tile[][] tiles;
