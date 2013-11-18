@@ -80,9 +80,11 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		}
 		
 		else if(e.getActionCommand().equals("Start the Game")){
-			GameMaster game = new GameMaster();
-			game.gameInit();
-			game.gameStart();
+			if (Frame.playerOneLogged && Frame.playerTwoLogged){
+				GameMaster game = new GameMaster();
+				game.gameInit();
+				game.gameStart();
+			}
 		}
 	}
 
