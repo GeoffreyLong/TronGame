@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import prototypetwo.CreateUser;
+import prototypetwo.Players;
 import user.LoginGUI;
 import start.Frame;
 import user.Login;
@@ -97,6 +99,17 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		if (e.getActionCommand().equals("Show Statistics")){
 			
+		}
+		if(e.getSource() == createAccount){
+			CreateUser create = new CreateUser(player);
+			Frame.removePanel(this);
+			if (player == Players.ONE){
+				create.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			else{
+				create.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			Frame.addPanel(create);
 		}
 	}
 }
