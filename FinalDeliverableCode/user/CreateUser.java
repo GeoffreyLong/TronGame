@@ -40,7 +40,7 @@ public class CreateUser extends JPanel implements ActionListener{
 		username.setBounds(20, 170, 140, 25);
 		
 		usernameField = new JTextField(40);
-		usernameField.setBounds(200, 170, 170, 25);
+		usernameField.setBounds(240, 170, 170, 25);
 		
 
 		password = new JLabel("Password : ");
@@ -48,20 +48,18 @@ public class CreateUser extends JPanel implements ActionListener{
 		password.setBounds(20, 200, 140, 25);
 		
 		passwordField = new JPasswordField(40);
-		passwordField.setBounds(200, 200, 170, 25);
+		passwordField.setBounds(240, 200, 170, 25);
 
 		rePassword = new JLabel("Re-enter Password : ");
 		rePassword.setFont(new Font("Times", Font.BOLD, 18));
-		rePassword.setBounds(20, 230, 190, 25);
+		rePassword.setBounds(20, 230, 210, 25);
 		
 		rePasswordField = new JPasswordField(40);
-		rePasswordField.setBounds(200, 230, 170, 25);
+		rePasswordField.setBounds(240, 230, 170, 25);
 		
 		createAccount = new JButton("Create Account");
-		createAccount.setBounds(200, 260, 140, 30);
+		createAccount.setBounds(240, 260, 140, 30);
 		createAccount.addActionListener(this);	
-		
-		
 	}
 	
 	private void makeLayout(){
