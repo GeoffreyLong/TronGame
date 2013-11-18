@@ -75,6 +75,32 @@ public class CreateUser extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+		if(e.getSource() == createAccount){
+			if(passwordField.getText().equals(rePasswordField.getText())){
+				Connection conn = Connect.connect();
+				
+				DatabaseCalls call = new DatabaseCalls(conn);
+				
+				boolean pass = call.createUser(usernameField.getText(), passwordField.getText());
+				
+				try {
+					if(pass){
+						conn.close();
+					}
+					
+					else{
+						
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				Main2.frame.getContentPane().removeAll();
+				Main2.frame.getContentPane().add(new LoggedIn(usernameField.getText()));
+				Main2.frame.setVisible(true);
+			}
+		}
 		
 		
 	}
