@@ -51,16 +51,14 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		
 		if (player.getUserName().equals("anonymous")){
 			playerLog = new JButton("Login");
-			playerLog.setBounds(140, 125, 300, 70);
-			playerLog.addActionListener(this);
-			add(playerLog);
 		}
 		else{
 			playerLog = new JButton("Logout");
-			playerLog.setBounds(140, 125, 300, 70);
-			playerLog.addActionListener(this);
-			add(playerLog);
 		}
+		
+		playerLog.setBounds(140, 125, 300, 70);
+		playerLog.addActionListener(this);
+		add(playerLog);
 		
 		playerStatus = new JLabel("NOT READY");
 		playerStatus.setBounds(140, 425, 300, 30);
