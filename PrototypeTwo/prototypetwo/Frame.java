@@ -67,4 +67,9 @@ public class Frame{
 	    frame.validate();
 	    frame.repaint();
 	}
+	public static void removeAll(){
+		frame.getContentPane().removeAll();
+		frame.validate();
+		frame.repaint();
+	}
 }
