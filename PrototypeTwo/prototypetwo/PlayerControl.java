@@ -5,7 +5,7 @@
 
 package prototypetwo;
 
-import prototype.Cycle.Heading;
+import prototypetwo.Cycle.Heading;
 
 public class PlayerControl {
 	Cycle cycleOne;
