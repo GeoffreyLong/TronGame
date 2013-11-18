@@ -42,7 +42,7 @@ public class Frame{
 	}
 	public static MapPanel start(Map map){
 	    MapPanel mapPanel = new MapPanel(map);
-		
+		mapPanel.setBounds(0,0, getXSize(), getYSize());
 	    frame.getContentPane().removeAll();
 	    frame.add(mapPanel);
 	    frame.validate();
