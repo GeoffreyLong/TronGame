@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import user.LoginGUI;
 import start.Frame;
 import user.Login;
 import user.Logout;
@@ -75,7 +76,15 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Login")){
-			
+			LoginGUI login = new LoginGUI(player);
+			//Frame.removePanel(this);
+			if (player.getPlayerNumber() == 1){
+				login.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			else{
+				login.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			Frame.addPanel(login);
 		}
 		if (e.getActionCommand().equals("Logout")){
 
