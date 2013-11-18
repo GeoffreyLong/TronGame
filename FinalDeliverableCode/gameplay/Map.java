@@ -59,9 +59,14 @@ public class Map {
         	}
         	return tiles;
         }
+        public void setMap(int i){
+        	switch(i){
+        	case 0:
+        		setDefaultMap();
+        		break;
+        	}
+        }
         public int getDefaultMapSize() {
         	return this.DEFAULT_MAP_SIZE;  			
         }
-  
-  
 }
