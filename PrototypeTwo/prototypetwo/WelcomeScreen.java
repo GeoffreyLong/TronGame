@@ -68,8 +68,15 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		}
 		
 		else if(e.getSource() == login){
-			Frame.removeAll();
-			Frame.addPanel(new LoginGUI());
+			LoginGUI login = new LoginGUI();
+			Frame.removePanel(this);
+			if (player == Players.ONE){
+				login.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			else{
+				login.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			Frame.addPanel(login);
 		}
 		
 		else if(e.getActionCommand().equals("Start the Game")){
