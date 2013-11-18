@@ -83,6 +83,10 @@ public class Frame {
 		frame.validate();
 		frame.repaint();
 	}
+	public static void removePanel(JPanel panel){
+		frame.remove(panel);
+		frame.repaint();
+	}
 	public static int getYCenter(){
 		return xCenter;
 	}
