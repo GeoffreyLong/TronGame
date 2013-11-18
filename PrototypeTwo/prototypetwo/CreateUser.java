@@ -88,8 +88,15 @@ public class CreateUser extends JPanel implements ActionListener{
 				try {
 					if(pass){
 						conn.close();
-						Frame.removeAll();
-						Frame.addPanel(new LoggedIn(usernameField.getText(), player));
+						LoggedIn login = new LoggedIn(usernameField.getText(), player);
+						Frame.removePanel(this);
+						if (player == Players.ONE){
+							login.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+						}
+						else{
+							login.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+						}
+						Frame.addPanel(login);
 					}
 					
 					else{

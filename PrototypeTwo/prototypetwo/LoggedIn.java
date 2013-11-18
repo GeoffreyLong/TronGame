@@ -41,8 +41,15 @@ public class LoggedIn extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == back){
-			Frame.removeAll();
-			Frame.addPanel(new WelcomeScreen(player));
+			WelcomeScreen welcome = new WelcomeScreen(player);
+			Frame.removePanel(this);
+			if (player == Players.ONE){
+				welcome.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			else{
+				welcome.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+			}
+			Frame.addPanel(welcome);
 		}
 		
 	}
