@@ -2,6 +2,7 @@ package prototypetwo;
 
 import javax.swing.*;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
 
@@ -15,6 +16,7 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 	
 	
 	public WelcomeScreen(){
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents();
 		makeLayout();
 	}
