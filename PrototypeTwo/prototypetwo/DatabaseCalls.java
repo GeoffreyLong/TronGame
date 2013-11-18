@@ -11,30 +11,30 @@ public class DatabaseCalls {
 	}
 	
 	public boolean createUser(String userName, String password){
-
+		
 		boolean pass = false;
 		
 		String query = "INSERT INTO authentication.login (userName, password) VALUES (\'" + userName + "\',\'" +  password + "\')";
+		System.out.println("1");
 		
 		try{
+			System.out.println(query);
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			pass = true;
 		} 
         
-        	catch (SQLException e) {
+        catch (SQLException e) {
 			//System.out.println("User already exists");
-        		pass = false;
+        	pass = false;
+        	e.printStackTrace();
 		}
 		
 		return pass;
-		
-		
 	}
 	
 	
 	public boolean login(String userName, String password){
-
 		boolean pass = false;
 		String check = "";
 		
@@ -56,14 +56,11 @@ public class DatabaseCalls {
 			
 		} 
         
-       	        catch (SQLException e) {
+        catch (SQLException e) {
 			System.out.println("Check your username/password");
 		}
 		
 		return pass;
-		
-		
 	}
-
 
 }

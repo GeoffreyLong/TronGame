@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class CreateUser extends JPanel implements ActionListener{
-  
+	
 	private JLabel title;
 	private JLabel username;
 	private JTextField usernameField;
@@ -17,7 +17,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	private JLabel rePassword;
 	private JPasswordField rePasswordField;
 	private JButton createAccount;
-	
+	private JLabel warning;
 	
 	
 	public CreateUser(){
@@ -37,14 +37,13 @@ public class CreateUser extends JPanel implements ActionListener{
 		usernameField = new JTextField(40);
 		usernameField.setBounds(200, 170, 170, 25);
 		
-
 		password = new JLabel("Password : ");
 		password.setFont(new Font("Times", Font.BOLD, 18));
 		password.setBounds(20, 200, 140, 25);
 		
 		passwordField = new JPasswordField(40);
 		passwordField.setBounds(200, 200, 170, 25);
-
+		
 		rePassword = new JLabel("Re-enter Password : ");
 		rePassword.setFont(new Font("Times", Font.BOLD, 18));
 		rePassword.setBounds(20, 230, 190, 25);
@@ -54,7 +53,11 @@ public class CreateUser extends JPanel implements ActionListener{
 		
 		createAccount = new JButton("Create Account");
 		createAccount.setBounds(200, 260, 140, 30);
-		createAccount.addActionListener(this);	
+		createAccount.addActionListener(this);
+		
+		warning = new JLabel("<html><font color='red'>Account Already Exists ! </font></html>");
+		warning.setBounds(20, 230, 190, 25);
+		
 		
 		
 	}
@@ -69,7 +72,6 @@ public class CreateUser extends JPanel implements ActionListener{
 		add(rePassword);
 		add(rePasswordField);
 		add(createAccount);
-		
 	}
 
 	@Override
@@ -78,20 +80,27 @@ public class CreateUser extends JPanel implements ActionListener{
 		
 		if(e.getSource() == createAccount){
 			if(passwordField.getText().equals(rePasswordField.getText())){
+				System.out.println("1");
 				Connection conn = Connect.connect();
 				
 				DatabaseCalls call = new DatabaseCalls(conn);
+				System.out.println("2");
 				
 				boolean pass = call.createUser(usernameField.getText(), passwordField.getText());
+				System.out.println("3");
+				System.out.println(pass);
 				
 				try {
 					if(pass){
 						conn.close();
-						Frame.removeAll();
-						Frame.addPanel(new LoggedIn(usernameField.getText()));
+						Main2.frame.getContentPane().removeAll();
+						Main2.frame.getContentPane().add(new LoggedIn(usernameField.getText()));
+						Main2.frame.setVisible(true);
 					}
 					
 					else{
+						
+						add(warning);
 						
 					}
 				} catch (SQLException e1) {
@@ -100,7 +109,6 @@ public class CreateUser extends JPanel implements ActionListener{
 				}
 			}
 		}
-		
 		
 	}
 

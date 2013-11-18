@@ -1,5 +1,6 @@
 package prototypetwo;
 
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -9,24 +10,29 @@ import java.sql.SQLException;
 
 public class LoginGUI extends JPanel implements ActionListener{
 	
+	private String player;
+	private boolean loggedIn = false;
+	
 	private JLabel title;
 	private JLabel username;
 	private JTextField usernameField;
 	private JLabel password;
 	private JPasswordField passwordField;
-	private JButton login;	
-
+	private JButton login;
 	
-	public LoginGUI(){
+	
+	
+	
+	public LoginGUI(String player){
+		this.player = player;
 		makeComponents();
 		makeLayout();
 	}
 	
 	private void makeComponents(){
-
-		title = new JLabel("Login to your account");
+		title = new JLabel(player);
 		title.setFont(new Font("Times", Font.BOLD, 37));
-		title.setBounds(90, 10, 510, 45);
+		title.setBounds(100, 10, 510, 45);
 		
 		username = new JLabel("Username : ");
 		username.setFont(new Font("Times", Font.BOLD, 18));
@@ -45,7 +51,6 @@ public class LoginGUI extends JPanel implements ActionListener{
 		login = new JButton("Login");
 		login.setBounds(130, 230, 100, 30);
 		login.addActionListener(this);
-		
 	}
 	
 	private void makeLayout(){
@@ -56,7 +61,6 @@ public class LoginGUI extends JPanel implements ActionListener{
 		add(password);
 		add(passwordField);
 		add(login);
-		
 	}
 
 	@Override
@@ -81,16 +85,30 @@ public class LoginGUI extends JPanel implements ActionListener{
 			System.out.println(pass);
 			
 			if(pass){
-				Frame.removeAll();
-				Frame.addPanel(new LoggedIn(usernameField.getText()));
+				{
+					Start.frame.getContentPane().remove(Start.players[Start.i]);
+					Start.frame.getContentPane().add(new LoggedIn(usernameField.getText()));
+					Start.frame.setVisible(true);
+					Start.i++;
+					this.loggedIn = true;
+				}
+				
+				if(Start.i == 2){
+					Start.frame.getContentPane().removeAll();
+					Start.frame.setVisible(false);
+				}
 			}
 			
 			else{
 				
 			}
+			
 		}
 		
 	}
-
+	
+	public boolean isLoggedIn(){
+		return this.loggedIn;
+	}
 
 }

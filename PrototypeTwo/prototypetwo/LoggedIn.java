@@ -21,7 +21,7 @@ public class LoggedIn extends JPanel implements ActionListener{
 	private void makeComponents(String username){
 		this.username = new JLabel("Welcome " + username + "!");
 		this.username.setFont(new Font("Times", Font.BOLD, 30));
-		this.username.setBounds(140, 200, 400, 50);
+		this.username.setBounds(100, 200, 400, 50);
 		
 		back = new JButton("Back");
 		back.setBounds(20, 500, 80, 30);
@@ -40,8 +40,9 @@ public class LoggedIn extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == back){
-			Frame.removeAll();
-			Frame.addPanel(new WelcomeScreen());
+			Main2.frame.getContentPane().removeAll();
+			Main2.frame.getContentPane().add(new WelcomeScreen());
+			Main2.frame.setVisible(true);
 		}
 		
 	}
