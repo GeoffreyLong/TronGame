@@ -142,6 +142,10 @@ public class Map {
                         if (x==0 || y==0 || y>=Y_SIZE-1 || x>=X_SIZE-1){
                             tiles[x][y] = Tile.WALL;
                         }
+                        else if((x>15 && x<=25 && y>20 && y<=30) ||
+                        		(x>50 && x<=60 && y>20 && y<=30)){
+                        	tiles[x][y] = Tile.WALL;
+                        }
                         else{
                             tiles[x][y] = Tile.EMPTY;
                         }
