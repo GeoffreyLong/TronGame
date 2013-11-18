@@ -11,6 +11,7 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 
 	private JButton createAccount;
 	private JButton login;
+	private JButton start;
 	
 	
 	public WelcomeScreen(){
@@ -32,8 +33,9 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		login.setBounds(100, 250, 300, 80);
 		login.addActionListener(this);
 		
-		
-		
+		start = new JButton("Start the Game");
+		start.setBounds(100,350,300,80);
+		start.addActionListener(this);
 	}
 	
 	private void makeLayout(){
@@ -42,7 +44,7 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		add(title);
 		add(createAccount);
 		add(login);
-		
+		add(start);
 	}
 	
 
