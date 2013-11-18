@@ -10,10 +10,10 @@ public class Map {
         private int numberOfMaps = 1;
         private int xSize;
         private int ySize;
-    	private final int pOneXStart = 0;
-    	private final int pTwoXStart = 0;
-    	private final int pOneYStart = 0;
-    	private final int pTwoYStart = 0;
+    	private int pOneXStart;
+    	private int pTwoXStart;
+    	private int pOneYStart;
+    	private int pTwoYStart;
   
         public Tile[][] getMap(){
                 return tiles;
@@ -25,6 +25,10 @@ public class Map {
                 tiles = mapOne.getMap();
                 xSize = mapOne.getXSize();
                 ySize = mapOne.getYSize();
+                pOneXStart = mapOne.getPOneXStart();
+                pOneYStart = mapOne.getPOneYStart();
+                pTwoXStart = mapOne.getPTwoXStart();
+                pTwoYStart = mapOne.getPTwoYStart();
         }
         
         public int getXSize(){
