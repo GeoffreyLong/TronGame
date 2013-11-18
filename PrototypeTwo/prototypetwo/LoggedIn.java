@@ -16,6 +16,12 @@ public class LoggedIn extends JPanel implements ActionListener{
 	
 	public LoggedIn(String username, Players player){
 		this.player = player;
+		if (player == Players.ONE){
+			Frame.playerOneLogged = true;
+		}
+		else{
+			Frame.playerTwoLogged = true;
+		}
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents(username);
 		makeLayout();
