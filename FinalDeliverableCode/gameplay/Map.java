@@ -71,7 +71,7 @@ public class Map {
     		return pTwoYStart;
     	}
         
-        private class MapOne{
+    	private class MapOne{
         	private Tile[][] tiles;
         	
         	//Add one to the sizes for the border
@@ -83,6 +83,106 @@ public class Map {
         	private final int pTwoYStart = 1;
         	
         	public MapOne(){
+        		setMap();
+        	}
+        	private void setMap(){
+        		tiles = new Tile[X_SIZE][Y_SIZE];
+        		for (int x=0; x<X_SIZE; x++){
+        			for (int y=0; y<Y_SIZE; y++){
+                        if (x==0 || y==0 || y>=Y_SIZE-1 || x>=X_SIZE-1){
+                            tiles[x][y] = Tile.WALL;
+                        }
+                        else{
+                            tiles[x][y] = Tile.EMPTY;
+                        }
+        			}
+        		}
+        	}
+        	public Tile[][] getMap(){
+        		return tiles;
+        	}
+        	public int getXSize(){
+        		return this.X_SIZE;
+        	}
+        	public int getYSize(){
+        		return this.Y_SIZE;
+        	}
+        	public int getPOneXStart(){
+        		return pOneXStart;
+        	}
+        	public int getPTwoXStart(){
+        		return pTwoXStart;
+        	}
+        	public int getPOneYStart(){
+        		return pOneYStart;
+        	}
+        	public int getPTwoYStart(){
+        		return pTwoYStart;
+        	}
+        }
+    	
+    	private class MapTwo{
+       	private Tile[][] tiles;
+        	
+        	//Add one to the sizes for the border
+        	private final int X_SIZE = 0;
+        	private final int Y_SIZE = 0;
+        	private final int pOneXStart = 0;
+        	private final int pTwoXStart = 0;
+        	private final int pOneYStart = 0;
+        	private final int pTwoYStart = 0;
+        	
+        	public MapTwo(){
+        		setMap();
+        	}
+        	private void setMap(){
+        		tiles = new Tile[X_SIZE][Y_SIZE];
+        		for (int x=0; x<X_SIZE; x++){
+        			for (int y=0; y<Y_SIZE; y++){
+                        if (x==0 || y==0 || y>=Y_SIZE-1 || x>=X_SIZE-1){
+                            tiles[x][y] = Tile.WALL;
+                        }
+                        else{
+                            tiles[x][y] = Tile.EMPTY;
+                        }
+        			}
+        		}
+        	}
+        	public Tile[][] getMap(){
+        		return tiles;
+        	}
+        	public int getXSize(){
+        		return this.X_SIZE;
+        	}
+        	public int getYSize(){
+        		return this.Y_SIZE;
+        	}
+        	public int getPOneXStart(){
+        		return pOneXStart;
+        	}
+        	public int getPTwoXStart(){
+        		return pTwoXStart;
+        	}
+        	public int getPOneYStart(){
+        		return pOneYStart;
+        	}
+        	public int getPTwoYStart(){
+        		return pTwoYStart;
+        	}
+        }
+    	
+    	private class MapThree{
+       	private Tile[][] tiles;
+        	
+        	//Add one to the sizes for the border
+        	private final int X_SIZE = 0;
+        	private final int Y_SIZE = 0;
+        	private final int pOneXStart = 0;
+        	private final int pTwoXStart = 0;
+        	private final int pOneYStart = 0;
+        	private final int pTwoYStart = 0;
+        	
+        	public MapThree(){
         		setMap();
         	}
         	private void setMap(){
