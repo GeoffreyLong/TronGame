@@ -72,8 +72,11 @@ public class Map {
         
         private class MapTwo{
         	private Tile[][] tiles;
-        	private final int X_SIZE = 75;
-        	private final int Y_SIZE = 50;
+        	
+        	//Add one to the sizes for the border
+        	private final int X_SIZE = 76;
+        	private final int Y_SIZE = 51;
+        	
         	public MapTwo(){
         		setMap();
         	}
@@ -81,7 +84,12 @@ public class Map {
         		tiles = new Tile[X_SIZE][Y_SIZE];
         		for (int x=0; x<X_SIZE; x++){
         			for (int y=0; y<Y_SIZE; y++){
-        				
+                        if (x==0 || y==0 || y>=Y_SIZE-1 || x>=X_SIZE-1){
+                            tiles[x][y] = Tile.WALL;
+                        }
+                        else{
+                            tiles[x][y] = Tile.EMPTY;
+                        }
         			}
         		}
         	}
