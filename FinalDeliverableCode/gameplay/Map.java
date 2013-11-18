@@ -72,8 +72,14 @@ public class Map {
         
         private class MapTwo{
         	private Tile[][] tiles;
+        	private final int X_SIZE = 75;
+        	private final int Y_SIZE = 50;
         	public MapTwo(){
-
+        		setMap();
+        	}
+        	private void setMap(){
+        		tiles = new Tile[X_SIZE][Y_SIZE];
+        		
         	}
         }
 }
