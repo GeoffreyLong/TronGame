@@ -56,7 +56,7 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == createAccount){
-			CreateUser create = new CreateUser();
+			CreateUser create = new CreateUser(player);
 			Frame.removePanel(this);
 			if (player == Players.ONE){
 				create.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
@@ -68,7 +68,7 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		}
 		
 		else if(e.getSource() == login){
-			LoginGUI login = new LoginGUI();
+			LoginGUI login = new LoginGUI(player);
 			Frame.removePanel(this);
 			if (player == Players.ONE){
 				login.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
