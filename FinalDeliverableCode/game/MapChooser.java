@@ -27,8 +27,10 @@ public class MapChooser extends JPanel{
 					String button = e.getActionCommand();
 					int number = Integer.valueOf(button.split(" ")[0]);
 					theMap = map.getMap(number);
+					repaint();
 				}
 			});
+			add(chooseMap);
 		}
 	}
 }
