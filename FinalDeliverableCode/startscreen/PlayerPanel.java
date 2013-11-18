@@ -100,10 +100,10 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		if (e.getActionCommand().equals("Show Statistics")){
 			
 		}
-		if(e.getSource() == createAccount){
+		if(e.getActionCommand().equals("Create an Account")){
 			CreateUser create = new CreateUser(player);
 			Frame.removePanel(this);
-			if (player == Players.ONE){
+			if (player.getPlayerNumber() == 1){
 				create.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
 			}
 			else{
