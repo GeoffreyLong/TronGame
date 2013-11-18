@@ -65,6 +65,9 @@ public class CreateUser extends JPanel implements ActionListener{
 		add(usernameField);
 		add(password);
 		add(passwordField);
+		add(rePassword);
+		add(rePasswordField);
+		add(createAccount);
 		
 	}
 
