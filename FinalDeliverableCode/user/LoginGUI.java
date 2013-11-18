@@ -15,9 +15,9 @@ public class LoginGUI extends JPanel implements ActionListener{
 	private JLabel password;
 	private JPasswordField passwordField;
 	private JButton login;	
-	private Players player;
+	private Player player;
 	
-	public LoginGUI(Players player){
+	public LoginGUI(Player player){
 		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents();
