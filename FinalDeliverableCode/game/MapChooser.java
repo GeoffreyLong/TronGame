@@ -20,15 +20,12 @@ public class MapChooser extends JPanel{
 		setLayout(null);
 		
 		for (int i = 0; i<map.getNumberOfMaps(); i++){
-			JButton chooseMap = new JButton("Map " + i);
+			MapButton chooseMap = new MapButton(map, i);
 			chooseMap.setBounds(10+100*i, 20, 80, 20);
 			chooseMap.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					String button = e.getActionCommand();
-					int number = Integer.valueOf(button.split(" ")[0]);
-					theMap = map.getMap(number);
-					repaint();
+					
 				}
 			});
 			add(chooseMap);
