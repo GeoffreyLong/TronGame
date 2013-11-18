@@ -87,9 +87,8 @@ public class CreateUser extends JPanel implements ActionListener{
 				try {
 					if(pass){
 						conn.close();
-						Main2.frame.getContentPane().removeAll();
-						Main2.frame.getContentPane().add(new LoggedIn(usernameField.getText()));
-						Main2.frame.setVisible(true);
+						Frame.removeAll();
+						Frame.addPanel(new LoggedIn(usernameField.getText()));
 					}
 					
 					else{

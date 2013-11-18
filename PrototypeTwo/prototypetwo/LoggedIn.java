@@ -40,9 +40,8 @@ public class LoggedIn extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == back){
-			Main2.frame.getContentPane().removeAll();
-			Main2.frame.getContentPane().add(new WelcomeScreen());
-			Main2.frame.setVisible(true);
+			Frame.removeAll();
+			Frame.addPanel(new WelcomeScreen());
 		}
 		
 	}
