@@ -1,6 +1,7 @@
 package prototypetwo;
 
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ public class LoggedIn extends JPanel implements ActionListener{
 	
 	public LoggedIn(String username, Players player){
 		this.player = player;
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents(username);
 		makeLayout();
 	}

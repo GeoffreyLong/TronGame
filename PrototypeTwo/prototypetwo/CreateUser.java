@@ -22,6 +22,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	
 	public CreateUser(Players player){
 		this.player = player;
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents();
 		makeLayout();		
 	}

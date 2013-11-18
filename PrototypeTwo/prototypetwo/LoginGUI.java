@@ -19,6 +19,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	
 	public LoginGUI(Players player){
 		this.player = player;
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents();
 		makeLayout();
 	}
