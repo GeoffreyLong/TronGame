@@ -70,7 +70,10 @@ public class Map {
     	public int getPTwoYStart(){
     		return pTwoYStart;
     	}
-        
+        //TODO make this more modular
+    	//ie. pull out obstacle class and make it a method,
+    	//also may want to make these maps extend map so that there isn't 
+    	//so much code repetition
     	private class MapOne{
         	private Tile[][] tiles;
         	
