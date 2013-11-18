@@ -63,9 +63,9 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 		}
 		
 		else if(e.getActionCommand().equals("Start the Game")){
-			Map map = new Map();
-			map.setDefaultMap();
-			Frame.start(map);
+			GameMaster game = new GameMaster();
+			game.gameInit();
+			game.gameStart();
 		}
 	}
 
