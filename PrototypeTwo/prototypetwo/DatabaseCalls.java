@@ -18,7 +18,7 @@ public class DatabaseCalls {
 		
 		try{
 			Statement stmt = conn.createStatement();
-			stmt = stmt.executeUpdate(query);
+			stmt.executeUpdate(query);
 			pass = true;
 		} 
         
