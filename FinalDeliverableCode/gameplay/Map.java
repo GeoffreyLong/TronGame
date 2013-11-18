@@ -69,4 +69,11 @@ public class Map {
         public int getDefaultMapSize() {
         	return this.DEFAULT_MAP_SIZE;  			
         }
+        
+        private class MapTwo{
+        	private Tile[][] tiles;
+        	public MapTwo(){
+
+        	}
+        }
 }
