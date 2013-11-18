@@ -19,6 +19,7 @@ public class Frame{
 	
 	public Frame(){
 	    frame = new JFrame();
+	    frame.setLayout(null);
   	    Toolkit tk = Toolkit.getDefaultToolkit();  
         xSize = ((int) tk.getScreenSize().getWidth());  
         ySize = ((int) tk.getScreenSize().getHeight());
