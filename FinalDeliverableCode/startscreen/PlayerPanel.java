@@ -49,14 +49,22 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		JLabel playerNameLabel = new JLabel("Logged in as : " + player.getUserName());
 		playerNameLabel.setBounds(140, 325, 300, 30);
 		
+		JButton createUser = new JButton("Create User");
+		createUser.setBounds(340,125,300,70);
+		createUser.addActionListener(this);
+		add(createUser);
+		
 		if (player.getUserName().equals("anonymous")){
 			playerLog = new JButton("Login");
+			playerLog.setBounds(20, 125, 300, 70);
+			createUser.setVisible(true);
 		}
 		else{
 			playerLog = new JButton("Logout");
+			playerLog.setBounds(140, 125, 300, 70);
+			createUser.setVisible(false);
 		}
 		
-		playerLog.setBounds(140, 125, 300, 70);
 		playerLog.addActionListener(this);
 		add(playerLog);
 		
