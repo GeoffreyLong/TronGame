@@ -11,5 +11,7 @@ public class MapButton extends JButton{
 	MapButton(Map map, int i){
 		tiles = map.getMap(i);
 		this.map = map;
+		setBounds(0,0,110,110);
+		setVisible(true);
 	}
 }
