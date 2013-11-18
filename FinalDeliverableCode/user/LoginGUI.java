@@ -38,17 +38,17 @@ public class LoginGUI extends JPanel implements ActionListener{
 		username.setBounds(20, 170, 140, 25);
 		
 		usernameField = new JTextField(40);
-		usernameField.setBounds(130, 170, 170, 25);
+		usernameField.setBounds(150, 170, 170, 25);
 		
 		password = new JLabel("Password : ");
 		password.setFont(new Font("Times", Font.BOLD, 18));
 		password.setBounds(20, 200, 140, 25);
 		
 		passwordField = new JPasswordField(40);
-		passwordField.setBounds(130, 200, 170, 25);
+		passwordField.setBounds(150, 200, 170, 25);
 		
 		login = new JButton("Login");
-		login.setBounds(130, 230, 100, 30);
+		login.setBounds(150, 230, 100, 30);
 		login.addActionListener(this);
 		
 	}
