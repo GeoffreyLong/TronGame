@@ -86,6 +86,9 @@ public class CreateUser extends JPanel implements ActionListener{
 				try {
 					if(pass){
 						conn.close();
+						Main2.frame.getContentPane().removeAll();
+						Main2.frame.getContentPane().add(new LoggedIn(usernameField.getText()));
+						Main2.frame.setVisible(true);
 					}
 					
 					else{
@@ -95,10 +98,6 @@ public class CreateUser extends JPanel implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				Main2.frame.getContentPane().removeAll();
-				Main2.frame.getContentPane().add(new LoggedIn(usernameField.getText()));
-				Main2.frame.setVisible(true);
 			}
 		}
 		
