@@ -17,10 +17,10 @@ public class CreateUser extends JPanel implements ActionListener{
 	private JLabel rePassword;
 	private JPasswordField rePasswordField;
 	private JButton createAccount;
-	private Players player;
+	private Player player;
 	
 	
-	public CreateUser(Players player){
+	public CreateUser(Player player){
 		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		makeComponents();
