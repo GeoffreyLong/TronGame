@@ -16,6 +16,8 @@ public class Frame{
     static JFrame frame;
     private static int playerOneWins = 0;
     private static int playerTwoWins = 0;
+    private static boolean playerOneLogged = false;
+    private static boolean playerTwoLogged = false;
 	
 	public Frame(){
 	    frame = new JFrame();
