@@ -7,37 +7,20 @@ package gameplay;
 public class Map {
   
         private Tile[][] tiles;
-        private int DEFAULT_MAP_SIZE = 100;
+        private int numberOfMaps = 1;
         private int xSize;
         private int ySize;
-        private int numberOfMaps = 1;
   
         public Tile[][] getMap(){
                 return tiles;
         }
         
-        private void setBorder(int height, int width){
-          
-                 for (int i = 0; i<height; i++){
-                        for (int j = 0; j<width; j++){
-                                if (i==0 || j==0 || j>=width-1 || i>=height-1){
-                                        tiles[i][j] = Tile.WALL;
-                                }
-                                else{
-                                        tiles[i][j] = Tile.EMPTY;
-                                }
-                        }
-                  }
-          
-          
-        }
-        
         public void setDefaultMap(){
-                tiles = new Tile[DEFAULT_MAP_SIZE][DEFAULT_MAP_SIZE];
-                setBorder(DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE);
-                this.xSize = DEFAULT_MAP_SIZE;
-                this.ySize = DEFAULT_MAP_SIZE;
-          
+                MapOne mapOne = new MapOne();
+                mapOne.setMap();
+                tiles = mapOne.getMap();
+                xSize = mapOne.getXSize();
+                ySize = mapOne.getYSize();
         }
         
         public int getXSize(){
@@ -65,9 +48,6 @@ public class Map {
         		setDefaultMap();
         		break;
         	}
-        }
-        public int getDefaultMapSize() {
-        	return this.DEFAULT_MAP_SIZE;  			
         }
         
         private class MapOne{
