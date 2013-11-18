@@ -11,8 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import prototypetwo.CreateUser;
-import prototypetwo.Players;
+import user.CreateUser;
 import user.LoginGUI;
 import start.Frame;
 import user.Login;
