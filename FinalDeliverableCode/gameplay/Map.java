@@ -122,15 +122,15 @@ public class Map {
         }
     	
     	private class MapTwo{
-       	private Tile[][] tiles;
+        	private Tile[][] tiles;
         	
         	//Add one to the sizes for the border
-        	private final int X_SIZE = 0;
-        	private final int Y_SIZE = 0;
-        	private final int pOneXStart = 0;
-        	private final int pTwoXStart = 0;
-        	private final int pOneYStart = 0;
-        	private final int pTwoYStart = 0;
+        	private final int X_SIZE = 76;
+        	private final int Y_SIZE = 51;
+        	private final int pOneXStart = 1;
+        	private final int pTwoXStart = X_SIZE-2;
+        	private final int pOneYStart = Y_SIZE-2;
+        	private final int pTwoYStart = 1;
         	
         	public MapTwo(){
         		setMap();
@@ -172,15 +172,15 @@ public class Map {
         }
     	
     	private class MapThree{
-       	private Tile[][] tiles;
+        	private Tile[][] tiles;
         	
         	//Add one to the sizes for the border
-        	private final int X_SIZE = 0;
-        	private final int Y_SIZE = 0;
-        	private final int pOneXStart = 0;
-        	private final int pTwoXStart = 0;
-        	private final int pOneYStart = 0;
-        	private final int pTwoYStart = 0;
+        	private final int X_SIZE = 76;
+        	private final int Y_SIZE = 51;
+        	private final int pOneXStart = 1;
+        	private final int pTwoXStart = X_SIZE-2;
+        	private final int pOneYStart = Y_SIZE-2;
+        	private final int pTwoYStart = 1;
         	
         	public MapThree(){
         		setMap();
