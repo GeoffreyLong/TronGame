@@ -14,11 +14,11 @@ public class DatabaseCalls {
 
 		boolean pass = false;
 		
-		String query = "INSERT INTO authentication.login (" + userName + "," + password + ") VALUES (userName, password) ";
+		String query = "INSERT INTO authentication.login (userName, password) VALUES (\'" + userName + "\',\'" +  password + "\')";
 		
 		try{
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			stmt = stmt.executeUpdate(query);
 			pass = true;
 		} 
         
