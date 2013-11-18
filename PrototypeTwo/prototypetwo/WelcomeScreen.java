@@ -50,7 +50,17 @@ public class WelcomeScreen extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+		if(e.getSource() == createAccount){
+			Main2.frame.getContentPane().removeAll();
+			Main2.frame.getContentPane().add(new CreateUser());
+			Main2.frame.setVisible(true);
+		}
 		
+		else if(e.getSource() == login){
+			Main2.frame.getContentPane().removeAll();
+			Main2.frame.getContentPane().add(new LoginGUI());
+			Main2.frame.setVisible(true);
+		}
 		
 	}
 
