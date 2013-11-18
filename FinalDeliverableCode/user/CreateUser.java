@@ -2,6 +2,9 @@ package user;
 
 import javax.swing.*;
 
+import start.Connect;
+import start.DatabaseCalls;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
