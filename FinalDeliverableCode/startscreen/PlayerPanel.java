@@ -77,12 +77,12 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Login")){
 			LoginGUI login = new LoginGUI(player);
-			//Frame.removePanel(this);
+			Frame.removePanel(this);
 			if (player.getPlayerNumber() == 1){
-				login.setBounds(0,0,Frame.getXSize()/2, Frame.getYSize());
+				login.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 			}
 			else{
-				login.setBounds(Frame.getXSize()/2,0,Frame.getXSize()/2, Frame.getYSize());
+				login.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 			}
 			Frame.addPanel(login);
 		}
