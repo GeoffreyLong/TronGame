@@ -106,5 +106,17 @@ public class Map {
         	public int getYSize(){
         		return this.Y_SIZE;
         	}
+        	public int getPOneXStart(){
+        		return pOneXStart;
+        	}
+        	public int getPTwoXStart(){
+        		return pTwoXStart;
+        	}
+        	public int getPOneYStart(){
+        		return pOneYStart;
+        	}
+        	public int getPTwoYStart(){
+        		return pTwoYStart;
+        	}
         }
 }
