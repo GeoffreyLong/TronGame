@@ -25,7 +25,9 @@ public class MapChooser extends JPanel{
 			chooseMap.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
+					String button = e.getActionCommand();
+					int number = Integer.valueOf(button.split(" ")[0]);
+					map.setMap(number);
 				}
 			});
 			add(chooseMap);
