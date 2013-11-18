@@ -60,19 +60,19 @@ public class Cycle {
         return color;
     }
     
-    public void travel(int size){
+    public void travel(){
         switch (getCurHeading()){
             case LEFT:
-                xPos-=size;
+                xPos--;
                 break;
             case RIGHT:
-                xPos+=size;
+                xPos++;
                 break;
             case UP:
-                yPos-=size;
+                yPos--;
                 break;
             case DOWN:
-                yPos+=size;
+                yPos++;
                 break;
             default:
                 break;

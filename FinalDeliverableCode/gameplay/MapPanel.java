@@ -54,13 +54,13 @@ public class MapPanel extends JPanel implements KeyListener {
 		xSize = mapper.getXSize();
 		ySize = mapper.getYSize();
 		
-		xOffset = (Frame.getXSize() - xSize) / 2;
-		yOffset = (Frame.getYSize() - ySize) / 2;
+		xOffset = (Frame.getXSize() - xSize*increment) / 2;
+		yOffset = (Frame.getYSize() - ySize*increment) / 2;
 		
 		setBounds(0,0,Frame.getXSize(),Frame.getYSize());
 		
-		Cycle cycleOne = new Cycle(100, 400, null, true, gameSetup.getPlayerColor(1));
-		Cycle cycleTwo = new Cycle(400, 400, null, true, gameSetup.getPlayerColor(2));
+		Cycle cycleOne = new Cycle(10, 40, null, true, gameSetup.getPlayerColor(1));
+		Cycle cycleTwo = new Cycle(40, 40, null, true, gameSetup.getPlayerColor(2));
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 		cont = new PlayerControl(cycleOne, cycleTwo);
 		
@@ -95,7 +95,7 @@ public class MapPanel extends JPanel implements KeyListener {
 		boolean cycleOne = true;
 		for (Cycle cycle : cycles){
 			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
-				cycle.travel(increment);
+				cycle.travel();
 				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PTWO){
@@ -144,8 +144,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		for(Cycle cycle:cycles){
 			if (cycles[0].isAlive && cycles[1].isAlive){
 				super.paintComponent(g);
-				for (int i=0; i<xSize; i+=5){
-					for (int j=0; j<ySize; j+=5){
+				for (int i=0; i<xSize; i++){
+					for (int j=0; j<ySize; j++){
 						switch(map[i][j]){
 							case WALL:
 								g.setColor(Color.BLACK);
@@ -160,15 +160,15 @@ public class MapPanel extends JPanel implements KeyListener {
 								g.setColor(cycles[1].getColor());
 								break;
 						}
-						g.fillRect(i+xOffset, j+yOffset, 5, 5);
+						g.fillRect(i*increment+xOffset, j*increment+yOffset, increment, increment);
 					}
 				}
 			}
 			else if (!cycle.isAlive){
 				for (Color color : getExplosionColors()){
 					g.setColor(color);
-					g.fillOval(xOffset+cycle.getXPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-							yOffset+cycle.getYPos()-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+					g.fillOval(xOffset+cycle.getXPos()*increment-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+							yOffset+cycle.getYPos()*increment-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
 							(int)(explosionCount*Math.random()), 
 							(int)(explosionCount*Math.random()));
 				}

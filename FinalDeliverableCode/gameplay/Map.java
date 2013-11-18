@@ -7,7 +7,7 @@ package gameplay;
 public class Map {
   
         private Tile[][] tiles;
-        private int DEFAULT_MAP_SIZE = 500;
+        private int DEFAULT_MAP_SIZE = 100;
         private int xSize;
         private int ySize;
         private int numberOfMaps = 1;
@@ -20,7 +20,7 @@ public class Map {
           
                  for (int i = 0; i<height; i++){
                         for (int j = 0; j<width; j++){
-                                if (i<=4|| j<=4 || j>=width-5 || i>=height-5){
+                                if (i==0 || j==0 || j>=width-1 || i>=height-1){
                                         tiles[i][j] = Tile.WALL;
                                 }
                                 else{
@@ -79,7 +79,11 @@ public class Map {
         	}
         	private void setMap(){
         		tiles = new Tile[X_SIZE][Y_SIZE];
-        		
+        		for (int x=0; x<X_SIZE; x++){
+        			for (int y=0; y<Y_SIZE; y++){
+        				
+        			}
+        		}
         	}
         	public Tile[][] getMap(){
         		return tiles;
