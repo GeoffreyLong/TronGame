@@ -1,6 +1,7 @@
 package startscreen;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,6 +39,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			playerLabel = new JLabel("PLAYER TWO");
 		}
 		playerLabel.setBounds(50,30,300,60);
+		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
 		
 		JButton playerStats = new JButton("Show Statistics");
 		playerStats.addActionListener(this);
