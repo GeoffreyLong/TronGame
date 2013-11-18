@@ -81,5 +81,14 @@ public class Map {
         		tiles = new Tile[X_SIZE][Y_SIZE];
         		
         	}
+        	public Tile[][] getMap(){
+        		return tiles;
+        	}
+        	public int getXSize(){
+        		return this.X_SIZE;
+        	}
+        	public int getYSize(){
+        		return this.Y_SIZE;
+        	}
         }
 }
