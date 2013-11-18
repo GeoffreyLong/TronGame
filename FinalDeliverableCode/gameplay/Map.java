@@ -78,8 +78,8 @@ public class Map {
         	private final int X_SIZE = 76;
         	private final int Y_SIZE = 51;
         	private final int pOneXStart = 1;
-        	private final int pTwoXStart = X_SIZE-1;
-        	private final int pOneYStart = Y_SIZE-1;
+        	private final int pTwoXStart = X_SIZE-2;
+        	private final int pOneYStart = Y_SIZE-2;
         	private final int pTwoYStart = 1;
         	
         	public MapOne(){
