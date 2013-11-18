@@ -62,7 +62,33 @@ public class LoginGUI extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
-		
+		if(e.getSource() == login){
+			Connection conn = Connect.connect();
+			
+			DatabaseCalls call = new DatabaseCalls(conn);
+			
+			String password = passwordField.getPassword().toString();
+			boolean pass = call.login(usernameField.getText(), passwordField.getText());
+			
+			try {
+				conn.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			System.out.println(pass);
+			
+			if(pass){
+				Main2.frame.getContentPane().removeAll();
+				Main2.frame.getContentPane().add(new LoggedIn(usernameField.getText()));
+				Main2.frame.setVisible(true);
+			}
+			
+			else{
+				
+			}
+		}
 		
 	}
 
