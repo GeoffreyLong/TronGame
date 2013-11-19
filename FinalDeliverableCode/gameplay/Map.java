@@ -12,6 +12,7 @@ public class Map {
 	private int pTwoXStart;
 	private int pOneYStart;
 	private int pTwoYStart;
+	private int mapNumber = -1;
 	
 	
 	public Map(int x, int y){
@@ -57,6 +58,12 @@ public class Map {
 	}
 	public void setPTwoYStart(int y){
 		this.pTwoYStart = y+1;
+	}
+	public void setMapNumber(int i){
+		mapNumber = i;
+	}
+	public int getMapNumber(){
+		return mapNumber;
 	}
 	public void setRectObstacle(int xLo, int xHi, int yLo, int yHi){
 		for (int i=xLo; i<xHi; i++){
