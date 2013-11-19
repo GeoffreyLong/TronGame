@@ -16,6 +16,7 @@ public class MapChooser extends JPanel{
 	private Map map;
 	private MapHandler mapHandle;
 	private SetupPanel setup;
+	private int xButtonOffset = 10;
 	public MapChooser(SetupPanel setup){
 		this.setup = setup;
 		setBounds(0,0,start.Frame.getXSize(), start.Frame.getYSize());
@@ -29,7 +30,8 @@ public class MapChooser extends JPanel{
 		for (Map map : mapHandle.maps){
 			final Map buttonMap = map;
 			MapButton chooseMap = new MapButton(buttonMap);
-			chooseMap.setBounds(10+100*map.getMapNumber(), 20, 120, 120);
+			chooseMap.setBounds(xButtonOffset, 20, map.getXSize()+40, map.getYSize()+40);
+			xButtonOffset += map.getXSize() + 80;
 			chooseMap.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
