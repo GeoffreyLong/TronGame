@@ -24,10 +24,12 @@ public class MapHandler {
     }
     public void setMapTwo(){
     	setMapDefaults();
+    	map.setMapNumber(1);
     	maps[1] = map;
     }
     public void setMapThree(){
     	setMapDefaults();
+    	map.setMapNumber(2);
     	maps[2] = map;
     }
     public void setMapDefaults(){
