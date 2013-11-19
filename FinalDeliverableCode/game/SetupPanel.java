@@ -18,7 +18,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private int yCenter;
 	private int xSize;
 	private int ySize;
-	private GameSetup gameSetup;
+	public GameSetup gameSetup;
 	private JLabel changeDifficulty;
 	private Colors pOneColor = Colors.RED;
 	private Colors pTwoColor = Colors.BLUE;
@@ -92,7 +92,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Change the Map")){
-			MapChooser choose = new MapChooser(gameSetup.getMapHandler(), this);
+			MapChooser choose = new MapChooser(this);
 			this.setVisible(false);
 		}
 		if(e.getActionCommand().equals("-")){

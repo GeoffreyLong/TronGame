@@ -14,10 +14,10 @@ public class MapChooser extends JPanel{
 	private Map map;
 	private MapHandler mapHandle;
 	private SetupPanel setup;
-	public MapChooser(MapHandler mapHandle, SetupPanel setup){
+	public MapChooser(SetupPanel setup){
 		this.setup = setup;
 		setBounds(0,0,start.Frame.getXSize(), start.Frame.getYSize());
-		this.mapHandle = mapHandle;
+		this.mapHandle = setup.gameSetup.getMapHandler();
 		setVisible(true);
 		setLayout(null);
 		setButtons();

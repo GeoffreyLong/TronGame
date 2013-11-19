@@ -18,7 +18,9 @@ public class GameSetup {
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
 	}
-	
+	public MapHandler getMapHandler(){
+		return mapHandle;
+	}
 	public int getGameDifficulty(){
 		return this.gameDifficulty;
 	}
