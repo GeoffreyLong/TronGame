@@ -36,6 +36,7 @@ public class MapChooser extends JPanel{
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					MapHandler.map = buttonMap;
+					setVisible(false);
 					setup.setVisible(true);
 				}
 			});
