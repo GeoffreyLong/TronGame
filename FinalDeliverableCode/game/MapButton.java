@@ -10,18 +10,11 @@ import javax.swing.JButton;
 
 public class MapButton extends JButton{
 	Tile[][] tiles;
-	Map map;
-	int mapNumber;
 	
-	MapButton(Map map, int i){
-		tiles = map.getMap(i);
-		this.map = map;
-		mapNumber = i;
+	MapButton(Map map){
+		tiles = map.getMap();
 		setBounds(0,0,110,110);
 		setVisible(true);
-	}
-	public int getMapNumber(){
-		return mapNumber;
 	}
 	@Override
 	public void paintComponent(Graphics g){
