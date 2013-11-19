@@ -25,11 +25,16 @@ public class MapHandler {
     public void setMapTwo(){
     	setMapDefaults();
     	map.setMapNumber(1);
+    	map.addRectObstacle(15,25,20,30);
+    	map.addRectObstacle(50, 60, 20, 30);
     	maps[1] = map;
     }
     public void setMapThree(){
     	setMapDefaults();
     	map.setMapNumber(2);
+    	map.addRectObstacle(5, 25, 5, 25);
+    	map.addRectObstacle(30, 45, 20, 30);
+    	map.addRectObstacle(50, 70, 25, 45);
     	maps[2] = map;
     }
     public void setMapDefaults(){
