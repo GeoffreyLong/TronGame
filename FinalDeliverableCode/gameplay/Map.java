@@ -51,13 +51,13 @@ public class Map {
 		return pOneYStart;
 	}
 	public void setPOneYStart(int y){
-		this.pOneYStart = y+1;
+		this.pOneYStart = ySize-y-2;
 	}
 	public int getPTwoYStart(){
 		return pTwoYStart;
 	}
 	public void setPTwoYStart(int y){
-		this.pTwoYStart = y+1;
+		this.pTwoYStart = ySize-y-2;
 	}
 	public void setMapNumber(int i){
 		mapNumber = i;
@@ -68,7 +68,7 @@ public class Map {
 	public void addRectObstacle(int xLo, int xHi, int yLo, int yHi){
 		for (int i=xLo+1; i<xHi+1; i++){
 			for (int j=yLo+1; j<yHi+1; j++){
-				tiles[i][j] = Tile.WALL;
+				tiles[i][ySize-j-1] = Tile.WALL;
 			}
 		}
 	}

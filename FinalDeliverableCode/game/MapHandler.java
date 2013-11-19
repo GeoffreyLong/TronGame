@@ -41,9 +41,9 @@ public class MapHandler {
     	map = new Map(75,50);
     	map.setBorder();
     	map.setPOneXStart(0);
-    	map.setPOneYStart(50);
+    	map.setPOneYStart(0);
     	map.setPTwoXStart(75);
-    	map.setPTwoYStart(0);
+    	map.setPTwoYStart(50);
     }
     public static void setMap(Map aMap){
     	map = aMap;
