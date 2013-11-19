@@ -10,6 +10,8 @@ import gameplay.Tile;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import prototype.Frame;
+
 public class MapChooser extends JPanel{
 	private Map map;
 	private MapHandler mapHandle;
@@ -20,6 +22,7 @@ public class MapChooser extends JPanel{
 		this.mapHandle = setup.gameSetup.getMapHandler();
 		setVisible(true);
 		setLayout(null);
+		setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		setButtons();
 	}
 	private void setButtons(){
