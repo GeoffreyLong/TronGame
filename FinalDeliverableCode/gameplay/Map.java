@@ -66,8 +66,8 @@ public class Map {
 		return mapNumber;
 	}
 	public void setRectObstacle(int xLo, int xHi, int yLo, int yHi){
-		for (int i=xLo; i<xHi; i++){
-			for (int j=yLo; j<yHi; j++){
+		for (int i=xLo+1; i<xHi+1; i++){
+			for (int j=yLo+1; j<yHi+1; j++){
 				tiles[i][j] = Tile.WALL;
 			}
 		}
