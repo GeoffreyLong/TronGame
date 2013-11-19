@@ -26,6 +26,8 @@ import java.awt.event.KeyListener;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -49,6 +51,7 @@ public class MapPanel extends JPanel implements KeyListener {
 	 * @param map
 	 */
 	public MapPanel(GameSetup gameSetup){
+		setLayout(null);
 		Map mapper = gameSetup.getMap();
 		map = mapper.getMap();
 		xSize = mapper.getXSize();
@@ -68,6 +71,18 @@ public class MapPanel extends JPanel implements KeyListener {
 		
 		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
 		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
+		
+		JLabel changeSize = new JLabel("Change the size of the map");
+		changeSize.setBounds(10,10,200,30);
+		add(changeSize);
+		
+		JButton plus = new JButton("+");
+		plus.setBounds(30,50,50,30);
+		add(plus);
+		
+		JButton minus = new JButton("-");
+		minus.setBounds(110,50,50,30);
+		add(minus);
 		
 		addKeyListener(this);
 		setVisible(true);
