@@ -92,7 +92,8 @@ public class SetupPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Change the Map")){
-			
+			MapChooser choose = new MapChooser(gameSetup.getMapHandler(), this);
+			this.setVisible(false);
 		}
 		if(e.getActionCommand().equals("-")){
 			if (gameSetup.getGameDifficulty()>0){

@@ -13,7 +13,9 @@ import javax.swing.JPanel;
 public class MapChooser extends JPanel{
 	private Map map;
 	private MapHandler mapHandle;
-	public MapChooser(MapHandler mapHandle){
+	private SetupPanel setup;
+	public MapChooser(MapHandler mapHandle, SetupPanel setup){
+		this.setup = setup;
 		setBounds(0,0,start.Frame.getXSize(), start.Frame.getYSize());
 		this.mapHandle = mapHandle;
 		setVisible(true);
@@ -29,6 +31,7 @@ public class MapChooser extends JPanel{
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					MapHandler.map = buttonMap;
+					setup.setVisible(true);
 				}
 			});
 		}
