@@ -37,6 +37,7 @@ public class MapChooser extends JPanel{
 					setup.setVisible(true);
 				}
 			});
+			add(chooseMap);
 		}
 	}
 		/*
