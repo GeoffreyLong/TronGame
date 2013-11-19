@@ -10,14 +10,13 @@ public class GameSetup {
 	Player playerOne;
 	Player playerTwo;
 	private int gameDifficulty = 5;
-	private Map map = new Map();
+	private MapHandler mapHandle = new MapHandler();
 	private Color colorPOne = Color.RED;
 	private Color colorPTwo = Color.BLUE;
 	
 	public GameSetup(Player playerOne, Player playerTwo){
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
-		map.setDefaultMap();
 	}
 	
 	public int getGameDifficulty(){
@@ -30,7 +29,7 @@ public class GameSetup {
 		gameDifficulty--;
 	}
 	public Map getMap(){
-		return this.map;
+		return mapHandle.getMap();
 	}
 	public void setMap(){
 		
