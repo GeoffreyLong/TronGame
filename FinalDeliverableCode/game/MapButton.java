@@ -10,9 +10,13 @@ import javax.swing.JButton;
 
 public class MapButton extends JButton{
 	Tile[][] tiles;
+	private int xSize;
+	private int ySize;
 	
 	MapButton(Map map){
 		tiles = map.getMap();
+		xSize = map.getXSize();
+		ySize = map.getYSize();
 		setBounds(0,0,110,110);
 		setVisible(true);
 	}
@@ -20,8 +24,8 @@ public class MapButton extends JButton{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
-		for (int i=0; i<100; i+=5){
-			for (int j=0; j<100; j+=5){
+		for (int i=0; i<xSize; i+=5){
+			for (int j=0; j<ySize; j+=5){
 				switch(tiles[i][j]){
 					case WALL:
 						g.setColor(Color.BLACK);
