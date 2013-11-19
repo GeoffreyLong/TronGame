@@ -12,12 +12,14 @@ public class MapButton extends JButton{
 	Tile[][] tiles;
 	private int xSize;
 	private int ySize;
+	private int displaySize = 2;
 	
-	MapButton(Map map){
+	MapButton(Map map, int displaySize){
+		this.displaySize = displaySize;
 		tiles = map.getMap();
 		xSize = map.getXSize();
 		ySize = map.getYSize();
-		setBounds(0,0,xSize+20,ySize+20);
+		setBounds(0,0,xSize*displaySize+20,ySize*displaySize+20);
 		setVisible(true);
 	}
 	@Override
@@ -36,7 +38,7 @@ public class MapButton extends JButton{
 					default:
 						break;
 				}
-				g.fillRect(i+10, j+10, 1, 1);
+				g.fillRect(i*displaySize+10, j*displaySize+10, displaySize, displaySize);
 			}
 		}
 	}
