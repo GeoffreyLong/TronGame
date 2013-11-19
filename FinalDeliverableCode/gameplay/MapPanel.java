@@ -33,7 +33,7 @@ import javax.swing.Timer;
 
 import start.Frame;
 
-public class MapPanel extends JPanel implements KeyListener {
+public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private Tile[][] map;
 	private int xSize;
 	private int ySize;
@@ -45,6 +45,8 @@ public class MapPanel extends JPanel implements KeyListener {
 	private int xOffset;
 	private int yOffset;
 	private int increment = 5;
+	private JButton minus;
+	private JButton plus;
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
@@ -76,12 +78,14 @@ public class MapPanel extends JPanel implements KeyListener {
 		changeSize.setBounds(10,10,200,30);
 		add(changeSize);
 		
-		JButton plus = new JButton("+");
+		plus = new JButton("+");
 		plus.setBounds(30,50,50,30);
+		plus.addActionListener(this);
 		add(plus);
 		
-		JButton minus = new JButton("-");
+		minus = new JButton("-");
 		minus.setBounds(110,50,50,30);
+		minus.addActionListener(this);
 		add(minus);
 		
 		addKeyListener(this);
@@ -112,6 +116,8 @@ public class MapPanel extends JPanel implements KeyListener {
 		boolean cycleOne = true;
 		for (Cycle cycle : cycles){
 			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
+				minus.setEnabled(false);
+				plus.setEnabled(false);
 				cycle.travel();
 				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
@@ -300,5 +306,21 @@ public class MapPanel extends JPanel implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getActionCommand().equals("+")){
+			increment ++;
+			xOffset = (Frame.getXSize() - xSize*increment) / 2;
+			yOffset = (Frame.getYSize() - ySize*increment) / 2;
+			repaint();
+		}
+		if (e.getActionCommand().equals("-")){
+			increment --;
+			xOffset = (Frame.getXSize() - xSize*increment) / 2;
+			yOffset = (Frame.getYSize() - ySize*increment) / 2;
+			repaint();
+		}
 	}
 }
