@@ -17,15 +17,15 @@ public class MapButton extends JButton{
 		tiles = map.getMap();
 		xSize = map.getXSize();
 		ySize = map.getYSize();
-		setBounds(0,0,110,110);
+		setBounds(0,0,xSize+20,ySize+20);
 		setVisible(true);
 	}
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
-		for (int i=0; i<xSize; i+=5){
-			for (int j=0; j<ySize; j+=5){
+		for (int i=0; i<xSize; i++){
+			for (int j=0; j<ySize; j++){
 				switch(tiles[i][j]){
 					case WALL:
 						g.setColor(Color.BLACK);
@@ -36,7 +36,7 @@ public class MapButton extends JButton{
 					default:
 						break;
 				}
-				g.fillRect(i, j, 1, 1);
+				g.fillRect(i+10, j+10, 1, 1);
 			}
 		}
 	}
