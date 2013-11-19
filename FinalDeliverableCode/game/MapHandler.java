@@ -6,7 +6,7 @@ import gameplay.Map;
 import gameplay.Tile;
 
 public class MapHandler {
-	Map map;
+	static Map map;
 	Map[] maps = new Map[3];
     public MapHandler(){
     	setMapThree();
@@ -19,6 +19,7 @@ public class MapHandler {
     }
     public void setMapOne(){
     	setMapDefaults();
+    	map.setMapNumber(0);
     	maps[0] = map;
     }
     public void setMapTwo(){
@@ -36,5 +37,8 @@ public class MapHandler {
     	map.setPOneYStart(50);
     	map.setPTwoXStart(75);
     	map.setPTwoYStart(0);
+    }
+    public static void setMap(Map aMap){
+    	map = aMap;
     }
 }
