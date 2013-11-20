@@ -1,7 +1,9 @@
 package gameplay;
 
+import game.EndGame;
 import game.GameSetup;
 import game.Map;
+import game.WinCondition;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -267,15 +269,17 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 				}
 				else{
 					explosionTimer.stop();
+					WinCondition winCond;
 					if (cycles[0].isAlive){
-						//Frame.endGame(1);
+						winCond = WinCondition.PONE_WIN;
 					}
 					else if (cycles[1].isAlive){
-						//Frame.endGame(2);
+						winCond = WinCondition.PTWO_WIN;
 					}
 					else{
-						//Frame.endGame(3);
+						winCond = WinCondition.TIE;
 					}
+					EndGame end = new EndGame(winCond);
 				}
 			}
 		});
