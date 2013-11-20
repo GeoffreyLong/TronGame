@@ -3,7 +3,6 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import gameplay.Map;
 import gameplay.Tile;
 
 import javax.swing.JButton;

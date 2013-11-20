@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import game.GameSetup;
-import gameplay.Map;
+import game.Map;
 import gameplay.MapPanel;
 
 public class Frame {

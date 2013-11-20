@@ -8,6 +8,7 @@
 package gameplay;
 
 import game.GameSetup;
+import game.Map;
 
 import java.awt.Color;
 

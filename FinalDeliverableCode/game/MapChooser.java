@@ -4,7 +4,6 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import gameplay.Map;
 import gameplay.Tile;
 
 import javax.swing.JButton;

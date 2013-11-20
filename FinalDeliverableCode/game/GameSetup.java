@@ -1,7 +1,5 @@
 package game;
 
-import gameplay.Map;
-
 import java.awt.Color;
 
 import user.Player;

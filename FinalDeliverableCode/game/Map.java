@@ -2,7 +2,9 @@
  * @author Rishabh Tandon
  */
 
-package gameplay;
+package game;
+
+import gameplay.Tile;
 
 public class Map {
 	private Tile[][] tiles;

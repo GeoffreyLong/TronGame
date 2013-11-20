@@ -2,7 +2,6 @@ package game;
 
 import java.util.LinkedList;
 
-import gameplay.Map;
 import gameplay.Tile;
 
 public class MapHandler {
