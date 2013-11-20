@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import game.GameSetup;
 import game.Map;
+import gameplay.GameMaster;
 import gameplay.MapPanel;
 
 public class Frame {
@@ -68,8 +69,8 @@ public class Frame {
         frame.validate();
         frame.repaint();
 	}
-	public static MapPanel start(GameSetup gameSetup){
-	    MapPanel mapPanel = new MapPanel(gameSetup);
+	public static MapPanel start(GameSetup gameSetup, GameMaster gameMaster){
+	    MapPanel mapPanel = new MapPanel(gameSetup, gameMaster);
 		
 	    frame.getContentPane().removeAll();
 	    frame.add(mapPanel);

@@ -2,6 +2,7 @@ package gameplay;
 
 import game.GameSetup;
 import game.Map;
+import game.WinCondition;
 
 import java.awt.Color;
 
@@ -20,9 +21,10 @@ import start.Frame;
 public class GameMaster {
 	private Map map;
 	private MapPanel mapPanel;
-	private static Timer timer;
+	public static Timer timer;
 	private GameSetup gameSetup;
-	
+	private int playerOneWins;
+	private int playerTwoWins;
 	
 	public GameMaster(GameSetup gameSetup){
 		this.gameSetup = gameSetup;
@@ -31,7 +33,7 @@ public class GameMaster {
 	 * Initialize the game by adding mapPanel to the Frame
 	 */
 	public void gameInit(){
-		mapPanel = Frame.start(gameSetup);
+		mapPanel = Frame.start(gameSetup, this);
 	}
 	
 	/**
@@ -88,7 +90,7 @@ public class GameMaster {
 	 * This method stops the timer which stops player movement 
 	 * and therefore the game
 	 */
-	public static void gameEnd(){
-		timer.stop();
+	public void endGame(WinCondition winCond){
+		
 	}
 }

@@ -42,12 +42,14 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private int increment = 5;
 	private JButton minus;
 	private JButton plus;
+	private GameMaster gameMaster;
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
 	 * @param map
 	 */
-	public MapPanel(GameSetup gameSetup){
+	public MapPanel(GameSetup gameSetup, GameMaster gameMaster){
+		this.gameMaster = gameMaster;
 		setLayout(null);
 		Map mapper = gameSetup.getMap();
 		map = mapper.getMap();
@@ -105,7 +107,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PTWO){
-					GameMaster.gameEnd();
+					gameMaster.timer.stop();
 					cycle.isAlive = false;
 					explosion();
 				}
@@ -269,17 +271,15 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 				}
 				else{
 					explosionTimer.stop();
-					WinCondition winCond;
 					if (cycles[0].isAlive){
-						winCond = WinCondition.PONE_WIN;
+						gameMaster.endGame(WinCondition.PONE_WIN);
 					}
 					else if (cycles[1].isAlive){
-						winCond = WinCondition.PTWO_WIN;
+						gameMaster.endGame(WinCondition.PTWO_WIN);
 					}
 					else{
-						winCond = WinCondition.TIE;
+						gameMaster.endGame(WinCondition.TIE);
 					}
-					EndGame end = new EndGame(winCond);
 				}
 			}
 		});
