@@ -1,10 +1,3 @@
-/**
- * @author Geoffrey Long
- * 
- * This class is responsible for controlling the high-level game functions.
- * These functions include 
- * initializing the MapPanel, starting the game, and ending the game.
- */
 package gameplay;
 
 import game.GameSetup;
@@ -16,6 +9,14 @@ import javax.swing.Timer;
 
 import start.Frame;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides control of the high-level game functions.
+ * These functions include 
+ * initializing the MapPanel, setting the game difficulty, 
+ * starting the game, running the game, and ending the game.
+ */
 public class GameMaster {
 	private Map map;
 	private MapPanel mapPanel;
@@ -27,19 +28,17 @@ public class GameMaster {
 		this.gameSetup = gameSetup;
 	}
 	/**
-	 * This will initialize the game.  
-	 * It will do this by setting up the map and the cycle objects.
+	 * Initialize the game by adding mapPanel to the Frame
 	 */
 	public void gameInit(){
-		mapPanel= Frame.start(gameSetup);
+		mapPanel = Frame.start(gameSetup);
 	}
 	
 	/**
-	 * This will start the game.  
-	 * This method kicks off a timer which will call MapPanel.updatePanel()
-	 * through the GameTimer class.  This is run every 33 ms.  
-	 * 33 ms was chosen as this corresponds to 30 frames per second, 
-	 * which is a standard for gaming.
+	 * This method will start the game by updating the MapPanel and game state 
+	 * via the use of a timer.  The speed at which the timer times out, and 
+	 * therefore the speed of the gameplay is modulated by the gameDifficulty 
+	 * attribute of GameSetup.  
 	 */
 	public void gameStart(){
 		int gameSpeed = 33;
@@ -85,10 +84,9 @@ public class GameMaster {
 		timer.start();
 	}
 	
-	/**
-	 * A call to this will stop the timer.  
-	 * When the timer is stopped the player positions stop updating.  
-	 * This will effectively end the game.
+	/** 
+	 * This method stops the timer which stops player movement 
+	 * and therefore the game
 	 */
 	public static void gameEnd(){
 		timer.stop();

@@ -1,14 +1,13 @@
+package gameplay;
+
+import gameplay.Cycle.Heading;
+
 /**
  * @author Geoffrey Long
  * 
  * This class takes as input the keystrokes made by the players, 
  * and makes the appropriate change on the cycle heading.
  */
-
-package gameplay;
-
-import gameplay.Cycle.Heading;
-
 public class PlayerControl {
         Cycle cycleOne;
         Cycle cycleTwo;
@@ -25,8 +24,8 @@ public class PlayerControl {
         }
         
         /**
-         * This method will map the keyCodes from the keystrokes to specific player actions.  
-         * The cycle headings will be updated appropriately.
+         * This method will map the keyCodes from the keystrokes to specific 
+         * cycle headings.  The cycle headings will be updated appropriately.
          * @param keyCode
          */
         public void setHeading(int keyCode){

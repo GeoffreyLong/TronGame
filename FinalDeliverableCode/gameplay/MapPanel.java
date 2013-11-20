@@ -1,17 +1,3 @@
-/**
- * @author Geoffrey Long
- * 
- * This class is responsible for the gui for the gameplay.  
- * The map is instantiated to the map that is passed in.
- * The gui begins by populating the panel with this map and the player cycles.  
- * The players will remain stagnant until both press buttons corresponding to 
- * updating their headings.  Once both players have selected a heading then the 
- * game officially starts.  The players will be free to move around the map.  
- * They will continue moving until they hit a wall or a trail.  Once this happens 
- * then an explosion will emerge from the crashed cycle, and a player will be declared 
- * and the outcome will be passed back to the frame, then to EndGame.
- */
-
 package gameplay;
 
 import game.GameSetup;
@@ -34,6 +20,12 @@ import javax.swing.Timer;
 
 import start.Frame;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides the graphical representation of the state of the game, 
+ * and provides the user the ability to interface with the game.
+ */
 public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private Tile[][] map;
 	private int xSize;
@@ -96,21 +88,9 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	}
 	
 	/**
-	 * Method used as standard in many swing applications.
-	 */
-	public Dimension getPreferredSize() {
-        return new Dimension(Frame.getXSize(),Frame.getYSize());
-	}
-	
-	/**
-	 * This method is responsible for the brunt of the gameplay.  
-	 * It is called every time the timer times out.  
-	 * It will perform the following functions: check to see if the cycles 
-	 * have set an initial start heading; check to see if the cycles are in bounds;
-	 * call the explosion method if the cycles are not in bounds; 
-	 * move the cycles as per their heading; 
-	 * set the map at the cycle's new location to out of bounds; 
-	 * and call to repaint to update the graphics.
+	 * This method is set to execute on a timer.  
+	 * It checks the user's cycle location to see if it is valid 
+	 * and increments the location according to the current cycle heading.
 	 */
 	public void updateMap(){
 		this.requestFocusInWindow();
@@ -142,7 +122,11 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	}
 	
 	/**
-	 * This method is standard in swing graphics.  It is called every time 
+	 * This method will paint the current state of the game.  
+	 */
+
+	/*
+	 *This method is standard in swing graphics.  It is called every time 
 	 * the panel is considered to be invalidated.  This is when the window has been 
 	 * resized or a painting function has been called.  Traditionally this would 
 	 * include a call to super.paintComponents(g), however, by omitting this call
@@ -201,10 +185,13 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	}
 	
 	/**
-	 * This will generate colors for the explosion.  This is done by using randomizers 
+	 * This method will generate colors for the explosion.  
+	 * @return LinkedList<Color> colors
+	 */
+	 
+	/* This is done by using randomizers 
 	 * and distance from the player location.  When the timer has timed for a specific 
 	 * amount of time the colors will shift to greyscale and will slowly fade out.  
-	 * @return LinkedList<Color> colors
 	 */
 	private List<Color> getExplosionColors(){
 		LinkedList<Color> colors = new LinkedList<Color>();
@@ -256,7 +243,11 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	}
 	
 	/**
-	 * This method is called when one or more cycles have crashed.  
+	 * This method is the engine for the explosion graphics.  
+	 * It provides a timer separate from the game timer which will 
+	 * update the map to provide an explosion animation.
+	 */
+	 /* This method is called when one or more cycles have crashed.  
 	 * It will start a timer that will generate an explosion graphic.  
 	 * When the explosionCounter passes a threshold the explosion will stop, 
 	 * and the win condition will be piped to the Frame class which will 
@@ -293,7 +284,8 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	
 	/**
 	 * This method will get the KeyEvents from the KeyListener and will pass 
-	 * them to the PlayerControl to make the appropriate changes to the player heading.
+	 * them to the PlayerControl to make the appropriate changes 
+	 * to the player heading.
 	 * @param e
 	 */
 	@Override
