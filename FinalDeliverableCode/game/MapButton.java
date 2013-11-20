@@ -7,12 +7,26 @@ import gameplay.Tile;
 
 import javax.swing.JButton;
 
+/**
+ * @author Geoffrey Long
+ *
+ * Provides a graphical way to represent the maps.  
+ * This class provides a button that is painted with one of the 
+ * map choices.
+ */
 public class MapButton extends JButton{
 	Tile[][] tiles;
 	private int xSize;
 	private int ySize;
 	private int displaySize = 2;
 	
+	/**
+	 * This constructor will set the size of the MapButton as a function 
+	 * of the parameter displaySize and the x and y attributes of the 
+	 * parameter map.
+	 * @param map
+	 * @param displaySize
+	 */
 	MapButton(Map map, int displaySize){
 		this.displaySize = displaySize;
 		tiles = map.getMap();
@@ -21,6 +35,12 @@ public class MapButton extends JButton{
 		setBounds(0,0,xSize*displaySize+20,ySize*displaySize+20);
 		setVisible(true);
 	}
+	
+	/**
+	 * This will paint the map in the style of the 
+	 * map which was provided as a parameter in the constructor
+	 * @param Graphics g
+	 */
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);

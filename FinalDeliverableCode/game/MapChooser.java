@@ -11,12 +11,23 @@ import javax.swing.JPanel;
 
 import prototype.Frame;
 
+/**
+ * @author Geoffrey Long
+ *
+ * Provides a graphical interface from which the user can select 
+ * the map they want to play on.
+ */
 public class MapChooser extends JPanel{
 	private Map map;
 	private MapHandler mapHandle;
 	private SetupPanel setup;
 	private int xButtonOffset = 10;
 	private int yButtonOffset = 20;
+	
+	/**
+	 * Sets the initial conditions of the panel
+	 * @param setup
+	 */
 	public MapChooser(SetupPanel setup){
 		this.setup = setup;
 		setBounds(0,0,start.Frame.getXSize(), start.Frame.getYSize());
@@ -26,6 +37,15 @@ public class MapChooser extends JPanel{
 		setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		setButtons();
 	}
+	
+	/**
+	 * This method will add all the buttons to the map.  These 
+	 * buttons will be of the type MapButton and will be added and 
+	 * placed dynamically according to the number of maps and the 
+	 * size of the maps.  Contains a nested ActionListener which 
+	 * will set the map in maphandler to the clicked map and will also 
+	 * reset the SetupPanel as the dominant panel. 
+	 */
 	private void setButtons(){
 		for (Map map : mapHandle.maps){
 			int displaySize = 4;

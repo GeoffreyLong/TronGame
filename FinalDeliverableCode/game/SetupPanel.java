@@ -13,6 +13,12 @@ import gameplay.GameMaster;
 import startscreen.WelcomePanel;
 import user.Player;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides a graphical interface between the user and the GameSetup.  
+ * This allows users to set the game difficulty, the map, and their cycle colors.
+ */
 public class SetupPanel extends JPanel implements ActionListener{
 	Player playerOne;
 	Player playerTwo;
@@ -27,6 +33,13 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private JButton changePOneColor;
 	private JButton changePTwoColor;
 	
+	/**
+	 * Sets the initial conditions of the MapPanel
+	 * 
+	 * @param playerOne
+	 * @param playerTwo
+	 * @param gameSetup
+	 */
 	public SetupPanel(Player playerOne, Player playerTwo, GameSetup gameSetup){
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
@@ -91,6 +104,9 @@ public class SetupPanel extends JPanel implements ActionListener{
 		add(startGame);
 	}
 
+	/**
+	 * Maps the button presses to the corresponding program action
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Change the Map")){
@@ -148,6 +164,14 @@ public class SetupPanel extends JPanel implements ActionListener{
 			master.gameStart();
 		}
 	}
+	
+	/**
+	 * Will switch the color of the cycles as a function of the 
+	 * current player colors.
+	 * 
+	 * @param color
+	 * @return color
+	 */
 	public Colors colorChange(Colors color){
 		switch(color){
 			case RED:
@@ -178,6 +202,12 @@ public class SetupPanel extends JPanel implements ActionListener{
 			return color;
 		}
 	}
+	
+	/**
+	 * @author Geoffrey Long
+	 * 
+	 * Provide an easy means by which cycle colors can be compared.
+	 */
 	public enum Colors{
 		RED(Color.RED), BLUE(Color.BLUE), YELLOW(Color.YELLOW), 
 		MAGENTA(Color.MAGENTA), GREEN(Color.GREEN), 
