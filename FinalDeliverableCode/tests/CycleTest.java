@@ -20,38 +20,38 @@ public class CycleTest {
 	private int testYPos = 1;
 	private Heading testHeading = Heading.LEFT;
 	private boolean testAliveCase = true;
-	private Color testColor;
 	private int testSetXPos = 2;
 	private int testSetYPos = 2;
 	private Heading testSetRight = Heading.RIGHT;
 	private Heading testSetLeft = Heading.LEFT;
 	private Heading testSetUp = Heading.UP;
 	private Heading testSetDown = Heading.DOWN;
-	//private int testSize = 5;
 	
 	@Test
 	public void testCycleGetters() {
-		 Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, testColor.BLACK);
+		 Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, Color.BLACK);
 		 assertEquals(testCycle.getXPos(), testXPos);
 		 assertEquals(testCycle.getYPos(), testYPos);
 		 assertEquals(testCycle.getCurHeading(), testHeading);
-		 assertEquals(testCycle.getColor(), testColor.BLACK);
+		 assertEquals(testCycle.getColor(), Color.BLACK);
 	}
 	
 	@Test
 	public void testCycleSetters() {
-		 Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, testColor);
+		 Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, Color.BLACK);
 		 testCycle.setXPos(testSetXPos);
 		 assertEquals(testCycle.getXPos(), testSetXPos);
 		 testCycle.setYPos(testSetYPos);
 		 assertEquals(testCycle.getYPos(), testSetYPos);
 		 testCycle.setCurHeading(testSetRight);
 		 assertEquals(testCycle.getCurHeading(), testSetRight);
+		 testCycle.setColor(Color.BLUE);
+		 assertEquals(testCycle.getColor(), Color.BLUE);
 	}
 	
 	@Test
 	public void testTravel() {
-		Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, testColor);
+		Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, Color.BLACK);
 		
 		// test movement left
 		testXPos = testXPos - 1;
