@@ -9,7 +9,7 @@ import gameplay.Tile;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import prototype.Frame;
+import start.Frame;
 
 /**
  * @author Geoffrey Long
