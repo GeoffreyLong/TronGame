@@ -42,16 +42,17 @@ public class EndScreen extends JPanel implements ActionListener{
     	else{
     		winner.setText("Congradulations Player Two");
     	}
-    	winner.setBounds(300, 100, 300, 40);
+    	winner.setBounds(300, 400, 300, 40);
     	
     	endStatus = new JLabel("<html>"
+    			+ "Number of... <br>"
     			+ "Games Played : "
     			+ gamesPlayed + "<br>"
     			+ "Player One Wins : "
     			+ pOneWins + "<br>"
     			+ "Player Two Wins : "
     			+ pTwoWins);
-    	endStatus.setBounds(360, 160, 200, 200);
+    	endStatus.setBounds(360, 460, 200, 200);
     	
     	replay = new JButton("Replay?");
     	replay.setBounds(560, 166, 200, 60);
