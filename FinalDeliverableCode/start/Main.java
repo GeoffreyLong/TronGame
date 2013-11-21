@@ -9,6 +9,8 @@ package start;
 
 import game.GameSetup;
 import game.SetupPanel;
+import startscreen.PlayerOnePanel;
+import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.PlayerPanel;
 import startscreen.WelcomePanel;
@@ -34,8 +36,8 @@ public class Main {
 	
 	public static void start(){
 		WelcomePanel welcome = new WelcomePanel();
-		PlayerPanel paneOne = new PlayerPanel(playerOne);
-		PlayerPanel paneTwo = new PlayerPanel(playerTwo);
+		PlayerPanel paneOne = new PlayerOnePanel(playerOne);
+		PlayerPanel paneTwo = new PlayerTwoPanel(playerTwo);
 		ReadyActionListener listen = new ReadyActionListener(paneOne, paneTwo);
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
