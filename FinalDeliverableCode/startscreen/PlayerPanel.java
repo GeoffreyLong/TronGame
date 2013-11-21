@@ -23,6 +23,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public JButton playerLog;
 	public JLabel playerStatus;
 	public InputMap inputMap;
+	JLabel playerLabel;
 	
 	public PlayerPanel(Player player){
 		this.player = player;
@@ -31,15 +32,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		setLayout(null);
 		setVisible(true);
 		
-		JLabel playerLabel;
-		if (player.getPlayerNumber()==1){
-			setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
-			playerLabel = new JLabel("PLAYER ONE");
-		}
-		else{
-			setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
-			playerLabel = new JLabel("PLAYER TWO");
-		}
+		playerLabel = new JLabel();
 		playerLabel.setBounds(50,30,300,60);
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
 		
@@ -79,7 +72,13 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		add(playerNameLabel);
 		add(playerStatus);
 	}
-
+	
+	public void setLocation(int x){
+		setBounds(x, Frame.getYSize()/4, Frame.getXSize()/2, 3*Frame.getYSize()/4);
+	}
+	public void setLabel(String label){
+		playerLabel.setText(label);
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Login")){
