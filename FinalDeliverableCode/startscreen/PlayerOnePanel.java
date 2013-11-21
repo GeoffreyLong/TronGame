@@ -6,7 +6,8 @@ public class PlayerOnePanel extends PlayerPanel{
 
 	public PlayerOnePanel(Player player) {
 		super(player);
-		// TODO Auto-generated constructor stub
+		setLocation(-1);
+		setLabel("PLAYER ONE");
 	}
 
 }
