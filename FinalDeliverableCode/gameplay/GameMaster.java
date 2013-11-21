@@ -110,6 +110,7 @@ public class GameMaster {
 			endScreen.initPanel();
 		}
 		else{
+			gameSetup.resetMap();
 			gameInit();
 			gameStart();
 		}
