@@ -23,7 +23,7 @@ public class DatabaseCalls {
 		} 
         
         	catch (SQLException e) {
-			//System.out.println("User already exists");
+			System.out.println("User already exists");
         		pass = false;
 		}
 		
