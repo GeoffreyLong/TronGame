@@ -43,6 +43,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private JButton minus;
 	private JButton plus;
 	private GameMaster gameMaster;
+	private boolean haveExplosion = false;
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
@@ -109,7 +110,10 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PTWO){
 					gameMaster.timer.stop();
 					cycle.isAlive = false;
-					explosion();
+					if (!haveExplosion){
+						explosion();
+						haveExplosion = true;
+					}
 				}
 				else{
 					if (cycleOne){
