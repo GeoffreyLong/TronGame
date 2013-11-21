@@ -1,5 +1,7 @@
 package gameplay;
 
+import game.EndGame;
+import game.EndScreen;
 import game.GameSetup;
 import game.Map;
 import game.WinCondition;
@@ -25,6 +27,7 @@ public class GameMaster {
 	private GameSetup gameSetup;
 	private int playerOneWins;
 	private int playerTwoWins;
+	private int gamesPlayed;
 	
 	public GameMaster(GameSetup gameSetup){
 		this.gameSetup = gameSetup;
@@ -91,6 +94,24 @@ public class GameMaster {
 	 * and therefore the game
 	 */
 	public void endGame(WinCondition winCond){
-		
+		gamesPlayed++;
+		switch(winCond){
+		case PONE_WIN:
+			playerOneWins++;
+			break;
+		case PTWO_WIN:
+			playerTwoWins++;
+			break;
+		case TIE:	
+			break;
+		}
+		if (playerOneWins >= 2 || playerTwoWins >= 2){
+			EndGame endScreen = new EndGame(playerOneWins, playerTwoWins, gamesPlayed);
+			endScreen.initPanel();
+		}
+		else{
+			gameInit();
+			gameStart();
+		}
 	}
 }
