@@ -55,8 +55,21 @@ public class GameSetup {
 	public Map getMap(){
 		return mapHandle.getMap();
 	}
-	public void setMap(){
-		
+	public void resetMap(){
+		switch(mapHandle.getMap().getMapNumber()){
+		case 0:
+			mapHandle.setMapOne();
+			break;
+		case 1:
+			mapHandle.setMapTwo();
+			break;
+		case 2:
+			mapHandle.setMapThree();
+			break;
+		default:
+			mapHandle.setMapOne();
+			break;
+		}
 	}
 	public void setPOneColor(Color color){
 		colorPOne = color;
