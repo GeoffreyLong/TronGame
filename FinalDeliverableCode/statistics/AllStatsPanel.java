@@ -5,7 +5,8 @@ import javax.swing.*;
 public class AllStatsPanel extends JPanel{
 	
 	public AllStatsPanel(){
-		
+		makeComponents();
+		makeLayout();	
 	}
 	
 	private void makeComponents(){
@@ -13,6 +14,7 @@ public class AllStatsPanel extends JPanel{
 	}
 	
 	private void makeLayout(){
+		setLayout(null);
 		
 	}
 
