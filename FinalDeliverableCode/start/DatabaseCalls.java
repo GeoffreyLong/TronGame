@@ -81,13 +81,16 @@ public class DatabaseCalls {
 		String loses2 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score1 + " WHERE userName = \'" + userName2 + "\'";
 		
 		String queryCheck = "SELECT EXISTS (SELECT * FROM authentication.login WHERE userName= \'" + userName1 + "\' AND opponent = \'" + userName2 + "\')";
-		String updateQuery = "";
-		String createQuery = "";
 		
+		String updateQuery1 = "UPDATE authentication.playerHistory SET numberWins = numberWins + " + score1 + ", numberLosses = numberLosses + " + score2 + ", numberGames = numberGames + " + (score1 + score2) + " WHERE userName = \'" + userName1 + "\' AND opponent = \'" + userName2 + "\'";
+		String updateQuery2 = "UPDATE authentication.playerHistory SET numberWins = numberWins + " + score2 + ", numberLosses = numberLosses + " + score1 + ", numberGames = numberGames + " + (score1 + score2) + " WHERE userName = \'" + userName2 + "\' AND opponent = \'" + userName1 + "\'";
+		String createQuery1 = "INSERT INTO authentication.playerHistory (userName, opponent, numberGames, numberWins, numberLosses) VALUES (\'" + userName1 + "\', \'" + userName2 + "\', " + (score1 + score2) + ", " + score1 + ", " + score2 + ")";
+		String createQuery2 = "INSERT INTO authentication.playerHistory (userName, opponent, numberGames, numberWins, numberLosses) VALUES (\'" + userName2 + "\', \'" + userName1 + "\', " + (score1 + score2) + ", " + score2 + ", " + score1 + ")";
+		
+		System.out.println(updateQuery1);
+		System.out.println(createQuery1);
 		
 		try{
-			System.out.println(wins1);
-			System.out.println(loses1);
 			
 			Statement stmt3 = conn.createStatement();
 			stmt3.executeUpdate(wins1);
@@ -105,11 +108,19 @@ public class DatabaseCalls {
 			ResultSet rs = stmt.executeQuery(queryCheck);
 			
 			if(rs.getString(1).equals("1")){
+				Statement stmt7 = conn.createStatement();
+				stmt7.executeUpdate(updateQuery1);
 				
+				Statement stmt8 = conn.createStatement();
+				stmt8.executeUpdate(updateQuery2);
 			}
 			
 			else if(rs.getString(1).equals("0")){
+				Statement stmt9 = conn.createStatement();
+				stmt9.executeUpdate(createQuery1);
 				
+				Statement stmt10 = conn.createStatement();
+				stmt10.executeUpdate(createQuery2);
 			}
 			
 			
