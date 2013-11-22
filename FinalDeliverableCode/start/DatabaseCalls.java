@@ -15,7 +15,7 @@ public class DatabaseCalls {
 		boolean pass = false;
 		
 		String query = "INSERT INTO authentication.login (userName, password) VALUES (\'" + userName + "\',\'" +  password + "\')";
-		String query2 = "INSERT INTO authentication.allStats (userName, totalScore, numberWins, numberLosses) VALUES (\'" + userName + "\', 0, 0, 0)";
+		String query2 = "INSERT INTO authentication.allStats (userName, numberWins, numberLosses) VALUES (\'" + userName + "\', 0, 0)";
 		
 		try{
 			Statement stmt = conn.createStatement();
@@ -77,6 +77,20 @@ public class DatabaseCalls {
 		
 		String query = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + " WHERE userName = \'" + userName1 + "\'";
 		String query2 = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + " WHERE userName = \'" + userName2 + "\'";
+		
+		String wins1 = "";
+		String loses1 = "";
+		String wins2 = "";
+		String loses2 = "";
+		
+		if(score1 > score2){
+			wins1 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score1 + "WHERE userName = \'" + userName1 + "\'";
+			
+		}
+		
+		else if(score1 < score2){
+			
+		}
 		
 		
 		try{
