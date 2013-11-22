@@ -80,7 +80,8 @@ public class DatabaseCalls {
 		String wins2 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score2 + " WHERE userName = \'" + userName2 + "\'";
 		String loses2 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score1 + " WHERE userName = \'" + userName2 + "\'";
 		
-		
+		String playerHistory1 = "";
+		String playerHistory2 = "";
 		
 		try{
 			System.out.println(wins1);
