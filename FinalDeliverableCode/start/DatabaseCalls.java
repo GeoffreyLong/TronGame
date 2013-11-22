@@ -66,4 +66,12 @@ public class DatabaseCalls {
 	}
 
 
+
+	public boolean pushStatistics(String userName1, int score1, String userName2, int score2){
+		
+		return false;
+		
+	}
+
+
 }
