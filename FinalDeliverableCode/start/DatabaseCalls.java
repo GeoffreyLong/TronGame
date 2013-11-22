@@ -80,8 +80,10 @@ public class DatabaseCalls {
 		String wins2 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score2 + " WHERE userName = \'" + userName2 + "\'";
 		String loses2 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score1 + " WHERE userName = \'" + userName2 + "\'";
 		
-		String playerHistory1 = "";
-		String playerHistory2 = "";
+		String queryCheck = "SELECT EXISTS (SELECT * FROM authentication.login WHERE userName= \'" + userName1 + "\' AND opponent = \'" + userName2 + "\')";
+		String updateQuery = "";
+		String createQuery = "";
+		
 		
 		try{
 			System.out.println(wins1);
@@ -98,6 +100,17 @@ public class DatabaseCalls {
 			
 			Statement stmt6 = conn.createStatement();
 			stmt6.executeUpdate(loses2);
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(queryCheck);
+			
+			if(rs.getString(1).equals("1")){
+				
+			}
+			
+			else if(rs.getString(1).equals("0")){
+				
+			}
 			
 			
 			pass = true;
