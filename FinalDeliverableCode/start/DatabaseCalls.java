@@ -85,7 +85,9 @@ public class DatabaseCalls {
 		
 		if(score1 > score2){
 			wins1 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score1 + "WHERE userName = \'" + userName1 + "\'";
-			
+			loses1 = "UPDATE authentication.allStats SET numberWins = numberLosses + " + score2 + "WHERE userName = \'" + userName1 + "\'";
+			wins2 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score2 + "WHERE userName = \'" + userName2 + "\'";
+			loses2 = "UPDATE authentication.allStats SET numberWins = numberLosses + " + score1 + "WHERE userName = \'" + userName2 + "\'";
 		}
 		
 		else if(score1 < score2){
