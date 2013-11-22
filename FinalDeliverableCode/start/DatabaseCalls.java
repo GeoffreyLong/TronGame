@@ -98,11 +98,26 @@ public class DatabaseCalls {
 		try{
 			System.out.println(query);
 			System.out.println(query2);
+			
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			
 			Statement stmt2 = conn.createStatement();
 			stmt2.executeUpdate(query2);
+			
+			Statement stmt3 = conn.createStatement();
+			stmt3.executeUpdate(wins1);
+			
+			Statement stmt4 = conn.createStatement();
+			stmt4.executeUpdate(loses1);
+			
+			Statement stmt5 = conn.createStatement();
+			stmt5.executeUpdate(wins2);
+			
+			Statement stmt6 = conn.createStatement();
+			stmt6.executeUpdate(loses2);
+			
+			
 			pass = true;
 		}
 		
