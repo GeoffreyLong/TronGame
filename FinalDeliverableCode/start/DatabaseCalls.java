@@ -15,7 +15,7 @@ public class DatabaseCalls {
 		boolean pass = false;
 		
 		String query = "INSERT INTO authentication.login (userName, password) VALUES (\'" + userName + "\',\'" +  password + "\')";
-		String query2 = "INSERT INTO authentication.allStats (userName, totalScore, numberWins, numberLosses) VALUES (\'" + userName + "\', 0, 0, 0";
+		String query2 = "INSERT INTO authentication.allStats (userName, totalScore, numberWins, numberLosses) VALUES (\'" + userName + "\', 0, 0, 0)";
 		
 		try{
 			Statement stmt = conn.createStatement();
@@ -29,6 +29,7 @@ public class DatabaseCalls {
         
         	catch (SQLException e) {
 			//System.out.println("User already exists");
+        		e.printStackTrace();
         		pass = false;
 		}
 		
