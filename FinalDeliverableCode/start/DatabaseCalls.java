@@ -75,35 +75,21 @@ public class DatabaseCalls {
 		
 		boolean pass = false;
 		
-		String query = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + " WHERE userName = \'" + userName1 + "\'";
-		String query2 = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + " WHERE userName = \'" + userName2 + "\'";
-		
 		String wins1 = "";
 		String loses1 = "";
 		String wins2 = "";
 		String loses2 = "";
 		
-		if(score1 > score2){
-			wins1 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score1 + "WHERE userName = \'" + userName1 + "\'";
-			loses1 = "UPDATE authentication.allStats SET numberWins = numberLosses + " + score2 + "WHERE userName = \'" + userName1 + "\'";
-			wins2 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score2 + "WHERE userName = \'" + userName2 + "\'";
-			loses2 = "UPDATE authentication.allStats SET numberWins = numberLosses + " + score1 + "WHERE userName = \'" + userName2 + "\'";
-		}
+		wins1 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score1 + " WHERE userName = \'" + userName1 + "\'";
+		loses1 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score2 + " WHERE userName = \'" + userName1 + "\'";
+		wins2 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score2 + " WHERE userName = \'" + userName2 + "\'";
+		loses2 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score1 + " WHERE userName = \'" + userName2 + "\'";
 		
-		else if(score1 < score2){
-			
-		}
 		
 		
 		try{
-			System.out.println(query);
-			System.out.println(query2);
-			
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate(query);
-			
-			Statement stmt2 = conn.createStatement();
-			stmt2.executeUpdate(query2);
+			System.out.println(wins1);
+			System.out.println(loses1);
 			
 			Statement stmt3 = conn.createStatement();
 			stmt3.executeUpdate(wins1);
