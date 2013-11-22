@@ -75,10 +75,13 @@ public class DatabaseCalls {
 		
 		boolean pass = false;
 		
-		String query = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + "WHERE userName = \'" + userName1 + "\'";
-		String query2 = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + "WHERE userName = \'" + userName2 + "\'";
+		String query = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + " WHERE userName = \'" + userName1 + "\'";
+		String query2 = "UPDATE authentication.allStats SET totalScore = totalScore + " + score1 + " WHERE userName = \'" + userName2 + "\'";
+		
 		
 		try{
+			System.out.println(query);
+			System.out.println(query2);
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(query);
 			
@@ -88,6 +91,7 @@ public class DatabaseCalls {
 		}
 		
 		catch(Exception e){
+			e.printStackTrace();
 			pass = false;
 		}
 		
