@@ -23,7 +23,7 @@ public class DatabaseCalls {
 		} 
         
         	catch (SQLException e) {
-			System.out.println("User already exists");
+			//System.out.println("User already exists");
         		pass = false;
 		}
 		
@@ -64,12 +64,22 @@ public class DatabaseCalls {
 		
 		
 	}
-
-
-
+	
 	public boolean pushStatistics(String userName1, int score1, String userName2, int score2){
 		
-		return false;
+		boolean pass = false;
+		
+		String query = "";
+		
+		try{
+			
+		}
+		
+		catch(Exception e){
+			
+		}
+		
+		return pass;
 		
 	}
 
