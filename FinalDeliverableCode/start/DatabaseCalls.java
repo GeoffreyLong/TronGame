@@ -72,11 +72,13 @@ public class DatabaseCalls {
 		String query = "";
 		
 		try{
-			
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(query);
+			pass = true;
 		}
 		
 		catch(Exception e){
-			
+			pass = false;
 		}
 		
 		return pass;
