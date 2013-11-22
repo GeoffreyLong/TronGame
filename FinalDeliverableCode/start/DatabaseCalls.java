@@ -69,11 +69,15 @@ public class DatabaseCalls {
 		
 		boolean pass = false;
 		
-		String query = "";
+		String query = "UPDATE authentication.allStatistics SET totalScore = totalScore + " + score1 + "WHERE userName = \'" + userName1 + "\'";
+		String query2 = "UPDATE authentication.allStatistics SET totalScore = totalScore + " + score1 + "WHERE userName = \'" + userName2 + "\'";
 		
 		try{
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(query);
+			
+			Statement stmt2 = conn.createStatement();
+			stmt2.executeUpdate(query2);
 			pass = true;
 		}
 		
