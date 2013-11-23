@@ -70,11 +70,11 @@ public class FrameDriver {
 		frame.removeAll();
 		frame.addPanel(endScreen);
 	}
-	public static void mapChooser(){
-		/*MapChooser choose = new MapChooser(this);
+	public static void mapChooser(SetupPanel setup){
+		MapChooser choose = new MapChooser(setup);
 		choose.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		choose.setVisible(true);
 		frame.addPanel(choose);
-		//this.setVisible(false);*/
+		setup.setVisible(false);
 	}
 }
