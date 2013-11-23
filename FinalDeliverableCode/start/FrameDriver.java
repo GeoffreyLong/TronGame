@@ -1,5 +1,9 @@
 package start;
 
+import java.awt.Component;
+
+import javax.swing.JComponent;
+
 import game.EndScreen;
 import game.GameSetup;
 import game.MapChooser;
@@ -18,6 +22,8 @@ public class FrameDriver {
 	static WelcomePanel welcome;
 	static PlayerPanel paneOne;
 	static PlayerPanel paneTwo;
+	static GameSetup setup;
+	static SetupPanel setupPanel;
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -28,14 +34,17 @@ public class FrameDriver {
 		paneTwo = new PlayerTwoPanel(Main.playerTwo);
 		ReadyActionListener listen = new ReadyActionListener(paneOne, paneTwo);
 		
+		setup = new GameSetup(Main.playerOne, Main.playerTwo);
+		setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
+		setupPanel.setVisible(false);
+		
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);
+		frame.addPanel(setupPanel);
 	}
 	public static void startGameSetup(){
-		frame.removeAll();
-		GameSetup setup = new GameSetup(Main.playerOne, Main.playerTwo);
-		SetupPanel setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
+		
 		frame.addPanel(setupPanel);
 	}
 	public static void createAccount(Player player){
@@ -76,5 +85,11 @@ public class FrameDriver {
 		choose.setVisible(true);
 		frame.addPanel(choose);
 		setup.setVisible(false);
+	}
+	public static void hideAll(){
+		//may want to check to make sure that i is a jpanel
+		for (Component i : Frame.frame.getContentPane().getComponents()){
+			i.setVisible(false);
+		}
 	}
 }
