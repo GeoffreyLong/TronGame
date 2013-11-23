@@ -54,7 +54,7 @@ public class FrameDriver {
 	}
 	public static void startGameSetup(){
 		hideAll();
-		frame.addPanel(setupPanel);
+		setupPanel.setVisible(true);
 	}
 	public static void createAccount(Player player){
 		CreateUser create = new CreateUser(player);
