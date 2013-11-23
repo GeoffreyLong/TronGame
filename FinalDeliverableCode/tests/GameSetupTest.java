@@ -122,4 +122,6 @@ public class GameSetupTest {
 		assertEquals(checkOne, colorOne.CYAN);
 		assertEquals(checkTwo, colorTwo.BLUE);
 	}
+	
+	
 }

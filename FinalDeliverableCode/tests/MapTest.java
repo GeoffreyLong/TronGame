@@ -7,21 +7,23 @@
 package tests;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import game.Map;
+import gameplay.Tile;
 
 public class MapTest {
+	private int testX = 30;
+	private int testY = 30;
+	private final int mapSetAdjustment = 3;
 	
 	@Test
-	public void testDefaultMapSize() {
-		/*
-		Map map = new Map();
-		int mapSize = map.getDefaultMapSize();
-		map.setDefaultMap();
-		assertEquals(mapSize, map.getDefaultMapSize()); 
-		*/
+	public void testGenericGetters() {
+		
+		Map map = new Map(testX, testY);
+		
+		assertEquals(testX + mapSetAdjustment, map.getXSize());
+		assertEquals(testX + mapSetAdjustment, map.getYSize());		
 	}
 	
 	@Test	
