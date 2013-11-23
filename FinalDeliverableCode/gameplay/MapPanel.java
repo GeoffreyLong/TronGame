@@ -312,13 +312,18 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("+")){
-			increment ++;
+			if (xSize*(increment+1)<= this.getWidth()*0.8 && 
+					ySize*(increment+1)<= this.getHeight()*0.8){
+				increment++;
+			}
 			xOffset = (Frame.getXSize() - xSize*increment) / 2;
 			yOffset = (Frame.getYSize() - ySize*increment) / 2;
 			repaint();
 		}
 		if (e.getActionCommand().equals("-")){
-			increment --;
+			if (increment>1){
+				increment --;
+			}
 			xOffset = (Frame.getXSize() - xSize*increment) / 2;
 			yOffset = (Frame.getYSize() - ySize*increment) / 2;
 			repaint();

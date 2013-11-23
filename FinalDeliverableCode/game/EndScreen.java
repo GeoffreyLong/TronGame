@@ -37,10 +37,10 @@ public class EndScreen extends JPanel implements ActionListener{
     	
     	winner = new JLabel();
     	if (pOneWins > pTwoWins){
-    		winner.setText("Congradulations Player One");
+    		winner.setText("Congratulations Player One");
     	}
     	else{
-    		winner.setText("Congradulations Player Two");
+    		winner.setText("Congratulations Player Two");
     	}
     	winner.setBounds(300, 400, 300, 40);
     	
