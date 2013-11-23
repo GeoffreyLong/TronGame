@@ -15,9 +15,9 @@ import user.Player;
 
 public class FrameDriver {
 	static Frame frame;
-	WelcomePanel welcome;
-	PlayerPanel paneOne;
-	PlayerPanel paneTwo;
+	static WelcomePanel welcome;
+	static PlayerPanel paneOne;
+	static PlayerPanel paneTwo;
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -42,9 +42,11 @@ public class FrameDriver {
 		CreateUser create = new CreateUser(player);
 		
 		if (player.getPlayerNumber() == 1){
+			paneOne.setVisible(false);
 			create.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 		}
 		else{
+			paneTwo.setVisible(false);
 			create.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 		}
 		frame.addPanel(create);
@@ -53,9 +55,11 @@ public class FrameDriver {
 		LoginGUI login = new LoginGUI(player);
 
 		if (player.getPlayerNumber() == 1){
+			paneOne.setVisible(false);
 			login.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 		}
 		else{
+			paneTwo.setVisible(false);
 			login.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 		}
 		frame.addPanel(login);
