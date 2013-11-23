@@ -40,17 +40,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		JButton playerStats = new JButton("Show Statistics");
 		playerStats.addActionListener(this);
 		playerStats.setBounds(140, 225, 300, 70);
-		
-		JLabel playerNameLabel = new JLabel("Logged in as : " + player.getUserName());
-		playerNameLabel.setBounds(140, 325, 300, 30);
-		
-		if (player.getUserName().equals("anonymous")){
-			
-		}
-		else{
 
-		}
-		
 		login = new JButton("Login");
 		login.setBounds(20, 125, 300, 70);
 		login.addActionListener(this);
@@ -75,7 +65,6 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		
 		add(playerLabel);
 		add(playerStats);
-		add(playerNameLabel);
 		add(playerStatus);
 	}
 	
