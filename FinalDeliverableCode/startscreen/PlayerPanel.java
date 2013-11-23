@@ -19,7 +19,9 @@ import user.Player;
 
 public class PlayerPanel extends JPanel implements ActionListener{
 	private Player player;
-	public JButton playerLog;
+	public JButton logout;
+	public JButton login;
+	public JButton createAccount;
 	public JLabel playerStatus;
 	public InputMap inputMap;
 	JLabel playerLabel;
@@ -42,24 +44,29 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		JLabel playerNameLabel = new JLabel("Logged in as : " + player.getUserName());
 		playerNameLabel.setBounds(140, 325, 300, 30);
 		
-		JButton createAccount = new JButton("Create an Account");
+		if (player.getUserName().equals("anonymous")){
+			
+		}
+		else{
+
+		}
+		
+		login = new JButton("Login");
+		login.setBounds(20, 125, 300, 70);
+		login.addActionListener(this);
+		login.setVisible(false);
+		add(login);
+		
+		logout = new JButton("Logout");
+		logout.setBounds(140, 125, 300, 70);
+		logout.addActionListener(this);
+		logout.setVisible(false);
+		add(logout);
+		
+		createAccount = new JButton("Create an Account");
 		createAccount.setBounds(340,125,300,70);
 		createAccount.addActionListener(this);
 		add(createAccount);
-		
-		if (player.getUserName().equals("anonymous")){
-			playerLog = new JButton("Login");
-			playerLog.setBounds(20, 125, 300, 70);
-			createAccount.setVisible(true);
-		}
-		else{
-			playerLog = new JButton("Logout");
-			playerLog.setBounds(140, 125, 300, 70);
-			createAccount.setVisible(false);
-		}
-		
-		playerLog.addActionListener(this);
-		add(playerLog);
 		
 		playerStatus = new JLabel("NOT READY");
 		playerStatus.setBounds(140, 425, 300, 30);
@@ -77,6 +84,15 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	}
 	public void setLabel(String label){
 		playerLabel.setText(label);
+	}
+	public void setLogin(boolean isVisible){
+		login.setVisible(isVisible);
+	}
+	public void setCreate(boolean isVisible){
+		createAccount.setVisible(isVisible);
+	}
+	public void setLogout(boolean isVisible){
+		logout.setVisible(true);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {

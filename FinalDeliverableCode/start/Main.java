@@ -14,6 +14,7 @@ import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.PlayerPanel;
 import startscreen.WelcomePanel;
+import user.NullPlayer;
 import user.Player;
 
 /**
@@ -29,8 +30,8 @@ public class Main {
 	
 	public static void main (String[] args){
 		frame = new Frame();
-		playerOne = new Player(1);
-		playerTwo = new Player(2);
+		playerOne = new NullPlayer(1);
+		playerTwo = new NullPlayer(2);
 		start();
 	}
 	
