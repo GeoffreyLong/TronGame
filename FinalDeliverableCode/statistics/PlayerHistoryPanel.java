@@ -26,30 +26,26 @@ public class PlayerHistoryPanel extends JPanel{
             Statement stmt = conn.createStatement();  
             ResultSet result = stmt.executeQuery("SELECT opponent, numberGames, numberWins, numberLosses FROM authentication.playerHistory WHERE userName = '" + username + "'");
             ResultSetMetaData md = result.getMetaData();
-            int columnCount = md.getColumnCount();
+             
+            Object[] columns = {"Opponent", "Number of Games", "Number of Wins", "Number of Losses"};
             
-            Vector columns = new Vector(columnCount);
-
-            //store column names
-            for(int i=1; i<=columnCount; i++)
-            columns.add(md.getColumnName(i));
-
-            Vector data = new Vector();
-            Vector row;
-
-            //store row data
-            while(result.next())
-            {
-            row = new Vector(columnCount);
-            for(int i=1; i<=columnCount; i++)
-            {
-            row.add(result.getString(i));
-            }
-            data.add(row);
+            Object[][] data = new Object[100][100];
+            
+            int i = 0;
+            
+            while(result.next()){
+            	
+            	for(int j = 0 ; j < 4; j++){
+            		
+            		data[i][j] = result.getString(j + 1);
+            	}
+            	
+            	i ++;
             }
 
             table = new JTable(data, columns);
             table.setFillsViewportHeight(true);
+            
   
         }  
         catch(SQLException sqle){  
@@ -61,7 +57,7 @@ public class PlayerHistoryPanel extends JPanel{
 	
 	private void makeLayout(){
 		//setLayout(null);
-		add(table);
+		add(new JScrollPane(table));
 	}
 
 }
