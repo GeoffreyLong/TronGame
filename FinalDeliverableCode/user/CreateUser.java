@@ -143,5 +143,4 @@ public class CreateUser extends JPanel implements ActionListener{
 		
 		
 	}
-
 }

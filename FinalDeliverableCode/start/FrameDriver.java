@@ -24,6 +24,8 @@ public class FrameDriver {
 	static PlayerPanel paneTwo;
 	static GameSetup setup;
 	static SetupPanel setupPanel;
+	static CreateUser createOne;
+	static CreateUser createTwo;
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -41,10 +43,20 @@ public class FrameDriver {
 		setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
 		setupPanel.setVisible(false);
 		
+		createOne = new CreateUser(Main.playerOne);
+		createOne.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		createOne.setVisible(false);
+
+		createTwo = new CreateUser(Main.playerTwo);
+		createTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		createTwo.setVisible(false);
+		
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);
 		frame.addPanel(setupPanel);
+		frame.addPanel(createOne);
+		frame.addPanel(createTwo);
 	}
 	public static void mainMenu(){
 		hideAll();
@@ -57,17 +69,14 @@ public class FrameDriver {
 		setupPanel.setVisible(true);
 	}
 	public static void createAccount(Player player){
-		CreateUser create = new CreateUser(player);
-		
 		if (player.getPlayerNumber() == 1){
 			paneOne.setVisible(false);
-			create.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+			createOne.setVisible(true);
 		}
 		else{
 			paneTwo.setVisible(false);
-			create.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+			createTwo.setVisible(true);
 		}
-		frame.addPanel(create);
 	}
 	public static void login(Player player){
 		LoginGUI login = new LoginGUI(player);
