@@ -74,6 +74,40 @@ public class CreateUser extends JPanel implements ActionListener{
 		add(createAccount);
 		
 	}
+	
+	private boolean checkPassword(String password){
+		boolean pass = false;
+		
+		boolean length = password.length() >= 8;
+		boolean lowercase = false;
+		boolean uppercase = false;
+		boolean digit = false;
+		boolean character = false;
+		
+		char[] check = password.toCharArray();
+		
+		for(int i = 0; i < check.length; i++){
+			if(check[i] >= 'a' && check[i] <= 'z'){
+				lowercase = true;
+			}
+			
+			else if(check[i] >= 'A' && check[i] <= 'Z'){
+				uppercase = true;
+			}
+			
+			else if(check[i] >= '0' && check[i] <= '9'){
+				digit = true;
+			}
+			
+			else if((check[i] >= 33 && check[i] <= 47) || (check[i] >= 58 && check[i] <= 64) || (check[i] >= 91 && check[i] <= 96) || (check[i] >= 123 && check[i] <= 126)){
+				character = true;
+			}
+		}
+		
+		pass = length && lowercase && uppercase && digit && character;
+		
+		return pass;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -83,9 +117,14 @@ public class CreateUser extends JPanel implements ActionListener{
 			if(passwordField.getText().equals(rePasswordField.getText())){
 				Connection conn = Connect.connect();
 				
+				boolean pass = false;
+				
 				DatabaseCalls call = new DatabaseCalls(conn);
 				
-				boolean pass = call.createUser(usernameField.getText(), passwordField.getText());
+				
+				if(checkPassword(passwordField.getText())){
+					pass = call.createUser(usernameField.getText(), passwordField.getText());
+				}
 				
 				try {
 					if(pass){

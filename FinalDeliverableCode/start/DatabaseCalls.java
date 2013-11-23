@@ -74,18 +74,26 @@ public class DatabaseCalls {
 	public boolean pushStatistics(String userName1, int score1, String userName2, int score2){
 		
 		boolean pass = false;
+		String one = "1";
+		String zero = "0";
+		String check = "";
 		
 		String wins1 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score1 + " WHERE userName = \'" + userName1 + "\'";
 		String loses1 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score2 + " WHERE userName = \'" + userName1 + "\'";
 		String wins2 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score2 + " WHERE userName = \'" + userName2 + "\'";
 		String loses2 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score1 + " WHERE userName = \'" + userName2 + "\'";
 		
-		String playerHistory1 = "";
-		String playerHistory2 = "";
+		String queryCheck = "SELECT EXISTS (SELECT * FROM authentication.playerHistory WHERE userName= \'" + userName1 + "\' AND opponent = \'" + userName2 + "\')";
+		
+		String updateQuery1 = "UPDATE authentication.playerHistory SET numberWins = numberWins + " + score1 + ", numberLosses = numberLosses + " + score2 + ", numberGames = numberGames + " + (score1 + score2) + " WHERE userName = \'" + userName1 + "\' AND authentication.playerHistory.opponent = \'" + userName2 + "\'";
+		String updateQuery2 = "UPDATE authentication.playerHistory SET numberWins = numberWins + " + score2 + ", numberLosses = numberLosses + " + score1 + ", numberGames = numberGames + " + (score1 + score2) + " WHERE userName = \'" + userName2 + "\' AND authentication.playerHistory.opponent = \'" + userName1 + "\'";
+		String createQuery1 = "INSERT INTO authentication.playerHistory (userName, opponent, numberGames, numberWins, numberLosses) VALUES (\'" + userName1 + "\', \'" + userName2 + "\', " + (score1 + score2) + ", " + score1 + ", " + score2 + ")";
+		String createQuery2 = "INSERT INTO authentication.playerHistory (userName, opponent, numberGames, numberWins, numberLosses) VALUES (\'" + userName2 + "\', \'" + userName1 + "\', " + (score1 + score2) + ", " + score2 + ", " + score1 + ")";
+		
+		System.out.println(updateQuery1);
+		System.out.println(createQuery1);
 		
 		try{
-			System.out.println(wins1);
-			System.out.println(loses1);
 			
 			Statement stmt3 = conn.createStatement();
 			stmt3.executeUpdate(wins1);
@@ -98,6 +106,29 @@ public class DatabaseCalls {
 			
 			Statement stmt6 = conn.createStatement();
 			stmt6.executeUpdate(loses2);
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(queryCheck);
+			
+			if(rs.next()){
+				check = rs.getString(1);
+			}
+			
+			if(check.equals(one)){
+				Statement stmt7 = conn.createStatement();
+				stmt7.executeUpdate(updateQuery1);
+				
+				Statement stmt8 = conn.createStatement();
+				stmt8.executeUpdate(updateQuery2);
+			}
+			
+			else if(check.equals(zero)){
+				Statement stmt9 = conn.createStatement();
+				stmt9.executeUpdate(createQuery1);
+				
+				Statement stmt10 = conn.createStatement();
+				stmt10.executeUpdate(createQuery2);
+			}
 			
 			
 			pass = true;
