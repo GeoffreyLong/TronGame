@@ -110,6 +110,16 @@ public class GameSetupTest {
 	
 	@Test
 	public void testColorChanging() {
+		playerOne = new Player(playerNumberOne);
+		playerTwo = new Player(playerNumberTwo);
+		GameSetup testGameSetup = new GameSetup(playerOne, playerTwo);
 		
+		testGameSetup.setPOneColor(colorOne.CYAN);
+		testGameSetup.setPTwoColor(colorTwo.BLUE);
+		Color checkOne = testGameSetup.getPlayerColor(playerNumberOne);
+		Color checkTwo = testGameSetup.getPlayerColor(playerNumberTwo);
+		
+		assertEquals(checkOne, colorOne.CYAN);
+		assertEquals(checkTwo, colorTwo.BLUE);
 	}
 }
