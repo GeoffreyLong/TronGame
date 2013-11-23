@@ -4,12 +4,17 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+
+import statistics.*;
 
 import javax.swing.BorderFactory;
 import javax.swing.InputMap;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.*;
 
 import user.CreateUser;
 import user.LoginGUI;
@@ -17,6 +22,7 @@ import start.Frame;
 import start.FrameDriver;
 import user.Logout;
 import user.Player;
+import start.Connect;
 
 public class PlayerPanel extends JPanel implements ActionListener{
 	private Player player;
@@ -26,9 +32,13 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public JLabel playerStatus;
 	public InputMap inputMap;
 	JLabel playerLabel;
+	JButton playerStats;
+	
+	private Connection conn;
 	
 	public PlayerPanel(Player player){
 		this.player = player;
+		this.conn = Connect.connect();
 		
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(null);
@@ -38,9 +48,9 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		playerLabel.setBounds(50,30,300,60);
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
 		
-		JButton playerStats = new JButton("Show Statistics");
-		playerStats.addActionListener(this);
+		playerStats = new JButton("Show Statistics");
 		playerStats.setBounds(140, 225, 300, 70);
+		playerStats.addActionListener(this);
 
 		login = new JButton("Login");
 		login.setBounds(20, 125, 300, 70);
@@ -89,14 +99,24 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		if (e.getActionCommand().equals("Login")){
 			FrameDriver.login(player);
 		}
+		
 		if (e.getActionCommand().equals("Logout")){
 
 		}
+		
 		if (e.getActionCommand().equals("Show Statistics")){
 			
+		       JFrame frame = new JFrame("View All Statistics");  
+	       	       JScrollPane scrollPane = new JScrollPane(new AllStatsPanel(conn));  
+	               frame.getContentPane().add(scrollPane);  
+	               frame.setSize(500, 500);  
+	               frame.setVisible(true);  
+			
 		}
+		
 		if(e.getActionCommand().equals("Create an Account")){
 			FrameDriver.createAccount(player);
 		}
+		
 	}
 }
