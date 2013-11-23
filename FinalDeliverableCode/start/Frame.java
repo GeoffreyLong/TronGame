@@ -64,7 +64,7 @@ public class Frame {
 	 * without creating a new instance (and therefore a new frame) of the frame
 	 * @param panel  The panel that is to be added
 	 */
-	public static void addPanel(JPanel panel){
+	public void addPanel(JPanel panel){
 		frame.add(panel);
         frame.validate();
         frame.repaint();
@@ -79,7 +79,7 @@ public class Frame {
 		
 	    return mapPanel;
 	}
-	public static void removeAll(){
+	public void removeAll(){
 		frame.getContentPane().removeAll();
 		frame.validate();
 		frame.repaint();

@@ -11,7 +11,7 @@ import start.Main;
 
 public class WelcomePanel extends JPanel {
 	public WelcomePanel(){
-		setBounds(-1,0,Main.frame.getXSize(),Main.frame.getYSize()/4);
+		setBounds(-1,0,Frame.getXSize(),Frame.getYSize()/4);
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		
 		JLabel welcome = new JLabel("Welcome to Tron");

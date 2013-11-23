@@ -24,30 +24,19 @@ import user.Player;
  * @throws java.lang.Exception if the GUI cannot be instantiated
  */
 public class Main {
-	public static Frame frame;
 	public static Player playerOne;
 	public static Player playerTwo;
 	
 	public static void main (String[] args){
-		frame = new Frame();
 		playerOne = new NullPlayer(1);
 		playerTwo = new NullPlayer(2);
+		Frame frame = new Frame();
+		FrameDriver frameDriver = new FrameDriver(frame);
+		frameDriver.init();
 		start();
 	}
 	
 	public static void start(){
-		WelcomePanel welcome = new WelcomePanel();
-		PlayerPanel paneOne = new PlayerOnePanel(playerOne);
-		PlayerPanel paneTwo = new PlayerTwoPanel(playerTwo);
-		ReadyActionListener listen = new ReadyActionListener(paneOne, paneTwo);
-		frame.addPanel(paneOne);
-		frame.addPanel(paneTwo);
-		frame.addPanel(welcome);
-	}
-	public static void startGameSetup(){
-		Frame.removeAll();
-		GameSetup setup = new GameSetup(playerOne, playerTwo);
-		SetupPanel setupPanel = new SetupPanel(playerOne, playerTwo, setup);
-		Frame.addPanel(setupPanel);
+		
 	}
 }

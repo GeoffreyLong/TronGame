@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import start.Frame;
+import start.FrameDriver;
 import gameplay.GameMaster;
 import startscreen.WelcomePanel;
 import user.Player;
@@ -110,11 +111,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Change the Map")){
-			MapChooser choose = new MapChooser(this);
-			choose.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-			choose.setVisible(true);
-			Frame.addPanel(choose);
-			this.setVisible(false);
+			FrameDriver.mapChooser();
 		}
 		if(e.getActionCommand().equals("-")){
 			if (gameSetup.getGameDifficulty()>0){

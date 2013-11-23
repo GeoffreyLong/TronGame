@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import user.CreateUser;
 import user.LoginGUI;
 import start.Frame;
+import start.FrameDriver;
 import user.Logout;
 import user.Player;
 
@@ -86,15 +87,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Login")){
-			LoginGUI login = new LoginGUI(player);
-			Frame.removePanel(this);
-			if (player.getPlayerNumber() == 1){
-				login.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
-			}
-			else{
-				login.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
-			}
-			Frame.addPanel(login);
+			FrameDriver.login(player);
 		}
 		if (e.getActionCommand().equals("Logout")){
 
@@ -103,15 +96,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			
 		}
 		if(e.getActionCommand().equals("Create an Account")){
-			CreateUser create = new CreateUser(player);
-			Frame.removePanel(this);
-			if (player.getPlayerNumber() == 1){
-				create.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
-			}
-			else{
-				create.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
-			}
-			Frame.addPanel(create);
+			FrameDriver.createAccount(player);
 		}
 	}
 }

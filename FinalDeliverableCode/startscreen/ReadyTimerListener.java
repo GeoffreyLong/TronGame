@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
+import start.FrameDriver;
 import start.Main;
 
 public class ReadyTimerListener implements ActionListener{
@@ -19,7 +20,7 @@ public class ReadyTimerListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(isReady()){
-			Main.startGameSetup();
+			FrameDriver.startGameSetup();
 			ReadyActionListener.timer.stop();
 		}
 	}
