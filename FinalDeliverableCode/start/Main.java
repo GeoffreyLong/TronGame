@@ -26,17 +26,18 @@ import user.Player;
 public class Main {
 	public static Player playerOne;
 	public static Player playerTwo;
+	private static Frame frame;
 	
 	public static void main (String[] args){
 		playerOne = new NullPlayer(1);
 		playerTwo = new NullPlayer(2);
-		Frame frame = new Frame();
-		FrameDriver frameDriver = new FrameDriver(frame);
-		frameDriver.init();
+		frame = new Frame();
 		start();
 	}
 	
 	public static void start(){
-		
+		FrameDriver frameDriver = new FrameDriver(frame);
+		frameDriver.init();
+		frameDriver.mainMenu();
 	}
 }

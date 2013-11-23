@@ -30,8 +30,11 @@ public class FrameDriver {
 	}
 	public void init(){
 		welcome = new WelcomePanel();
+		welcome.setVisible(false);
 		paneOne = new PlayerOnePanel(Main.playerOne);
+		paneOne.setVisible(false);
 		paneTwo = new PlayerTwoPanel(Main.playerTwo);
+		paneTwo.setVisible(false);
 		ReadyActionListener listen = new ReadyActionListener(paneOne, paneTwo);
 		
 		setup = new GameSetup(Main.playerOne, Main.playerTwo);
@@ -43,8 +46,14 @@ public class FrameDriver {
 		frame.addPanel(welcome);
 		frame.addPanel(setupPanel);
 	}
+	public static void mainMenu(){
+		hideAll();
+		paneOne.setVisible(true);
+		paneTwo.setVisible(true);
+		welcome.setVisible(true);
+	}
 	public static void startGameSetup(){
-		
+		hideAll();
 		frame.addPanel(setupPanel);
 	}
 	public static void createAccount(Player player){
