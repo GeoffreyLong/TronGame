@@ -23,11 +23,11 @@ public class LoginGUI extends JPanel implements ActionListener{
 	public LoginGUI(Player player){
 		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));
-		makeComponents();
-		makeLayout();
+		initComponents();
+		initLayout();
 	}
 	
-	private void makeComponents(){
+	private void initComponents(){
 
 		title = new JLabel("Login to your account");
 		title.setFont(new Font("Times", Font.BOLD, 37));
@@ -53,7 +53,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 		
 	}
 	
-	private void makeLayout(){
+	private void initLayout(){
 		setLayout(null);
 		add(title);
 		add(username);

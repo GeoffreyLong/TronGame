@@ -17,11 +17,11 @@ public class PlayerHistoryPanel extends JPanel{
 	public PlayerHistoryPanel(Connection conn, String username ){
 		this.conn = conn;
 		this.username = username;
-		makeComponents();
-		makeLayout();	
+		initComponents();
+		initLayout();	
 	}
 	
-	private void makeComponents(){
+	private void initComponents(){
 		try{  
             Statement stmt = conn.createStatement();  
             ResultSet result = stmt.executeQuery("SELECT opponent, numberGames, numberWins, numberLosses FROM authentication.playerHistory WHERE userName = '" + username + "'");
@@ -55,7 +55,7 @@ public class PlayerHistoryPanel extends JPanel{
 		
 	}
 	
-	private void makeLayout(){
+	private void initLayout(){
 		//setLayout(null);
 		add(new JScrollPane(table));
 	}

@@ -114,8 +114,8 @@ public class FrameDriver {
 	}
 	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
-		endScreen.makeComponents();
-		endScreen.makeLayout();
+		endScreen.initComponents();
+		endScreen.initLayout();
 		endScreen.setPOneWins(pOneWins);
 		endScreen.setPTwoWins(pTwoWins);
 		endScreen.setGamesPlayed(gamesPlayed);

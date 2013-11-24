@@ -30,12 +30,8 @@ public class MapChooser extends JPanel{
 	 */
 	public MapChooser(SetupPanel setup){
 		this.setup = setup;
-		setBounds(0,0,start.Frame.getXSize(), start.Frame.getYSize());
 		this.mapHandle = setup.gameSetup.getMapHandler();
-		setVisible(true);
-		setLayout(null);
-		setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		setButtons();
+		initLayout();
 	}
 	
 	/**
@@ -46,7 +42,7 @@ public class MapChooser extends JPanel{
 	 * will set the map in maphandler to the clicked map and will also 
 	 * reset the SetupPanel as the dominant panel. 
 	 */
-	private void setButtons(){
+	private void initButtons(){
 		for (Map map : mapHandle.maps){
 			int displaySize = 4;
 			final Map buttonMap = map;
@@ -63,6 +59,14 @@ public class MapChooser extends JPanel{
 			});
 			add(chooseMap);
 		}
+	}
+	
+	private void initLayout(){
+		setBounds(0,0,start.Frame.getXSize(), start.Frame.getYSize());
+		setVisible(true);
+		setLayout(null);
+		setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		initButtons();
 	}
 		/*
 		for (int i = 0; i<map.getNumberOfMaps(); i++){

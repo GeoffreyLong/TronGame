@@ -23,11 +23,11 @@ public class EndScreen extends JPanel implements ActionListener{
 	private JLabel endStatus;
 	
     public EndScreen(){
-    	makeComponents();
-    	makeLayout();
+    	initComponents();
+    	initLayout();
     }
     
-    public void makeComponents(){
+    public void initComponents(){
     	title = new JLabel("Thank you for playing Tron");
     	title.setFont(new Font("Times", Font.BOLD, 37));
     	title.setBounds(430, 30, 700, 44);
@@ -45,7 +45,7 @@ public class EndScreen extends JPanel implements ActionListener{
     	
     }
     
-    public void makeLayout(){
+    public void initLayout(){
     	setLayout(null);
     	add(title);
     	add(replay);

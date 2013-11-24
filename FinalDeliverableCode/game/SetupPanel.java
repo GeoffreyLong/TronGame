@@ -33,6 +33,11 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private Colors pTwoColor = Colors.BLUE;
 	private JButton changePOneColor;
 	private JButton changePTwoColor;
+	private JButton startGame;
+	private JButton plusButton;
+	private JLabel pageTitle;
+	private JButton changeMap;
+	private JButton minusButton;
 	
 	/**
 	 * Sets the initial conditions of the MapPanel
@@ -51,18 +56,19 @@ public class SetupPanel extends JPanel implements ActionListener{
 		xSize = start.Frame.getXSize();
 		ySize = start.Frame.getYSize();
 		
-		setLayout(null);
-		setBounds(0,0,xSize,ySize);
-		setVisible(true);
-		
-		JLabel pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
+		initComponents();
+		initLayout();
+	}
+
+	private void initComponents(){				
+		pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
 		pageTitle.setBounds(50, 50, 400, 100);
 		
-		JButton changeMap = new JButton("Change the Map");
+		changeMap = new JButton("Change the Map");
 		changeMap.setBounds(100, 200, 400, 100);
 		changeMap.addActionListener(this);
 		
-		JButton minusButton = new JButton("-");
+		minusButton = new JButton("-");
 		minusButton.setBounds(225, 375, 50, 50);
 		minusButton.addActionListener(this);
 		
@@ -71,7 +77,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 				+ gameSetup.getGameDifficulty() +"</div></html>");
 		changeDifficulty.setBounds(300, 350, 200, 100);
 		
-		JButton plusButton = new JButton("+");
+		plusButton = new JButton("+");
 		plusButton.setBounds(500, 375, 50, 50);
 		plusButton.addActionListener(this);
 		
@@ -91,9 +97,13 @@ public class SetupPanel extends JPanel implements ActionListener{
 		changePTwoColor.setForeground(Color.BLACK);
 		changePTwoColor.addActionListener(this);
 		
-		JButton startGame = new JButton("START THE GAME");
+		startGame = new JButton("START THE GAME");
 		startGame.setBounds(100, 610, 700, 50);
 		startGame.addActionListener(this);
+	}
+	private void initLayout(){
+		setLayout(null);
+		setBounds(0,0,xSize,ySize);
 		
 		add(pageTitle);
 		add(changeMap);
@@ -103,8 +113,9 @@ public class SetupPanel extends JPanel implements ActionListener{
 		add(changePOneColor);
 		add(changePTwoColor);
 		add(startGame);
+		
+		setVisible(true);
 	}
-
 	/**
 	 * Maps the button presses to the corresponding program action
 	 */

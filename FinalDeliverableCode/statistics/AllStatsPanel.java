@@ -16,11 +16,11 @@ public class AllStatsPanel extends JPanel{
 	
 	public AllStatsPanel(Connection conn){
 		this.conn = conn;
-		makeComponents();
-		makeLayout();	
+		initComponents();
+		initLayout();	
 	}
 	
-	private void makeComponents(){
+	private void initComponents(){
 		try{  
             Statement stmt = conn.createStatement();  
             ResultSet result = stmt.executeQuery("SELECT * FROM authentication.allStats");
@@ -53,7 +53,7 @@ public class AllStatsPanel extends JPanel{
 		
 	}
 	
-	private void makeLayout(){
+	private void initLayout(){
 		//setLayout(null);
 		add(new JScrollPane(table));
 	}

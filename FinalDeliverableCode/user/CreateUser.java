@@ -26,11 +26,11 @@ public class CreateUser extends JPanel implements ActionListener{
 	public CreateUser(Player player){
 		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));
-		makeComponents();
-		makeLayout();		
+		initComponents();
+		initLayout();		
 	}
 	
-	private void makeComponents(){
+	private void initComponents(){
 		title = new JLabel("Create your account");
 		title.setFont(new Font("Times", Font.BOLD, 37));
 		title.setBounds(100, 10, 510, 45);
@@ -62,7 +62,7 @@ public class CreateUser extends JPanel implements ActionListener{
 		createAccount.addActionListener(this);	
 	}
 	
-	private void makeLayout(){
+	private void initLayout(){
 		setLayout(null);
 		add(title);
 		add(username);

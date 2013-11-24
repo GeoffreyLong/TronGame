@@ -37,13 +37,12 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	private Connection conn;
 	
 	public PlayerPanel(Player player){
+		initComponents();
+		initLayout();
 		this.player = player;
 		this.conn = Connect.connect();
-		
-		setBorder(BorderFactory.createLineBorder(Color.black));
-		setLayout(null);
-		setVisible(true);
-		
+	}
+	private void initComponents(){		
 		playerLabel = new JLabel();
 		playerLabel.setBounds(50,30,300,60);
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
@@ -56,29 +55,33 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		login.setBounds(20, 125, 300, 70);
 		login.addActionListener(this);
 		login.setVisible(false);
-		add(login);
 		
 		logout = new JButton("Logout");
 		logout.setBounds(140, 125, 300, 70);
 		logout.addActionListener(this);
 		logout.setVisible(false);
-		add(logout);
 		
 		createAccount = new JButton("Create an Account");
 		createAccount.setBounds(340,125,300,70);
 		createAccount.addActionListener(this);
-		add(createAccount);
 		
 		playerStatus = new JLabel("NOT READY");
 		playerStatus.setBounds(140, 425, 300, 30);
 		
 		inputMap = this.getInputMap(WHEN_IN_FOCUSED_WINDOW);
-		
+	}
+	private void initLayout(){
+		setBorder(BorderFactory.createLineBorder(Color.black));
+		setLayout(null);
 		add(playerLabel);
 		add(playerStats);
 		add(playerStatus);
+		add(login);
+		add(logout);
+		add(createAccount);
+		
+		setVisible(true);
 	}
-	
 	public void setLocation(int x){
 		setBounds(x, Frame.getYSize()/4, Frame.getXSize()/2, 3*Frame.getYSize()/4);
 	}
