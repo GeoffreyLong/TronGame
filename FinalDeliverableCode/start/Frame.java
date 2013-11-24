@@ -72,7 +72,7 @@ public class Frame {
 	public static MapPanel start(GameSetup gameSetup, GameMaster gameMaster){
 	    MapPanel mapPanel = new MapPanel(gameSetup, gameMaster);
 		
-	    frame.getContentPane().removeAll();
+	    FrameDriver.hideAll();
 	    frame.add(mapPanel);
 	    frame.validate();
 	    frame.repaint();

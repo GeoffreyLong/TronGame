@@ -22,10 +22,7 @@ public class EndScreen extends JPanel implements ActionListener{
 	private JLabel winner;
 	private JLabel endStatus;
 	
-    public EndScreen(int pOneWins, int pTwoWins, int gamesPlayed){
-		this.pOneWins = pOneWins;
-		this.pTwoWins = pTwoWins;
-		this.gamesPlayed = gamesPlayed;
+    public EndScreen(){
     	makeComponents();
     	makeLayout();
     }
@@ -36,22 +33,10 @@ public class EndScreen extends JPanel implements ActionListener{
     	title.setBounds(430, 30, 700, 44);
     	
     	winner = new JLabel();
-    	if (pOneWins > pTwoWins){
-    		winner.setText("Congratulations Player One");
-    	}
-    	else{
-    		winner.setText("Congratulations Player Two");
-    	}
     	winner.setBounds(300, 400, 300, 40);
     	
-    	endStatus = new JLabel("<html>"
-    			+ "Number of... <br>"
-    			+ "Games Played : "
-    			+ gamesPlayed + "<br>"
-    			+ "Player One Wins : "
-    			+ pOneWins + "<br>"
-    			+ "Player Two Wins : "
-    			+ pTwoWins);
+    	
+    	endStatus = new JLabel();
     	endStatus.setBounds(360, 460, 200, 200);
     	
     	replay = new JButton("Replay?");
@@ -82,5 +67,30 @@ public class EndScreen extends JPanel implements ActionListener{
 	        master.gameStart();
 		}*/
     }
-
+    public void setPOneWins(int i){
+    	pOneWins = i;
+    }
+    public void setPTwoWins(int i){
+    	pTwoWins = i;
+    }
+    public void setGamesPlayed(int i){
+    	gamesPlayed = i;
+    }
+    public void updatePanel(){
+    	if (pOneWins > pTwoWins){
+    		winner.setText("Congratulations Player One");
+    	}
+    	else{
+    		winner.setText("Congratulations Player Two");
+    	}
+    	
+    	endStatus.setText("<html>"
+    			+ "Number of... <br>"
+    			+ "Games Played : "
+    			+ gamesPlayed + "<br>"
+    			+ "Player One Wins : "
+    			+ pOneWins + "<br>"
+    			+ "Player Two Wins : "
+    			+ pTwoWins);
+    }
 }
