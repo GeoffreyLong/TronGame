@@ -26,7 +26,7 @@ public class PlayerControlTest {
 		// set two default cycles for testing
 		Cycle cycleOne = new Cycle(testXPos, testYPos, testHeading, testAlive, testColor);
 		Cycle cycleTwo = new Cycle(testXPos, testYPos, testHeading, testAlive, testColor);
-		/*
+		
 		PlayerControl testControl = new PlayerControl(cycleOne, cycleTwo);
 		
 		// test moving cycle one
@@ -56,7 +56,7 @@ public class PlayerControlTest {
 		// test moving down
 		testControl.setHeading(40);
 		assertEquals(testControl.getCycleTwo().getCurHeading(), Heading.DOWN);	
-		*/	
+		
 	}
 	
 }
