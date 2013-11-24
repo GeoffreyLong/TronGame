@@ -119,6 +119,7 @@ public class FrameDriver {
 		endScreen.setPOneWins(pOneWins);
 		endScreen.setPTwoWins(pTwoWins);
 		endScreen.setGamesPlayed(gamesPlayed);
+		endScreen.updatePanel();
 		endScreen.setVisible(true);
 	}
 	public static void mapChooser(){
