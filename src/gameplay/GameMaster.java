@@ -28,6 +28,7 @@ public class GameMaster {
 	private int playerOneWins;
 	private int playerTwoWins;
 	private int gamesPlayed;
+	private int gameSpeed;
 	
 	public GameMaster(GameSetup gameSetup){
 		this.gameSetup = gameSetup;
@@ -46,7 +47,15 @@ public class GameMaster {
 	 * attribute of GameSetup.  
 	 */
 	public void gameStart(){
-		int gameSpeed = 33;
+		gameSpeed = 33;
+		
+		changeDifficulty();
+		
+		timer = new Timer(gameSpeed, new GameTimer(mapPanel));
+		timer.start();
+	}
+	
+	public void changeDifficulty() {
 		switch(gameSetup.getGameDifficulty()){
 		case(0):
 			gameSpeed = 200;
@@ -85,8 +94,6 @@ public class GameMaster {
 			gameSpeed = 33;
 			break;
 		}
-		timer = new Timer(gameSpeed, new GameTimer(mapPanel));
-		timer.start();
 	}
 	
 	/** 

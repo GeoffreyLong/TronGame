@@ -56,5 +56,7 @@ public class GameMasterTest {
 		assertEquals(gamesPlayed, testGameMaster.getGamesPlayed());
 		assertEquals(playerOneWins, testGameMaster.getPlayerOneWins());
 		assertEquals(playerTwoWins, testGameMaster.getPlayerTwoWins());
-	}	
+	}
+	
+	
 }
