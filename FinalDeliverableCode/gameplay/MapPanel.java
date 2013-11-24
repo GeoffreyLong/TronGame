@@ -40,10 +40,13 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private int xOffset;
 	private int yOffset;
 	private int increment = 5;
+	private JLabel changeSize;
 	private JButton minus;
 	private JButton plus;
 	private GameMaster gameMaster;
 	private boolean haveExplosion = false;
+	private Map mapper;
+	private GameSetup gameSetup;
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
@@ -51,39 +54,50 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	 */
 	public MapPanel(GameSetup gameSetup, GameMaster gameMaster){
 		this.gameMaster = gameMaster;
+		this.gameSetup = gameSetup;
 		setLayout(null);
-		Map mapper = gameSetup.getMap();
+		mapper = gameSetup.getMap();
 		map = mapper.getMap();
 		xSize = mapper.getXSize();
 		ySize = mapper.getYSize();
 		
+		initCycles();
+		initComponents();
+		initLayout();
+	}
+	
+	public void initCycles(){
+		Cycle cycleOne = new Cycle(mapper.getPOneXStart(), mapper.getPOneYStart(), 
+				null, true, gameSetup.getPlayerColor(1));
+		Cycle cycleTwo = new Cycle(mapper.getPTwoXStart(), mapper.getPTwoYStart(), 
+				null, true, gameSetup.getPlayerColor(2));
+		
+		cycles = new Cycle[]{cycleOne, cycleTwo};
+		cont = new PlayerControl(cycleOne, cycleTwo);
+
+		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
+		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
+	}
+	public void initComponents(){
+		changeSize = new JLabel("Change the size of the map");
+		changeSize.setBounds(10,10,200,30);
+		
+		plus = new JButton("+");
+		plus.setBounds(30,50,50,30);
+		plus.addActionListener(this);
+		
+		minus = new JButton("-");
+		minus.setBounds(110,50,50,30);
+		minus.addActionListener(this);
+	}
+	public void initLayout(){
 		xOffset = (Frame.getXSize() - xSize*increment) / 2;
 		yOffset = (Frame.getYSize() - ySize*increment) / 2;
 		
 		setBounds(0,0,Frame.getXSize(),Frame.getYSize());
 		
-		Cycle cycleOne = new Cycle(mapper.getPOneXStart(), mapper.getPOneYStart(), 
-									null, true, gameSetup.getPlayerColor(1));
-		Cycle cycleTwo = new Cycle(mapper.getPTwoXStart(), mapper.getPTwoYStart(), 
-									null, true, gameSetup.getPlayerColor(2));
-		cycles = new Cycle[]{cycleOne, cycleTwo};
-		cont = new PlayerControl(cycleOne, cycleTwo);
-		
-		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
-		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
-		
-		JLabel changeSize = new JLabel("Change the size of the map");
-		changeSize.setBounds(10,10,200,30);
 		add(changeSize);
-		
-		plus = new JButton("+");
-		plus.setBounds(30,50,50,30);
-		plus.addActionListener(this);
 		add(plus);
-		
-		minus = new JButton("-");
-		minus.setBounds(110,50,50,30);
-		minus.addActionListener(this);
 		add(minus);
 		
 		addKeyListener(this);
@@ -91,7 +105,6 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		this.setFocusable(true);
         this.requestFocusInWindow();
 	}
-	
 	/**
 	 * This method is set to execute on a timer.  
 	 * It checks the user's cycle location to see if it is valid 
