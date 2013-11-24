@@ -7,6 +7,10 @@
  */
 package start;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.UIManager.LookAndFeelInfo;
+
 import game.GameSetup;
 import game.SetupPanel;
 import startscreen.PlayerOnePanel;
@@ -32,7 +36,22 @@ public class Main {
 		playerOne = new NullPlayer(1);
 		playerTwo = new NullPlayer(2);
 		frame = new Frame();
+		initializeLookAndFeel();
 		start();
+	}
+	
+	public static void initializeLookAndFeel(){
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+			try {
+				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+			} catch (ClassNotFoundException | InstantiationException
+					| IllegalAccessException | UnsupportedLookAndFeelException e1) {
+				//Keep regular UI manager
+			}
+		}
 	}
 	
 	public static void start(){
