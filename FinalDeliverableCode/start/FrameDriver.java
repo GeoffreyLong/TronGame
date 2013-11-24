@@ -24,6 +24,11 @@ public class FrameDriver {
 	static PlayerPanel paneTwo;
 	static GameSetup setup;
 	static SetupPanel setupPanel;
+	static CreateUser createOne;
+	static CreateUser createTwo;
+	static LoginGUI loginOne;
+	static LoginGUI loginTwo;
+	static MapChooser choose;
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -41,10 +46,35 @@ public class FrameDriver {
 		setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
 		setupPanel.setVisible(false);
 		
+		choose = new MapChooser(setupPanel);
+		choose.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		choose.setVisible(false);
+		
+		createOne = new CreateUser(Main.playerOne);
+		createOne.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		createOne.setVisible(false);
+
+		createTwo = new CreateUser(Main.playerTwo);
+		createTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		createTwo.setVisible(false);
+		
+		loginOne = new LoginGUI(Main.playerOne);
+		loginOne.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		loginOne.setVisible(false);
+
+		loginTwo = new LoginGUI(Main.playerTwo);
+		loginTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		loginTwo.setVisible(false);
+		
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);
 		frame.addPanel(setupPanel);
+		frame.addPanel(createOne);
+		frame.addPanel(createTwo);
+		frame.addPanel(loginOne);
+		frame.addPanel(loginTwo);
+		frame.addPanel(choose);
 	}
 	public static void mainMenu(){
 		hideAll();
@@ -57,46 +87,38 @@ public class FrameDriver {
 		setupPanel.setVisible(true);
 	}
 	public static void createAccount(Player player){
-		CreateUser create = new CreateUser(player);
-		
 		if (player.getPlayerNumber() == 1){
 			paneOne.setVisible(false);
-			create.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+			createOne.setVisible(true);
 		}
 		else{
 			paneTwo.setVisible(false);
-			create.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+			createTwo.setVisible(true);
 		}
-		frame.addPanel(create);
 	}
 	public static void login(Player player){
-		LoginGUI login = new LoginGUI(player);
-
 		if (player.getPlayerNumber() == 1){
+			loginOne.setVisible(true);
 			paneOne.setVisible(false);
-			login.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 		}
 		else{
+			loginTwo.setVisible(true);
 			paneTwo.setVisible(false);
-			login.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 		}
-		frame.addPanel(login);
 	}
 	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		EndScreen endScreen = new EndScreen(pOneWins, pTwoWins, gamesPlayed);
 		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		frame.removeAll();
+		hideAll();
 		frame.addPanel(endScreen);
 	}
-	public static void mapChooser(SetupPanel setup){
-		MapChooser choose = new MapChooser(setup);
-		choose.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+	public static void mapChooser(){
 		choose.setVisible(true);
-		frame.addPanel(choose);
-		setup.setVisible(false);
+		setupPanel.setVisible(false);
 	}
 	public static void hideAll(){
-		//may want to check to make sure that i is a jpanel
+		//TODO may want to check to make sure that i is a jpanel
+		
 		for (Component i : Frame.frame.getContentPane().getComponents()){
 			i.setVisible(false);
 		}
