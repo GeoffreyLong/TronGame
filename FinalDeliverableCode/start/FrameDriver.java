@@ -109,7 +109,7 @@ public class FrameDriver {
 	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		EndScreen endScreen = new EndScreen(pOneWins, pTwoWins, gamesPlayed);
 		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		frame.removeAll();
+		hideAll();
 		frame.addPanel(endScreen);
 	}
 	public static void mapChooser(){
@@ -117,7 +117,8 @@ public class FrameDriver {
 		setupPanel.setVisible(false);
 	}
 	public static void hideAll(){
-		//may want to check to make sure that i is a jpanel
+		//TODO may want to check to make sure that i is a jpanel
+		
 		for (Component i : Frame.frame.getContentPane().getComponents()){
 			i.setVisible(false);
 		}
