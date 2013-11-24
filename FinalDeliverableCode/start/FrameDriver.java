@@ -1,8 +1,11 @@
 package start;
 
 import java.awt.Component;
+import java.sql.Connection;
 
 import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 import game.EndScreen;
 import game.GameSetup;
@@ -13,6 +16,7 @@ import startscreen.PlayerPanel;
 import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.WelcomePanel;
+import statistics.AllStatsPanel;
 import user.CreateUser;
 import user.LoginGUI;
 import user.Player;
