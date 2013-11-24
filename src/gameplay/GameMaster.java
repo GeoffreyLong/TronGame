@@ -108,7 +108,7 @@ public class GameMaster {
 	}
 	
 	// Added by Ashley to seperate the logic from game initializations
-	private void endGameConditions(WinCondition winCond) {
+	public void endGameConditions(WinCondition winCond) {
 		gamesPlayed++;
 		switch(winCond){
 		case PONE_WIN:
