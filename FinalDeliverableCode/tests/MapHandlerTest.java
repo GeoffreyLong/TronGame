@@ -7,10 +7,12 @@
 package tests;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import game.MapHandler;
 import game.Map;
+import gameplay.Tile;
 
 public class MapHandlerTest {
 	private Map testMap;
@@ -25,7 +27,7 @@ public class MapHandlerTest {
 	private final int setYStartAdjustment = 2;
 	
 	@Test
-	public void testSetMapZero() {
+	public void testSetMapOne() {
 		MapHandler mapHandler = new MapHandler();
 		mapHandler.setMapOne();
 		testMap = mapHandler.getMap();
@@ -38,12 +40,29 @@ public class MapHandlerTest {
 	}
 	
 	@Test
-	public void testSetMapOne() {
+	public void testSetMapTwo() {
+		MapHandler mapHandler = new MapHandler();
+		mapHandler.setMapTwo();
+		testMap = mapHandler.getMap();
+		Tile[][] tiles = testMap.getMap();
 		
+		// test by making sure obstacles have been created
+		// check first obstacle, 15, 25, 20, 30
+		for (int i=16; i<26; i++){
+			for (int j=21; j<31; j++){
+				assertEquals(Tile.WALL, tiles[i][testMap.getYSize()-j-1]);
+			}
+		}
+		// check second obstacle, 50, 60, 20, 30
+		for (int i=51; i<61; i++){
+			for (int j=21; j<31; j++){
+				assertEquals(Tile.WALL, tiles[i][testMap.getYSize()-j-1]);
+			}
+		}
 	}
 	
 	@Test
-	public void testSetMapTwo() {
+	public void testSetMapThree() {
 		
 	}
 }
