@@ -147,12 +147,6 @@ public class SetupPanel extends JPanel implements ActionListener{
 				+ "Current color is the button color </div><html>")){
 			pOneColor = colorChange(pOneColor);
 			changePOneColor.setBackground(pOneColor.getColor());
-			if (pOneColor == Colors.BLACK){
-				changePOneColor.setForeground(Color.WHITE);
-			}
-			else{
-				changePOneColor.setForeground(Color.BLACK);
-			}
 			gameSetup.setPOneColor(pOneColor.getColor());
 			repaint();
 		}
@@ -161,12 +155,6 @@ public class SetupPanel extends JPanel implements ActionListener{
 				+ "Current color is the button color </div><html>")){
 			pTwoColor = colorChange(pTwoColor);
 			changePTwoColor.setBackground(pTwoColor.getColor());
-			if (pTwoColor == Colors.BLACK){
-				changePTwoColor.setForeground(Color.WHITE);
-			}
-			else{
-				changePTwoColor.setForeground(Color.BLACK);
-			}
 			gameSetup.setPTwoColor(pTwoColor.getColor());
 			repaint();
 		}
