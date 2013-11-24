@@ -22,10 +22,7 @@ public class EndScreen extends JPanel implements ActionListener{
 	private JLabel winner;
 	private JLabel endStatus;
 	
-    public EndScreen(int pOneWins, int pTwoWins, int gamesPlayed){
-		this.pOneWins = pOneWins;
-		this.pTwoWins = pTwoWins;
-		this.gamesPlayed = gamesPlayed;
+    public EndScreen(){
     	makeComponents();
     	makeLayout();
     }
@@ -81,6 +78,15 @@ public class EndScreen extends JPanel implements ActionListener{
 		    master.gameInit();
 	        master.gameStart();
 		}*/
+    }
+    public void setPOneWins(int i){
+    	pOneWins = i;
+    }
+    public void setPTwoWins(int i){
+    	pTwoWins = i;
+    }
+    public void setGamesPlayed(int i){
+    	gamesPlayed = i;
     }
 
 }
