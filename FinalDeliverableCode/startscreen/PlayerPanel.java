@@ -109,11 +109,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		
 		if (e.getActionCommand().equals("Show Statistics")){
 			
-		       JFrame frame = new JFrame("View All Statistics");  
-	       	       JScrollPane scrollPane = new JScrollPane(new AllStatsPanel(conn));  
-	               frame.getContentPane().add(scrollPane);  
-	               frame.setSize(500, 500);  
-	               frame.setVisible(true);  
+		       FrameDriver.Statistics(); 
 			
 		}
 		
