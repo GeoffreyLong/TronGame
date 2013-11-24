@@ -122,17 +122,17 @@ public class GameMaster {
 		}
 	}
 	
-	// getter for Ashley testing
+	// getter for playerOneWins, Ashley testing
 	public int getPlayerOneWins() {
 		return playerOneWins;
 	}
 	
-	// getter for Ashley testing
+	// getter for playerTwoWins, Ashley testing
 	public int getPlayerTwoWins() {
 		return playerTwoWins;
 	}
 	
-	// getter for Ashley testing
+	// getter for gamesPlayed, Ashley testing
 	public int getGamesPlayed() {
 		return gamesPlayed;
 	}
