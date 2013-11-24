@@ -143,4 +143,9 @@ public class GameMaster {
 	public int getGamesPlayed() {
 		return gamesPlayed;
 	}
+	
+	// getter for the gameSpeed
+	public int getGameSpeed() {
+		return gameSpeed;
+	}
 }

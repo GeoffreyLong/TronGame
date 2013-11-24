@@ -58,5 +58,34 @@ public class GameMasterTest {
 		assertEquals(playerTwoWins, testGameMaster.getPlayerTwoWins());
 	}
 	
-	
+	@Test
+	public void testDifficultyChange() {
+		testGameSetup = new GameSetup(playerOne, playerTwo);
+		testGameMaster = new GameMaster(testGameSetup);
+		
+		// test game difficulty 4
+		testGameSetup.decrementGameDifficulty();
+		testGameMaster.changeDifficulty();
+		assertEquals(50, testGameMaster.getGameSpeed());
+		
+		// test game difficulty 3
+		testGameSetup.decrementGameDifficulty();
+		testGameMaster.changeDifficulty();
+		assertEquals(75, testGameMaster.getGameSpeed());
+		
+		// test game difficulty 2
+		testGameSetup.decrementGameDifficulty();
+		testGameMaster.changeDifficulty();
+		assertEquals(100, testGameMaster.getGameSpeed());
+		
+		// test game difficulty 1
+		testGameSetup.decrementGameDifficulty();
+		testGameMaster.changeDifficulty();
+		assertEquals(150, testGameMaster.getGameSpeed());
+		
+		// test game difficulty 0
+		testGameSetup.decrementGameDifficulty();
+		testGameMaster.changeDifficulty();
+		assertEquals(200, testGameMaster.getGameSpeed());
+	}
 }
