@@ -11,7 +11,7 @@ import gameplay.Tile;
  * programmatic interface from which the map will be set and gotten.
  */
 public class MapHandler {
-	static Map map;
+	public static Map map;
 	Map[] maps = new Map[3];
     public MapHandler(){
     	setMapThree();

@@ -16,14 +16,15 @@ import gameplay.Tile;
 
 public class MapHandlerTest {
 	private Map testMap;
-	private final int standardXSize = 75;
-	private final int standardYSize = 50;
+	private final int testXSize = 40;
+	private final int testYSize = 45;
 	private int p1XStart = 0;
 	private int p1YStart = 0;
 	private int p2XStart = 75;
 	private int p2YStart = 50;
 	private final int setXStartAdjustment = 1;
 	private final int setYStartAdjustment = 2;
+	private final int mapSetAdjustment = 3;
 	
 	@Test
 	public void testSetMapOne() {
@@ -92,6 +93,22 @@ public class MapHandlerTest {
 		for (int i=51; i<71; i++){
 			for (int j=26; j<46; j++){
 				assertEquals(Tile.WALL, tiles[i][testMap.getYSize()-j-1]);
+			}
+		}
+	}
+	
+	@Test
+	public void testSettingMap() {
+		Map testMap = new Map(testXSize, testYSize);
+		testMap.setBorder();
+		MapHandler.setMap(testMap);
+		Map checkMap = MapHandler.map;
+		Tile[][] tiles = checkMap.getMap();
+		
+		// check that the map is the correct size 
+		for (int i=1; i<testXSize; i++){
+			for (int j=1; j<testYSize; j++){
+				assertEquals(Tile.EMPTY, tiles[i][checkMap.getYSize()-j-1]);
 			}
 		}
 	}
