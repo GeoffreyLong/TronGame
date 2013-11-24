@@ -29,6 +29,7 @@ public class FrameDriver {
 	static LoginGUI loginOne;
 	static LoginGUI loginTwo;
 	static MapChooser choose;
+	static EndScreen endScreen;
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -66,6 +67,10 @@ public class FrameDriver {
 		loginTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
 		loginTwo.setVisible(false);
 		
+		endScreen = new EndScreen();
+		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		endScreen.setVisible(false);
+		
 		frame.addPanel(paneOne);
 		frame.addPanel(paneTwo);
 		frame.addPanel(welcome);
@@ -75,6 +80,7 @@ public class FrameDriver {
 		frame.addPanel(loginOne);
 		frame.addPanel(loginTwo);
 		frame.addPanel(choose);
+		frame.addPanel(endScreen);
 	}
 	public static void mainMenu(){
 		hideAll();
@@ -107,10 +113,13 @@ public class FrameDriver {
 		}
 	}
 	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
-		EndScreen endScreen = new EndScreen(pOneWins, pTwoWins, gamesPlayed);
-		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		hideAll();
-		frame.addPanel(endScreen);
+		endScreen.makeComponents();
+		endScreen.makeLayout();
+		endScreen.setPOneWins(pOneWins);
+		endScreen.setPTwoWins(pTwoWins);
+		endScreen.setGamesPlayed(gamesPlayed);
+		endScreen.setVisible(true);
 	}
 	public static void mapChooser(){
 		choose.setVisible(true);
