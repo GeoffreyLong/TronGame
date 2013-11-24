@@ -142,7 +142,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		}
 		if(e.getActionCommand().equals("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerOne's LightCycle <br> "
-				+ "Current color is this color </div><html>")){
+				+ "Current color is the button color </div><html>")){
 			pOneColor = colorChange(pOneColor);
 			changePOneColor.setBackground(pOneColor.getColor());
 			if (pOneColor == Colors.BLACK){
@@ -152,10 +152,11 @@ public class SetupPanel extends JPanel implements ActionListener{
 				changePOneColor.setForeground(Color.BLACK);
 			}
 			gameSetup.setPOneColor(pOneColor.getColor());
+			repaint();
 		}
 		if(e.getActionCommand().equals("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerTwo's LightCycle <br> "
-				+ "Current color is this color </div><html>")){
+				+ "Current color is the button color </div><html>")){
 			pTwoColor = colorChange(pTwoColor);
 			changePTwoColor.setBackground(pTwoColor.getColor());
 			if (pTwoColor == Colors.BLACK){
@@ -165,6 +166,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 				changePTwoColor.setForeground(Color.BLACK);
 			}
 			gameSetup.setPTwoColor(pTwoColor.getColor());
+			repaint();
 		}
 		if(e.getActionCommand().equals("START THE GAME")){
 			GameMaster master = new GameMaster(gameSetup);
