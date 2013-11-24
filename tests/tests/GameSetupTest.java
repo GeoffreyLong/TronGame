@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 import java.awt.Color;
 import org.junit.Test;
 
-import game.MapHandler;
 import game.GameSetup;
+import game.Map;
 import user.Player;
 
 public class GameSetupTest {
@@ -23,6 +23,9 @@ public class GameSetupTest {
 	private int checkDifficulty = 5; //stand difficulty setting
 	private Color colorOne;
 	private Color colorTwo;
+	private Map testMap;
+	private int mapXSize = 20;
+	private int mapYSize = 20;
 	
 	@Test
 	public void testDecrementGameDifficulty() {
@@ -123,5 +126,29 @@ public class GameSetupTest {
 		assertEquals(checkTwo, colorTwo.BLUE);
 	}
 	
-	
+	@Test
+	public void testMapHandling() {
+		playerOne = new Player(playerNumberOne);
+		playerTwo = new Player(playerNumberTwo);
+		GameSetup testGameSetup = new GameSetup(playerOne, playerTwo);
+		testMap = new Map(mapXSize, mapYSize);
+		
+		// test game map one handling
+		testGameSetup.getMapHandler().setMapOne();
+		testGameSetup.resetMap();
+		testMap.setMapNumber(0);
+		assertEquals(testMap.getMapNumber(), testGameSetup.getMapHandler().getMap().getMapNumber());
+		
+		// test game map two handling
+		testGameSetup.getMapHandler().setMapTwo();
+		testGameSetup.resetMap();
+		testMap.setMapNumber(1);
+		assertEquals(testMap.getMapNumber(), testGameSetup.getMapHandler().getMap().getMapNumber());
+		
+		// test game map three handling
+		testGameSetup.getMapHandler().setMapThree();
+		testGameSetup.resetMap();
+		testMap.setMapNumber(2);
+		assertEquals(testMap.getMapNumber(), testGameSetup.getMapHandler().getMap().getMapNumber());		
+	}
 }
