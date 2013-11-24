@@ -94,6 +94,21 @@ public class GameMaster {
 	 * and therefore the game
 	 */
 	public void endGame(WinCondition winCond){
+		endGameConditions(winCond);
+
+		if (playerOneWins >= 2 || playerTwoWins >= 2){
+			EndGame endScreen = new EndGame(playerOneWins, playerTwoWins, gamesPlayed);
+			endScreen.initPanel();
+		}
+		else{
+			gameSetup.resetMap();
+			gameInit();
+			gameStart();
+		}
+	}
+	
+	// Added by Ashley to seperate the logic from game initializations
+	private void endGameConditions(WinCondition winCond) {
 		gamesPlayed++;
 		switch(winCond){
 		case PONE_WIN:
@@ -105,14 +120,20 @@ public class GameMaster {
 		case TIE:	
 			break;
 		}
-		if (playerOneWins >= 2 || playerTwoWins >= 2){
-			EndGame endScreen = new EndGame(playerOneWins, playerTwoWins, gamesPlayed);
-			endScreen.initPanel();
-		}
-		else{
-			gameSetup.resetMap();
-			gameInit();
-			gameStart();
-		}
+	}
+	
+	// getter for Ashley testing
+	public int getPlayerOneWins() {
+		return playerOneWins;
+	}
+	
+	// getter for Ashley testing
+	public int getPlayerTwoWins() {
+		return playerTwoWins;
+	}
+	
+	// getter for Ashley testing
+	public int getGamesPlayed() {
+		return gamesPlayed;
 	}
 }
