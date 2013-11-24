@@ -93,7 +93,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		changePTwoColor = new JButton("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerTwo's LightCycle <br> "
 				+ "Current color is the button color </div><html>");
-		changePOneColor.setOpaque(true);
+		changePTwoColor.setOpaque(true);
 		changePTwoColor.setBackground(gameSetup.getPlayerColor(2));
 		changePTwoColor.setBounds(500, 500, 300, 100);
 		changePTwoColor.setForeground(Color.BLACK);
