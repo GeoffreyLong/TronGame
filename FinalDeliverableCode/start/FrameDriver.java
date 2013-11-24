@@ -28,6 +28,7 @@ public class FrameDriver {
 	static CreateUser createTwo;
 	static LoginGUI loginOne;
 	static LoginGUI loginTwo;
+	static MapChooser choose;
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -44,6 +45,10 @@ public class FrameDriver {
 		setup = new GameSetup(Main.playerOne, Main.playerTwo);
 		setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
 		setupPanel.setVisible(false);
+		
+		choose = new MapChooser(setupPanel);
+		choose.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		choose.setVisible(false);
 		
 		createOne = new CreateUser(Main.playerOne);
 		createOne.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
@@ -69,6 +74,7 @@ public class FrameDriver {
 		frame.addPanel(createTwo);
 		frame.addPanel(loginOne);
 		frame.addPanel(loginTwo);
+		frame.addPanel(choose);
 	}
 	public static void mainMenu(){
 		hideAll();
@@ -106,12 +112,9 @@ public class FrameDriver {
 		frame.removeAll();
 		frame.addPanel(endScreen);
 	}
-	public static void mapChooser(SetupPanel setup){
-		MapChooser choose = new MapChooser(setup);
-		choose.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+	public static void mapChooser(){
 		choose.setVisible(true);
-		frame.addPanel(choose);
-		setup.setVisible(false);
+		setupPanel.setVisible(false);
 	}
 	public static void hideAll(){
 		//may want to check to make sure that i is a jpanel
