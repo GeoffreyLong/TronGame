@@ -122,6 +122,18 @@ public class FrameDriver {
 		endScreen.updatePanel();
 		endScreen.setVisible(true);
 	}
+	
+	public static void Statistics(){
+		Connection conn = Connect.connect();
+		
+		JFrame newFrame = new JFrame("View All Statistics");
+		JScrollPane scrollPane = new JScrollPane(new AllStatsPanel(conn));  
+		newFrame.getContentPane().add(scrollPane);  
+		newFrame.setSize(500, 480);  
+		newFrame.setVisible(true); 
+	}
+	
+	
 	public static void mapChooser(){
 		choose.setVisible(true);
 		setupPanel.setVisible(false);
