@@ -22,8 +22,12 @@ public class MapTest {
 	private int testP1YStart = 0;
 	private int testP2XStart = 45;
 	private int testP2YStart = 45;
-	private int xBorderSize = 10;
+	private int xBorderSize = 10; // tests for border creation
 	private int yBorderSize = 10;
+	private int xLowRectangleTest = 2; // parameters for creating a 5 x 5 square
+	private int xHighRectangleTest = 7;
+	private int yLowRectangleTest = 2;
+	private int yHighRectangleTest = 7;
 	private final int mapSetAdjustment = 3;
 	private final int setXStartAdjustment = 1;
 	private final int setYStartAdjustment = 2;
@@ -81,13 +85,13 @@ public class MapTest {
 		int y = 0;
 		
 		// check top of map
-		while (x < xBorderSize + mapSetAdjustment) {
+		while (x < map.getXSize()) {
 			assertEquals(Tile.WALL, tiles[x][y]);
 			x++;
 		}
 		x--;
 		// check right of map
-		while (y < yBorderSize + mapSetAdjustment) {
+		while (y < map.getYSize()) {
 			assertEquals(Tile.WALL, tiles[x][y]);
 			y++;
 		}
@@ -107,6 +111,18 @@ public class MapTest {
 	
 	@Test
 	public void testAddRectangle() {
+		Map map = new Map(xBorderSize, yBorderSize);
+		
+		map.setBorder();
+		map.addRectObstacle(xLowRectangleTest, xHighRectangleTest, yLowRectangleTest, yHighRectangleTest);
+		Tile[][] tiles = map.getMap();
+		
+		
+		for (int i=xLowRectangleTest+1; i<xHighRectangleTest+1; i++){
+			for (int j=yLowRectangleTest+1; j<yHighRectangleTest+1; j++){
+				assertEquals(Tile.WALL, tiles[i][map.getYSize()-j-1]);
+			}
+		}
 		
 	}
 }
