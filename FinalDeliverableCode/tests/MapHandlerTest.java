@@ -1,6 +1,6 @@
 /** 
  * @author Ashley Simpson
- * @version 2013/11/14
+ * @version 2013/11/23
  * MapHandler Testing Class
  */
 
@@ -22,7 +22,6 @@ public class MapHandlerTest {
 	private int p1YStart = 0;
 	private int p2XStart = 75;
 	private int p2YStart = 50;
-	private final int mapSetAdjustment = 3;
 	private final int setXStartAdjustment = 1;
 	private final int setYStartAdjustment = 2;
 	
@@ -31,12 +30,20 @@ public class MapHandlerTest {
 		MapHandler mapHandler = new MapHandler();
 		mapHandler.setMapOne();
 		testMap = mapHandler.getMap();
+		Tile[][] tiles = testMap.getMap();
 		
 		assertEquals(0, testMap.getMapNumber());
 		assertEquals(p1XStart+setXStartAdjustment, testMap.getPOneXStart());
 		assertEquals(testMap.getYSize()-p1YStart-setYStartAdjustment, testMap.getPOneYStart());
 		assertEquals(p2XStart+setXStartAdjustment, testMap.getPTwoXStart());
 		assertEquals(testMap.getYSize()-p2YStart-setYStartAdjustment, testMap.getPTwoYStart());
+		
+		// check that map is clean
+		for (int i=1; i<75; i++){
+			for (int j=1; j<50; j++){
+				assertEquals(Tile.EMPTY, tiles[i][testMap.getYSize()-j-1]);
+			}
+		}
 	}
 	
 	@Test
