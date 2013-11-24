@@ -63,6 +63,29 @@ public class MapHandlerTest {
 	
 	@Test
 	public void testSetMapThree() {
+		MapHandler mapHandler = new MapHandler();
+		mapHandler.setMapThree();
+		testMap = mapHandler.getMap();
+		Tile[][] tiles = testMap.getMap();
 		
+		// test by making sure obstacles have been created
+		// check first obstacle, 15, 25, 20, 30
+		for (int i=6; i<26; i++){
+			for (int j=6; j<26; j++){
+				assertEquals(Tile.WALL, tiles[i][testMap.getYSize()-j-1]);
+			}
+		}
+		// check second obstacle, 50, 60, 20, 30
+		for (int i=31; i<46; i++){
+			for (int j=21; j<31; j++){
+				assertEquals(Tile.WALL, tiles[i][testMap.getYSize()-j-1]);
+			}
+		}
+		// check second obstacle, 50, 60, 20, 30
+		for (int i=51; i<71; i++){
+			for (int j=26; j<46; j++){
+				assertEquals(Tile.WALL, tiles[i][testMap.getYSize()-j-1]);
+			}
+		}
 	}
 }
