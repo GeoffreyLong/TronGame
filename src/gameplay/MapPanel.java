@@ -39,7 +39,6 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private int explosionCount;
 	private int xOffset;
 	private int yOffset;
-	private int increment = 5;
 	private JLabel changeSize;
 	private JButton minus;
 	private JButton plus;
@@ -47,6 +46,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private boolean haveExplosion = false;
 	private Map mapper;
 	private GameSetup gameSetup;
+	private int increment;
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
@@ -60,6 +60,8 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		map = mapper.getMap();
 		xSize = mapper.getXSize();
 		ySize = mapper.getYSize();
+		
+		increment = gameSetup.getIncrement();
 		
 		initCycles();
 		initComponents();
@@ -329,6 +331,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 					ySize*(increment+1)<= this.getHeight()*0.8){
 				increment++;
 				minus.setEnabled(true);
+				gameSetup.setIncrement(increment);
 			}
 			else{
 				plus.setEnabled(false);
@@ -341,6 +344,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 			if (increment>1){
 				increment --;
 				plus.setEnabled(true);
+				gameSetup.setIncrement(increment);
 			}
 			else{
 				minus.setEnabled(false);

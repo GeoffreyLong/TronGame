@@ -23,6 +23,7 @@ public class GameSetup {
 	private MapHandler mapHandle = new MapHandler();
 	private Color colorPOne = Color.RED;
 	private Color colorPTwo = Color.BLUE;
+	private int increment = 5;
 	
 	/**
 	 * Constructor for the GameSetup.
@@ -84,5 +85,11 @@ public class GameSetup {
 		else{
 			return this.colorPTwo;
 		}
+	}
+	public void setIncrement(int i){
+		increment = i;
+	}
+	public int getIncrement(){
+		return increment;
 	}
 }
