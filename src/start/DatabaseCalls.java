@@ -82,6 +82,7 @@ public class DatabaseCalls {
 		String loses1 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score2 + " WHERE userName = \'" + userName1 + "\'";
 		String wins2 = "UPDATE authentication.allStats SET numberWins = numberWins + " + score2 + " WHERE userName = \'" + userName2 + "\'";
 		String loses2 = "UPDATE authentication.allStats SET numberLosses = numberLosses + " + score1 + " WHERE userName = \'" + userName2 + "\'";
+		String totalScore = "UPDATE authentication.allStats SET totalScore = (numberWins + numberLosses) * (numberWins/numberLosses)";
 		
 		String queryCheck = "SELECT EXISTS (SELECT * FROM authentication.playerHistory WHERE userName= \'" + userName1 + "\' AND opponent = \'" + userName2 + "\')";
 		
@@ -106,6 +107,9 @@ public class DatabaseCalls {
 			
 			Statement stmt6 = conn.createStatement();
 			stmt6.executeUpdate(loses2);
+			
+			Statement stmtScore = conn.createStatement();
+			stmtScore.executeUpdate(totalScore);
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(queryCheck);
