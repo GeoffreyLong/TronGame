@@ -3,10 +3,10 @@ TEAM 7
 MEMBERS:
 GEOFFREY LONG   - geoffrey.long@mail.mcgill.ca
 ASHLEY SIMPSON  - ashley.simpson@mail.mcgill.ca
-RISHAB TANDON   - rishab.tandon@mail.mcgill.ca
+RISHABH TANDON   - rishab.tandon@mail.mcgill.ca
 AZIZ HANNA      - aziz.hanna@mail.mcgill.ca
 
-All rights reserved © Long, Geoffrey; Simpson, Ashley; Tandon, Rishab; Hanna, Aziz.
+All rights reserved © Long, Geoffrey; Simpson, Ashley; Tandon, Rishabh; Hanna, Aziz.
 
 URL: https://github.com/mcgill-ecse321/team-7.git
 
