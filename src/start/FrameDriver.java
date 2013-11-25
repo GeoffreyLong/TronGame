@@ -5,12 +5,14 @@ import java.sql.Connection;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import game.EndScreen;
 import game.GameSetup;
 import game.MapChooser;
 import game.SetupPanel;
+import gameplay.ExplosionPanel;
 import gameplay.MapPanel;
 import startscreen.PlayerOnePanel;
 import startscreen.PlayerPanel;
@@ -164,5 +166,12 @@ public class FrameDriver {
 	public static void startGame(MapPanel mapPanel){
 	    FrameDriver.hideAll();
 	    frame.addPanel(mapPanel);
+	}
+	public static void explosion(ExplosionPanel exp, int xOffset, int yOffset){
+		exp.setBounds(xOffset,yOffset,Frame.getXSize(), Frame.getYSize());
+		frame.addPanel(exp);
+	}
+	public static void removePanel(JPanel panel){
+		frame.removePanel(panel);
 	}
 }

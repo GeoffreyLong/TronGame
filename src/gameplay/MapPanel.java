@@ -36,8 +36,8 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	Cycle[] cycles;
 	private Timer explosionTimer;
 	private int explosionCount;
-	private int xOffset;
-	private int yOffset;
+	private static int xOffset;
+	private static int yOffset;
 	private JLabel changeSize;
 	private JButton minus;
 	private JButton plus;
@@ -45,7 +45,10 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private boolean haveExplosion = false;
 	private Map mapper;
 	private GameSetup gameSetup;
-	private int increment;
+	private static int increment;
+	private List<Color> explosionColors;
+	private Cycle curCycle;
+	private boolean isExplosion = false;
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
@@ -107,6 +110,14 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		repaint();
 	}
 	
+	public void explosion(int explosionCount, List<Color> explosionColors, Cycle cycle){
+		this.explosionCount = explosionCount;
+		this.explosionColors = explosionColors;
+		isExplosion = true;
+		this.curCycle = cycle;
+		repaint();
+	}
+	
 	/**
 	 * This method will paint the current state of the game.  
 	 */
@@ -135,7 +146,8 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	 */
 	@Override
 	public void paintComponent(Graphics g){
-			super.paintComponent(g);
+		super.paintComponent(g);
+		if (!isExplosion){
 			for (int i=0; i<xSize; i++){
 				for (int j=0; j<ySize; j++){
 					switch(map[i][j]){
@@ -153,20 +165,20 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 							break;
 					}
 					g.fillRect(i*increment+xOffset, j*increment+yOffset, increment, increment);
-			}
-			/*else if (!cycle.isAlive){
-				for (Color color : getExplosionColors()){
-					g.setColor(color);
-					g.fillOval(xOffset+cycle.getXPos()*increment-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-							yOffset+cycle.getYPos()*increment-((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-							(int)(explosionCount*Math.random()), 
-							(int)(explosionCount*Math.random()));
 				}
-			}*/
+			}
 		}
 	}
 	
-	
+	public static int getXOffset(){
+		return xOffset;
+	}
+	public static int getYOffset(){
+		return yOffset;
+	}
+	public static int getIncrement(){
+		return increment;
+	}
 	
 	/**
 	 * This method will get the KeyEvents from the KeyListener and will pass 
