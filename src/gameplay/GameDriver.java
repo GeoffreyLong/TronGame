@@ -55,6 +55,7 @@ public class GameDriver {
 		boolean cycleOne = true;
 		for (Cycle cycle : cycles){
 			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
+				mapPanel.disableButtons();
 				cycle.travel();
 				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||

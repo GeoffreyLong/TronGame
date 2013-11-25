@@ -103,8 +103,6 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	 * and increments the location according to the current cycle heading.
 	 */
 	public void updateMap(Tile[][] map){
-		minus.setEnabled(false);
-		plus.setEnabled(false);
 		this.map = map;
 		this.requestFocusInWindow();
 		repaint();
@@ -179,7 +177,10 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	public static int getIncrement(){
 		return increment;
 	}
-	
+	public void disableButtons(){
+		minus.setEnabled(false);
+		plus.setEnabled(false);
+	}
 	/**
 	 * This method will get the KeyEvents from the KeyListener and will pass 
 	 * them to the PlayerControl to make the appropriate changes 
