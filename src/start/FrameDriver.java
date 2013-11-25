@@ -11,6 +11,7 @@ import game.EndScreen;
 import game.GameSetup;
 import game.MapChooser;
 import game.SetupPanel;
+import gameplay.MapPanel;
 import startscreen.PlayerOnePanel;
 import startscreen.PlayerPanel;
 import startscreen.PlayerTwoPanel;
@@ -159,5 +160,9 @@ public class FrameDriver {
 		for (Component i : Frame.frame.getContentPane().getComponents()){
 			i.setVisible(false);
 		}
+	}
+	public static void startGame(MapPanel mapPanel){
+	    FrameDriver.hideAll();
+	    frame.addPanel(mapPanel);
 	}
 }

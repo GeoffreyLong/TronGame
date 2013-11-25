@@ -37,7 +37,7 @@ public class GameMaster {
 	 * Initialize the game by adding mapPanel to the Frame
 	 */
 	public void gameInit(){
-		mapPanel = Frame.start(gameSetup, this);
+		
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class GameMaster {
 		
 		changeDifficulty();
 		
-		timer = new Timer(gameSpeed, new GameTimer(mapPanel));
+		timer = new Timer(gameSpeed, new GameTimer(gameSetup, this));
 		timer.start();
 	}
 	
