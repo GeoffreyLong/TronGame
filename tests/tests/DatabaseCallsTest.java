@@ -26,4 +26,12 @@ public class DatabaseCallsTest {
 		assertEquals(testDatabase.createUser(testName,testPassword), false);
 	}
 	
+	@Test
+	public void testLogin() {
+		Connection testConnection = Connect.connect();
+		DatabaseCalls testDatabase = new DatabaseCalls(testConnection);
+		
+		//test logging into test login account
+		assertEquals(testDatabase.login(testName, testPassword), true);
+	}
 }

@@ -51,7 +51,7 @@ public class DatabaseCalls {
 			ResultSet rs = stmt.executeQuery(query);
 			
 			if(rs.next()){
-				System.out.println(rs.getString("password"));
+				//System.out.println(rs.getString("password"));
 				check = rs.getString("password");
 			}
 			
