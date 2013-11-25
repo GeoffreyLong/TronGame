@@ -12,7 +12,7 @@ public class ReadyTimerListener implements ActionListener{
 	private JLabel playerOneReady;
 	private JLabel playerTwoReady;
 	
-    ReadyTimerListener(JLabel playerOneReady, JLabel playerTwoReady){
+    public ReadyTimerListener(JLabel playerOneReady, JLabel playerTwoReady){
     	this.playerOneReady = playerOneReady;
     	this.playerTwoReady = playerTwoReady;
     }
