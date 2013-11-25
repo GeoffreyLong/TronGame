@@ -14,6 +14,7 @@ public class ExplosionPanel extends JPanel{
 	private int explosionCount;
 	private List<Color> explosionColors;
 	private int buffer;
+	Cycle curCycle;
 	
 	public ExplosionPanel(Cycle[] cycles, int increment, int buffer){
 		this.cycles = cycles;
@@ -27,20 +28,21 @@ public class ExplosionPanel extends JPanel{
 	public void updatePanel(int explosionCount, List<Color> explosionColors){
 		this.explosionCount = explosionCount;
 		this.explosionColors = explosionColors;
-		repaint();
+		for (Cycle cycle : cycles){
+			if (!cycle.isAlive){
+				curCycle = cycle;
+				paintImmediately(0,0,Frame.getXSize(),Frame.getYSize());
+			}
+		}
 	}
 	@Override
 	public void paintComponent(Graphics g){
-		for (Cycle cycle : cycles){
-			if (!cycle.isAlive){
-				for (Color color : explosionColors){
-					g.setColor(color);
-					g.fillOval(cycle.getXPos()*increment+buffer -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-							cycle.getYPos()*increment+buffer -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-							(int)(explosionCount*Math.random()), 
-							(int)(explosionCount*Math.random()));
-				}
-			}
+		for (Color color : explosionColors){
+			g.setColor(color);
+			g.fillOval(curCycle.getXPos()*increment+buffer -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+					curCycle.getYPos()*increment+buffer -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+					(int)(explosionCount*Math.random()), 
+					(int)(explosionCount*Math.random()));
 		}
 	}
 }
