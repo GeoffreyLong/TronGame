@@ -19,6 +19,10 @@ public class TopTenPanel extends JPanel{
 		
 		Statement rank = conn.createStatement();
 		rank.executeUpdate("SET @rank = 0");
+		
+		Statement stmt = conn.createStatement();  
+          	ResultSet result = stmt.executeQuery("SELECT @rank := @rank + 1 AS Rank, userName, totalScore, numberWins, numberLosses FROM authentication.allStats ORDER BY totalScore DESC LIMIT 10");
+            	ResultSetMetaData md = result.getMetaData();
 
 	}
 	
