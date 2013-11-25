@@ -34,7 +34,6 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private int ySize;
 	PlayerControl cont;
 	Cycle[] cycles;
-	private boolean gameStart = true;
 	private Timer explosionTimer;
 	private int explosionCount;
 	private int xOffset;
@@ -55,7 +54,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	public MapPanel(GameSetup gameSetup, GameMaster gameMaster){
 		this.gameMaster = gameMaster;
 		this.gameSetup = gameSetup;
-		setLayout(null);
+
 		mapper = gameSetup.getMap();
 		map = mapper.getMap();
 		xSize = mapper.getXSize();
@@ -97,6 +96,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		yOffset = (Frame.getYSize() - ySize*increment) / 2;
 		
 		setBounds(0,0,Frame.getXSize(),Frame.getYSize());
+		setLayout(null);
 		
 		add(changeSize);
 		add(plus);
