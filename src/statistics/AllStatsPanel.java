@@ -16,31 +16,35 @@ public class AllStatsPanel extends JPanel{
 	
 	public AllStatsPanel(Connection conn){
 		this.conn = conn;
-		initComponents();
-		initLayout();	
+		makeComponents();
+		makeLayout();	
 	}
 	
-	private void initComponents(){
-		try{  
-            Statement stmt = conn.createStatement();  
-            ResultSet result = stmt.executeQuery("SELECT * FROM authentication.allStats");
-            ResultSetMetaData md = result.getMetaData();
+	private void makeComponents(){
+		try{ 
+			
+			Statement rank = conn.createStatement();
+			rank.executeUpdate("SET @rank = 0");
+			
+            		Statement stmt = conn.createStatement();  
+        		ResultSet result = stmt.executeQuery("SELECT @rank := @rank + 1 AS Rank, userName, totalScore, numberWins, numberLosses FROM authentication.allStats ORDER BY totalScore DESC");
+          		ResultSetMetaData md = result.getMetaData();
             
-            Object[] columns = {"Rank", "Username", "Number of Wins", "Number of Losses"};
+         		Object[] columns = {"Rank", "Username", "Total Score", "Number of Wins", "Number of Losses"};
 
-            Object[][] data = new Object[100][100];
+          		Object[][] data = new Object[100][100];
             
-            int i = 0;
+         		int i = 0;
             
-            while(result.next()){
+         		while(result.next()){
             	
-            	for(int j = 0 ; j < 4; j++){
+           		 	for(int j = 0 ; j < 5; j++){
             		
-            		data[i][j] = result.getString(j + 1);
-            	}
+            				data[i][j] = result.getString(j + 1);
+            			}
             	
-            	i ++;
-            }
+            			i ++;
+           		 }
 
             table = new JTable(data, columns);
             table.setFillsViewportHeight(true);
@@ -53,7 +57,7 @@ public class AllStatsPanel extends JPanel{
 		
 	}
 	
-	private void initLayout(){
+	private void makeLayout(){
 		//setLayout(null);
 		add(new JScrollPane(table));
 	}
