@@ -13,7 +13,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses( {MapTest.class, CycleTest.class, FrameTest.class, PlayerControlTest.class, GameSetupTest.class,
 				MapHandlerTest.class, SetupPanelTest.class, GameMasterTest.class, DatabaseCallsTest.class,
-				ReadyTimerListenerTest.class, CreateUserTest.class})
+				ReadyTimerListenerTest.class, CreateUserTest.class, PlayerTest.class})
 public class AllTests {
 	
 }
