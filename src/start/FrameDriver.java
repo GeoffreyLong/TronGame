@@ -17,6 +17,7 @@ import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.WelcomePanel;
 import statistics.AllStatsPanel;
+import statistics.TopTenPanel;
 import user.CreateUser;
 import user.LoginGUI;
 import user.Player;
