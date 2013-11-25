@@ -15,19 +15,26 @@ import org.junit.Test;
 import start.Frame;
 
 public class FrameTest {
-	private int testXSize = 5;
-	private int testYSize = 5;
+	private Frame frame;
+	private int testXSize;
+	private int testYSize;
+	private int testXCenter;
+	private int testYCenter;
 	
 	public FrameTest() {
-		Frame frame = new Frame();
+		frame = new Frame();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         testXSize = ((int) tk.getScreenSize().getWidth());  
         testYSize = ((int) tk.getScreenSize().getHeight());
+        testXCenter = testXSize/2;
+        testYCenter = testYSize/2;
 	}
 	
 	@Test
 	public void testGetters() {
-		assertEquals(Frame.getXSize(), testXSize);
-		assertEquals(Frame.getYSize(), testYSize);
+		assertEquals(testXSize, Frame.getXSize());
+		assertEquals(testYSize, Frame.getYSize());
+		assertEquals(testYCenter, Frame.getXCenter());
+		assertEquals(testXCenter, Frame.getYCenter());
 	}	
 }
