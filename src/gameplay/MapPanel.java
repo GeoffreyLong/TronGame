@@ -328,6 +328,10 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 			if (xSize*(increment+1)<= this.getWidth()*0.8 && 
 					ySize*(increment+1)<= this.getHeight()*0.8){
 				increment++;
+				minus.setEnabled(true);
+			}
+			else{
+				plus.setEnabled(false);
 			}
 			xOffset = (Frame.getXSize() - xSize*increment) / 2;
 			yOffset = (Frame.getYSize() - ySize*increment) / 2;
@@ -336,6 +340,10 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		if (e.getActionCommand().equals("-")){
 			if (increment>1){
 				increment --;
+				plus.setEnabled(true);
+			}
+			else{
+				minus.setEnabled(false);
 			}
 			xOffset = (Frame.getXSize() - xSize*increment) / 2;
 			yOffset = (Frame.getYSize() - ySize*increment) / 2;
