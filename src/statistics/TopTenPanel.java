@@ -17,7 +17,9 @@ public class TopTenPanel extends JPanel{
 	
 	private void initComponents(){
 		
-		
+		Statement rank = conn.createStatement();
+		rank.executeUpdate("SET @rank = 0");
+
 	}
 	
 	private void initLayout(){
