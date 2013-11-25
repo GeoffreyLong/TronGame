@@ -29,7 +29,7 @@ public class DatabaseCalls {
         
         	catch (SQLException e) {
 			//System.out.println("User already exists");
-        		e.printStackTrace();
+        		//e.printStackTrace();
         		pass = false;
 		}
 		
