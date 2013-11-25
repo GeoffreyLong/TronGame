@@ -142,7 +142,7 @@ public class FrameDriver {
 		Connection conn = Connect.connect();
 		
 		JFrame newFrame = new JFrame("View Top Ten");
-		JScrollPane scrollPane = new JScrollPane(new AllStatsPanel(conn));  
+		JScrollPane scrollPane = new JScrollPane(new TopTenPanel(conn));  
         	newFrame.getContentPane().add(scrollPane);  
         	newFrame.setSize(500, 480);  
         	newFrame.setVisible(true);
