@@ -75,7 +75,7 @@ public class CreateUser extends JPanel implements ActionListener{
 		
 	}
 	
-	private boolean checkPassword(String password){
+	public boolean checkPassword(String password){
 		boolean pass = false;
 		
 		boolean length = password.length() >= 8;
