@@ -137,6 +137,16 @@ public class FrameDriver {
 		newFrame.setVisible(true); 
 	}
 	
+	public static void TopTen(){
+		Connection conn = Connect.connect();
+		
+		JFrame newFrame = new JFrame("View Top Ten");
+		JScrollPane scrollPane = new JScrollPane(new AllStatsPanel(conn));  
+        	newFrame.getContentPane().add(scrollPane);  
+        	newFrame.setSize(500, 480);  
+        	newFrame.setVisible(true);
+	}
+	
 	
 	public static void mapChooser(){
 		choose.setVisible(true);
