@@ -21,6 +21,7 @@ import startscreen.ReadyActionListener;
 import startscreen.WelcomePanel;
 import statistics.AllStatsPanel;
 import statistics.TopTenPanel;
+import statistics.HeadToHead;
 import user.CreateUser;
 import user.LoginGUI;
 import user.Player;
@@ -139,6 +140,16 @@ public class FrameDriver {
 		newFrame.getContentPane().add(scrollPane);  
 		newFrame.setSize(500, 480);  
 		newFrame.setVisible(true); 
+	}
+	
+	public static void HeadToHead(String username1, String username2){
+		Connection conn = Connect.connect();
+		
+		JFrame newFrame = new JFrame("View Head To Head Score");
+		JScrollPane scrollPane = new JScrollPane(new HeadToHead(conn, username1, username2));  
+		newFrame.getContentPane().add(scrollPane);  
+		newFrame.setSize(500, 480);  
+		newFrame.setVisible(true);
 	}
 	
 	public static void TopTen(){
