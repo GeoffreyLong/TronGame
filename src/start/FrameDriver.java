@@ -20,6 +20,7 @@ import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.WelcomePanel;
 import statistics.AllStatsPanel;
+import statistics.PlayerHistoryPanel;
 import statistics.TopTenPanel;
 import statistics.HeadToHead;
 import user.CreateUser;
@@ -39,6 +40,9 @@ public class FrameDriver {
 	static LoginGUI loginTwo;
 	static MapChooser choose;
 	static EndScreen endScreen;
+	public static PlayerOnePanel pane1;
+	public static PlayerTwoPanel pane2;
+	
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -121,6 +125,19 @@ public class FrameDriver {
 			paneTwo.setVisible(false);
 		}
 	}
+	
+	public static void logout(Player player){
+		if(player.getPlayerNumber() == 1){
+			pane1.setVisible(false);
+			paneOne.setVisible(true);
+		}
+		
+		else{
+			pane2.setVisible(false);
+			paneTwo.setVisible(true);
+		}
+	}
+	
 	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
 		endScreen.initComponents();
@@ -132,6 +149,25 @@ public class FrameDriver {
 		endScreen.setVisible(true);
 	}
 	
+	public static void setPaneOne(Player player){
+		loginOne.setVisible(false);
+		
+		pane1 = new PlayerOnePanel(player);
+		pane1.setUser();
+		frame.addPanel(pane1);
+		pane1.setVisible(true);
+		
+	}
+	
+	public static void setPaneTwo(Player player){
+		loginTwo.setVisible(false);
+		
+		pane2 = new PlayerTwoPanel(player);
+		pane2.setUser();
+		frame.addPanel(pane2);
+		pane2.setVisible(true);
+	}
+	
 	public static void Statistics(){
 		Connection conn = Connect.connect();
 		
@@ -140,6 +176,16 @@ public class FrameDriver {
 		newFrame.getContentPane().add(scrollPane);  
 		newFrame.setSize(500, 480);  
 		newFrame.setVisible(true); 
+	}
+	
+	public static void playerHistory(String username){
+		Connection conn = Connect.connect();
+		
+		JFrame newFrame = new JFrame("View Player History");
+		JScrollPane scrollPane = new JScrollPane(new PlayerHistoryPanel(conn, username));  
+		newFrame.getContentPane().add(scrollPane);  
+		newFrame.setSize(500, 480);  
+		newFrame.setVisible(true);
 	}
 	
 	public static void HeadToHead(String username1, String username2){

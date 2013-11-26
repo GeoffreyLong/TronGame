@@ -92,6 +92,20 @@ public class LoginGUI extends JPanel implements ActionListener{
 			System.out.println(pass);
 			
 			if(pass){
+				
+				if(this.player.getPlayerNumber() == 1){
+					Player player = new Player(1);
+					player.setUserName(usernameField.getText());
+					
+					FrameDriver.setPaneOne(player);
+				}
+				
+				else{
+					Player player = new Player(2);
+					player.setUserName(usernameField.getText());
+					
+					FrameDriver.setPaneTwo(player);
+				}
 
 			}
 			
