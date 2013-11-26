@@ -28,6 +28,8 @@ public class PlayerTwoPanel extends PlayerPanel{
 	public void setUser(){
 		setLabel(player.getUserName());
 		login.setVisible(false);
+		playerStats.setVisible(false);
+		playerHistory.setVisible(true);
 		createAccount.setVisible(false);
 		logout.setVisible(true);
 	}
