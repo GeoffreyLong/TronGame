@@ -1,12 +1,14 @@
 package startscreen;
 
 import user.Player;
+import javax.swing.JLabel;
 
 public class PlayerOnePanel extends PlayerPanel{
 	Player player;
 	public PlayerOnePanel(Player player) {
 		super(player);
 		this.player = player;
+		
 		setLoadout();
 	}
 	public void setLoadout(){

@@ -8,21 +8,18 @@ import java.sql.Connection;
 
 import statistics.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.InputMap;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.*;
 
 import user.CreateUser;
 import user.LoginGUI;
 import start.Frame;
 import start.FrameDriver;
+import start.Main;
 import user.Logout;
 import user.Player;
 import start.Connect;
+import net.miginfocom.swing.MigLayout;
+import java.awt.FlowLayout;
 
 public class PlayerPanel extends JPanel implements ActionListener{
 	private Player player;
@@ -37,53 +34,72 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	private Connection conn;
 	
 	public PlayerPanel(Player player){
+		this.player = player;
+		setBackground(Color.DARK_GRAY);
 		initComponents();
 		initLayout();
-		this.player = player;
 		this.conn = Connect.connect();
 	}
 	private void initComponents(){		
 		playerLabel = new JLabel();
-		playerLabel.setBounds(50,30,300,60);
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
 		
 		playerStats = new JButton("Show Statistics");
-		playerStats.setBounds(140, 225, 300, 70);
+		playerStats.setBackground(new Color(0, 255, 255));
 		playerStats.addActionListener(this);
 
 		login = new JButton("Login");
-		login.setBounds(20, 125, 300, 70);
+		login.setForeground(Color.BLACK);
+		login.setBackground(Color.ORANGE);
 		login.addActionListener(this);
 		login.setVisible(false);
 		
 		logout = new JButton("Logout");
-		logout.setBounds(140, 125, 300, 70);
+		logout.setForeground(Color.BLACK);
+		logout.setBackground(Color.ORANGE);
 		logout.addActionListener(this);
 		logout.setVisible(false);
 		
 		createAccount = new JButton("Create an Account");
-		createAccount.setBounds(340,125,300,70);
+		createAccount.setForeground(new Color(153, 0, 0));
+		createAccount.setBackground(new Color(0, 102, 102));
 		createAccount.addActionListener(this);
 		
 		playerStatus = new JLabel("NOT READY");
-		playerStatus.setBounds(140, 425, 300, 30);
+		playerStatus.setForeground(Color.WHITE);
+		playerStatus.setBackground(Color.DARK_GRAY);
 		
 		inputMap = this.getInputMap(WHEN_IN_FOCUSED_WINDOW);
 	}
+	
 	private void initLayout(){
 		setBorder(BorderFactory.createLineBorder(Color.black));
-		setLayout(null);
-		add(playerLabel);
-		add(playerStats);
-		add(playerStatus);
-		add(login);
-		add(logout);
-		add(createAccount);
+		setLayout(new MigLayout("", "[]", "[][][][]"));
+		
+		if(player.getPlayerNumber() == 1){
+			add(playerLabel, "cell 0 0");
+			add(playerStats, "cell 0 3");
+			add(playerStatus, "cell 0 4");
+			add(login, "cell 0 1");
+			add(logout, "cell 0 1");
+			add(createAccount, "cell 0 2");
+		}
+		if(player.getPlayerNumber() == 2){
+			
+			add(playerLabel, "cell 0 0, alignx right, growy");
+			add(playerStats, "cell 0 3,alignx right, growy");
+			add(playerStatus, "cell 0 4,alignx right, growy");
+			add(login, "cell 0 1,alignx right, growy");
+			add(logout, "cell 0 1,alignx right,growy");
+			add(createAccount, "cell 0 2,alignx right,growy");
+		}
+		
 		
 		setVisible(true);
 	}
+
 	public void setLocation(int x){
-		setBounds(x, Frame.getYSize()/4, Frame.getXSize()/2, 3*Frame.getYSize()/4);
+		setBounds(x, Frame.getYSize()/6, Frame.getXSize()/2, 5*Frame.getYSize()/6);
 	}
 	public void setLabel(String label){
 		playerLabel.setText(label);

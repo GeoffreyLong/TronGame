@@ -12,12 +12,13 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import net.miginfocom.swing.MigLayout;
 import game.GameSetup;
 import game.Map;
 import gameplay.GameMaster;
 import gameplay.MapPanel;
 
-public class Frame {
+public class Frame extends JFrame {
 	static JFrame frame = new JFrame();
 	private static int xSize;
 	private static int ySize;
@@ -34,8 +35,8 @@ public class Frame {
 	public Frame(){
 		frame = new JFrame();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
-		xSize = ((int) tk.getScreenSize().getWidth());  
-		ySize = ((int) tk.getScreenSize().getHeight());  
+		xSize =  ((int) tk.getScreenSize().getWidth());
+		ySize =  ((int) tk.getScreenSize().getHeight());  
 		xCenter = xSize/2;
 		yCenter = ySize/2;
 		frame.setBounds(0,0,xSize,ySize);  
@@ -63,9 +64,11 @@ public class Frame {
 	 * This method will allow classes to add panels to the frame
 	 * without creating a new instance (and therefore a new frame) of the frame
 	 * @param panel  The panel that is to be added
+	 * @param constraint 
+	 * @param location The panel's location in the MigLayout
 	 */
-	public void addPanel(JPanel panel){
-		frame.add(panel);
+	public void addPanel(JPanel panel, String constraint){
+		frame.add(panel, constraint);
         frame.validate();
         frame.repaint();
 	}

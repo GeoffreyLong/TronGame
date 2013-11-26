@@ -7,6 +7,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
+import net.miginfocom.swing.MigLayout;
 import game.EndScreen;
 import game.GameSetup;
 import game.MapChooser;
@@ -40,12 +41,16 @@ public class FrameDriver {
 		this.frame = frame;
 	}
 	public void init(){
+		frame.setLayout(new MigLayout("", "[][]", "[][]"));
 		welcome = new WelcomePanel();
 		welcome.setVisible(false);
+		
 		paneOne = new PlayerOnePanel(Main.playerOne);
 		paneOne.setVisible(false);
+		
 		paneTwo = new PlayerTwoPanel(Main.playerTwo);
 		paneTwo.setVisible(false);
+		
 		ReadyActionListener listen = new ReadyActionListener(paneOne, paneTwo);
 		
 		setup = new GameSetup(Main.playerOne, Main.playerTwo);
@@ -57,35 +62,35 @@ public class FrameDriver {
 		choose.setVisible(false);
 		
 		createOne = new CreateUser(Main.playerOne);
-		createOne.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		createOne.setBounds(-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		createOne.setVisible(false);
 
 		createTwo = new CreateUser(Main.playerTwo);
-		createTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		createTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		createTwo.setVisible(false);
 		
 		loginOne = new LoginGUI(Main.playerOne);
-		loginOne.setBounds(-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		loginOne.setBounds(-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		loginOne.setVisible(false);
 
 		loginTwo = new LoginGUI(Main.playerTwo);
-		loginTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/4,Frame.getXSize()/2,3*Frame.getYSize()/4);
+		loginTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		loginTwo.setVisible(false);
 		
 		endScreen = new EndScreen();
 		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		endScreen.setVisible(false);
 		
-		frame.addPanel(paneOne);
-		frame.addPanel(paneTwo);
-		frame.addPanel(welcome);
-		frame.addPanel(setupPanel);
-		frame.addPanel(createOne);
-		frame.addPanel(createTwo);
-		frame.addPanel(loginOne);
-		frame.addPanel(loginTwo);
-		frame.addPanel(choose);
-		frame.addPanel(endScreen);
+		frame.addPanel(welcome,"cell 0 0");
+		frame.addPanel(paneOne,"cell 0 1");
+		frame.addPanel(paneTwo,"cell 1 1");
+		frame.addPanel(setupPanel,"cell 0 0");
+		frame.addPanel(createOne, "cell 0 1");
+		frame.addPanel(createTwo, "cell 1 1");
+		frame.addPanel(loginOne, "cell 0 1");
+		frame.addPanel(loginTwo, "cell 1 1");
+		frame.addPanel(choose, "cell 0 0");
+		frame.addPanel(endScreen, "cell 0 0");
 	}
 	public static void mainMenu(){
 		hideAll();
