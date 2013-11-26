@@ -154,7 +154,13 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("Show Player History")){
-			FrameDriver.playerHistory(player.getUserName());
+			if(player.getPlayerNumber() == 1){
+				FrameDriver.playerHistory(LoginGUI.player1);
+			}
+			
+			else{
+				FrameDriver.playerHistory(LoginGUI.player2);
+			}
 		}
 		
 	}
