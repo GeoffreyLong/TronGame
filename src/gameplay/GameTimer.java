@@ -1,5 +1,7 @@
 package gameplay;
 
+import game.GameSetup;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,7 +12,7 @@ import java.awt.event.ActionListener;
  * timer in GameMaster.
  */
 public class GameTimer implements ActionListener {
-	private MapPanel mapPanel;
+	GameDriver gameDriver;
 	
 	/** 
 	 * Constructor adds an instance of MapPanel as a class variable, 
@@ -18,8 +20,8 @@ public class GameTimer implements ActionListener {
 	 * the timer times out.
 	 * @param mapPanel
 	 */
-	public GameTimer(MapPanel mapPanel) {
-		this.mapPanel = mapPanel;
+	public GameTimer(GameSetup gameSetup, GameMaster gameMaster) {
+		gameDriver = new GameDriver(gameSetup, gameMaster);
 	}
 
 	/**
@@ -27,7 +29,7 @@ public class GameTimer implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		mapPanel.updateMap();
+		gameDriver.update();
 	}
 
 }

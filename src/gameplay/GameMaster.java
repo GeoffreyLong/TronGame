@@ -7,6 +7,8 @@ import game.Map;
 import game.WinCondition;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
@@ -22,11 +24,11 @@ import start.Frame;
  */
 public class GameMaster {
 	private Map map;
-	private MapPanel mapPanel;
 	public static Timer timer;
+	public Timer explosionTimer;
 	private GameSetup gameSetup;
-	private int playerOneWins;
-	private int playerTwoWins;
+	private int playerOneWins = 0;
+	private int playerTwoWins = 0;
 	private int gamesPlayed;
 	private int gameSpeed;
 	
@@ -37,7 +39,7 @@ public class GameMaster {
 	 * Initialize the game by adding mapPanel to the Frame
 	 */
 	public void gameInit(){
-		mapPanel = Frame.start(gameSetup, this);
+		
 	}
 	
 	/**
@@ -51,7 +53,7 @@ public class GameMaster {
 		
 		changeDifficulty();
 		
-		timer = new Timer(gameSpeed, new GameTimer(mapPanel));
+		timer = new Timer(gameSpeed, new GameTimer(gameSetup, this));
 		timer.start();
 	}
 	
@@ -102,7 +104,7 @@ public class GameMaster {
 	 */
 	public void endGame(WinCondition winCond){
 		endGameConditions(winCond);
-
+		
 		if (playerOneWins >= 2 || playerTwoWins >= 2){
 			EndGame endScreen = new EndGame(playerOneWins, playerTwoWins, gamesPlayed);
 			endScreen.initPanel();
@@ -113,7 +115,7 @@ public class GameMaster {
 			gameStart();
 		}
 	}
-	
+
 	// Added by Ashley to seperate the logic from game initializations
 	public void endGameConditions(WinCondition winCond) {
 		gamesPlayed++;

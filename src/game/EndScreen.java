@@ -7,7 +7,9 @@
 package game;
 import javax.swing.*;
 
-import java.awt.Dimension;
+import start.FrameDriver;
+import user.LoginGUI;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -17,10 +19,12 @@ public class EndScreen extends JPanel implements ActionListener{
     private JLabel title;
     private JButton replay;
     private int gamesPlayed;
-	private int pOneWins;
-	private int pTwoWins;
-	private JLabel winner;
-	private JLabel endStatus;
+    private int pOneWins;
+    private int pTwoWins;
+    private JLabel winner;
+    private JLabel endStatus;
+    private JButton headToHead;
+    private JButton mainMenu;
 	
     public EndScreen(){
     	initComponents();
@@ -33,16 +37,22 @@ public class EndScreen extends JPanel implements ActionListener{
     	title.setBounds(430, 30, 700, 44);
     	
     	winner = new JLabel();
-    	winner.setBounds(300, 400, 300, 40);
-    	
+    	winner.setBounds(360, 200, 300, 40);
     	
     	endStatus = new JLabel();
-    	endStatus.setBounds(360, 460, 200, 200);
+    	endStatus.setBounds(360, 250, 200, 200);
     	
     	replay = new JButton("Replay?");
-    	replay.setBounds(560, 166, 200, 60);
+    	replay.setBounds(760, 166, 200, 60);
     	replay.addActionListener(this);
     	
+    	headToHead = new JButton("Player Matchup Score");
+    	headToHead.setBounds(760, 266, 200, 60);
+    	headToHead.addActionListener(this);
+    	
+    	mainMenu = new JButton("Main Menu");
+    	mainMenu.setBounds(760, 366, 200, 60);
+    	mainMenu.addActionListener(this);    	
     }
     
     public void initLayout(){
@@ -51,6 +61,8 @@ public class EndScreen extends JPanel implements ActionListener{
     	add(replay);
     	add(endStatus);
     	add(winner);
+    	add(headToHead);
+    	add(mainMenu);
     }
     
     public Dimension getPreferredSize() {
@@ -66,6 +78,10 @@ public class EndScreen extends JPanel implements ActionListener{
 		    master.gameInit();
 	        master.gameStart();
 		}*/
+    	
+    	if(e.getSource() == headToHead){
+    		FrameDriver.HeadToHead(LoginGUI.player1.getUserName(), LoginGUI.player2.getUserName());
+    	}
     }
     public void setPOneWins(int i){
     	pOneWins = i;

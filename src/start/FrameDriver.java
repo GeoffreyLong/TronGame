@@ -5,6 +5,7 @@ import java.sql.Connection;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import net.miginfocom.swing.MigLayout;
@@ -12,22 +13,27 @@ import game.EndScreen;
 import game.GameSetup;
 import game.MapChooser;
 import game.SetupPanel;
+import gameplay.ExplosionPanel;
+import gameplay.MapPanel;
 import startscreen.PlayerOnePanel;
 import startscreen.PlayerPanel;
 import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.WelcomePanel;
 import statistics.AllStatsPanel;
+import statistics.PlayerHistoryPanel;
 import statistics.TopTenPanel;
+import statistics.HeadToHead;
 import user.CreateUser;
 import user.LoginGUI;
+import user.NullPlayer;
 import user.Player;
 
 public class FrameDriver {
 	static Frame frame;
 	static WelcomePanel welcome;
-	static PlayerPanel paneOne;
-	static PlayerPanel paneTwo;
+	static PlayerOnePanel paneOne;
+	static PlayerTwoPanel paneTwo;
 	static GameSetup setup;
 	static SetupPanel setupPanel;
 	static CreateUser createOne;
@@ -36,6 +42,9 @@ public class FrameDriver {
 	static LoginGUI loginTwo;
 	static MapChooser choose;
 	static EndScreen endScreen;
+	public static PlayerOnePanel pane1;
+	public static PlayerTwoPanel pane2;
+	
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -81,16 +90,16 @@ public class FrameDriver {
 		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		endScreen.setVisible(false);
 		
-		frame.addPanel(welcome,"cell 0 0");
-		frame.addPanel(paneOne,"cell 0 1");
-		frame.addPanel(paneTwo,"cell 1 1");
-		frame.addPanel(setupPanel,"cell 0 0");
-		frame.addPanel(createOne, "cell 0 1");
-		frame.addPanel(createTwo, "cell 1 1");
-		frame.addPanel(loginOne, "cell 0 1");
-		frame.addPanel(loginTwo, "cell 1 1");
-		frame.addPanel(choose, "cell 0 0");
-		frame.addPanel(endScreen, "cell 0 0");
+		frame.addPanel(welcome);
+		frame.addPanel(paneOne);
+		frame.addPanel(paneTwo);
+		frame.addPanel(setupPanel);
+		frame.addPanel(createOne);
+		frame.addPanel(createTwo);
+		frame.addPanel(loginOne);
+		frame.addPanel(loginTwo);
+		frame.addPanel(choose);
+		frame.addPanel(endScreen);
 	}
 	public static void mainMenu(){
 		hideAll();
@@ -122,6 +131,19 @@ public class FrameDriver {
 			paneTwo.setVisible(false);
 		}
 	}
+	
+	public static void logout(Player player){
+		if(player.getPlayerNumber() == 1){
+			player = new NullPlayer(1);
+			paneOne.setNull(player);
+		}
+		
+		else{
+			player = new NullPlayer(2);
+			paneTwo.setNull(player);
+		}
+	}
+	
 	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
 		endScreen.initComponents();
@@ -133,6 +155,22 @@ public class FrameDriver {
 		endScreen.setVisible(true);
 	}
 	
+	public static void setPaneOne(Player player){
+		loginOne.setVisible(false);
+		createOne.setVisible(false);
+		
+		paneOne.setUser(player);
+		paneOne.setVisible(true);
+	}
+	
+	public static void setPaneTwo(Player player){
+		loginTwo.setVisible(false);
+		createTwo.setVisible(false);
+		
+		paneTwo.setUser(player);
+		paneTwo.setVisible(true);
+	}
+	
 	public static void Statistics(){
 		Connection conn = Connect.connect();
 		
@@ -141,6 +179,26 @@ public class FrameDriver {
 		newFrame.getContentPane().add(scrollPane);  
 		newFrame.setSize(500, 480);  
 		newFrame.setVisible(true); 
+	}
+	
+	public static void playerHistory(String username){
+		Connection conn = Connect.connect();
+		
+		JFrame newFrame = new JFrame("View Player History");
+		JScrollPane scrollPane = new JScrollPane(new PlayerHistoryPanel(conn, username));  
+		newFrame.getContentPane().add(scrollPane);  
+		newFrame.setSize(500, 480);  
+		newFrame.setVisible(true);
+	}
+	
+	public static void HeadToHead(String username1, String username2){
+		Connection conn = Connect.connect();
+		
+		JFrame newFrame = new JFrame("View Head To Head Score");
+		JScrollPane scrollPane = new JScrollPane(new HeadToHead(conn, username1, username2));  
+		newFrame.getContentPane().add(scrollPane);  
+		newFrame.setSize(500, 480);  
+		newFrame.setVisible(true);
 	}
 	
 	public static void TopTen(){
@@ -164,5 +222,16 @@ public class FrameDriver {
 		for (Component i : Frame.frame.getContentPane().getComponents()){
 			i.setVisible(false);
 		}
+	}
+	public static void startGame(MapPanel mapPanel){
+	    FrameDriver.hideAll();
+	    frame.addPanel(mapPanel);
+	}
+	public static void explosion(ExplosionPanel exp, int xOffset, int yOffset){
+		exp.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		frame.addPanel(exp);
+	}
+	public static void removePanel(JPanel panel){
+		frame.removePanel(panel);
 	}
 }

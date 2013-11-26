@@ -15,13 +15,14 @@ public class PlayerOnePanel extends PlayerPanel{
 		setLocation(-1);
 		setLabel("PLAYER ONE");
 		if(player.getClass().getName().equals("user.NullPlayer")){
-			setNull();
+			setNull(player);
 		}
 		else{
 			setUser();
 		}
 	}
-	public void setNull(){
+	public void setNull(Player player){
+		this.player = player;
 		setLabel("PLAYER ONE");
 		login.setVisible(true);
 		createAccount.setVisible(true);
@@ -31,6 +32,17 @@ public class PlayerOnePanel extends PlayerPanel{
 		setLabel(player.getUserName());
 		login.setVisible(false);
 		createAccount.setVisible(false);
+		playerStats.setVisible(false);
+		playerHistory.setVisible(true);
+		logout.setVisible(true);
+	}
+	public void setUser(Player player){
+		this.player = player;
+		setLabel(player.getUserName());
+		login.setVisible(false);
+		createAccount.setVisible(false);
+		playerStats.setVisible(false);
+		playerHistory.setVisible(true);
 		logout.setVisible(true);
 	}
 }

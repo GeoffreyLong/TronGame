@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import start.Connect;
 import start.DatabaseCalls;
+import start.FrameDriver;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -19,6 +20,9 @@ public class LoginGUI extends JPanel implements ActionListener{
 	private JPasswordField passwordField;
 	private JButton login;	
 	private Player player;
+	private JButton back;
+	public static Player player1;
+	public static Player player2;
 	
 	public LoginGUI(Player player){
 		this.player = player;
@@ -51,6 +55,10 @@ public class LoginGUI extends JPanel implements ActionListener{
 		login.setBounds(150, 230, 100, 30);
 		login.addActionListener(this);
 		
+		back = new JButton("Back");
+		back.setBounds(50, 430, 100, 30);
+		back.addActionListener(this);
+		
 	}
 	
 	private void initLayout(){
@@ -61,6 +69,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 		add(password);
 		add(passwordField);
 		add(login);
+		add(back);
 		
 	}
 
@@ -86,12 +95,31 @@ public class LoginGUI extends JPanel implements ActionListener{
 			System.out.println(pass);
 			
 			if(pass){
+				
+				if(this.player.getPlayerNumber() == 1){
+					Player player = new Player(1);
+					player.setUserName(usernameField.getText());
+					player1 = player;
+					FrameDriver.setPaneOne(player);
+				}
+				
+				else{
+					Player player = new Player(2);
+					player.setUserName(usernameField.getText());
+					player2 = player;
+					FrameDriver.setPaneTwo(player);
+				}
 
 			}
 			
 			else{
-				
+				JFrame frame = new JFrame("Error");
+				JOptionPane.showMessageDialog(frame, "Check your username/password");
 			}
+		}
+		
+		if(e.getSource() == back){
+			FrameDriver.mainMenu();
 		}
 		
 	}

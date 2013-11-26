@@ -67,13 +67,13 @@ public class Frame extends JFrame {
 	 * @param constraint 
 	 * @param location The panel's location in the MigLayout
 	 */
-	public void addPanel(JPanel panel, String constraint){
-		frame.add(panel, constraint);
+	public void addPanel(JPanel panel){
+		frame.add(panel);
         frame.validate();
         frame.repaint();
 	}
-	public static MapPanel start(GameSetup gameSetup, GameMaster gameMaster){
-	    MapPanel mapPanel = new MapPanel(gameSetup, gameMaster);
+	/*public static MapPanel start(GameSetup gameSetup, GameMaster gameMaster){
+	    //MapPanel mapPanel = new MapPanel(gameSetup, gameMaster);
 		
 	    FrameDriver.hideAll();
 	    frame.add(mapPanel);
@@ -81,7 +81,7 @@ public class Frame extends JFrame {
 	    frame.repaint();
 		
 	    return mapPanel;
-	}
+	}*/
 	public void removeAll(){
 		frame.getContentPane().removeAll();
 		frame.validate();
