@@ -29,6 +29,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public JButton logout;
 	public JButton login;
 	public JButton createAccount;
+	JButton playerHistory;
 	public JLabel playerStatus;
 	public InputMap inputMap;
 	JLabel playerLabel;
@@ -50,6 +51,10 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		playerStats = new JButton("Show Statistics");
 		playerStats.setBounds(140, 225, 300, 70);
 		playerStats.addActionListener(this);
+		
+		playerHistory = new JButton("Show Player History");
+		playerHistory.setBounds(140, 225, 300, 70);
+		playerHistory.addActionListener(this);
 
 		login = new JButton("Login");
 		login.setBounds(20, 125, 300, 70);
@@ -79,24 +84,34 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		add(login);
 		add(logout);
 		add(createAccount);
+		add(playerHistory);
 		
 		setVisible(true);
 	}
 	public void setLocation(int x){
 		setBounds(x, Frame.getYSize()/4, Frame.getXSize()/2, 3*Frame.getYSize()/4);
 	}
+	
+	public int getPlayerNumber(){
+		return this.player.getPlayerNumber();
+	}
+	
 	public void setLabel(String label){
 		playerLabel.setText(label);
 	}
+	
 	public void setLogin(boolean isVisible){
 		login.setVisible(isVisible);
 	}
+	
 	public void setCreate(boolean isVisible){
 		createAccount.setVisible(isVisible);
 	}
+	
 	public void setLogout(boolean isVisible){
 		logout.setVisible(true);
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Login")){
@@ -105,17 +120,18 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		
 		if (e.getActionCommand().equals("Logout")){
 			FrameDriver.logout(player);
-
 		}
 		
 		if (e.getActionCommand().equals("Show Statistics")){
-			
-		       FrameDriver.Statistics(); 
-			
+		       FrameDriver.Statistics();
 		}
 		
 		if(e.getActionCommand().equals("Create an Account")){
 			FrameDriver.createAccount(player);
+		}
+		
+		if(e.getActionCommand().equals("Show Player History")){
+			FrameDriver.playerHistory(player.getUserName());
 		}
 		
 	}
