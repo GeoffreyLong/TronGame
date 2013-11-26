@@ -151,6 +151,7 @@ public class FrameDriver {
 	
 	public static void setPaneOne(Player player){
 		loginOne.setVisible(false);
+		createOne.setVisible(false);
 		
 		paneOne.setUser(player);
 		paneOne.setVisible(true);
@@ -158,6 +159,7 @@ public class FrameDriver {
 	
 	public static void setPaneTwo(Player player){
 		loginTwo.setVisible(false);
+		createTwo.setVisible(false);
 		
 		paneTwo.setUser(player);
 		paneTwo.setVisible(true);

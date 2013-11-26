@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import start.Connect;
 import start.DatabaseCalls;
+import start.FrameDriver;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -21,6 +22,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	private JPasswordField rePasswordField;
 	private JButton createAccount;
 	private Player player;
+	private JButton back;
 	
 	
 	public CreateUser(Player player){
@@ -60,6 +62,10 @@ public class CreateUser extends JPanel implements ActionListener{
 		createAccount = new JButton("Create Account");
 		createAccount.setBounds(240, 260, 140, 30);
 		createAccount.addActionListener(this);	
+		
+		back = new JButton("Back");
+		back.setBounds(50, 430, 100, 30);
+		back.addActionListener(this);
 	}
 	
 	private void initLayout(){
@@ -72,6 +78,7 @@ public class CreateUser extends JPanel implements ActionListener{
 		add(rePassword);
 		add(rePasswordField);
 		add(createAccount);
+		add(back);
 		
 	}
 	
@@ -113,6 +120,10 @@ public class CreateUser extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+		if(e.getSource() == back){
+			FrameDriver.mainMenu();
+		}
+		
 		if(e.getSource() == createAccount){
 			if(passwordField.getText().equals(rePasswordField.getText())){
 				Connection conn = Connect.connect();
@@ -126,9 +137,31 @@ public class CreateUser extends JPanel implements ActionListener{
 					pass = call.createUser(usernameField.getText(), passwordField.getText());
 				}
 				
+				else{
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "Your password must be at least 8 charecters long, and contain at least 1 Uppercase, 1 lowercase, 1 number and 1 non-alphanumeric character");
+				}
+				
 				try {
 					if(pass){
 						conn.close();
+						
+						if(this.player.getPlayerNumber() == 1){
+							
+							Player player = new Player(1);
+							player.setUserName(usernameField.getText());
+							
+							FrameDriver.setPaneOne(player);
+						}
+						
+						else{
+							
+							Player player = new Player(2);
+							player.setUserName(usernameField.getText());
+							
+							FrameDriver.setPaneTwo(player);
+						}
+						
 					}
 					
 					else{
