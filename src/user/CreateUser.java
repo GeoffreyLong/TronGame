@@ -126,6 +126,11 @@ public class CreateUser extends JPanel implements ActionListener{
 					pass = call.createUser(usernameField.getText(), passwordField.getText());
 				}
 				
+				else{
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "Your password must be at least 8 charecters long, and contain at least 1 Uppercase, 1 lowercase, 1 number and 1 non-alphanumeric character");
+				}
+				
 				try {
 					if(pass){
 						conn.close();
