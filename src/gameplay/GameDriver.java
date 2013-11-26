@@ -77,8 +77,8 @@ public class GameDriver {
 			mapPanel.updateMap(map);
 		}
 		else{
-			explosion();
 			gameMaster.timer.stop();
+			explosion();
 		}
 	}
 	
