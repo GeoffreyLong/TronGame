@@ -124,6 +124,19 @@ public class FrameDriver {
 			paneTwo.setVisible(false);
 		}
 	}
+	
+	public static void logout(Player player){
+		if(player.getPlayerNumber() == 1){
+			pane1.setVisible(false);
+			paneOne.setVisible(true);
+		}
+		
+		else{
+			pane2.setVisible(false);
+			paneTwo.setVisible(true);
+		}
+	}
+	
 	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
 		endScreen.initComponents();
