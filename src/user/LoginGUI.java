@@ -96,7 +96,8 @@ public class LoginGUI extends JPanel implements ActionListener{
 			}
 			
 			else{
-				
+				JFrame frame = new JFrame("Error");
+				JOptionPane.showMessageDialog(frame, "Check your username/password");
 			}
 		}
 		
