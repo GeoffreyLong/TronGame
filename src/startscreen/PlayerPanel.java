@@ -26,6 +26,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public JButton logout;
 	public JButton login;
 	public JButton createAccount;
+	JButton playerHistory;
 	public JLabel playerStatus;
 	public InputMap inputMap;
 	JLabel playerLabel;
@@ -47,6 +48,10 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		playerStats = new JButton("Show Statistics");
 		playerStats.setBackground(new Color(0, 255, 255));
 		playerStats.addActionListener(this);
+		
+		playerHistory = new JButton("Show Player History");
+		playerHistory.setBounds(140, 225, 300, 70);
+		playerHistory.addActionListener(this);
 
 		login = new JButton("Login");
 		login.setForeground(Color.BLACK);
@@ -74,45 +79,62 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	
 	private void initLayout(){
 		setBorder(BorderFactory.createLineBorder(Color.black));
-		setLayout(new MigLayout("", "[]", "[][][][]"));
+		setLayout(new MigLayout("", "[grow]", "[][][][]"));
 		
 		if(player.getPlayerNumber() == 1){
-			add(playerLabel, "cell 0 0");
-			add(playerStats, "cell 0 3");
-			add(playerStatus, "cell 0 4");
-			add(login, "cell 0 1");
-			add(logout, "cell 0 1");
-			add(createAccount, "cell 0 2");
+			add(playerLabel, "cell 0 0,growx, aligny top");
+			add(playerStats, "cell 0 4,grow");
+			add(playerStatus, "cell 0 1,alignx right,aligny baseline");
+			add(login, "cell 0 2, alignx right, grow");
+			add(logout, "cell 0 2, shrink");
+			add(createAccount, "cell 0 3,grow");
 		}
 		if(player.getPlayerNumber() == 2){
 			
-			add(playerLabel, "cell 0 0, alignx right, growy");
-			add(playerStats, "cell 0 3,alignx right, growy");
-			add(playerStatus, "cell 0 4,alignx right, growy");
-			add(login, "cell 0 1,alignx right, growy");
-			add(logout, "cell 0 1,alignx right,growy");
-			add(createAccount, "cell 0 2,alignx right,growy");
+			add(playerLabel, "cell 0 0,alignx right, aligny top");
+			add(playerStats, "cell 0 4, grow");
+			add(playerStatus, "cell 0 1, alignx left, aligny baseline");
+			add(login, "cell 0 2, grow");
+			add(logout, "cell 0 2, shrink");
+			add(createAccount, "cell 0 3,grow");
 		}
 		
-		
+		/*setLayout(null);
+		add(playerLabel);
+		add(playerStats);
+		add(playerStatus);
+		add(login);
+		add(logout);
+		add(createAccount);
+		add(playerHistory);
+		*/
 		setVisible(true);
 	}
 
 	public void setLocation(int x){
 		setBounds(x, Frame.getYSize()/6, Frame.getXSize()/2, 5*Frame.getYSize()/6);
 	}
+	
+	public int getPlayerNumber(){
+		return this.player.getPlayerNumber();
+	}
+	
 	public void setLabel(String label){
 		playerLabel.setText(label);
 	}
+	
 	public void setLogin(boolean isVisible){
 		login.setVisible(isVisible);
 	}
+	
 	public void setCreate(boolean isVisible){
 		createAccount.setVisible(isVisible);
 	}
+	
 	public void setLogout(boolean isVisible){
 		logout.setVisible(true);
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Login")){
@@ -120,17 +142,19 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		
 		if (e.getActionCommand().equals("Logout")){
-
+			FrameDriver.logout(player);
 		}
 		
 		if (e.getActionCommand().equals("Show Statistics")){
-			
-		       FrameDriver.Statistics(); 
-			
+		       FrameDriver.Statistics();
 		}
 		
 		if(e.getActionCommand().equals("Create an Account")){
 			FrameDriver.createAccount(player);
+		}
+		
+		if(e.getActionCommand().equals("Show Player History")){
+			FrameDriver.playerHistory(player.getUserName());
 		}
 		
 	}
