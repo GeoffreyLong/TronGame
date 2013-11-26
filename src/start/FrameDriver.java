@@ -20,6 +20,7 @@ import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.WelcomePanel;
 import statistics.AllStatsPanel;
+import statistics.PlayerHistoryPanel;
 import statistics.TopTenPanel;
 import statistics.HeadToHead;
 import user.CreateUser;
@@ -175,6 +176,16 @@ public class FrameDriver {
 		newFrame.getContentPane().add(scrollPane);  
 		newFrame.setSize(500, 480);  
 		newFrame.setVisible(true); 
+	}
+	
+	public static void playerHistory(String username){
+		Connection conn = Connect.connect();
+		
+		JFrame newFrame = new JFrame("View Player History");
+		JScrollPane scrollPane = new JScrollPane(new PlayerHistoryPanel(conn, username));  
+		newFrame.getContentPane().add(scrollPane);  
+		newFrame.setSize(500, 480);  
+		newFrame.setVisible(true);
 	}
 	
 	public static void HeadToHead(String username1, String username2){
