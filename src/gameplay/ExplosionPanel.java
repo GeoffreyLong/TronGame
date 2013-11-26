@@ -39,8 +39,8 @@ public class ExplosionPanel extends JPanel{
 	public void paintComponent(Graphics g){
 		for (Color color : explosionColors){
 			g.setColor(color);
-			g.fillOval(curCycle.getXPos()*increment+buffer -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-					curCycle.getYPos()*increment+buffer -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+			g.fillOval(MapPanel.getXOffset() + curCycle.getXPos()*increment -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+					MapPanel.getYOffset() + curCycle.getYPos()*increment -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
 					(int)(explosionCount*Math.random()), 
 					(int)(explosionCount*Math.random()));
 		}

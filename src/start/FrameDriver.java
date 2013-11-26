@@ -179,7 +179,7 @@ public class FrameDriver {
 	    frame.addPanel(mapPanel);
 	}
 	public static void explosion(ExplosionPanel exp, int xOffset, int yOffset){
-		exp.setBounds(xOffset,yOffset,Frame.getXSize(), Frame.getYSize());
+		exp.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		frame.addPanel(exp);
 	}
 	public static void removePanel(JPanel panel){
