@@ -41,7 +41,6 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private JLabel changeSize;
 	private JButton minus;
 	private JButton plus;
-	private GameMaster gameMaster;
 	private boolean haveExplosion = false;
 	private Map mapper;
 	private GameSetup gameSetup;
@@ -49,12 +48,17 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	private List<Color> explosionColors;
 	private Cycle curCycle;
 	private boolean isExplosion = false;
+	private JLabel playerOneLabel;
+	private JLabel playerTwoLabel;
+	private JLabel playerOneScore;
+	private JLabel playerTwoScore;
+	private GameMaster gameMaster;
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
 	 * @param map
 	 */
-	public MapPanel(GameSetup gameSetup, PlayerControl cont){
+	public MapPanel(GameSetup gameSetup, GameMaster gameMaster, PlayerControl cont){
 		this.gameSetup = gameSetup;
 		this.cont = cont;
 		
@@ -62,6 +66,8 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		map = mapper.getMap();
 		xSize = mapper.getXSize();
 		ySize = mapper.getYSize();
+		
+		this.gameMaster = gameMaster;
 		
 		increment = gameSetup.getIncrement();
 		
@@ -80,7 +86,20 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		minus = new JButton("-");
 		minus.setBounds(110,50,50,30);
 		minus.addActionListener(this);
+		
+		playerOneLabel = new JLabel("Player One Wins");
+		playerOneLabel.setBounds(Frame.getXSize()/2 - 110,10,100,20);
+		
+		playerOneScore = new JLabel(Integer.toString(gameMaster.getPlayerOneWins()));
+		playerOneScore.setBounds(Frame.getXSize()/2 - 60,30,50,20);
+		
+		playerTwoLabel = new JLabel("Player One Wins");
+		playerTwoLabel.setBounds(Frame.getXSize()/2 + 10,10,100,20);
+		
+		playerTwoScore = new JLabel(Integer.toString(gameMaster.getPlayerTwoWins()));
+		playerTwoScore.setBounds(Frame.getXSize()/2 + 60,30,50,20);
 	}
+	
 	public void initLayout(){
 		xOffset = (Frame.getXSize() - xSize*increment) / 2;
 		yOffset = (Frame.getYSize() - ySize*increment) / 2;
@@ -91,6 +110,10 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		add(changeSize);
 		add(plus);
 		add(minus);
+		add(playerOneLabel);
+		add(playerTwoLabel);
+		add(playerOneScore);
+		add(playerTwoScore);
 		
 		addKeyListener(this);
 		setVisible(true);

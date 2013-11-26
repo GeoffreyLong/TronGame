@@ -42,7 +42,7 @@ public class GameDriver {
 		
 		PlayerControl cont = new PlayerControl(cycleOne, cycleTwo);
 		
-		mapPanel = new MapPanel(gameSetup, cont);
+		mapPanel = new MapPanel(gameSetup, gameMaster, cont);
 		FrameDriver.startGame(mapPanel);
 		
 		cycles = new Cycle[]{cycleOne, cycleTwo};

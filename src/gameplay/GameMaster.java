@@ -24,12 +24,11 @@ import start.Frame;
  */
 public class GameMaster {
 	private Map map;
-	private static MapPanel mapPanel;
 	public static Timer timer;
 	public Timer explosionTimer;
 	private GameSetup gameSetup;
-	private int playerOneWins;
-	private int playerTwoWins;
+	private int playerOneWins = 0;
+	private int playerTwoWins = 0;
 	private int gamesPlayed;
 	private int gameSpeed;
 	
