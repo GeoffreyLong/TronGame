@@ -21,7 +21,7 @@ public class EndScreen extends JPanel implements ActionListener{
     private int pTwoWins;
     private JLabel winner;
     private JLabel endStatus;
-    private JButton headToHead
+    private JButton headToHead;
 	
     public EndScreen(){
     	initComponents();
