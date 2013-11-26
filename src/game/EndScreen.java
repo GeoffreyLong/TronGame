@@ -17,10 +17,11 @@ public class EndScreen extends JPanel implements ActionListener{
     private JLabel title;
     private JButton replay;
     private int gamesPlayed;
-	private int pOneWins;
-	private int pTwoWins;
-	private JLabel winner;
-	private JLabel endStatus;
+    private int pOneWins;
+    private int pTwoWins;
+    private JLabel winner;
+    private JLabel endStatus;
+    private JButton headToHead
 	
     public EndScreen(){
     	initComponents();
@@ -43,6 +44,10 @@ public class EndScreen extends JPanel implements ActionListener{
     	replay.setBounds(560, 166, 200, 60);
     	replay.addActionListener(this);
     	
+    	headToHead = new JButton("Player Matchup Score");
+    	headToHead.setBounds(560, 266, 200, 60);
+    	headToHead.addActionListener(this);
+    	
     }
     
     public void initLayout(){
@@ -51,6 +56,7 @@ public class EndScreen extends JPanel implements ActionListener{
     	add(replay);
     	add(endStatus);
     	add(winner);
+    	add(headToHead);
     }
     
     public Dimension getPreferredSize() {
