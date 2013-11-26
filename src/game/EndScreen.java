@@ -7,7 +7,9 @@
 package game;
 import javax.swing.*;
 
-import java.awt.Dimension;
+import start.FrameDriver;
+import user.LoginGUI;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -76,6 +78,10 @@ public class EndScreen extends JPanel implements ActionListener{
 		    master.gameInit();
 	        master.gameStart();
 		}*/
+    	
+    	if(e.getSource() == headToHead){
+    		FrameDriver.HeadToHead(LoginGUI.player1.getUserName(), LoginGUI.player2.getUserName());
+    	}
     }
     public void setPOneWins(int i){
     	pOneWins = i;
