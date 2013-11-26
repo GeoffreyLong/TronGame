@@ -80,7 +80,7 @@ public class EndScreen extends JPanel implements ActionListener{
 		}*/
     	
     	if(e.getSource() == headToHead){
-    		FrameDriver.HeadToHead(LoginGUI.player1.getUserName(), LoginGUI.player2.getUserName());
+    		FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
     	}
     }
     public void setPOneWins(int i){
