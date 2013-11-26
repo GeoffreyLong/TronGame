@@ -104,6 +104,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		
 		if (e.getActionCommand().equals("Logout")){
+			FrameDriver.logout(player);
 
 		}
 		
