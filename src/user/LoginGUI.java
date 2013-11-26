@@ -118,6 +118,10 @@ public class LoginGUI extends JPanel implements ActionListener{
 			}
 		}
 		
+		if(e.getSource() == back){
+			FrameDriver.mainMenu();
+		}
+		
 	}
 
 
