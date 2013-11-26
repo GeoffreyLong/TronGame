@@ -17,10 +17,11 @@ public class EndScreen extends JPanel implements ActionListener{
     private JLabel title;
     private JButton replay;
     private int gamesPlayed;
-	private int pOneWins;
-	private int pTwoWins;
-	private JLabel winner;
-	private JLabel endStatus;
+    private int pOneWins;
+    private int pTwoWins;
+    private JLabel winner;
+    private JLabel endStatus;
+    private JButton headToHead
 	
     public EndScreen(){
     	initComponents();
