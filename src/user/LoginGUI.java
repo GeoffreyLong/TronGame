@@ -19,6 +19,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	private JPasswordField passwordField;
 	private JButton login;	
 	private Player player;
+	private JButton back;
 	
 	public LoginGUI(Player player){
 		this.player = player;
@@ -51,6 +52,10 @@ public class LoginGUI extends JPanel implements ActionListener{
 		login.setBounds(150, 230, 100, 30);
 		login.addActionListener(this);
 		
+		back = new JButton("Back");
+		back.setBounds(50, 430, 100, 30);
+		back.addActionListener(this);
+		
 	}
 	
 	private void initLayout(){
@@ -61,6 +66,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 		add(password);
 		add(passwordField);
 		add(login);
+		add(back);
 		
 	}
 
