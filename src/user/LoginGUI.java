@@ -21,8 +21,8 @@ public class LoginGUI extends JPanel implements ActionListener{
 	private JButton login;	
 	private Player player;
 	private JButton back;
-	public static Player player1;
-	public static Player player2;
+	public static String player1;
+	public static String player2;
 	
 	public LoginGUI(Player player){
 		this.player = player;
@@ -99,14 +99,14 @@ public class LoginGUI extends JPanel implements ActionListener{
 				if(this.player.getPlayerNumber() == 1){
 					Player player = new Player(1);
 					player.setUserName(usernameField.getText());
-					player1 = player;
+					player1 = usernameField.getText();;
 					FrameDriver.setPaneOne(player);
 				}
 				
 				else{
 					Player player = new Player(2);
 					player.setUserName(usernameField.getText());
-					player2 = player;
+					player2 = usernameField.getText();
 					FrameDriver.setPaneTwo(player);
 				}
 
