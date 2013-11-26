@@ -25,6 +25,7 @@ import statistics.TopTenPanel;
 import statistics.HeadToHead;
 import user.CreateUser;
 import user.LoginGUI;
+import user.NullPlayer;
 import user.Player;
 
 public class FrameDriver {
@@ -128,13 +129,13 @@ public class FrameDriver {
 	
 	public static void logout(Player player){
 		if(player.getPlayerNumber() == 1){
-			pane1.setVisible(false);
-			paneOne.setVisible(true);
+			player = new NullPlayer(1);
+			paneOne.setNull(player);
 		}
 		
 		else{
-			pane2.setVisible(false);
-			paneTwo.setVisible(true);
+			player = new NullPlayer(2);
+			paneTwo.setNull(player);
 		}
 	}
 	

@@ -13,13 +13,14 @@ public class PlayerTwoPanel extends PlayerPanel{
 	public void setLoadout(){
 		setLocation(Frame.getXSize()/2-1);
 		if(player.getClass().getName().equals("user.NullPlayer")){
-			setNull();
+			setNull(player);
 		}
 		else{
 			setUser();
 		}
 	}
-	public void setNull(){
+	public void setNull(Player player){
+		this.player = player;
 		setLabel("PLAYER TWO");
 		login.setVisible(true);
 		createAccount.setVisible(true);
