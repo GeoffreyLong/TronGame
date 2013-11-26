@@ -39,6 +39,9 @@ public class FrameDriver {
 	static LoginGUI loginTwo;
 	static MapChooser choose;
 	static EndScreen endScreen;
+	public static PlayerOnePanel pane1;
+	public static PlayerTwoPanel pane2;
+	
 	
 	public FrameDriver(Frame frame){
 		this.frame = frame;
@@ -130,6 +133,25 @@ public class FrameDriver {
 		endScreen.setGamesPlayed(gamesPlayed);
 		endScreen.updatePanel();
 		endScreen.setVisible(true);
+	}
+	
+	public static void setPaneOne(Player player){
+		loginOne.setVisible(false);
+		
+		pane1 = new PlayerOnePanel(player);
+		pane1.setUser();
+		frame.addPanel(pane1);
+		pane1.setVisible(true);
+		
+	}
+	
+	public static void setPaneTwo(Player player){
+		loginTwo.setVisible(false);
+		
+		pane2 = new PlayerTwoPanel(player);
+		pane2.setUser();
+		frame.addPanel(pane2);
+		pane2.setVisible(true);
 	}
 	
 	public static void Statistics(){
