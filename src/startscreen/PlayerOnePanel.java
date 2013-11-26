@@ -31,4 +31,11 @@ public class PlayerOnePanel extends PlayerPanel{
 		createAccount.setVisible(false);
 		logout.setVisible(true);
 	}
+	public void setUser(Player player){
+		this.player = player;
+		setLabel(player.getUserName());
+		login.setVisible(false);
+		createAccount.setVisible(false);
+		logout.setVisible(true);
+	}
 }

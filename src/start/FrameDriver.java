@@ -30,8 +30,8 @@ import user.Player;
 public class FrameDriver {
 	static Frame frame;
 	static WelcomePanel welcome;
-	static PlayerPanel paneOne;
-	static PlayerPanel paneTwo;
+	static PlayerOnePanel paneOne;
+	static PlayerTwoPanel paneTwo;
 	static GameSetup setup;
 	static SetupPanel setupPanel;
 	static CreateUser createOne;
@@ -152,20 +152,15 @@ public class FrameDriver {
 	public static void setPaneOne(Player player){
 		loginOne.setVisible(false);
 		
-		pane1 = new PlayerOnePanel(player);
-		pane1.setUser();
-		frame.addPanel(pane1);
-		pane1.setVisible(true);
-		
+		paneOne.setUser(player);
+		paneOne.setVisible(true);
 	}
 	
 	public static void setPaneTwo(Player player){
 		loginTwo.setVisible(false);
 		
-		pane2 = new PlayerTwoPanel(player);
-		pane2.setUser();
-		frame.addPanel(pane2);
-		pane2.setVisible(true);
+		paneTwo.setUser(player);
+		paneTwo.setVisible(true);
 	}
 	
 	public static void Statistics(){

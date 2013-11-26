@@ -4,7 +4,7 @@ import start.Frame;
 import user.Player;
 
 public class PlayerTwoPanel extends PlayerPanel{
-	Player player;
+	static Player player;
 	public PlayerTwoPanel(Player player) {
 		super(player);
 		this.player = player;
@@ -28,8 +28,13 @@ public class PlayerTwoPanel extends PlayerPanel{
 	public void setUser(){
 		setLabel(player.getUserName());
 		login.setVisible(false);
-		playerStats.setVisible(false);
-		playerHistory.setVisible(true);
+		createAccount.setVisible(false);
+		logout.setVisible(true);
+	}
+	public void setUser(Player player){
+		this.player = player;
+		setLabel(player.getUserName());
+		login.setVisible(false);
 		createAccount.setVisible(false);
 		logout.setVisible(true);
 	}
