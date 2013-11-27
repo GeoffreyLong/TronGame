@@ -108,6 +108,8 @@ public class FrameDriver {
 	}
 	public static void startGameSetup(){
 		hideAll();
+		setupPanel.setPlayerOne(Main.playerOne);
+		setupPanel.setPlayerTwo(Main.playerTwo);
 		setupPanel.setVisible(true);
 	}
 	public static void createAccount(Player player){

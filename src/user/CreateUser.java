@@ -156,16 +156,12 @@ public class CreateUser extends JPanel implements ActionListener{
 						conn.close();
 						
 						if(this.player.getPlayerNumber() == 1){
-							
-							Player player = new Player(1);
 							player.setUserName(usernameField.getText());
 							
 							FrameDriver.setPaneOne(player);
 						}
 						
 						else{
-							
-							Player player = new Player(2);
 							player.setUserName(usernameField.getText());
 							
 							FrameDriver.setPaneTwo(player);

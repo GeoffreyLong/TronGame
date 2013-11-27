@@ -219,4 +219,14 @@ public class SetupPanel extends JPanel implements ActionListener{
 			return this.color;
 		}
 	}
+
+	public void setPlayerOne(Player playerOne) {
+		this.playerOne = playerOne;
+		pageTitle.setText(playerOne.getUserName() + " VS " + playerTwo.getUserName());
+	}
+
+	public void setPlayerTwo(Player playerTwo) {
+		this.playerTwo = playerTwo;
+		pageTitle.setText(playerOne.getUserName() + " VS " + playerTwo.getUserName());
+	}
 }
