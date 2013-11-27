@@ -57,7 +57,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		yCenter = start.Frame.getYCenter();
 		xSize = start.Frame.getXSize();
 		ySize = start.Frame.getYSize();
-		setBackground(new Color(142,229,238));
+		setBackground(Color.black);
 		
 		initComponents();
 		initLayout();
@@ -65,7 +65,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 
 	private void initComponents(){				
 		pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
-		pageTitle.setForeground(Color.black);
+		pageTitle.setForeground(new Color(142,229,238));
 		pageTitle.setFont(new Font("Apple Color Emoji", Font.BOLD, 20));
 		
 		startGame = new StyledButton("START THE GAME");
@@ -89,7 +89,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		changeDifficulty = new JLabel("<html> <div style='text-align:center'> "
 				+ "Change the Difficulty <br> Current difficulty is <br>"
 				+ gameSetup.getGameDifficulty() +"</div></html>");
-		changeDifficulty.setForeground(Color.black);
+		changeDifficulty.setForeground(new Color(142,229,238));
 		changeDifficulty.setFont(new Font("Apple Color Emoji", Font.BOLD, 13));
 
 		plusButton = new StyledButton("+");
@@ -106,16 +106,16 @@ public class SetupPanel extends JPanel implements ActionListener{
 	}
 	private void initLayout(){
 		setBounds(0,0,xSize,ySize);
-		setLayout(new MigLayout("", "[][][]", "[][][][][][][][][]"));
+		setLayout(new MigLayout("", "[]50[]", "[]50[]50[]50[]50[]100[]100[][][]"));
 		
 		add(pageTitle, "cell 0 0 6 1,alignx center,aligny top");
 		add(changeMap, "cell 1 2 5 1,alignx center,aligny top");
-		add(minusButton, "cell 1 3,alignx center,aligny center");
+		add(minusButton, "cell 1 3,alignx right, grow");
 		
 		
-		add(changeDifficulty, "cell 2 3 3 1,alignx center,growy");
+		add(changeDifficulty, "cell 2 3 3 1,alignx center,shrinkx,growy");
 		
-		add(plusButton, "cell 5 3,alignx center,aligny center");
+		add(plusButton, "cell 5 3,alignx left, grow");
 		add(changePOneColor, "cell 2 5,grow");
 		
 	

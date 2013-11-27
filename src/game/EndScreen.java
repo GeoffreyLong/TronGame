@@ -53,7 +53,7 @@ public class EndScreen extends JPanel implements ActionListener{
     	replay.setBounds(760, 166, 200, 60);
     	replay.addActionListener(this);
     	
-    	headToHead = new StyledButton("Player Matchup Score");
+    	headToHead = new StyledButton("Matchup Stats");
     	headToHead.setBounds(760, 266, 200, 60);
     	headToHead.addActionListener(this);
     	
@@ -83,7 +83,7 @@ public class EndScreen extends JPanel implements ActionListener{
 		    FrameDriver.startGameSetup();
 		}
     	
-    	if(e.getActionCommand().equals("Player Matchup Score")){
+    	if(e.getActionCommand().equals("Matchup Stats")){
 			FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
 	}
 	

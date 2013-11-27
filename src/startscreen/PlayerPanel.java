@@ -51,12 +51,12 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		panel.setBackground(Color.black);
 
 		login = new StyledButton("Login");
-		login.setBounds(0, 0, 345, 50);
+		login.setBounds(0, 0, 399, 50);
 		login.addActionListener(this);
 		login.setVisible(false);
 
 		logout = new StyledButton("Logout");
-		logout.setBounds(0, 0, 345, 50);
+		logout.setBounds(0, 0, 399, 50);
 		logout.addActionListener(this);
 		logout.setVisible(false);
 
@@ -82,11 +82,11 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	}
 	
 	private void initLayout(){
-		setBorder(BorderFactory.createLineBorder(Color.black));
+		setBorder(BorderFactory.createLineBorder(new Color(0xD4FFFF)));
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[50px][50px][50px][50px][50px]"));
 		
 		
-		//if(player.getPlayerNumber() == 1){
+		if(player.getPlayerNumber() == 1){
 			add(playerLabel, "cell 0 0 3 1,alignx left");						
 			add(panel, "cell 1 2,grow");			
 			panel.setLayout(null);
@@ -97,13 +97,14 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			add(playerStatus, "cell 0 7 3 1,alignx center,aligny baseline");
 			add(playerHistory, "cell 1 5,alignx right,grow");
 			add(head2head, "cell 1 6,alignx right,grow");
-		//}
+		}
 		
 
 		if(player.getPlayerNumber() == 2){
 			
 			add(playerLabel, "cell 0 0 3 1,alignx right");
-			add(panel, "cell 1 2,grow");			
+			add(panel, "cell 1 2,grow");
+			panel.setLayout(null);
 			panel.add(login, "center");
 			panel.add(logout, "center");
 			add(createAccount, "cell 1 3,alignx left,growx,growy");

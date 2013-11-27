@@ -30,7 +30,7 @@ public class WelcomePanel extends JPanel {
 	}
 	private void initLayout(){
 		setBounds(-1,0,Frame.getXSize(),Frame.getYSize()/6);
-		setBorder(BorderFactory.createLineBorder(Color.black));
+		setBorder(BorderFactory.createLineBorder(new Color(0xD4FFFF)));
 		
 		add(welcome, "cell 0 0, alignx center, growy");
 		add(instructions, "cell 1 0,alignx center,growy");
