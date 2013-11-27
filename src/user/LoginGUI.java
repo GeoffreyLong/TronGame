@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import start.Connect;
 import start.DatabaseCalls;
 import start.FrameDriver;
+import styleelements.StyledButton;
 import user.LoginGUI;
 
 public class LoginGUI extends JPanel implements ActionListener{
@@ -28,9 +29,9 @@ public class LoginGUI extends JPanel implements ActionListener{
 	private JTextField usernameField;
 	private JLabel password;
 	private JPasswordField passwordField;
-	private JButton login;	
+	private StyledButton login;	
 	private Player player;
-	private JButton back;
+	private StyledButton back;
 	public static String player1;
 	public static String player2;
 	
@@ -61,11 +62,11 @@ public class LoginGUI extends JPanel implements ActionListener{
 		passwordField = new JPasswordField(40);
 		passwordField.setBounds(150, 200, 170, 25);
 		
-		login = new JButton("Login");
+		login = new StyledButton("Login");
 		login.setBounds(150, 230, 100, 30);
 		login.addActionListener(this);
 		
-		back = new JButton("Back");
+		back = new StyledButton("Back");
 		back.setBounds(50, 430, 100, 30);
 		back.addActionListener(this);
 		

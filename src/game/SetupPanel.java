@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import start.FrameDriver;
 import user.Player;
+import styleelements.StyledButton;
 
 /**
  * @author Geoffrey Long
@@ -30,13 +31,13 @@ public class SetupPanel extends JPanel implements ActionListener{
 	private JLabel changeDifficulty;
 	private Colors pOneColor = Colors.RED;
 	private Colors pTwoColor = Colors.BLUE;
-	private JButton changePOneColor;
-	private JButton changePTwoColor;
-	private JButton startGame;
-	private JButton plusButton;
+	private StyledButton changePOneColor;
+	private StyledButton changePTwoColor;
+	private StyledButton startGame;
+	private StyledButton plusButton;
 	private JLabel pageTitle;
-	private JButton changeMap;
-	private JButton minusButton;
+	private StyledButton changeMap;
+	private StyledButton minusButton;
 	
 	/**
 	 * Sets the initial conditions of the MapPanel
@@ -63,11 +64,11 @@ public class SetupPanel extends JPanel implements ActionListener{
 		pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
 		pageTitle.setBounds(50, 50, 400, 100);
 		
-		changeMap = new JButton("Change the Map");
+		changeMap = new StyledButton("Change the Map");
 		changeMap.setBounds(100, 200, 400, 100);
 		changeMap.addActionListener(this);
 		
-		minusButton = new JButton("-");
+		minusButton = new StyledButton("-");
 		minusButton.setBounds(225, 375, 50, 50);
 		minusButton.addActionListener(this);
 		
@@ -76,11 +77,11 @@ public class SetupPanel extends JPanel implements ActionListener{
 				+ gameSetup.getGameDifficulty() +"</div></html>");
 		changeDifficulty.setBounds(300, 350, 200, 100);
 		
-		plusButton = new JButton("+");
+		plusButton = new StyledButton("+");
 		plusButton.setBounds(500, 375, 50, 50);
 		plusButton.addActionListener(this);
 		
-		changePOneColor = new JButton("<html> <div style='text-align:center'> "
+		changePOneColor = new StyledButton("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerOne's LightCycle <br> "
 				+ "Current color is the button color </div><html>");
 		changePOneColor.setOpaque(true);
@@ -89,7 +90,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		changePOneColor.setForeground(Color.BLACK);
 		changePOneColor.addActionListener(this);
 		
-		changePTwoColor = new JButton("<html> <div style='text-align:center'> "
+		changePTwoColor = new StyledButton("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerTwo's LightCycle <br> "
 				+ "Current color is the button color </div><html>");
 		changePTwoColor.setOpaque(true);
@@ -98,7 +99,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		changePTwoColor.setForeground(Color.BLACK);
 		changePTwoColor.addActionListener(this);
 		
-		startGame = new JButton("START THE GAME");
+		startGame = new StyledButton("START THE GAME");
 		startGame.setBounds(100, 610, 700, 50);
 		startGame.addActionListener(this);
 	}
