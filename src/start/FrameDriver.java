@@ -235,4 +235,16 @@ public class FrameDriver {
 	public static void removePanel(JPanel panel){
 		frame.removePanel(panel);
 	}
+	public static boolean getLoginVisibility(){
+		if (loginOne.isVisible() || loginTwo.isVisible()){
+			return true;
+		}
+		return false;
+	}
+	public static boolean getCreateVisibility(){
+		if (createOne.isVisible() || createTwo.isVisible()){
+			return true;
+		}
+		return false;
+	}
 }
