@@ -79,7 +79,7 @@ public class EndScreen extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 	    // TODO Auto-generated method stub
-		if(e.getSource() == replay){
+		if(e.getActionCommand().equals("Replay?")){
 			System.out.println("sdf");
 		    FrameDriver.startGameSetup();
 		}
