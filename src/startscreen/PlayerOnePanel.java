@@ -24,6 +24,7 @@ public class PlayerOnePanel extends PlayerPanel{
 		this.player = player;
 		setLabel("PLAYER ONE");
 		login.setVisible(true);
+		playerStats.setVisible(true);
 		createAccount.setVisible(true);
 		logout.setVisible(false);
 	}
