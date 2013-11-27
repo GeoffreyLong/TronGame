@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import start.FrameDriver;
 import start.Main;
+import styleelements.StyledButton;
 import user.LoginGUI;
 import user.Player;
 
@@ -48,15 +49,15 @@ public class EndScreen extends JPanel implements ActionListener{
     	endStatus = new JLabel();
     	endStatus.setBounds(360, 250, 200, 200);
     	
-    	replay = new JButton("Replay?");
+    	replay = new StyledButton("Replay?");
     	replay.setBounds(760, 166, 200, 60);
     	replay.addActionListener(this);
     	
-    	headToHead = new JButton("Player Matchup Score");
+    	headToHead = new StyledButton("Player Matchup Score");
     	headToHead.setBounds(760, 266, 200, 60);
     	headToHead.addActionListener(this);
     	
-    	mainMenu = new JButton("Main Menu");
+    	mainMenu = new StyledButton("Main Menu");
     	mainMenu.setBounds(760, 366, 200, 60);
     	mainMenu.addActionListener(this);    	
     }
@@ -100,10 +101,10 @@ public class EndScreen extends JPanel implements ActionListener{
     }
     public void updatePanel(){
     	if (pOneWins > pTwoWins){
-    		winner.setText("Congratulations " + Main.playerOne.getUserName());
+    		winner.setText("Congratulations " + LoginGUI.player1 + "!!!");
     	}
     	else{
-    		winner.setText("Congratulations " + Main.playerTwo.getUserName());
+    		winner.setText("Congratulations " + LoginGUI.player2 + "!!!");
     	}
     	
     	endStatus.setText("<html>"

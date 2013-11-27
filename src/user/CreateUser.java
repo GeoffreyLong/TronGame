@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,6 +18,7 @@ import javax.swing.JTextField;
 import start.Connect;
 import start.DatabaseCalls;
 import start.FrameDriver;
+import styleelements.StyledButton;
 
 public class CreateUser extends JPanel implements ActionListener{
   
@@ -29,9 +29,9 @@ public class CreateUser extends JPanel implements ActionListener{
 	private JPasswordField passwordField;
 	private JLabel rePassword;
 	private JPasswordField rePasswordField;
-	private JButton createAccount;
+	private StyledButton createAccount;
 	private Player player;
-	private JButton back;
+	private StyledButton back;
 	
 	
 	public CreateUser(Player player){
@@ -68,11 +68,11 @@ public class CreateUser extends JPanel implements ActionListener{
 		rePasswordField = new JPasswordField(40);
 		rePasswordField.setBounds(240, 230, 170, 25);
 		
-		createAccount = new JButton("Create Account");
+		createAccount = new StyledButton("Create Account");
 		createAccount.setBounds(240, 260, 140, 30);
 		createAccount.addActionListener(this);	
 		
-		back = new JButton("Back");
+		back = new StyledButton("Back");
 		back.setBounds(50, 430, 100, 30);
 		back.addActionListener(this);
 	}
