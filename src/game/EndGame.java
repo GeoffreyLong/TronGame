@@ -20,7 +20,7 @@ public class EndGame {
 		Connection conn = Connect.connect();
 		
 		DatabaseCalls call = new DatabaseCalls(conn);
-		call.pushStatistics(LoginGUI.player1.getUserName(), pOneWins, LoginGUI.player2.getUserName(), pTwoWins);
+		call.pushStatistics(LoginGUI.player1, pOneWins, LoginGUI.player2, pTwoWins);
 	}
 	public void initPanel(){
 		FrameDriver.endGame(pOneWins, pTwoWins, gamesPlayed);
