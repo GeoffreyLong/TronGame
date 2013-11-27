@@ -1,18 +1,11 @@
 package gameplay;
 
 import game.EndGame;
-import game.EndScreen;
 import game.GameSetup;
 import game.Map;
 import game.WinCondition;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.Timer;
-
-import start.Frame;
 
 /**
  * @author Geoffrey Long

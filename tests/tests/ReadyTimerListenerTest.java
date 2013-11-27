@@ -6,11 +6,9 @@
 
 package tests;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import javax.swing.JLabel;
 
 import startscreen.ReadyTimerListener;
-import javax.swing.JLabel;
 
 public class ReadyTimerListenerTest {
 	private JLabel playerOneReady;

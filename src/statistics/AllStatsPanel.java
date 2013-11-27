@@ -1,10 +1,14 @@
 package statistics;
 
-import javax.swing.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import java.awt.*;
-import java.sql.*;
-import java.util.Vector;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 
 public class AllStatsPanel extends JPanel{

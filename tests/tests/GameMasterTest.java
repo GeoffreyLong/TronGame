@@ -6,12 +6,10 @@
 
 package tests;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
 import game.GameSetup;
-import user.Player;
-import gameplay.GameMaster;
 import game.WinCondition;
+import gameplay.GameMaster;
+import user.Player;
 
 public class GameMasterTest {
 	private int testPlayerOne = 1;

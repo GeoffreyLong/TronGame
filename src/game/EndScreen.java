@@ -5,13 +5,17 @@
 
 
 package game;
-import javax.swing.*;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import start.FrameDriver;
 import user.LoginGUI;
-
-import java.awt.*;
-import java.awt.event.*;
 
 
 public class EndScreen extends JPanel implements ActionListener{

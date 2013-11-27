@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 
 import start.FrameDriver;
-import start.Main;
 
 public class ReadyTimerListener implements ActionListener{
 	private JLabel playerOneReady;

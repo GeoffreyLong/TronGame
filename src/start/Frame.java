@@ -12,12 +12,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import net.miginfocom.swing.MigLayout;
-import game.GameSetup;
-import game.Map;
-import gameplay.GameMaster;
-import gameplay.MapPanel;
-
 public class Frame extends JFrame {
 	static JFrame frame = new JFrame();
 	private static int xSize;

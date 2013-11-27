@@ -4,7 +4,6 @@ import java.sql.Connection;
 
 import start.Connect;
 import start.DatabaseCalls;
-import start.Frame;
 import start.FrameDriver;
 import user.LoginGUI;
 

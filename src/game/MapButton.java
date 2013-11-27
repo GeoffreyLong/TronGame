@@ -1,9 +1,9 @@
 package game;
 
+import gameplay.Tile;
+
 import java.awt.Color;
 import java.awt.Graphics;
-
-import gameplay.Tile;
 
 import javax.swing.JButton;
 

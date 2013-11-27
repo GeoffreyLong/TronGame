@@ -6,14 +6,10 @@
 
 package tests;
 
-import static org.junit.Assert.*;
-
-import java.awt.Color;
-
-import org.junit.Test;
-
 import gameplay.Cycle;
 import gameplay.Cycle.Heading;
+
+import java.awt.Color;
 
 public class CycleTest {
 	private int testXPos = 1;

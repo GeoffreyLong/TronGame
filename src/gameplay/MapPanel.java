@@ -1,18 +1,14 @@
 package gameplay;
 
-import game.EndGame;
 import game.GameSetup;
 import game.Map;
-import game.WinCondition;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JButton;

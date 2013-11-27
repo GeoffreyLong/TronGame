@@ -1,8 +1,5 @@
 package game;
 
-import java.util.LinkedList;
-
-import gameplay.Tile;
 
 /**
  * @author Geoffrey Long

@@ -1,14 +1,13 @@
 package startscreen;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.BorderFactory;
-import javax.swing.*;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import start.Frame;
-import start.Main;
-import java.awt.Font;
 
 public class WelcomePanel extends JPanel {
 	private JLabel welcome;

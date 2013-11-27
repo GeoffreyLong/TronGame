@@ -1,29 +1,28 @@
 package start;
 
-import java.awt.Component;
-import java.sql.Connection;
-
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
-import net.miginfocom.swing.MigLayout;
 import game.EndScreen;
 import game.GameSetup;
 import game.MapChooser;
 import game.SetupPanel;
 import gameplay.ExplosionPanel;
 import gameplay.MapPanel;
+
+import java.awt.Component;
+import java.sql.Connection;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import net.miginfocom.swing.MigLayout;
 import startscreen.PlayerOnePanel;
-import startscreen.PlayerPanel;
 import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
 import startscreen.WelcomePanel;
 import statistics.AllStatsPanel;
+import statistics.HeadToHead;
 import statistics.PlayerHistoryPanel;
 import statistics.TopTenPanel;
-import statistics.HeadToHead;
 import user.CreateUser;
 import user.LoginGUI;
 import user.NullPlayer;

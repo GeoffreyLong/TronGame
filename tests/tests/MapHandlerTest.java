@@ -6,12 +6,8 @@
 
 package tests;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import game.MapHandler;
 import game.Map;
+import game.MapHandler;
 import gameplay.Tile;
 
 public class MapHandlerTest {

@@ -8,16 +8,7 @@
 package start;
 
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.UIManager.LookAndFeelInfo;
 
-import game.GameSetup;
-import game.SetupPanel;
-import startscreen.PlayerOnePanel;
-import startscreen.PlayerTwoPanel;
-import startscreen.ReadyActionListener;
-import startscreen.PlayerPanel;
-import startscreen.WelcomePanel;
 import user.NullPlayer;
 import user.Player;
 

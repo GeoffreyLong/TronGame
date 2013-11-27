@@ -6,12 +6,10 @@
 
 package tests;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
-import java.sql.*;
+import java.sql.Connection;
 
-import start.DatabaseCalls;
 import start.Connect;
+import start.DatabaseCalls;
 
 public class DatabaseCallsTest {
 	private String testName = "ashleyTest";

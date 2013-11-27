@@ -1,7 +1,6 @@
 package startscreen;
 
 import user.Player;
-import javax.swing.JLabel;
 
 public class PlayerOnePanel extends PlayerPanel{
 	Player player;

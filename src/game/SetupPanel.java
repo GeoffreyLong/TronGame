@@ -1,5 +1,7 @@
 package game;
 
+import gameplay.GameMaster;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,10 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import start.Frame;
 import start.FrameDriver;
-import gameplay.GameMaster;
-import startscreen.WelcomePanel;
 import user.Player;
 
 /**

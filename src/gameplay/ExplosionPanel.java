@@ -1,7 +1,7 @@
 package gameplay;
 
-import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.List;
 
 import javax.swing.JPanel;

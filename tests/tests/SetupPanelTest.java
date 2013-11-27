@@ -6,12 +6,8 @@
 
 package tests;
 
-import static org.junit.Assert.*;
-import java.awt.Color;
-import org.junit.Test;
-
-import game.SetupPanel;
 import game.GameSetup;
+import game.SetupPanel;
 import user.Player;
 
 public class SetupPanelTest {

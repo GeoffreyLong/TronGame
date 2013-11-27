@@ -7,9 +7,6 @@ import javax.swing.InputMap;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
-import startscreen.ReadyTimerListener;
-import startscreen.ReadyAction;
-
 public class ReadyActionListener {
 	public static Timer timer;
 

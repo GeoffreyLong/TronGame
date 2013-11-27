@@ -4,9 +4,6 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import gameplay.Tile;
-
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import start.Frame;
