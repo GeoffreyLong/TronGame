@@ -79,12 +79,10 @@ public class EndScreen extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 	    // TODO Auto-generated method stub
-		/*
 		if(e.getSource() == replay){
-		    GameMaster master = new GameMaster();
-		    master.gameInit();
-	        master.gameStart();
-		}*/
+			System.out.println("sdf");
+		    FrameDriver.startGameSetup();
+		}
     	
     	if(e.getSource() == headToHead){
     		FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
@@ -101,10 +99,10 @@ public class EndScreen extends JPanel implements ActionListener{
     }
     public void updatePanel(){
     	if (pOneWins > pTwoWins){
-    		winner.setText("Congratulations " + LoginGUI.player1 + "!!!");
+    		winner.setText("Congratulations " + Main.playerOne.getUserName() + "!!!");
     	}
     	else{
-    		winner.setText("Congratulations " + LoginGUI.player2 + "!!!");
+    		winner.setText("Congratulations " + Main.playerTwo.getUserName() + "!!!");
     	}
     	
     	endStatus.setText("<html>"
