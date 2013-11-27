@@ -6,6 +6,10 @@
 
 package tests;
 
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
 import game.GameSetup;
 import game.WinCondition;
 import gameplay.GameMaster;

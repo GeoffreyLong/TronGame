@@ -6,10 +6,13 @@
 
 package tests;
 
+import static org.junit.Assert.*;
 import game.GameSetup;
 import game.Map;
 
 import java.awt.Color;
+
+import org.junit.Test;
 
 import user.Player;
 

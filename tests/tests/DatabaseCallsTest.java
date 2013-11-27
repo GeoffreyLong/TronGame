@@ -6,7 +6,11 @@
 
 package tests;
 
+import static org.junit.Assert.*;
+
 import java.sql.Connection;
+
+import org.junit.Test;
 
 import start.Connect;
 import start.DatabaseCalls;
