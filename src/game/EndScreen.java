@@ -15,7 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import start.FrameDriver;
+import start.Main;
 import user.LoginGUI;
+import user.Player;
 
 
 public class EndScreen extends JPanel implements ActionListener{
@@ -29,7 +31,7 @@ public class EndScreen extends JPanel implements ActionListener{
     private JLabel endStatus;
     private JButton headToHead;
     private JButton mainMenu;
-	
+    
     public EndScreen(){
     	initComponents();
     	initLayout();
@@ -98,10 +100,10 @@ public class EndScreen extends JPanel implements ActionListener{
     }
     public void updatePanel(){
     	if (pOneWins > pTwoWins){
-    		winner.setText("Congratulations Player One");
+    		winner.setText("Congratulations " + Main.playerOne.getUserName());
     	}
     	else{
-    		winner.setText("Congratulations Player Two");
+    		winner.setText("Congratulations " + Main.playerTwo.getUserName());
     	}
     	
     	endStatus.setText("<html>"
