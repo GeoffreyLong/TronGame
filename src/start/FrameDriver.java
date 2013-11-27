@@ -49,7 +49,7 @@ public class FrameDriver {
 		this.frame = frame;
 	}
 	public void init(){
-		frame.setLayout(new MigLayout("", "[][]", "[][]"));
+		
 		welcome = new WelcomePanel();
 		welcome.setVisible(false);
 		

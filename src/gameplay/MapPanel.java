@@ -89,7 +89,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		playerOneScore = new JLabel(Integer.toString(gameMaster.getPlayerOneWins()));
 		playerOneScore.setBounds(Frame.getXSize()/2 - 60,30,50,20);
 		
-		playerTwoLabel = new JLabel("Player One Wins");
+		playerTwoLabel = new JLabel("Player Two Wins");
 		playerTwoLabel.setBounds(Frame.getXSize()/2 + 10,10,100,20);
 		
 		playerTwoScore = new JLabel(Integer.toString(gameMaster.getPlayerTwoWins()));
