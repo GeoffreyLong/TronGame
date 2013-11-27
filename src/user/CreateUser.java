@@ -180,12 +180,16 @@ public class CreateUser extends JPanel implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			}
+			} 
 			else{
+				if (!passwordField.getText().equals(rePasswordField.getText())) {
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "Please retype!");
+				}
 				usernameField.setText("");
 				passwordField.setText("");
 				rePasswordField.setText("");
 			}
-		}
+		} 
 	}
 }
