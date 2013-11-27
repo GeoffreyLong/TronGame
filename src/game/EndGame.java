@@ -33,6 +33,6 @@ public class EndGame {
 		call.pushStatistics(LoginGUI.player1, updatePlayerOne, LoginGUI.player2, updatePlayerTwo);
 	}
 	public void initPanel(){
-		FrameDriver.endTheGame(pOneWins, pTwoWins, gamesPlayed);
+		FrameDriver.endGame(pOneWins, pTwoWins, gamesPlayed);
 	}
 }
