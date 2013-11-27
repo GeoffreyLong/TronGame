@@ -144,7 +144,7 @@ public class FrameDriver {
 		}
 	}
 	
-	public static void endGame(int pOneWins, int pTwoWins, int gamesPlayed){
+	public static void endTheGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
 		setup.resetMap();
 		endScreen.initComponents();
