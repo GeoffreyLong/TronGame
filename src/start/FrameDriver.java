@@ -59,8 +59,6 @@ public class FrameDriver {
 		paneTwo = new PlayerTwoPanel(Main.playerTwo);
 		paneTwo.setVisible(false);
 		
-		ReadyActionListener listen = new ReadyActionListener(paneOne, paneTwo);
-		
 		setup = new GameSetup(Main.playerOne, Main.playerTwo);
 		setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
 		setupPanel.setVisible(false);
@@ -102,6 +100,7 @@ public class FrameDriver {
 	}
 	public static void mainMenu(){
 		hideAll();
+		new ReadyActionListener(paneOne, paneTwo);
 		paneOne.setVisible(true);
 		paneTwo.setVisible(true);
 		welcome.setVisible(true);
