@@ -120,12 +120,16 @@ public class LoginGUI extends JPanel implements ActionListener{
 					player2 = usernameField.getText();
 					FrameDriver.setPaneTwo(player);
 				}
-
+				
+				usernameField.setText("");
+				passwordField.setText("");
 			}
 			
 			else{
 				JFrame frame = new JFrame("Error");
 				JOptionPane.showMessageDialog(frame, "Check your username/password");
+				usernameField.setText("");
+				passwordField.setText("");
 			}
 		}
 		

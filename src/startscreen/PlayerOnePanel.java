@@ -32,7 +32,7 @@ public class PlayerOnePanel extends PlayerPanel{
 		setLabel(player.getUserName());
 		login.setVisible(false);
 		createAccount.setVisible(false);
-		playerStats.setVisible(false);
+		playerStats.setVisible(true);
 		playerHistory.setVisible(true);
 		logout.setVisible(true);
 	}
@@ -41,7 +41,7 @@ public class PlayerOnePanel extends PlayerPanel{
 		setLabel(player.getUserName());
 		login.setVisible(false);
 		createAccount.setVisible(false);
-		playerStats.setVisible(false);
+		playerStats.setVisible(true);
 		playerHistory.setVisible(true);
 		logout.setVisible(true);
 	}
