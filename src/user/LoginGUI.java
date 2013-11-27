@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import start.Connect;
 import start.DatabaseCalls;
 import start.FrameDriver;
+import user.LoginGUI;
 
 public class LoginGUI extends JPanel implements ActionListener{
 	

@@ -16,6 +16,7 @@ import net.miginfocom.swing.MigLayout;
 import start.Connect;
 import start.Frame;
 import start.FrameDriver;
+import user.LoginGUI;
 import user.Player;
 
 public class PlayerPanel extends JPanel implements ActionListener{
