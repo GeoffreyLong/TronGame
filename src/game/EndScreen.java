@@ -87,6 +87,9 @@ public class EndScreen extends JPanel implements ActionListener{
     	if(e.getSource() == headToHead){
     		FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
     	}
+    	if(e.getActionCommand().equals("Main Menu")){
+    		FrameDriver.mainMenu();
+    	}
     }
     public void setPOneWins(int i){
     	pOneWins = i;

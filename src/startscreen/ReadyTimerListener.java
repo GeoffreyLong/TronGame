@@ -1,5 +1,6 @@
 package startscreen;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,6 +22,10 @@ public class ReadyTimerListener implements ActionListener{
 		if(isReady()){
 			FrameDriver.startGameSetup();
 			ReadyActionListener.timer.stop();
+			playerOneReady.setText("NOT READY");
+    		playerOneReady.setForeground(Color.RED);
+			playerTwoReady.setText("NOT READY");
+    		playerTwoReady.setForeground(Color.RED);
 		}
 	}
 	
