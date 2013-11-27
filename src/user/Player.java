@@ -8,11 +8,10 @@ public class Player {
 		this.userName = "anonymous";
 		this.playerNumber = playerNumber;
 	}
-	
 	public void setUserName(String userName){
 		this.userName = userName;
 	}	
-	public String getUserName(){
+	public final String getUserName(){
 		return this.userName;
 	}
 	public int getPlayerNumber(){

@@ -17,8 +17,8 @@ public class StyledButton extends JButton {
 	public StyledButton(String buttonName){
 		new JButton(buttonName);
 		setForeground(Color.black);
-		setBackground(new Color(204, 204, 255));
-		setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		setBackground(new Color(255, 215, 0));
+		setFont(new Font("Lucida Grande", Font.BOLD, 20));
 		setText(buttonName);
 	}
 }

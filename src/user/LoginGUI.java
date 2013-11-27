@@ -21,6 +21,7 @@ import start.DatabaseCalls;
 import start.FrameDriver;
 import styleelements.StyledButton;
 import user.LoginGUI;
+import net.miginfocom.swing.MigLayout;
 
 public class LoginGUI extends JPanel implements ActionListener{
 	
@@ -36,6 +37,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	public static String player2;
 	
 	public LoginGUI(Player player){
+		setBackground(Color.BLACK);
 		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		initComponents();
@@ -46,41 +48,37 @@ public class LoginGUI extends JPanel implements ActionListener{
 
 		title = new JLabel("Login to your account");
 		title.setFont(new Font("Times", Font.BOLD, 37));
-		title.setBounds(90, 10, 510, 45);
+		title.setForeground(new Color(142,229,238));
+		
+		back = new StyledButton("Back");
+		back.addActionListener(this);
+		
+		login = new StyledButton("Login");
+		login.addActionListener(this);
 		
 		username = new JLabel("Username : ");
 		username.setFont(new Font("Times", Font.BOLD, 18));
-		username.setBounds(20, 170, 140, 25);
-		
+		username.setForeground(new Color(142,229,238));
+
 		usernameField = new JTextField(40);
-		usernameField.setBounds(150, 170, 170, 25);
-		
+
 		password = new JLabel("Password : ");
 		password.setFont(new Font("Times", Font.BOLD, 18));
-		password.setBounds(20, 200, 140, 25);
-		
+		password.setForeground(new Color(142,229,238));
+
 		passwordField = new JPasswordField(40);
-		passwordField.setBounds(150, 200, 170, 25);
-		
-		login = new StyledButton("Login");
-		login.setBounds(150, 230, 100, 30);
-		login.addActionListener(this);
-		
-		back = new StyledButton("Back");
-		back.setBounds(50, 430, 100, 30);
-		back.addActionListener(this);
-		
+
 	}
 	
 	private void initLayout(){
-		setLayout(null);
-		add(title);
-		add(username);
-		add(usernameField);
-		add(password);
-		add(passwordField);
-		add(login);
-		add(back);
+		setLayout(new MigLayout("", "[130px][450px]", "[45px][25px][25px][30px][30px][][][]"));
+		add(title, "cell 0 0 2 3,alignx center,aligny top");
+		add(username, "cell 0 3,alignx left,growy");
+		add(usernameField, "cell 1 3,grow");
+		add(password, "cell 0 4,alignx left,growy");
+		add(passwordField, "cell 1 4,grow");
+		add(login, "cell 1 5,alignx left,growy");
+		add(back, "cell 0 7,alignx right,growy");
 		
 	}
 

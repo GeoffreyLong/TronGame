@@ -33,10 +33,11 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public JButton head2head;
 	
 	private Connection conn;
+	private JPanel panel;
 	
 	public PlayerPanel(Player player){
 		this.player = player;
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.black);
 		initComponents();
 		initLayout();
 		this.conn = Connect.connect();
@@ -44,15 +45,21 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	private void initComponents(){		
 		playerLabel = new JLabel();
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
+		playerLabel.setForeground(new Color(142,229,238));
 		
-		logout = new StyledButton("Logout");
-		logout.addActionListener(this);
-		logout.setVisible(false);
-		
+		panel = new JPanel();
+		panel.setBackground(Color.black);
+
 		login = new StyledButton("Login");
+		login.setBounds(0, 0, 345, 50);
 		login.addActionListener(this);
 		login.setVisible(false);
-		
+
+		logout = new StyledButton("Logout");
+		logout.setBounds(0, 0, 345, 50);
+		logout.addActionListener(this);
+		logout.setVisible(false);
+
 		head2head = new StyledButton("Head to Head Score");
 		head2head.addActionListener(this);
 		head2head.setVisible(true);
@@ -76,29 +83,34 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	
 	private void initLayout(){
 		setBorder(BorderFactory.createLineBorder(Color.black));
-		setLayout(new MigLayout("", "[grow][grow][grow]", "[][50px][50px][50px][50px][50px][]"));
+		setLayout(new MigLayout("", "[grow][grow][grow]", "[50px][50px][50px][50px][50px]"));
 		
 		
 		//if(player.getPlayerNumber() == 1){
-			add(playerLabel, "cell 0 0 3 1,alignx left");
-			add(logout, "cell 1 1,alignx right,growx,growy");
-			add(login, "cell 1 2,alignx right,growx,growy");
-			add(createAccount, "cell 1 3,alignx right,growx,growy");
-			add(playerStats, "cell 1 4,alignx right,growx,growy");
-			add(playerStatus, "cell 0 6 3 1,alignx center,aligny baseline");
-			add(head2head, "cell 1 5, alignx left, growx, growy");
+			add(playerLabel, "cell 0 0 3 1,alignx left");						
+			add(panel, "cell 1 2,grow");			
+			panel.setLayout(null);
+			panel.add(login, "center");
+			panel.add(logout, "center");
+			add(createAccount, "cell 1 3,alignx right,grow");
+			add(playerStats, "cell 1 4,alignx right,grow");
+			add(playerStatus, "cell 0 7 3 1,alignx center,aligny baseline");
+			add(playerHistory, "cell 1 5,alignx right,grow");
+			add(head2head, "cell 1 6,alignx right,grow");
 		//}
 		
 
 		if(player.getPlayerNumber() == 2){
 			
 			add(playerLabel, "cell 0 0 3 1,alignx right");
-			add(logout, "cell 1 1,alignx left,growx,growy");
-			add(login, "cell 1 2,alignx left,growx,growy");
+			add(panel, "cell 1 2,grow");			
+			panel.add(login, "center");
+			panel.add(logout, "center");
 			add(createAccount, "cell 1 3,alignx left,growx,growy");
 			add(playerStats, "cell 1 4,alignx left,growx, growy");
-			add(playerStatus, "cell 0 6 2 1,alignx center,aligny baseline");
-			add(head2head, "cell 1 5, alignx left, growx, growy");
+			add(playerStatus, "cell 0 7 3 1,alignx center,aligny baseline, shrinky");
+			add(playerHistory, "cell 1 5, alignx left, growx, growy");
+			add(head2head, "cell 1 6, alignx left, growx, growy");
 		}
 		setVisible(true);
 	}

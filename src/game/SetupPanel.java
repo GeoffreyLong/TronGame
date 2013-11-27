@@ -3,6 +3,7 @@ package game;
 import gameplay.GameMaster;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import start.FrameDriver;
 import user.Player;
 import styleelements.StyledButton;
+import net.miginfocom.swing.MigLayout;
 
 /**
  * @author Geoffrey Long
@@ -55,6 +57,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		yCenter = start.Frame.getYCenter();
 		xSize = start.Frame.getXSize();
 		ySize = start.Frame.getYSize();
+		setBackground(new Color(142,229,238));
 		
 		initComponents();
 		initLayout();
@@ -62,59 +65,62 @@ public class SetupPanel extends JPanel implements ActionListener{
 
 	private void initComponents(){				
 		pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
-		pageTitle.setBounds(50, 50, 400, 100);
+		pageTitle.setForeground(Color.black);
+		pageTitle.setFont(new Font("Apple Color Emoji", Font.BOLD, 20));
 		
-		changeMap = new StyledButton("Change the Map");
-		changeMap.setBounds(100, 200, 400, 100);
-		changeMap.addActionListener(this);
+		startGame = new StyledButton("START THE GAME");
+		startGame.addActionListener(this);
 		
-		minusButton = new StyledButton("-");
-		minusButton.setBounds(225, 375, 50, 50);
-		minusButton.addActionListener(this);
-		
-		changeDifficulty = new JLabel("<html> <div style='text-align:center'> "
-				+ "Change the Difficulty <br> Current difficulty is <br>"
-				+ gameSetup.getGameDifficulty() +"</div></html>");
-		changeDifficulty.setBounds(300, 350, 200, 100);
-		
-		plusButton = new StyledButton("+");
-		plusButton.setBounds(500, 375, 50, 50);
-		plusButton.addActionListener(this);
-		
+
 		changePOneColor = new StyledButton("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerOne's LightCycle <br> "
 				+ "Current color is the button color </div><html>");
 		changePOneColor.setOpaque(true);
 		changePOneColor.setBackground(gameSetup.getPlayerColor(1));
-		changePOneColor.setBounds(100, 500, 300, 100);
 		changePOneColor.setForeground(Color.BLACK);
 		changePOneColor.addActionListener(this);
+		
+		minusButton = new StyledButton("-");
+		minusButton.addActionListener(this);
+				
+		changeMap = new StyledButton("Change the Map");
+		changeMap.addActionListener(this);
+		
+		changeDifficulty = new JLabel("<html> <div style='text-align:center'> "
+				+ "Change the Difficulty <br> Current difficulty is <br>"
+				+ gameSetup.getGameDifficulty() +"</div></html>");
+		changeDifficulty.setForeground(Color.black);
+		changeDifficulty.setFont(new Font("Apple Color Emoji", Font.BOLD, 13));
+
+		plusButton = new StyledButton("+");
+		plusButton.addActionListener(this);
 		
 		changePTwoColor = new StyledButton("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerTwo's LightCycle <br> "
 				+ "Current color is the button color </div><html>");
 		changePTwoColor.setOpaque(true);
 		changePTwoColor.setBackground(gameSetup.getPlayerColor(2));
-		changePTwoColor.setBounds(500, 500, 300, 100);
 		changePTwoColor.setForeground(Color.BLACK);
 		changePTwoColor.addActionListener(this);
 		
-		startGame = new StyledButton("START THE GAME");
-		startGame.setBounds(100, 610, 700, 50);
-		startGame.addActionListener(this);
 	}
 	private void initLayout(){
-		setLayout(null);
 		setBounds(0,0,xSize,ySize);
+		setLayout(new MigLayout("", "[][][]", "[][][][][][][][][]"));
 		
-		add(pageTitle);
-		add(changeMap);
-		add(minusButton);
-		add(changeDifficulty);
-		add(plusButton);
-		add(changePOneColor);
-		add(changePTwoColor);
-		add(startGame);
+		add(pageTitle, "cell 0 0 6 1,alignx center,aligny top");
+		add(changeMap, "cell 1 2 5 1,alignx center,aligny top");
+		add(minusButton, "cell 1 3,alignx center,aligny center");
+		
+		
+		add(changeDifficulty, "cell 2 3 3 1,alignx center,growy");
+		
+		add(plusButton, "cell 5 3,alignx center,aligny center");
+		add(changePOneColor, "cell 2 5,grow");
+		
+	
+		add(changePTwoColor, "cell 4 5,grow");
+		add(startGame, "cell 2 7 3 2,grow");
 		
 		setVisible(true);
 	}

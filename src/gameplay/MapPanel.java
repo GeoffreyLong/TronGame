@@ -73,7 +73,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	
 	public void initComponents(){
 		changeSize = new JLabel("Change the size of the map");
-		changeSize.setBounds(10,10,200,30);
+		changeSize.setBounds(10,10,300,30);
 		
 		plus = new JButton("+");
 		plus.setBounds(30,50,50,30);
@@ -84,13 +84,13 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		minus.addActionListener(this);
 		
 		playerOneLabel = new JLabel("Player One Wins");
-		playerOneLabel.setBounds(Frame.getXSize()/2 - 110,10,100,20);
+		playerOneLabel.setBounds(Frame.getXSize()/2 - 110,10,150,20);
 		
 		playerOneScore = new JLabel(Integer.toString(gameMaster.getPlayerOneWins()));
 		playerOneScore.setBounds(Frame.getXSize()/2 - 60,30,50,20);
 		
 		playerTwoLabel = new JLabel("Player Two Wins");
-		playerTwoLabel.setBounds(Frame.getXSize()/2 + 10,10,100,20);
+		playerTwoLabel.setBounds(Frame.getXSize()/2 + 15,10,150,20);
 		
 		playerTwoScore = new JLabel(Integer.toString(gameMaster.getPlayerTwoWins()));
 		playerTwoScore.setBounds(Frame.getXSize()/2 + 60,30,50,20);
