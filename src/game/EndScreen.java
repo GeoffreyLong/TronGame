@@ -83,9 +83,10 @@ public class EndScreen extends JPanel implements ActionListener{
 		    FrameDriver.startGameSetup();
 		}
     	
-    	if(e.getSource() == headToHead){
-    		FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
-    	}
+    	if(e.getActionCommand().equals("Player Matchup Score")){
+			FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+	}
+	
     	if(e.getActionCommand().equals("Main Menu")){
     		FrameDriver.mainMenu();
     	}
