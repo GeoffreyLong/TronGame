@@ -33,7 +33,10 @@ public class EndScreen extends JPanel implements ActionListener{
     private JButton headToHead;
     private JButton mainMenu;
     
-    public EndScreen(){
+    public EndScreen(int playerOneWins, int playerTwoWins, int gamesPlayed){
+    	this.pOneWins = playerOneWins;
+    	this.pTwoWins = playerTwoWins;
+    	this.gamesPlayed = gamesPlayed;
     	initComponents();
     	initLayout();
     }
@@ -56,6 +59,30 @@ public class EndScreen extends JPanel implements ActionListener{
     	headToHead = new StyledButton("Matchup Stats");
     	headToHead.setBounds(760, 266, 200, 60);
     	headToHead.addActionListener(this);
+    	
+    	if (pOneWins > pTwoWins){
+    		winner.setBounds(360, 200, 300, 40);
+    		winner.setText("Congratulations " + Main.playerOne.getUserName() + "!!!");
+    	}
+    	else{
+    		winner.setBounds(360, 200, 300, 40);
+    		winner.setText("Congratulations " + Main.playerTwo.getUserName() + "!!!");
+    	}
+    	
+    	endStatus.setOpaque(true);
+    	winner.setOpaque(true);
+    	endStatus = new JLabel();
+    	endStatus.setText("<html>"
+    			+ "Number of... <br>"
+    			+ "Games Played : "
+    			+ gamesPlayed + "<br>"
+    			+ "Player One Wins : "
+    			+ pOneWins + "<br>"
+    			+ "Player Two Wins : "
+    			+ pTwoWins);
+    	endStatus.setBounds(360, 250, 200, 200);
+    	add(endStatus);
+    	add(winner);
     	
     	mainMenu = new StyledButton("Main Menu");
     	mainMenu.setBounds(760, 366, 200, 60);
@@ -81,13 +108,19 @@ public class EndScreen extends JPanel implements ActionListener{
 	    // TODO Auto-generated method stub
 		if(e.getActionCommand().equals("Replay?")){
 		    FrameDriver.startGameSetup();
+		    winner.setText("");
+		    endStatus.setText("");
 		}
     	
     	if(e.getActionCommand().equals("Matchup Stats")){
+    		 winner.setText("");
+ 		    endStatus.setText("");
 			FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
 	}
 	
     	if(e.getActionCommand().equals("Main Menu")){
+    		 winner.setText("");
+ 		    endStatus.setText("");
     		FrameDriver.mainMenu();
     	}
     }
@@ -100,21 +133,5 @@ public class EndScreen extends JPanel implements ActionListener{
     public void setGamesPlayed(int i){
     	gamesPlayed = i;
     }
-    public void updatePanel(){
-    	if (pOneWins > pTwoWins){
-    		winner.setText("Congratulations " + Main.playerOne.getUserName() + "!!!");
-    	}
-    	else{
-    		winner.setText("Congratulations " + Main.playerTwo.getUserName() + "!!!");
-    	}
-    	
-    	endStatus.setText("<html>"
-    			+ "Number of... <br>"
-    			+ "Games Played : "
-    			+ gamesPlayed + "<br>"
-    			+ "Player One Wins : "
-    			+ pOneWins + "<br>"
-    			+ "Player Two Wins : "
-    			+ pTwoWins);
-    }
+
 }
