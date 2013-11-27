@@ -158,6 +158,10 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			FrameDriver.createAccount(player);
 		}
 		
+		if(e.getActionCommand().equals("Head to Head Score")){
+				FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+		}
+		
 		if(e.getActionCommand().equals("Show Player History")){
 			if(player.getPlayerNumber() == 1){
 				FrameDriver.playerHistory(LoginGUI.player1);
