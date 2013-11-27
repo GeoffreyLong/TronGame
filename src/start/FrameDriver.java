@@ -153,6 +153,10 @@ public class FrameDriver {
 		endScreen.setPTwoWins(pTwoWins);
 		endScreen.setGamesPlayed(gamesPlayed);
 		endScreen.updatePanel();
+		endScreen.initComponents();
+		endScreen.initLayout();
+		frame.repaint();
+		frame.validate();
 		endScreen.setVisible(true);
 	}
 	
