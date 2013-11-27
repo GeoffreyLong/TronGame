@@ -80,7 +80,6 @@ public class EndScreen extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 	    // TODO Auto-generated method stub
 		if(e.getActionCommand().equals("Replay?")){
-			System.out.println("sdf");
 		    FrameDriver.startGameSetup();
 		}
     	

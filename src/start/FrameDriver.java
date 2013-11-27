@@ -107,7 +107,6 @@ public class FrameDriver {
 		welcome.setVisible(true);
 	}
 	public static void startGameSetup(){
-		System.out.println("hello");
 		hideAll();
 		setupPanel.setPlayerOne(Main.playerOne);
 		setupPanel.setPlayerTwo(Main.playerTwo);
