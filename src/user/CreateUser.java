@@ -170,19 +170,26 @@ public class CreateUser extends JPanel implements ActionListener{
 							
 							FrameDriver.setPaneTwo(player);
 						}
+						passwordField.setText("");
+						rePasswordField.setText("");
 						
 					}
 					
 					else{
-						
+						usernameField.setText("");
+						passwordField.setText("");
+						rePasswordField.setText("");
 					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
+			else{
+				usernameField.setText("");
+				passwordField.setText("");
+				rePasswordField.setText("");
+			}
 		}
-		
-		
 	}
 }
