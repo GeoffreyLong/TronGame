@@ -33,7 +33,7 @@ public class TopTenPanel extends JPanel{
         		ResultSet result = stmt.executeQuery("SELECT @rank := @rank + 1 AS Rank, userName, numberWins, numberLosses FROM authentication.allStats ORDER BY totalScore DESC LIMIT 10");
             		ResultSetMetaData md = result.getMetaData();
             
-            		Object[] columns = {"Rank", "Username", "Number of Wins", "Number of Losses"};
+            		Object[] columns = {"Rank", "Username", "Wins", "Losses"};
 
             		Object[][] data = new Object[100][10];
             
