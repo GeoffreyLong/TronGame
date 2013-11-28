@@ -52,9 +52,9 @@ public class ReadyActionListener implements ActionListener{
 			FrameDriver.startGameSetup();
 		}
 	}
-	private boolean isReady(){
+	public boolean isReady(){
     	boolean isReady = false;
-    	if (paneOne.playerStatus.getText()==paneTwo.playerStatus.getText() && paneOne.playerStatus.getText().equals("READY")){
+    	if (paneOne.playerStatus.getText().equals(paneTwo.playerStatus.getText()) && paneOne.playerStatus.getText().equals("READY")){
     		isReady = true;
     	}
     	return isReady;

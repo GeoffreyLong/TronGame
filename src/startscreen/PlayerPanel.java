@@ -9,7 +9,9 @@ import java.sql.Connection;
 import javax.swing.BorderFactory;
 import javax.swing.InputMap;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
@@ -160,16 +162,35 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("Head to Head Score")){
+			if(!LoginGUI.player1.equals("") && !LoginGUI.player2.equals(""))
 				FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+			
+			else{
+				JFrame frame = new JFrame("Error");
+				JOptionPane.showMessageDialog(frame, "Both players must be logged in to view head to head score");
+			}
 		}
 		
 		if(e.getActionCommand().equals("Show Player History")){
 			if(player.getPlayerNumber() == 1){
-				FrameDriver.playerHistory(LoginGUI.player1);
+				if(!LoginGUI.player1.equals("")){
+					FrameDriver.playerHistory(LoginGUI.player1);
+				}
+				
+				else{
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "You must be logged in to view history");
+				}
 			}
 			
 			else{
-				FrameDriver.playerHistory(LoginGUI.player2);
+				if(!LoginGUI.player2.equals(""))
+					FrameDriver.playerHistory(LoginGUI.player2);
+				
+				else{
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "You must be logged in to view player history");
+				}
 			}
 		}
 		

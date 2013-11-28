@@ -30,10 +30,10 @@ public class TopTenPanel extends JPanel{
 			rank.executeUpdate("SET @rank = 0");
 			
         		Statement stmt = conn.createStatement();  
-        		ResultSet result = stmt.executeQuery("SELECT @rank := @rank + 1 AS Rank, userName, totalScore, numberWins, numberLosses FROM authentication.allStats ORDER BY totalScore DESC LIMIT 10");
+        		ResultSet result = stmt.executeQuery("SELECT @rank := @rank + 1 AS Rank, userName, numberWins, numberLosses FROM authentication.allStats ORDER BY totalScore DESC LIMIT 10");
             		ResultSetMetaData md = result.getMetaData();
             
-            		Object[] columns = {"Rank", "Username", "Total Score", "Number of Wins", "Number of Losses"};
+            		Object[] columns = {"Rank", "Username", "Wins", "Losses"};
 
             		Object[][] data = new Object[100][10];
             
@@ -41,7 +41,7 @@ public class TopTenPanel extends JPanel{
             
             		while(result.next()){
             	
-            			for(int j = 0 ; j < 5; j++){
+            			for(int j = 0 ; j < 4; j++){
             		
             				data[i][j] = result.getString(j + 1);
             			}
