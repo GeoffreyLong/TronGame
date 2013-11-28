@@ -1,5 +1,6 @@
 package startscreen;
 
+import user.NullPlayer;
 import user.Player;
 
 public class PlayerOnePanel extends PlayerPanel{
@@ -14,14 +15,14 @@ public class PlayerOnePanel extends PlayerPanel{
 		setLocation(-1);
 		setLabel("PLAYER ONE");
 		if(player.getClass().getName().equals("user.NullPlayer")){
-			setNull(player);
+			setNull();
 		}
 		else{
 			setUser();
 		}
 	}
-	public void setNull(Player player){
-		this.player = player;
+	public void setNull(){
+		this.player = new NullPlayer(1);
 		setLabel("PLAYER ONE");
 		login.setVisible(true);
 		playerStats.setVisible(true);

@@ -1,6 +1,7 @@
 package startscreen;
 
 import start.Frame;
+import user.NullPlayer;
 import user.Player;
 
 public class PlayerTwoPanel extends PlayerPanel{
@@ -13,14 +14,17 @@ public class PlayerTwoPanel extends PlayerPanel{
 	public void setLoadout(){
 		setLocation(Frame.getXSize()/2-1);
 		if(player.getClass().getName().equals("user.NullPlayer")){
-			setNull(player);
+			setNull();
 		}
 		else{
 			setUser();
 		}
 	}
-	public void setNull(Player player){
+	public void setPlayer(Player player){
 		this.player = player;
+	}
+	public void setNull(){
+		this.player = new NullPlayer(2);
 		setLabel("PLAYER TWO");
 		login.setVisible(true);
 		playerStats.setVisible(true);

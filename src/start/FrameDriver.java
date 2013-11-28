@@ -129,13 +129,13 @@ public class FrameDriver {
 	
 	public static void logout(Player player){
 		if(player.getPlayerNumber() == 1){
-			player = new NullPlayer(1);
-			paneOne.setNull(player);
+			LoginGUI.player1 = "";
+			paneOne.setNull();
 		}
 		
 		else{
-			player = new NullPlayer(2);
-			paneTwo.setNull(player);
+			LoginGUI.player2 = "";
+			paneTwo.setNull();
 		}
 	}
 	
