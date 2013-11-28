@@ -31,6 +31,7 @@ public class EndScreen extends JPanel implements ActionListener{
     private JLabel winner;
     private JLabel endStatus;
     private JButton headToHead;
+    private JButton topTen;
     private JButton mainMenu;
     
     public EndScreen(int playerOneWins, int playerTwoWins, int gamesPlayed){
@@ -60,10 +61,17 @@ public class EndScreen extends JPanel implements ActionListener{
     	headToHead.setBounds(760, 266, 200, 60);
     	headToHead.addActionListener(this);
     	
+    	topTen = new StyledButton("Show Top Ten");
+    	topTen.setBounds(760, 366, 200, 60);
+    	topTen.addActionListener(this);
+    	
+    	
+    	
     	if (pOneWins > pTwoWins){
     		winner.setBounds(360, 200, 300, 40);
     		winner.setText("Congratulations " + Main.playerOne.getUserName() + "!!!");
     	}
+    	
     	else{
     		winner.setBounds(360, 200, 300, 40);
     		winner.setText("Congratulations " + Main.playerTwo.getUserName() + "!!!");
@@ -107,22 +115,29 @@ public class EndScreen extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 	    // TODO Auto-generated method stub
 		if(e.getActionCommand().equals("Replay?")){
-		    FrameDriver.startGameSetup();
+			FrameDriver.startGameSetup();
 		    winner.setText("");
 		    endStatus.setText("");
 		}
     	
     	if(e.getActionCommand().equals("Matchup Stats")){
-    		 winner.setText("");
- 		    endStatus.setText("");
-			FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+    		winner.setText("");
+    		endStatus.setText("");
+    		FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
 	}
 	
     	if(e.getActionCommand().equals("Main Menu")){
-    		 winner.setText("");
+    		winner.setText("");
  		    endStatus.setText("");
     		FrameDriver.mainMenu();
     	}
+    	
+    	if(e.getActionCommand().equals("Show Top Ten")){
+   		 	winner.setText("");
+   		 	endStatus.setText("");
+   			FrameDriver.TopTen();
+   	}
+    	
     }
     public void setPOneWins(int i){
     	pOneWins = i;
