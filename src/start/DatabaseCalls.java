@@ -1,16 +1,32 @@
 package start;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class DatabaseCalls {
 	
-	private Connection conn;
+	private String driver = "com.mysql.jdbc.Driver";
+	private Connection conn = null;
 	
-	public DatabaseCalls(Connection conn){
-		this.conn = conn;
+	public DatabaseCalls(){
+		
+		try{
+			
+			Class.forName(driver).newInstance();
+	    	this.conn = DriverManager.getConnection("jdbc:mysql://ec2-54-201-70-225.us-west-2.compute.amazonaws.com:3306/authentication?user=team7&password=ecse321"); 
+		}
+		
+		catch(Exception e){
+			JFrame frame = new JFrame("Error");
+			JOptionPane.showMessageDialog(frame, "Could not connect to the database. Please check your connection");
+		
+		}
 	}
 	
 	public boolean createUser(String userName, String password){

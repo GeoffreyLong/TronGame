@@ -131,11 +131,10 @@ public class CreateUser extends JPanel implements ActionListener{
 		
 		if(e.getSource() == createAccount){
 			if(passwordField.getText().equals(rePasswordField.getText())){
-				Connection conn = Connect.connect();
 				
 				boolean pass = false;
 				
-				DatabaseCalls call = new DatabaseCalls(conn);
+				DatabaseCalls call = new DatabaseCalls();
 				
 				
 				if(checkPassword(passwordField.getText())){
@@ -149,7 +148,6 @@ public class CreateUser extends JPanel implements ActionListener{
 				
 				try {
 					if(pass){
-						conn.close();
 						
 						if(this.player.getPlayerNumber() == 1){
 							player.setUserName(usernameField.getText());
@@ -168,11 +166,16 @@ public class CreateUser extends JPanel implements ActionListener{
 					}
 					
 					else{
+						
+						JFrame frame = new JFrame("Error");
+						JOptionPane.showMessageDialog(frame, "Account Already Exists");
+					
+						
 						usernameField.setText("");
 						passwordField.setText("");
 						rePasswordField.setText("");
 					}
-				} catch (SQLException e1) {
+				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
