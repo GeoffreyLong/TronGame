@@ -33,8 +33,8 @@ public class LoginGUI extends JPanel implements ActionListener{
 	private StyledButton login;	
 	private Player player;
 	private StyledButton back;
-	public static String player1;
-	public static String player2;
+	public static String player1 = "";
+	public static String player2 = "";
 	
 	public LoginGUI(Player player){
 		setBackground(Color.BLACK);
@@ -87,45 +87,52 @@ public class LoginGUI extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == login){
-			Connection conn = Connect.connect();
 			
-			DatabaseCalls call = new DatabaseCalls(conn);
-			
-			String password = passwordField.getPassword().toString();
-			boolean pass = call.login(usernameField.getText(), passwordField.getText());
-			
-			try {
-				conn.close();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if(this.player.getPlayerNumber() == 1){
+				player1 = usernameField.getText();;
 			}
 			
-			System.out.println(pass);
+			else{
+				player2 = usernameField.getText();
+			}
 			
-			if(pass){
+			if((this.player.getPlayerNumber() == 1 && !player1.equals(player2)) || (this.player.getPlayerNumber() == 2 && !player2.equals(player1))){
+				DatabaseCalls call = new DatabaseCalls();
 				
-				if(this.player.getPlayerNumber() == 1){
-					player.setUserName(usernameField.getText());
-					player1 = usernameField.getText();;
-					FrameDriver.setPaneOne(player);
+				String password = passwordField.getPassword().toString();
+				boolean pass = call.login(usernameField.getText(), passwordField.getText());
+				
+				System.out.println(pass);
+				
+				if(pass){
+					
+					if(this.player.getPlayerNumber() == 1){
+						player.setUserName(usernameField.getText());
+						player1 = usernameField.getText();;
+						FrameDriver.setPaneOne(player);
+					}
+					
+					else{
+						player.setUserName(usernameField.getText());
+						player2 = usernameField.getText();
+						FrameDriver.setPaneTwo(player);
+					}
+					
+					usernameField.setText("");
+					passwordField.setText("");
 				}
 				
 				else{
-					player.setUserName(usernameField.getText());
-					player2 = usernameField.getText();
-					FrameDriver.setPaneTwo(player);
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "Check your username/password");
+					usernameField.setText("");
+					passwordField.setText("");
 				}
-				
-				usernameField.setText("");
-				passwordField.setText("");
 			}
 			
 			else{
 				JFrame frame = new JFrame("Error");
-				JOptionPane.showMessageDialog(frame, "Check your username/password");
-				usernameField.setText("");
-				passwordField.setText("");
+				JOptionPane.showMessageDialog(frame, "Player already logged in !");
 			}
 		}
 		
