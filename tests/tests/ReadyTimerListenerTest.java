@@ -12,54 +12,66 @@ import javax.swing.JLabel;
 
 import org.junit.Test;
 
-import startscreen.ReadyTimerListener;
+import startscreen.ReadyActionListener;
+import startscreen.PlayerPanel;
+import user.Player;
 
 public class ReadyTimerListenerTest {
+	private int playerOneNumber = 1;
+	private int playerTwoNumber = 2;
 	private JLabel playerOneReady;
 	private JLabel playerTwoReady;
-	private String testReady = "READY";
-	private String testUnReady = "UNREADY";
+	private String unReady = "NOT READY";
+	private String ready = "READY";
 	
 	@Test
 	public void areBothPlayersReady() {
-		playerOneReady = new JLabel();
-		playerTwoReady = new JLabel();
-		playerOneReady.setText(testReady);
-		playerTwoReady.setText(testReady);
-		ReadyTimerListener testListener = new ReadyTimerListener(playerOneReady, playerTwoReady);
+		Player playerOne = new Player(playerOneNumber);
+		Player playerTwo = new Player(playerTwoNumber);
+		PlayerPanel playerPanelOne = new PlayerPanel(playerOne);
+		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
+		playerPanelOne.playerStatus.setText(ready);
+		playerPanelTwo.playerStatus.setText(ready);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
 		
 		assertEquals(true, testListener.isReady());
 	}
 	
 	@Test
 	public void testPlayerOneReadyOnly() {
-		playerOneReady = new JLabel();
-		playerTwoReady = new JLabel();
-		playerOneReady.setText(testReady);
-		playerTwoReady.setText(testUnReady);
-		ReadyTimerListener testListener = new ReadyTimerListener(playerOneReady, playerTwoReady);
+		Player playerOne = new Player(playerOneNumber);
+		Player playerTwo = new Player(playerTwoNumber);
+		PlayerPanel playerPanelOne = new PlayerPanel(playerOne);
+		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
+		playerPanelOne.playerStatus.setText(ready);
+		playerPanelTwo.playerStatus.setText(unReady);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
 		
 		assertEquals(false, testListener.isReady());
 	}
 	
 	@Test
 	public void testPlayerTwoReadyOnly() {
-		playerOneReady = new JLabel();
-		playerTwoReady = new JLabel();
-		playerOneReady.setText(testUnReady);
-		playerTwoReady.setText(testReady);
-		ReadyTimerListener testListener = new ReadyTimerListener(playerOneReady, playerTwoReady);
+		Player playerOne = new Player(playerOneNumber);
+		Player playerTwo = new Player(playerTwoNumber);
+		PlayerPanel playerPanelOne = new PlayerPanel(playerOne);
+		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
+		playerPanelOne.playerStatus.setText(unReady);
+		playerPanelTwo.playerStatus.setText(ready);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
 		
 		assertEquals(false, testListener.isReady());
 	}
 	
 	@Test
 	public void testBothPlayersUnReady() {
-		playerOneReady = new JLabel();
-		playerTwoReady = new JLabel();
-		playerOneReady.setText(testUnReady);
-		playerTwoReady.setText(testUnReady);
-		ReadyTimerListener testListener = new ReadyTimerListener(playerOneReady, playerTwoReady);
+		Player playerOne = new Player(playerOneNumber);
+		Player playerTwo = new Player(playerTwoNumber);
+		PlayerPanel playerPanelOne = new PlayerPanel(playerOne);
+		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
+		playerPanelOne.playerStatus.setText(unReady);
+		playerPanelTwo.playerStatus.setText(unReady);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
 		
 		assertEquals(false, testListener.isReady());
 	}

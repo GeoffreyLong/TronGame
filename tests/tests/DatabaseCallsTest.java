@@ -22,7 +22,7 @@ public class DatabaseCallsTest {
 	@Test
 	public void testCreateUser() {
 		Connection testConnection = Connect.connect();
-		DatabaseCalls testDatabase = new DatabaseCalls(testConnection);
+		DatabaseCalls testDatabase = new DatabaseCalls();
 		
 		//testing for creating and user that already exists, only way to check
 		assertEquals(testDatabase.createUser(testName,testPassword), false);
@@ -31,7 +31,7 @@ public class DatabaseCallsTest {
 	@Test
 	public void testLogin() {
 		Connection testConnection = Connect.connect();
-		DatabaseCalls testDatabase = new DatabaseCalls(testConnection);
+		DatabaseCalls testDatabase = new DatabaseCalls();
 		
 		//test logging into test login account
 		assertEquals(testDatabase.login(testName, testPassword), true);
