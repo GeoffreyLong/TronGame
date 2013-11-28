@@ -34,7 +34,7 @@ public class HeadToHead extends JPanel{
             ResultSet result = stmt.executeQuery("SELECT userName, opponent, numberGames, numberWins, numberLosses FROM authentication.playerHistory WHERE userName = '" + username1 + "' AND opponent = '" + username2 + "'");
             ResultSetMetaData md = result.getMetaData();
              
-            Object[] columns = {"Player 1", "Player2", "Number of Games", "Number of Wins", "Number of Losses"};
+            Object[] columns = {"Player 1", "Player2", "Games", "Wins", "Losses"};
             
             Object[][] data = new Object[100][100];
             
