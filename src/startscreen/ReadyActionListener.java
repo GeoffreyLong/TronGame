@@ -1,5 +1,7 @@
 package startscreen;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ActionMap;
@@ -7,8 +9,10 @@ import javax.swing.InputMap;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
-public class ReadyActionListener {
-	public static Timer timer;
+import start.FrameDriver;
+
+public class ReadyActionListener implements ActionListener{
+	private static Timer timer;
 	private PlayerPanel paneOne;
 	private PlayerPanel paneTwo;
 
@@ -33,7 +37,21 @@ public class ReadyActionListener {
 		amTwo.put("up", new ReadyAction(paneTwo.playerStatus));
 	}
 	private void setTimer(){
-		timer = new Timer(1000, new ReadyTimerListener(paneOne.playerStatus, paneTwo.playerStatus));
+		timer = new Timer(1000, this);
 		timer.start();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == timer && isReady()){
+			FrameDriver.startGameSetup();
+			timer.stop();
+		}
+	}
+	private boolean isReady(){
+    	boolean isReady = false;
+    	if (paneOne.playerStatus.getText()==paneTwo.playerStatus.getText() && paneOne.playerStatus.getText().equals("READY")){
+    		isReady = true;
+    	}
+    	return isReady;
 	}
 }
