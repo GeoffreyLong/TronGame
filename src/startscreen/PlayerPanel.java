@@ -67,7 +67,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		createAccount = new StyledButton("Create an Account");
 		createAccount.addActionListener(this);
 		
-		playerStats = new StyledButton("Show Statistics");
+		playerStats = new StyledButton("Show Top Ten");
 		playerStats.addActionListener(this);
 		
 		playerHistory = new StyledButton("Show Player History");
@@ -151,8 +151,8 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			FrameDriver.logout(player);
 		}
 		
-		if (e.getActionCommand().equals("Show Statistics")){
-		       FrameDriver.Statistics();
+		if (e.getActionCommand().equals("Show Top Ten")){
+		       FrameDriver.TopTen();
 		}
 		
 		if(e.getActionCommand().equals("Create an Account")){
