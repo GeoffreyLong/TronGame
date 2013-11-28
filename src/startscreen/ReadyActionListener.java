@@ -1,5 +1,6 @@
 package startscreen;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -43,8 +44,12 @@ public class ReadyActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == timer && isReady()){
-			FrameDriver.startGameSetup();
 			timer.stop();
+			paneOne.playerStatus.setText("NOT READY");
+			paneOne.playerStatus.setForeground(Color.RED);
+			paneTwo.playerStatus.setText("NOT READY");
+			paneTwo.playerStatus.setForeground(Color.RED);
+			FrameDriver.startGameSetup();
 		}
 	}
 	private boolean isReady(){
