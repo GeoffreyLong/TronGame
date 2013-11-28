@@ -14,7 +14,6 @@ public class WelcomePanel extends JPanel {
 	private JLabel instructions;
 	
 	public WelcomePanel(){
-		setBackground(Color.black);
 		initComponents();
 		initLayout();
 	}	
@@ -29,6 +28,7 @@ public class WelcomePanel extends JPanel {
 		instructions.setToolTipText("\u2191");
 	}
 	private void initLayout(){
+		setBackground(Color.black);
 		setBounds(-1,0,Frame.getXSize(),Frame.getYSize()/6);
 		setBorder(BorderFactory.createLineBorder(new Color(0xD4FFFF)));
 		
