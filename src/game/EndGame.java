@@ -29,7 +29,7 @@ public class EndGame {
 			updatePlayerTwo = 1;
 		}
 		
-		DatabaseCalls call = new DatabaseCalls(conn);
+		DatabaseCalls call = new DatabaseCalls();
 		call.pushStatistics(LoginGUI.player1, updatePlayerOne, LoginGUI.player2, updatePlayerTwo);
 	}
 	public void initPanel(){
