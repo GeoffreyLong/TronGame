@@ -4,7 +4,7 @@ import start.Frame;
 import user.Player;
 
 public class PlayerTwoPanel extends PlayerPanel{
-	static Player player;
+	private Player player;
 	public PlayerTwoPanel(Player player) {
 		super(player);
 		this.player = player;

@@ -3,7 +3,7 @@ package startscreen;
 import user.Player;
 
 public class PlayerOnePanel extends PlayerPanel{
-	Player player;
+	private Player player;
 	public PlayerOnePanel(Player player) {
 		super(player);
 		this.player = player;
