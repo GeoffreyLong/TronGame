@@ -105,6 +105,7 @@ public class EndScreen extends JPanel implements ActionListener{
     	add(winner);
     	add(headToHead);
     	add(mainMenu);
+    	add(topTen);
     }
     
     public Dimension getPreferredSize() {
