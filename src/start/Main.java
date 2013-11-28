@@ -44,8 +44,8 @@ public class Main {
 	}
 	
 	public static void start(){
-		FrameDriver frameDriver = new FrameDriver(frame);
-		frameDriver.init();
-		frameDriver.mainMenu();
+		new FrameDriver(frame);
+		FrameDriver.init();
+		FrameDriver.mainMenu();
 	}
 }

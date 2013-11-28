@@ -48,7 +48,7 @@ public class FrameDriver {
 	public FrameDriver(Frame frame){
 		this.frame = frame;
 	}
-	public void init(){
+	public static void init(){
 		
 		welcome = new WelcomePanel();
 		welcome.setVisible(false);
