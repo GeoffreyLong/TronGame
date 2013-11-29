@@ -65,19 +65,6 @@ public class MapChooser extends JPanel{
 		setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		initButtons();
 	}
-		/*
-		for (int i = 0; i<map.getNumberOfMaps(); i++){
-
-			chooseMap.addActionListener(new ActionListener(){
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					String button = e.getActionCommand();
-					int number = Integer.valueOf(button.split(" ")[0]);
-					map.setMap(number);
-				}
-			});
-			add(chooseMap);
-		}*/
 	
 	@Override
 	public void paintComponent(Graphics g){
