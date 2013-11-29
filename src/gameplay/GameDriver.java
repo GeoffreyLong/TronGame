@@ -20,7 +20,7 @@ public class GameDriver implements ActionListener{
 	private GameSetup gameSetup;
 	private Map mapper;
 	private Tile[][] map;
-	Cycle[] cycles;
+	private Cycle[] cycles;
 	private MapPanel mapPanel;
 	private Timer explosionTimer;
 	
