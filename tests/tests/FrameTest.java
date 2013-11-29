@@ -30,6 +30,7 @@ public class FrameTest {
         testYCenter = testYSize/2;
 	}
 	
+	//simply test the getters of frame
 	@Test
 	public void testGetters() {
 		assertEquals(testXSize, Frame.getXSize());

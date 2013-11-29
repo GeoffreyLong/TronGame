@@ -7,24 +7,35 @@ import javax.swing.AbstractAction;
 import javax.swing.JLabel;
 
 import start.FrameDriver;
+import start.Main;
+import user.Player;
 
 public class ReadyAction extends AbstractAction{
-	private JLabel playerStatus;
+	private PlayerPanel pane;
+	private Player player;
 	
-	public ReadyAction(JLabel playerStatus){
-		this.playerStatus = playerStatus;
+	public ReadyAction(PlayerPanel pane){
+		this.pane = pane;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (pane.getPlayerNumber() == 1){
+			player = Main.playerOne;
+		}
+		else{
+			player = Main.playerTwo;
+		}
 		if (!FrameDriver.getLoginVisibility() && !FrameDriver.getCreateVisibility()){
-	    	if (playerStatus.getText().equals("NOT READY")){
-	    		playerStatus.setText("READY");
-	    		playerStatus.setForeground(Color.GREEN);
+	    	if (pane.playerStatus.getText().equals("NOT READY")){
+	    		if (!player.getClass().getName().equals("user.NullPlayer")){
+		    		pane.playerStatus.setText("READY");
+		    		pane.playerStatus.setForeground(Color.GREEN);
+	    		}
 	    	}
 	    	else {
-	    		playerStatus.setText("NOT READY");
-	    		playerStatus.setForeground(Color.RED);
+	    		pane.playerStatus.setText("NOT READY");
+	    		pane.playerStatus.setForeground(Color.RED);
 	    	}
 		}
 	}

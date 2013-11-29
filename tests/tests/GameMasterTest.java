@@ -26,8 +26,10 @@ public class GameMasterTest {
 	private int playerTwoWins = 0;
 	private int gamesPlayed = 0;
 	
+	// testing the end game conditions
 	@Test
 	public void testGameEndConditions() {
+		// presetup the classes needed for testing
 		testGameSetup = new GameSetup(playerOne, playerTwo);
 		testGameMaster = new GameMaster(testGameSetup);
 		

@@ -25,6 +25,8 @@ public class SetupPanelTest {
 	private SetupPanel.Colors colorGreen = SetupPanel.Colors.GREEN;
 	private SetupPanel.Colors colorBlack = SetupPanel.Colors.BLACK;
 	
+	// colours are set in a circular manor, make sure this works
+	// colour choices change depending on the previous colour clicked
 	@Test
 	public void testChangeColors() {
 		// create necessary objects

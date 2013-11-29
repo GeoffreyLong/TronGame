@@ -37,13 +37,13 @@ public class ReadyActionListener implements ActionListener{
 		ActionMap amOne = paneOne.getActionMap();
 		
 		imOne.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "w");
-		amOne.put("w", new ReadyAction(paneOne.playerStatus));
+		amOne.put("w", new ReadyAction(paneOne));
 
 		InputMap imTwo = paneTwo.inputMap;
 		ActionMap amTwo = paneTwo.getActionMap();
 		
 		imTwo.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "up");
-		amTwo.put("up", new ReadyAction(paneTwo.playerStatus));
+		amTwo.put("up", new ReadyAction(paneTwo));
 	}
 	private void setTimer(){
 		timer = new Timer(1000, this);
