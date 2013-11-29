@@ -55,6 +55,17 @@ public class LoginGUI extends JPanel implements ActionListener{
 	public static String player1 = "";
 	public static String player2 = "";
 	
+	
+	/*
+	 * 
+	 * Constructor for the class.
+	 * Initializes the components and the layout used in the JPanel.
+	 * 
+	 * @param player Player who wants to login
+	 * 
+	 */
+	
+	
 	public LoginGUI(Player player){
 		setBackground(Color.BLACK);
 		this.player = player;
