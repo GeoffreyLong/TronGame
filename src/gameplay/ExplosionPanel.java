@@ -21,10 +21,10 @@ public class ExplosionPanel extends JPanel{
 	Cycle curCycle;
 	
 	/**
+	 * Create the panel and save the class variables.
 	 * 
 	 * @param cycles  The cycles that were used in the MapPanel
-	 * @param increment  The current state of the explosion
-	 * @param buffer  
+	 * @param increment  The number of pixels which serves as a sizing reference
 	 */
 	public ExplosionPanel(Cycle[] cycles, int increment){
 		this.cycles = cycles;
@@ -34,6 +34,14 @@ public class ExplosionPanel extends JPanel{
 		setVisible(true);
 		setLayout(null);
 	}
+	
+	/**
+	 * A method that gets called according to a timer.  It serves to 
+	 * update the state of the explosion.
+	 * 
+	 * @param explosionCount  The current state of the explosion
+	 * @param explosionColors  A list of all the colors to be added to the explosion
+	 */
 	public void updatePanel(int explosionCount, List<Color> explosionColors){
 		this.explosionCount = explosionCount;
 		this.explosionColors = explosionColors;
@@ -45,6 +53,11 @@ public class ExplosionPanel extends JPanel{
 		}
 	}
 	@Override
+	/**
+	 * Paint in a randomized pattern of ovals
+	 * 
+	 * @param g  Graphics
+	 */
 	public void paintComponent(Graphics g){
 		for (Color color : explosionColors){
 			g.setColor(color);
