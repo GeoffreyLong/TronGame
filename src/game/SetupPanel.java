@@ -57,7 +57,6 @@ public class SetupPanel extends JPanel implements ActionListener{
 		yCenter = start.Frame.getYCenter();
 		xSize = start.Frame.getXSize();
 		ySize = start.Frame.getYSize();
-		setBackground(Color.black);
 		
 		initComponents();
 		initLayout();
@@ -105,6 +104,7 @@ public class SetupPanel extends JPanel implements ActionListener{
 		
 	}
 	private void initLayout(){
+		setBackground(Color.black);
 		setBounds(0,0,xSize,ySize);
 		setLayout(new MigLayout("", "[]50[]", "[]50[]50[]50[]50[]100[]100[][][]"));
 		
