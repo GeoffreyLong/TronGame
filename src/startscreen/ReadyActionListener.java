@@ -24,6 +24,10 @@ public class ReadyActionListener implements ActionListener{
 		keyBind();
 		setTimer();
 	}
+	public void start(){
+		keyBind();
+		setTimer();
+	}
 	private void keyBind(){
 		InputMap imOne = paneOne.inputMap;
 		ActionMap amOne = paneOne.getActionMap();
