@@ -176,43 +176,4 @@ public class GameDriver {
 		}
 		return colors;
 	}
-	/**
-	 * This method is the engine for the explosion graphics.  
-	 * It provides a timer separate from the game timer which will 
-	 * update the map to provide an explosion animation.
-	 */
-	 /* This method is called when one or more cycles have crashed.  
-	 * It will start a timer that will generate an explosion graphic.  
-	 * When the explosionCounter passes a threshold the explosion will stop, 
-	 * and the win condition will be piped to the Frame class which will 
-	 * call GameEnd.
-	 *//*
-	private void explosion(){
-		Color transparent = new Color(0,0,0,0);
-		cycles[0].setColor(transparent);
-		cycles[1].setColor(transparent);
-		explosionCount = 0;
-		explosionTimer = new Timer(33, new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(explosionCount<80){
-					explosionCount++;
-					repaint();
-				}
-				else{
-					explosionTimer.stop();
-					if (cycles[0].isAlive){
-						gameMaster.endGame(WinCondition.PONE_WIN);
-					}
-					else if (cycles[1].isAlive){
-						gameMaster.endGame(WinCondition.PTWO_WIN);
-					}
-					else{
-						gameMaster.endGame(WinCondition.TIE);
-					}
-				}
-			}
-		});
-		explosionTimer.start();
-	}*/
 }
