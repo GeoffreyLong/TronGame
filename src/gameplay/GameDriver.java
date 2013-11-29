@@ -54,8 +54,7 @@ public class GameDriver implements ActionListener{
 	private void explosion(){
 		explosionTimer = new Timer(33, new ActionListener(){
 			int explosionCount = 0;
-			private int buffer = 50;
-			ExplosionPanel exp = new ExplosionPanel(cycles, MapPanel.getIncrement(), buffer);
+			ExplosionPanel exp = new ExplosionPanel(cycles, MapPanel.getIncrement());
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (explosionCount == 0){

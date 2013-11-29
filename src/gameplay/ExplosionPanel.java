@@ -8,18 +8,27 @@ import javax.swing.JPanel;
 
 import start.Frame;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides a way to extract the explosion effect from the game mechanics
+ */
 public class ExplosionPanel extends JPanel{
 	Cycle[] cycles;
 	private int increment;
 	private int explosionCount;
 	private List<Color> explosionColors;
-	private int buffer;
 	Cycle curCycle;
 	
-	public ExplosionPanel(Cycle[] cycles, int increment, int buffer){
+	/**
+	 * 
+	 * @param cycles  The cycles that were used in the MapPanel
+	 * @param increment  The current state of the explosion
+	 * @param buffer  
+	 */
+	public ExplosionPanel(Cycle[] cycles, int increment){
 		this.cycles = cycles;
 		this.increment = increment;
-		this.buffer = buffer;
 		
 		setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		setVisible(true);
