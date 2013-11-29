@@ -74,6 +74,11 @@ public class MapHandler {
     	map.setPTwoXStart(75);
     	map.setPTwoYStart(50);
     }
+    
+    /**
+     * Set the map
+     * @param aMap  The Map object to be set
+     */
     public static void setMap(Map aMap){
     	map = aMap;
     }
