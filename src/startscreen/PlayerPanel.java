@@ -23,7 +23,7 @@ import user.LoginGUI;
 import user.Player;
 
 public class PlayerPanel extends JPanel implements ActionListener{
-	private Player player;
+	public Player player;
 	public JButton logout;
 	public JButton login;
 	public JButton createAccount;

@@ -4,7 +4,7 @@ import user.NullPlayer;
 import user.Player;
 
 public class PlayerOnePanel extends PlayerPanel{
-	private Player player;
+	public Player player;
 	public PlayerOnePanel(Player player) {
 		super(player);
 		this.player = player;

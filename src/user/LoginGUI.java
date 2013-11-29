@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import start.Connect;
 import start.DatabaseCalls;
 import start.FrameDriver;
+import start.Main;
 import styleelements.StyledButton;
 import user.LoginGUI;
 import net.miginfocom.swing.MigLayout;
@@ -109,6 +110,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 					if(this.player.getPlayerNumber() == 1){
 						player = new Player(1);
 						player.setUserName(usernameField.getText());
+						Main.playerOne = player;
 						player1 = usernameField.getText();;
 						FrameDriver.setPaneOne(player);
 					}
@@ -116,6 +118,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 					else{
 						player = new Player(2);
 						player.setUserName(usernameField.getText());
+						Main.playerTwo = player;
 						player2 = usernameField.getText();
 						FrameDriver.setPaneTwo(player);
 					}
