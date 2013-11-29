@@ -28,6 +28,12 @@ import user.LoginGUI;
 import user.NullPlayer;
 import user.Player;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * This class provides a means by which to manage the behavior 
+ * of the frame.  Responsible for updating the state of the frame.
+ */
 public class FrameDriver {
 	static Frame frame;
 	static WelcomePanel welcome;
@@ -44,10 +50,18 @@ public class FrameDriver {
 	public static PlayerOnePanel pane1;
 	public static PlayerTwoPanel pane2;
 	
-	
+	/**
+	 * Instantiate the Frame
+	 * @param frame  The Frame of the game
+	 */
 	public FrameDriver(Frame frame){
 		this.frame = frame;
 	}
+	
+	/**
+	 * Initialize the majority of the panels that will be used throughout 
+	 * the game.
+	 */
 	public static void init(){
 		
 		welcome = new WelcomePanel();
@@ -100,12 +114,21 @@ public class FrameDriver {
 		paneTwo.setVisible(true);
 		welcome.setVisible(true);
 	}
+	
+	/**
+	 * Hide everything but the game setup panel
+	 */
 	public static void startGameSetup(){
 		hideAll();
 		setupPanel.setPlayerOne(Main.playerOne);
 		setupPanel.setPlayerTwo(Main.playerTwo);
 		setupPanel.setVisible(true);
 	}
+	
+	/**
+	 * Hide the player start panel and open the CreateUser panel  
+	 * corresponding to the player who invoked it.
+	 */
 	public static void createAccount(Player player){
 		if (player.getPlayerNumber() == 1){
 			paneOne.setVisible(false);
@@ -116,6 +139,11 @@ public class FrameDriver {
 			createTwo.setVisible(true);
 		}
 	}
+	
+	/**
+	 * Hide the player start panel and open the login panel 
+	 * corresponding to the player who invoked it.
+	 */
 	public static void login(Player player){
 		if (player.getPlayerNumber() == 1){
 			loginOne.setVisible(true);
@@ -127,6 +155,11 @@ public class FrameDriver {
 		}
 	}
 	
+	/**
+	 * Reset the start panel of the player who invoked this method.  
+	 * Reset the player to a NullPlayer.
+	 * @param player
+	 */
 	public static void logout(Player player){
 		if(player.getPlayerNumber() == 1){
 			Main.playerOne = new NullPlayer(1);
@@ -141,6 +174,13 @@ public class FrameDriver {
 		}
 	}
 	
+	/**
+	 * Ends the game by setting the EndScreen
+	 * 
+	 * @param pOneWins  Number of player one's wins during that round
+	 * @param pTwoWins  Number of player two's wins during that round
+	 * @param gamesPlayed  Number of games played during that round
+	 */
 	public static void endTheGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
 		setup.resetMap();
@@ -150,6 +190,10 @@ public class FrameDriver {
 		endScreen.setVisible(true);
 	}
 	
+	/**
+	 * Set the player one panel with this player after login
+	 * @param player
+	 */
 	public static void setPaneOne(Player player){
 		loginOne.setVisible(false);
 		createOne.setVisible(false);
@@ -158,6 +202,10 @@ public class FrameDriver {
 		paneOne.setVisible(true);
 	}
 	
+	/**
+	 * Set the player two panel with this player after login
+	 * @param player
+	 */
 	public static void setPaneTwo(Player player){
 		loginTwo.setVisible(false);
 		createTwo.setVisible(false);
@@ -166,6 +214,9 @@ public class FrameDriver {
 		paneTwo.setVisible(true);
 	}
 	
+	/**
+	 * 
+	 */
 	public static void Statistics(){
 		Connection conn = Connect.connect();
 		
@@ -176,6 +227,10 @@ public class FrameDriver {
 		newFrame.setVisible(true); 
 	}
 	
+	/**
+	 * 
+	 * @param username
+	 */
 	public static void playerHistory(String username){
 		Connection conn = Connect.connect();
 		
@@ -186,6 +241,11 @@ public class FrameDriver {
 		newFrame.setVisible(true);
 	}
 	
+	/**
+	 * 
+	 * @param username1
+	 * @param username2
+	 */
 	public static void HeadToHead(String username1, String username2){
 		Connection conn = Connect.connect();
 		
@@ -196,6 +256,9 @@ public class FrameDriver {
 		newFrame.setVisible(true);
 	}
 	
+	/**
+	 * 
+	 */
 	public static void TopTen(){
 		Connection conn = Connect.connect();
 		
@@ -206,11 +269,17 @@ public class FrameDriver {
         	newFrame.setVisible(true);
 	}
 	
-	
+	/**
+	 * Open the MapChooser panel and hide the SetupPanel
+	 */
 	public static void mapChooser(){
 		choose.setVisible(true);
 		setupPanel.setVisible(false);
 	}
+	
+	/**
+	 * Hide all components on the frame
+	 */
 	public static void hideAll(){
 		//TODO may want to check to make sure that i is a jpanel
 		
@@ -218,24 +287,49 @@ public class FrameDriver {
 			i.setVisible(false);
 		}
 	}
+	
+	/**
+	 * Hide everything and launch the MapPanel
+	 * @param mapPanel  The GUI for the actual Light Cycle gameplay
+	 */
 	public static void startGame(MapPanel mapPanel){
 	    FrameDriver.hideAll();
 	    frame.addPanel(mapPanel);
 	}
-	public static void explosion(ExplosionPanel exp, int xOffset, int yOffset){
+	
+	/**
+	 * Adds the explosion panel on player cycle crash
+	 * @param exp  Explosion panel to be added
+	 */
+	public static void explosion(ExplosionPanel exp){
 		exp.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		frame.addPanel(exp);
 	}
+	
+	/**
+	 * Remove a panel from the frame
+	 * @param panel  Panel to be removed
+	 */
 	public static void removePanel(JPanel panel){
 			frame.remove(panel);
 			frame.repaint();
 	}
+	
+	/**
+	 * Check to see if either player is currently logging in
+	 * @return
+	 */
 	public static boolean getLoginVisibility(){
 		if (loginOne.isVisible() || loginTwo.isVisible()){
 			return true;
 		}
 		return false;
 	}
+	
+	/**
+	 * Check to see if either player is currently creating a user
+	 * 	 * @return
+	 */
 	public static boolean getCreateVisibility(){
 		if (createOne.isVisible() || createTwo.isVisible()){
 			return true;
