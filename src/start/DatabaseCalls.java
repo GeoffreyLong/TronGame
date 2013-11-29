@@ -33,7 +33,8 @@ public class DatabaseCalls {
 	
 	/*
 	 * 
-	 * Constructor for class DatabaseCalls. Initializes the connection to the database.
+	 * Constructor for class DatabaseCalls. 
+	 * Initializes the connection to the database and pops up an error message if unable to connect to the database
 	 * @param none
 	 * 
 	 */
