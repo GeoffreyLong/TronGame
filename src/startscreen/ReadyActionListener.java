@@ -12,11 +12,26 @@ import javax.swing.Timer;
 
 import start.FrameDriver;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides a way to map key presses to actions and a way to 
+ * listen to the ReadyActions for a signal to start the game.
+ */
 public class ReadyActionListener implements ActionListener{
 	private static Timer timer;
 	private PlayerPanel paneOne;
 	private PlayerPanel paneTwo;
 
+	
+	/**
+	 * Add the key bindings and start the timer.
+	 * 
+	 * 
+	 * @param paneOne  A PlayerOnePanel
+	 * @param paneTwo  A PlayerTwoPanel
+	 * @param startRightAway
+	 */
 	public ReadyActionListener(PlayerPanel paneOne, PlayerPanel paneTwo, boolean startRightAway){
 		this.paneOne = paneOne;
 		this.paneTwo = paneTwo;
@@ -49,7 +64,11 @@ public class ReadyActionListener implements ActionListener{
 		timer = new Timer(1000, this);
 		timer.start();
 	}
+	
 	@Override
+	/**
+	 * If the timer times out this will check to see if the game is ready
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == timer && isReady()){
 			timer.stop();
@@ -60,6 +79,12 @@ public class ReadyActionListener implements ActionListener{
 			FrameDriver.startGameSetup();
 		}
 	}
+	
+	/**
+	 * Checks to see the status of the status labels to see if the game 
+	 * is ready to be started
+	 * @return isReady  True if both player status labels are equal and "ready", false otherwise
+	 */
 	public boolean isReady(){
     	boolean isReady = false;
     	if (paneOne.playerStatus.getText().equals(paneTwo.playerStatus.getText()) && paneOne.playerStatus.getText().equals("READY")){
