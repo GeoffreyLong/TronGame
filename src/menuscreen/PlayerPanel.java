@@ -19,7 +19,7 @@ import main.Frame;
 import main.FrameDriver;
 import net.miginfocom.swing.MigLayout;
 import styleelements.StyledButton;
-import user.LoginGUI;
+import user.LoginPanel;
 import user.Player;
 
 /**
@@ -198,8 +198,8 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("Head to Head Score")){
-			if(!LoginGUI.player1.equals("") && !LoginGUI.player2.equals(""))
-				FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+			if(!LoginPanel.player1.equals("") && !LoginPanel.player2.equals(""))
+				FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
 			
 			else{
 				JFrame frame = new JFrame("Error");
@@ -209,8 +209,8 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		
 		if(e.getActionCommand().equals("Show Player History")){
 			if(player.getPlayerNumber() == 1){
-				if(!LoginGUI.player1.equals("")){
-					FrameDriver.playerHistory(LoginGUI.player1);
+				if(!LoginPanel.player1.equals("")){
+					FrameDriver.playerHistory(LoginPanel.player1);
 				}
 				
 				else{
@@ -220,8 +220,8 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			}
 			
 			else{
-				if(!LoginGUI.player2.equals(""))
-					FrameDriver.playerHistory(LoginGUI.player2);
+				if(!LoginPanel.player2.equals(""))
+					FrameDriver.playerHistory(LoginPanel.player2);
 				
 				else{
 					JFrame frame = new JFrame("Error");

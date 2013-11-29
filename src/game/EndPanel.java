@@ -19,11 +19,11 @@ import javax.swing.JPanel;
 import main.FrameDriver;
 import main.Main;
 import styleelements.StyledButton;
-import user.LoginGUI;
+import user.LoginPanel;
 import user.Player;
 
 
-public class EndScreen extends JPanel implements ActionListener{
+public class EndPanel extends JPanel implements ActionListener{
     
     private JLabel title;
     private JButton replay;
@@ -36,7 +36,7 @@ public class EndScreen extends JPanel implements ActionListener{
     private JButton topTen;
     private JButton mainMenu;
     
-    public EndScreen(int playerOneWins, int playerTwoWins, int gamesPlayed){
+    public EndPanel(int playerOneWins, int playerTwoWins, int gamesPlayed){
     	this.pOneWins = playerOneWins;
     	this.pTwoWins = playerTwoWins;
     	this.gamesPlayed = gamesPlayed;
@@ -126,8 +126,8 @@ public class EndScreen extends JPanel implements ActionListener{
 		}
     	
     	if(e.getActionCommand().equals("Matchup Stats")){
-    		if(!LoginGUI.player1.equals("") && !LoginGUI.player2.equals("")){
-				FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+    		if(!LoginPanel.player1.equals("") && !LoginPanel.player2.equals("")){
+				FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
 				winner.setText("");
 			    endStatus.setText("");
     		}

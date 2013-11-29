@@ -14,7 +14,7 @@ import main.Frame;
  * Provides a graphical interface from which the user can select 
  * the map they want to play on.
  */
-public class MapChooser extends JPanel{
+public class MapChooserPanel extends JPanel{
 	private Map map;
 	private MapHandler mapHandle;
 	private SetupPanel setup;
@@ -25,7 +25,7 @@ public class MapChooser extends JPanel{
 	 * Sets the initial conditions of the panel
 	 * @param setup
 	 */
-	public MapChooser(SetupPanel setup){
+	public MapChooserPanel(SetupPanel setup){
 		this.setup = setup;
 		this.mapHandle = setup.gameSetup.getMapHandler();
 		initLayout();

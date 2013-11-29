@@ -1,8 +1,8 @@
 package main;
 
-import game.EndScreen;
+import game.EndPanel;
 import game.GameSetup;
-import game.MapChooser;
+import game.MapChooserPanel;
 import game.SetupPanel;
 import gameplay.ExplosionPanel;
 import gameplay.MapPanel;
@@ -19,11 +19,11 @@ import menuscreen.PlayerTwoPanel;
 import menuscreen.ReadyActionListener;
 import menuscreen.WelcomePanel;
 import statistics.AllStatsPanel;
-import statistics.HeadToHead;
+import statistics.HeadToHeadPanel;
 import statistics.PlayerHistoryPanel;
 import statistics.TopTenPanel;
-import user.CreateUser;
-import user.LoginGUI;
+import user.CreateUserPanel;
+import user.LoginPanel;
 import user.NullPlayer;
 import user.Player;
 
@@ -40,12 +40,12 @@ public class FrameDriver {
 	static PlayerTwoPanel paneTwo;
 	static GameSetup setup;
 	static SetupPanel setupPanel;
-	static CreateUser createOne;
-	static CreateUser createTwo;
-	static LoginGUI loginOne;
-	static LoginGUI loginTwo;
-	static MapChooser mapChooser;
-	static EndScreen endScreen;
+	static CreateUserPanel createOne;
+	static CreateUserPanel createTwo;
+	static LoginPanel loginOne;
+	static LoginPanel loginTwo;
+	static MapChooserPanel mapChooser;
+	static EndPanel endScreen;
 	public static PlayerOnePanel pane1;
 	public static PlayerTwoPanel pane2;
 	
@@ -76,23 +76,23 @@ public class FrameDriver {
 		setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
 		setupPanel.setVisible(false);
 		
-		mapChooser = new MapChooser(setupPanel);
+		mapChooser = new MapChooserPanel(setupPanel);
 		mapChooser.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		mapChooser.setVisible(false);
 		
-		createOne = new CreateUser(Main.playerOne);
+		createOne = new CreateUserPanel(Main.playerOne);
 		createOne.setBounds(-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		createOne.setVisible(false);
 
-		createTwo = new CreateUser(Main.playerTwo);
+		createTwo = new CreateUserPanel(Main.playerTwo);
 		createTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		createTwo.setVisible(false);
 		
-		loginOne = new LoginGUI(Main.playerOne);
+		loginOne = new LoginPanel(Main.playerOne);
 		loginOne.setBounds(-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		loginOne.setVisible(false);
 
-		loginTwo = new LoginGUI(Main.playerTwo);
+		loginTwo = new LoginPanel(Main.playerTwo);
 		loginTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		loginTwo.setVisible(false);
 		
@@ -174,13 +174,13 @@ public class FrameDriver {
 	public static void logout(Player player){
 		if(player.getPlayerNumber() == 1){
 			Main.playerOne = new NullPlayer(1);
-			LoginGUI.player1 = "";
+			LoginPanel.player1 = "";
 			paneOne.setNull();
 		}
 		
 		else{
 			Main.playerTwo = new NullPlayer(2);
-			LoginGUI.player2 = "";
+			LoginPanel.player2 = "";
 			paneTwo.setNull();
 		}
 	}
@@ -267,7 +267,7 @@ public class FrameDriver {
 		Connection conn = Connect.connect();
 		
 		JFrame newFrame = new JFrame("View Head To Head Score");
-		JScrollPane scrollPane = new JScrollPane(new HeadToHead(conn, username1, username2));  
+		JScrollPane scrollPane = new JScrollPane(new HeadToHeadPanel(conn, username1, username2));  
 		newFrame.getContentPane().add(scrollPane);  
 		newFrame.setSize(500, 480);  
 		newFrame.setVisible(true);
@@ -332,7 +332,7 @@ public class FrameDriver {
 	public static void endTheGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
 		setup.resetMap();
-		endScreen = new EndScreen(pOneWins, pTwoWins, gamesPlayed);
+		endScreen = new EndPanel(pOneWins, pTwoWins, gamesPlayed);
 		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		frame.addPanel(endScreen);
 		endScreen.setVisible(true);

@@ -37,7 +37,7 @@ import net.miginfocom.swing.MigLayout;
  */
 
 
-public class CreateUser extends JPanel implements ActionListener{
+public class CreateUserPanel extends JPanel implements ActionListener{
   
 	
 
@@ -70,7 +70,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	 */
 	
 	
-	public CreateUser(Player player){
+	public CreateUserPanel(Player player){
 		setBackground(Color.BLACK);
 		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));
@@ -248,14 +248,14 @@ public class CreateUser extends JPanel implements ActionListener{
 						
 						if(this.player.getPlayerNumber() == 1){
 							player.setUserName(usernameField.getText());
-							LoginGUI.player1 = usernameField.getText();
+							LoginPanel.player1 = usernameField.getText();
 							
 							FrameDriver.setPaneOne(player);
 						}
 						
 						else{
 							player.setUserName(usernameField.getText());
-							LoginGUI.player2 = usernameField.getText();
+							LoginPanel.player2 = usernameField.getText();
 							
 							FrameDriver.setPaneTwo(player);
 						}

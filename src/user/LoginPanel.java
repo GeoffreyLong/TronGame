@@ -17,7 +17,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import styleelements.StyledButton;
-import user.LoginGUI;
 import main.Connect;
 import main.DatabaseCalls;
 import main.FrameDriver;
@@ -42,7 +41,7 @@ import net.miginfocom.swing.MigLayout;
 
 
 
-public class LoginGUI extends JPanel implements ActionListener{
+public class LoginPanel extends JPanel implements ActionListener{
 	
 	
 	/**
@@ -73,7 +72,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	 */
 	
 	
-	public LoginGUI(Player player){
+	public LoginPanel(Player player){
 		setBackground(Color.BLACK);
 		this.player = player;
 		setBorder(BorderFactory.createLineBorder(Color.black));

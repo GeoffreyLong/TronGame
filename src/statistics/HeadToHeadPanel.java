@@ -23,7 +23,7 @@ import javax.swing.JTable;
  * 
  */
 
-public class HeadToHead extends JPanel{
+public class HeadToHeadPanel extends JPanel{
 	
 	/**
 	 * Initializes everything.
@@ -52,7 +52,7 @@ public class HeadToHead extends JPanel{
 	 */
 	
 	
-	public HeadToHead(Connection conn, String username1, String username2 ){
+	public HeadToHeadPanel(Connection conn, String username1, String username2 ){
 		this.conn = conn;
 		this.username1 = username1;
 		this.username2 = username2;

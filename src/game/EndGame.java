@@ -5,7 +5,7 @@ import java.sql.Connection;
 import main.Connect;
 import main.DatabaseCalls;
 import main.FrameDriver;
-import user.LoginGUI;
+import user.LoginPanel;
 
 /**
  * @author Geoffrey Long
@@ -43,8 +43,8 @@ public class EndGame {
 		DatabaseCalls call = new DatabaseCalls();
 		
 		
-		if(!LoginGUI.player1.equals("") && !LoginGUI.player2.equals("")){
-			call.pushStatistics(LoginGUI.player1, updatePlayerOne, LoginGUI.player2, updatePlayerTwo);
+		if(!LoginPanel.player1.equals("") && !LoginPanel.player2.equals("")){
+			call.pushStatistics(LoginPanel.player1, updatePlayerOne, LoginPanel.player2, updatePlayerTwo);
 		}
 	
 	}
