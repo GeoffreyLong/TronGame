@@ -35,7 +35,5 @@ public class FrameTest {
 	public void testGetters() {
 		assertEquals(testXSize, Frame.getXSize());
 		assertEquals(testYSize, Frame.getYSize());
-		assertEquals(testYCenter, Frame.getXCenter());
-		assertEquals(testXCenter, Frame.getYCenter());
 	}	
 }
