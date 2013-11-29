@@ -22,7 +22,6 @@ public class GameDriver implements ActionListener{
 	private Tile[][] map;
 	Cycle[] cycles;
 	private MapPanel mapPanel;
-	private int explosionCount = 0;
 	private Timer explosionTimer;
 	
 	public GameDriver(GameSetup gameSetup, GameMaster gameMaster){
