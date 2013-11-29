@@ -54,8 +54,6 @@ public class Frame extends JFrame {
 	 * This method will allow classes to add panels to the frame
 	 * without creating a new instance of the frame
 	 * @param panel  The panel that is to be added
-	 * @param constraint 
-	 * @param location The panel's location in the MigLayout
 	 */
 	public void addPanel(JPanel panel){
 		add(panel);
