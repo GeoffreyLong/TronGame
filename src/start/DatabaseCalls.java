@@ -27,6 +27,10 @@ import javax.swing.JOptionPane;
 
 public class DatabaseCalls {
 	
+	/*
+	 * Specifies the driver used and sets the connection to null initially.
+	 */
+	
 	private String driver = "com.mysql.jdbc.Driver";
 	private Connection conn = null;
 	
