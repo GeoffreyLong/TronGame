@@ -10,15 +10,27 @@ import start.FrameDriver;
 import start.Main;
 import user.Player;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides an AbstractAction listener for the key bindings
+ */
 public class ReadyAction extends AbstractAction{
 	private PlayerPanel pane;
 	private Player player;
 	
+	/**
+	 * 
+	 * @param pane  The PlayerPanel for this specific action
+	 */
 	public ReadyAction(PlayerPanel pane){
 		this.pane = pane;
 	}
 	
 	@Override
+	/**
+	 * AbstractAction listener which updates the player status labels
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (pane.getPlayerNumber() == 1){
 			player = Main.playerOne;
