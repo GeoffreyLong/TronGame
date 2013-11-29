@@ -14,7 +14,7 @@ import javax.swing.Timer;
 
 import start.FrameDriver;
 
-public class GameDriver {
+public class GameDriver implements ActionListener{
 
 	private GameMaster gameMaster;
 	private GameSetup gameSetup;
@@ -49,37 +49,6 @@ public class GameDriver {
 
 		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
 		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
-	}
-	
-	public void update(){
-		boolean cycleOne = true;
-		for (Cycle cycle : cycles){
-			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
-				mapPanel.disableButtons();
-				cycle.travel();
-				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
-						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
-						map[cycle.getXPos()][cycle.getYPos()]==Tile.PTWO){
-					cycle.isAlive = false;
-				}
-				else{
-					if (cycleOne){
-						map[cycle.getXPos()][cycle.getYPos()]=Tile.PONE;
-					}
-					else {
-						map[cycle.getXPos()][cycle.getYPos()]=Tile.PTWO;
-					}
-				}
-			}
-			cycleOne = false;
-		}
-		if (cycles[0].isAlive && cycles[1].isAlive){
-			mapPanel.updateMap(map);
-		}
-		else{
-			gameMaster.timer.stop();
-			explosion();
-		}
 	}
 	
 	private void explosion(){
@@ -175,5 +144,37 @@ public class GameDriver {
 			}
 		}
 		return colors;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		boolean cycleOne = true;
+		for (Cycle cycle : cycles){
+			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
+				mapPanel.disableButtons();
+				cycle.travel();
+				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
+						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
+						map[cycle.getXPos()][cycle.getYPos()]==Tile.PTWO){
+					cycle.isAlive = false;
+				}
+				else{
+					if (cycleOne){
+						map[cycle.getXPos()][cycle.getYPos()]=Tile.PONE;
+					}
+					else {
+						map[cycle.getXPos()][cycle.getYPos()]=Tile.PTWO;
+					}
+				}
+			}
+			cycleOne = false;
+		}
+		if (cycles[0].isAlive && cycles[1].isAlive){
+			mapPanel.updateMap(map);
+		}
+		else{
+			gameMaster.timer.stop();
+			explosion();
+		}
 	}
 }

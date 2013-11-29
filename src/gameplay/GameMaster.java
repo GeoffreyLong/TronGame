@@ -40,7 +40,7 @@ public class GameMaster {
 		
 		changeDifficulty();
 		
-		timer = new Timer(gameSpeed, new GameTimer(gameSetup, this));
+		timer = new Timer(gameSpeed, new GameDriver(gameSetup, this));
 		timer.start();
 	}
 	
