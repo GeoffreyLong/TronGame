@@ -14,6 +14,13 @@ import javax.swing.Timer;
 
 import start.FrameDriver;
 
+
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides a means of separating the logic from the panel.  Serves to 
+ * separate the logic of both the ExplosionPanel and the MapPanel.  
+ */
 public class GameDriver implements ActionListener{
 
 	private GameMaster gameMaster;
@@ -24,6 +31,13 @@ public class GameDriver implements ActionListener{
 	private MapPanel mapPanel;
 	private Timer explosionTimer;
 	
+	/**
+	 * Sets the class variables, instantiates the cycles, and starts 
+	 * the game timer.
+	 * 
+	 * @param gameSetup  The setup of the game
+	 * @param gameMaster  Controls the higher level functions of the game
+	 */
 	public GameDriver(GameSetup gameSetup, GameMaster gameMaster){
 		this.gameMaster = gameMaster;
 		this.gameSetup = gameSetup;
@@ -34,7 +48,7 @@ public class GameDriver implements ActionListener{
 		start();
 	}
 	
-	public void initCycles(){
+	private void initCycles(){
 		Cycle cycleOne = new Cycle(mapper.getPOneXStart(), mapper.getPOneYStart(), 
 				null, true, gameSetup.getPlayerColor(1));
 		Cycle cycleTwo = new Cycle(mapper.getPTwoXStart(), mapper.getPTwoYStart(), 
@@ -45,7 +59,8 @@ public class GameDriver implements ActionListener{
 		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
 		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
 	}
-	public void start(){
+	
+	private void start(){
 		PlayerControl cont = new PlayerControl(cycles[0], cycles[1]);
 		mapPanel = new MapPanel(gameSetup, gameMaster, cont);
 		FrameDriver.startGame(mapPanel);
@@ -146,6 +161,9 @@ public class GameDriver implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * Updates the map on a timer
+	 */
 	public void actionPerformed(ActionEvent e) {
 		boolean cycleOne = true;
 		for (Cycle cycle : cycles){
