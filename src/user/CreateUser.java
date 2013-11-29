@@ -36,9 +36,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	
 	
 	public CreateUser(Player player){
-		setBackground(Color.BLACK);
 		this.player = player;
-		setBorder(BorderFactory.createLineBorder(Color.black));
 		initComponents();
 		initLayout();		
 	}
@@ -74,6 +72,8 @@ public class CreateUser extends JPanel implements ActionListener{
 	}
 	
 	private void initLayout(){
+		setBackground(Color.BLACK);
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(new MigLayout("", "[210px][10px][370px]", "[45px][25px][25px][25px][30px][30px][][]"));
 		add(title, "cell 0 0 3 1,alignx center,aligny top");
 		add(username, "cell 0 2,alignx left,growy");

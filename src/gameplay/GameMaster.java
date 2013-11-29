@@ -28,12 +28,6 @@ public class GameMaster {
 	public GameMaster(GameSetup gameSetup){
 		this.gameSetup = gameSetup;
 	}
-	/**
-	 * Initialize the game by adding mapPanel to the Frame
-	 */
-	public void gameInit(){
-		
-	}
 	
 	/**
 	 * This method will start the game by updating the MapPanel and game state 
@@ -46,7 +40,7 @@ public class GameMaster {
 		
 		changeDifficulty();
 		
-		timer = new Timer(gameSpeed, new GameTimer(gameSetup, this));
+		timer = new Timer(gameSpeed, new GameDriver(gameSetup, this));
 		timer.start();
 	}
 	
@@ -104,7 +98,6 @@ public class GameMaster {
 		}
 		else{
 			gameSetup.resetMap();
-			gameInit();
 			gameStart();
 		}
 	}

@@ -190,7 +190,6 @@ public class LoginGUI extends JPanel implements ActionListener{
 						player = new Player(1);
 						player.setUserName(usernameField.getText());
 						Main.playerOne = player;
-						player1 = usernameField.getText();;
 						FrameDriver.setPaneOne(player);
 					}
 					
@@ -198,7 +197,6 @@ public class LoginGUI extends JPanel implements ActionListener{
 						player = new Player(2);
 						player.setUserName(usernameField.getText());
 						Main.playerTwo = player;
-						player2 = usernameField.getText();
 						FrameDriver.setPaneTwo(player);
 					}
 					
