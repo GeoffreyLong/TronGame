@@ -44,6 +44,13 @@ import net.miginfocom.swing.MigLayout;
 
 public class LoginGUI extends JPanel implements ActionListener{
 	
+	
+	/*
+	 * Everything initialized here
+	 * 
+	 */
+	
+	
 	private JLabel title;
 	private JLabel username;
 	private JTextField usernameField;
