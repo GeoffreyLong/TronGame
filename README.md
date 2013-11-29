@@ -1,6 +1,7 @@
 ECSE 321 FALL 2013 FINAL PROJECT
 TEAM 7
 MEMBERS:
+
 GEOFFREY LONG   - geoffrey.long@mail.mcgill.ca
 ASHLEY SIMPSON  - ashley.simpson@mail.mcgill.ca
 RISHABH TANDON   - rishabh.tandon@mail.mcgill.ca
