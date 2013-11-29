@@ -22,6 +22,11 @@ import styleelements.StyledButton;
 import user.LoginGUI;
 import user.Player;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides the Start screen panel layout for the players
+ */
 public class PlayerPanel extends JPanel implements ActionListener{
 	public Player player;
 	public JButton logout;
@@ -37,6 +42,12 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	private Connection conn;
 	private JPanel panel;
 	
+	/**
+	 * Constructor takes in a Player object and initializes the components 
+	 * of the panel.
+	 * 
+	 * @param player  The player object
+	 */
 	public PlayerPanel(Player player){
 		this.player = player;
 		setBackground(Color.black);
@@ -44,6 +55,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		initLayout();
 		this.conn = Connect.connect();
 	}
+	
 	private void initComponents(){		
 		playerLabel = new JLabel();
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
@@ -118,26 +130,50 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		setVisible(true);
 	}
 
+	/**
+	 * Set the location of the panel
+	 * @param x  The x coordinate of the start of the panel
+	 */
 	public void setLocation(int x){
 		setBounds(x, Frame.getYSize()/6, Frame.getXSize()/2, 5*Frame.getYSize()/6);
 	}
 	
+	/**
+	 * Return the player number of the player
+	 * @return the player number of the player
+	 */
 	public int getPlayerNumber(){
 		return this.player.getPlayerNumber();
 	}
 	
+	/**
+	 * Set the label of the panel.
+	 * @param label  The title label of the panel
+	 */
 	public void setLabel(String label){
 		playerLabel.setText(label);
 	}
 	
+	/**
+	 * Set the visibility of the login button
+	 * @param isVisible  True for is visible, false for invisible
+	 */
 	public void setLogin(boolean isVisible){
 		login.setVisible(isVisible);
 	}
 	
+	/**
+	 * Set the visibility of the create user button
+	 * @param isVisible  True for is visible, false for invisible
+	 */
 	public void setCreate(boolean isVisible){
 		createAccount.setVisible(isVisible);
 	}
 	
+	/**
+	 * Set the visibility of the logout button
+	 * @param isVisible  True for is visible, false for invisible
+	 */
 	public void setLogout(boolean isVisible){
 		logout.setVisible(isVisible);
 		head2head.setVisible(isVisible);
