@@ -7,6 +7,11 @@ import start.DatabaseCalls;
 import start.FrameDriver;
 import user.LoginGUI;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides a call to push statistics and the instantiation of EndScreen
+ */
 public class EndGame {
 	private int pOneWins;
 	private int pTwoWins;
@@ -14,6 +19,12 @@ public class EndGame {
 	private int updatePlayerOne;
 	private int updatePlayerTwo;
 	
+	/**
+	 * Set class variables and push the game end statistics 
+	 * @param pOneWins  Number of player one wins this round
+	 * @param pTwoWins  Number of player two wins this round
+	 * @param gamesPlayed  Number of games played this round
+	 */
 	public EndGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		this.pOneWins = pOneWins;
 		this.pTwoWins = pTwoWins;
@@ -37,6 +48,10 @@ public class EndGame {
 		}
 	
 	}
+	
+	/**
+	 * Initialize the End Screen
+	 */
 	public void initPanel(){
 		FrameDriver.endTheGame(pOneWins, pTwoWins, gamesPlayed);
 	}
