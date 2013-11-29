@@ -28,12 +28,6 @@ public class GameMaster {
 	public GameMaster(GameSetup gameSetup){
 		this.gameSetup = gameSetup;
 	}
-	/**
-	 * Initialize the game by adding mapPanel to the Frame
-	 */
-	public void gameInit(){
-		
-	}
 	
 	/**
 	 * This method will start the game by updating the MapPanel and game state 
@@ -104,7 +98,6 @@ public class GameMaster {
 		}
 		else{
 			gameSetup.resetMap();
-			gameInit();
 			gameStart();
 		}
 	}
