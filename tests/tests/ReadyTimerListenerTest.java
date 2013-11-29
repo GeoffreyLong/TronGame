@@ -10,10 +10,11 @@ import static org.junit.Assert.*;
 
 import javax.swing.JLabel;
 
+import menuscreen.PlayerPanel;
+import menuscreen.ReadyActionListener;
+
 import org.junit.Test;
 
-import startscreen.ReadyActionListener;
-import startscreen.PlayerPanel;
 import user.Player;
 
 public class ReadyTimerListenerTest{

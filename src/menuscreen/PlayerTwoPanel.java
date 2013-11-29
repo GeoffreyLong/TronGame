@@ -1,5 +1,6 @@
-package startscreen;
+package menuscreen;
 
+import main.Frame;
 import user.NullPlayer;
 import user.Player;
 
@@ -8,14 +9,14 @@ import user.Player;
  * 
  * Provides a safer way to differentiate between the two player panels
  */
-public class PlayerOnePanel extends PlayerPanel{
+public class PlayerTwoPanel extends PlayerPanel{
 	public Player player;
 	
 	/**
 	 * 
-	 * @param player  The player corresponding to Player One
+	 * @param player  The player corresponding to Player Two
 	 */
-	public PlayerOnePanel(Player player) {
+	public PlayerTwoPanel(Player player) {
 		super(player);
 		this.player = player;
 		
@@ -26,8 +27,8 @@ public class PlayerOnePanel extends PlayerPanel{
 	 * Instantiate the initial load of the player panel
 	 */
 	public void setLoadout(){
-		setLocation(-1);
-		setLabel("PLAYER ONE");
+		setLocation(Frame.getXSize()/2-1);
+		setLabel("PLAYER TWO");
 		if(player.getClass().getName().equals("user.NullPlayer")){
 			setNull();
 		}
@@ -40,7 +41,7 @@ public class PlayerOnePanel extends PlayerPanel{
 	 * Load the panel for a Null Player.
 	 */
 	public void setNull(){
-		setLabel("PLAYER ONE");
+		setLabel("PLAYER TWO");
 		login.setVisible(true);
 		playerStats.setVisible(true);
 		createAccount.setVisible(true);
@@ -61,7 +62,7 @@ public class PlayerOnePanel extends PlayerPanel{
 	
 	/**
 	 * Receive the new player object and set the panel according the the object.
-	 * @param player  The new player corresponding to player One
+	 * @param player  The new player corresponding to player Two
 	 */
 	public void setUser(Player player){
 		this.player = player;

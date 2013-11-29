@@ -1,4 +1,4 @@
-package startscreen;
+package menuscreen;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

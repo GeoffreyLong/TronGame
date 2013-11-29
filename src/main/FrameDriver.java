@@ -14,10 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import startscreen.PlayerOnePanel;
-import startscreen.PlayerTwoPanel;
-import startscreen.ReadyActionListener;
-import startscreen.WelcomePanel;
+import menuscreen.PlayerOnePanel;
+import menuscreen.PlayerTwoPanel;
+import menuscreen.ReadyActionListener;
+import menuscreen.WelcomePanel;
 import statistics.AllStatsPanel;
 import statistics.HeadToHead;
 import statistics.PlayerHistoryPanel;
