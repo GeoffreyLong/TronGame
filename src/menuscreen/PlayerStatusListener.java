@@ -18,7 +18,7 @@ import main.FrameDriver;
  * Provides a way to map key presses to actions and a way to 
  * listen to the ReadyActions for a signal to start the game.
  */
-public class ReadyActionListener implements ActionListener{
+public class PlayerStatusListener implements ActionListener{
 	private static Timer timer;
 	private PlayerPanel paneOne;
 	private PlayerPanel paneTwo;
@@ -32,7 +32,7 @@ public class ReadyActionListener implements ActionListener{
 	 * @param paneTwo  A PlayerTwoPanel
 	 * @param startRightAway  Allows for easy testing
 	 */
-	public ReadyActionListener(PlayerPanel paneOne, PlayerPanel paneTwo, boolean startRightAway){
+	public PlayerStatusListener(PlayerPanel paneOne, PlayerPanel paneTwo, boolean startRightAway){
 		this.paneOne = paneOne;
 		this.paneTwo = paneTwo;
 		
@@ -52,13 +52,13 @@ public class ReadyActionListener implements ActionListener{
 		ActionMap amOne = paneOne.getActionMap();
 		
 		imOne.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "w");
-		amOne.put("w", new ReadyAction(paneOne));
+		amOne.put("w", new PlayerStatusUpdate(paneOne));
 
 		InputMap imTwo = paneTwo.inputMap;
 		ActionMap amTwo = paneTwo.getActionMap();
 		
 		imTwo.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "up");
-		amTwo.put("up", new ReadyAction(paneTwo));
+		amTwo.put("up", new PlayerStatusUpdate(paneTwo));
 	}
 	private void setTimer(){
 		timer = new Timer(1000, this);
