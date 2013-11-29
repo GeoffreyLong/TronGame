@@ -14,10 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import main.Connect;
+import main.Frame;
+import main.FrameDriver;
 import net.miginfocom.swing.MigLayout;
-import start.Connect;
-import start.Frame;
-import start.FrameDriver;
 import styleelements.StyledButton;
 import user.LoginGUI;
 import user.Player;

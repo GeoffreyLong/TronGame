@@ -10,7 +10,7 @@ import javax.swing.InputMap;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
-import start.FrameDriver;
+import main.FrameDriver;
 
 /**
  * @author Geoffrey Long

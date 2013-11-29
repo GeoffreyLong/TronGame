@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import start.Frame;
+import main.Frame;
 
 /**
  * @author Geoffrey Long

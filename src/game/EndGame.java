@@ -2,9 +2,9 @@ package game;
 
 import java.sql.Connection;
 
-import start.Connect;
-import start.DatabaseCalls;
-import start.FrameDriver;
+import main.Connect;
+import main.DatabaseCalls;
+import main.FrameDriver;
 import user.LoginGUI;
 
 /**

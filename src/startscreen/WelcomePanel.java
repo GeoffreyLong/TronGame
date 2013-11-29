@@ -7,7 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import start.Frame;
+import main.Frame;
 
 /**
  * @author Geoffrey Long

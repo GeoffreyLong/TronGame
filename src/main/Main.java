@@ -5,7 +5,7 @@
  * instantiate the frame.  This is surrounded by a try-catch to ensure 
  * that no fatal errors arise if the frame cannot be initialized.
  */
-package start;
+package main;
 
 import javax.swing.UIManager;
 

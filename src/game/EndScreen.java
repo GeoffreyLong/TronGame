@@ -16,8 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import start.FrameDriver;
-import start.Main;
+import main.FrameDriver;
+import main.Main;
 import styleelements.StyledButton;
 import user.LoginGUI;
 import user.Player;
@@ -113,7 +113,7 @@ public class EndScreen extends JPanel implements ActionListener{
     }
     
     public Dimension getPreferredSize() {
-    	return new Dimension(start.Frame.getXSize(),start.Frame.getYSize());
+    	return new Dimension(main.Frame.getXSize(),main.Frame.getYSize());
     }
 	
     @Override

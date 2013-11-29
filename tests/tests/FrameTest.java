@@ -10,9 +10,9 @@ import static org.junit.Assert.*;
 
 import java.awt.Toolkit;
 
-import org.junit.Test;
+import main.Frame;
 
-import start.Frame;
+import org.junit.Test;
 
 public class FrameTest {
 	private Frame frame;

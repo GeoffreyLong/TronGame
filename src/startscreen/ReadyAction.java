@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JLabel;
 
-import start.FrameDriver;
-import start.Main;
+import main.FrameDriver;
+import main.Main;
 import user.Player;
 
 /**

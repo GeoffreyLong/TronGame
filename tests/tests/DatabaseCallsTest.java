@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
 
 import java.sql.Connection;
 
-import org.junit.Test;
+import main.Connect;
+import main.DatabaseCalls;
 
-import start.Connect;
-import start.DatabaseCalls;
+import org.junit.Test;
 
 public class DatabaseCallsTest {
 	private String testName = "ashleyTest";

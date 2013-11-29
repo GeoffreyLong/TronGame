@@ -1,6 +1,6 @@
 package startscreen;
 
-import start.Frame;
+import main.Frame;
 import user.NullPlayer;
 import user.Player;
 

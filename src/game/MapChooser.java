@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import start.Frame;
+import main.Frame;
 
 /**
  * @author Geoffrey Long
@@ -59,7 +59,7 @@ public class MapChooser extends JPanel{
 	}
 	
 	private void initLayout(){
-		setBounds(0,0,start.Frame.getXSize(), start.Frame.getYSize());
+		setBounds(0,0,main.Frame.getXSize(), main.Frame.getYSize());
 		setVisible(true);
 		setLayout(null);
 		setBounds(0,0,Frame.getXSize(), Frame.getYSize());

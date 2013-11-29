@@ -1,4 +1,4 @@
-package start;
+package main;
 
 import game.EndScreen;
 import game.GameSetup;

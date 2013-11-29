@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import start.Frame;
+import main.Frame;
 
 /**
  * @author Geoffrey Long

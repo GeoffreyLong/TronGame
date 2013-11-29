@@ -10,9 +10,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import start.FrameDriver;
 import user.Player;
 import styleelements.StyledButton;
+import main.FrameDriver;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -50,8 +50,8 @@ public class SetupPanel extends JPanel implements ActionListener{
 		this.playerTwo = playerTwo;
 		this.gameSetup = gameSetup;
 		
-		xSize = start.Frame.getXSize();
-		ySize = start.Frame.getYSize();
+		xSize = main.Frame.getXSize();
+		ySize = main.Frame.getYSize();
 		
 		initComponents();
 		initLayout();

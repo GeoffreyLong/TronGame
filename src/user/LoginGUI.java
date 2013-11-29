@@ -16,12 +16,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import start.Connect;
-import start.DatabaseCalls;
-import start.FrameDriver;
-import start.Main;
 import styleelements.StyledButton;
 import user.LoginGUI;
+import main.Connect;
+import main.DatabaseCalls;
+import main.FrameDriver;
+import main.Main;
 import net.miginfocom.swing.MigLayout;
 
 
