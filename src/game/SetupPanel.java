@@ -41,9 +41,9 @@ public class SetupPanel extends JPanel implements ActionListener{
 	/**
 	 * Sets the initial conditions of the MapPanel
 	 * 
-	 * @param playerOne
-	 * @param playerTwo
-	 * @param gameSetup
+	 * @param playerOne  The Player Object corresponding to player One
+	 * @param playerTwo  The Player Object corresponding to player Two
+	 * @param gameSetup  The GameSetup which will store the logic of the panel
 	 */
 	public SetupPanel(Player playerOne, Player playerTwo, GameSetup gameSetup){
 		this.playerOne = playerOne;
@@ -221,11 +221,19 @@ public class SetupPanel extends JPanel implements ActionListener{
 		}
 	}
 
+	/**
+	 * Set the playerOne object
+	 * @param playerOne  A Player object corresponding to player One
+	 */
 	public void setPlayerOne(Player playerOne) {
 		this.playerOne = playerOne;
 		pageTitle.setText(playerOne.getUserName() + " VS " + playerTwo.getUserName());
 	}
 
+	/**
+	 * Set the playerTwo object
+	 * @param playerTwo  A Player object corresponding to player Two
+	 */
 	public void setPlayerTwo(Player playerTwo) {
 		this.playerTwo = playerTwo;
 		pageTitle.setText(playerOne.getUserName() + " VS " + playerTwo.getUserName());
