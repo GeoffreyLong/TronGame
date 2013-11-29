@@ -216,7 +216,7 @@ public class FrameDriver {
 	public static void hideAll(){
 		//TODO may want to check to make sure that i is a jpanel
 		
-		for (Component i : Frame.frame.getContentPane().getComponents()){
+		for (Component i : frame.getContentPane().getComponents()){
 			i.setVisible(false);
 		}
 	}
@@ -229,7 +229,8 @@ public class FrameDriver {
 		frame.addPanel(exp);
 	}
 	public static void removePanel(JPanel panel){
-		frame.removePanel(panel);
+			frame.remove(panel);
+			frame.repaint();
 	}
 	public static boolean getLoginVisibility(){
 		if (loginOne.isVisible() || loginTwo.isVisible()){
