@@ -125,7 +125,16 @@ public class LoginGUI extends JPanel implements ActionListener{
 	
 	
 
-
+	/*
+	 * 
+	 * This method initializes the layout of the JPanel used in the main GUI.
+	 * The layout is set as MigLayout and the components are added to the JPanel in this method.
+	 * 
+	 * @param none
+	 * @return void
+	 * 
+	 * 
+	 */
 	 
 	
 	
