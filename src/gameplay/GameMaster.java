@@ -42,6 +42,9 @@ public class GameMaster {
 		timer.start();
 	}
 	
+	/**
+	 * Changes the speed of the timer and therefore the difficulty of the game.
+	 */
 	public void changeDifficulty() {
 		switch(gameSetup.getGameDifficulty()){
 		case(0):
