@@ -67,8 +67,14 @@ public class EndScreen extends JPanel implements ActionListener{
     	topTen.setBounds(760, 366, 200, 60);
     	topTen.addActionListener(this);
     	
+    	mainMenu = new StyledButton("Main Menu");
+    	mainMenu.setBounds(760, 366, 200, 60);
+    	mainMenu.addActionListener(this); 
     	
-    	
+    	addWinLogic();
+    }
+    
+    public void addWinLogic(){
     	if (pOneWins > pTwoWins){
     		winner.setBounds(360, 200, 300, 40);
     		winner.setText("Congratulations " + Main.playerOne.getUserName() + "!!!");
@@ -93,10 +99,6 @@ public class EndScreen extends JPanel implements ActionListener{
     	endStatus.setBounds(360, 250, 200, 200);
     	add(endStatus);
     	add(winner);
-    	
-    	mainMenu = new StyledButton("Main Menu");
-    	mainMenu.setBounds(760, 366, 200, 60);
-    	mainMenu.addActionListener(this);    	
     }
     
     public void initLayout(){
@@ -125,16 +127,16 @@ public class EndScreen extends JPanel implements ActionListener{
     	
     	if(e.getActionCommand().equals("Matchup Stats")){
     		if(!LoginGUI.player1.equals("") && !LoginGUI.player2.equals("")){
-			FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
-			winner.setText("");
-		        endStatus.setText("");
+				FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+				winner.setText("");
+			    endStatus.setText("");
     		}
 			
-		else{
-			JFrame frame = new JFrame("Error");
-			JOptionPane.showMessageDialog(frame, "Both players must be logged in to view head to head score");
-		}
-	}
+			else{
+				JFrame frame = new JFrame("Error");
+				JOptionPane.showMessageDialog(frame, "Both players must be logged in to view head to head score");
+			}
+    	}
 	
     	if(e.getActionCommand().equals("Main Menu")){
     		winner.setText("");
