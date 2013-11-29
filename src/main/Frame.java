@@ -18,13 +18,16 @@ public class Frame extends JFrame {
 	
 	/**
 	 * This is the constructor for the frame.  
-	 * It sets the important behaviour for the Frame.
+	 * It sets the important behavior for the Frame.
 	 */
 	public Frame(){
 		setTitle("Light Cycles");
+		
+		//These size variables allow for certain positioning benefits
 		Toolkit tk = Toolkit.getDefaultToolkit();  
 		xSize =  ((int) tk.getScreenSize().getWidth());
-		ySize =  ((int) tk.getScreenSize().getHeight());  
+		ySize =  ((int) tk.getScreenSize().getHeight());
+		
 		setBounds(0,0,xSize,ySize);  
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
@@ -44,16 +47,5 @@ public class Frame extends JFrame {
 	 */
 	public static int getYSize(){
 		return ySize;
-	}
-	
-	/**
-	 * This method will allow classes to add panels to the frame
-	 * without creating a new instance of the frame
-	 * @param panel  The panel that is to be added
-	 */
-	public void addPanel(JPanel panel){
-		add(panel);
-        validate();
-        repaint();
 	}
 }

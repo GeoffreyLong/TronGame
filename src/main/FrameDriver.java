@@ -96,15 +96,17 @@ public class FrameDriver {
 		loginTwo.setBounds(Frame.getXSize()/2-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
 		loginTwo.setVisible(false);
 		
-		frame.addPanel(welcome);
-		frame.addPanel(paneOne);
-		frame.addPanel(paneTwo);
-		frame.addPanel(setupPanel);
-		frame.addPanel(createOne);
-		frame.addPanel(createTwo);
-		frame.addPanel(loginOne);
-		frame.addPanel(loginTwo);
-		frame.addPanel(mapChooser);
+		frame.add(welcome);
+		frame.add(paneOne);
+		frame.add(paneTwo);
+		frame.add(setupPanel);
+		frame.add(createOne);
+		frame.add(createTwo);
+		frame.add(loginOne);
+		frame.add(loginTwo);
+		frame.add(mapChooser);
+		frame.validate();
+		frame.repaint();
 	}
 	
 	/**
@@ -310,7 +312,9 @@ public class FrameDriver {
 	 */
 	public static void startGame(GamePanel GamePanel){
 	    FrameDriver.hideAll();
-	    frame.addPanel(GamePanel);
+	    frame.add(GamePanel);
+	    frame.validate();
+	    frame.repaint();
 	}
 	
 	/**
@@ -319,7 +323,9 @@ public class FrameDriver {
 	 */
 	public static void explosion(ExplosionPanel exp){
 		exp.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		frame.addPanel(exp);
+		frame.add(exp);
+	    frame.validate();
+	    frame.repaint();
 	}
 	
 	/**
@@ -334,7 +340,9 @@ public class FrameDriver {
 		setup.resetMap();
 		endScreen = new EndPanel(pOneWins, pTwoWins, gamesPlayed);
 		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		frame.addPanel(endScreen);
+		frame.add(endScreen);
 		endScreen.setVisible(true);
+	    frame.validate();
+	    frame.repaint();
 	}
 }
