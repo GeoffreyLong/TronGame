@@ -30,7 +30,7 @@ public class ReadyActionListener implements ActionListener{
 	 * 
 	 * @param paneOne  A PlayerOnePanel
 	 * @param paneTwo  A PlayerTwoPanel
-	 * @param startRightAway
+	 * @param startRightAway  Allows for easy testing
 	 */
 	public ReadyActionListener(PlayerPanel paneOne, PlayerPanel paneTwo, boolean startRightAway){
 		this.paneOne = paneOne;
