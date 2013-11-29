@@ -43,7 +43,7 @@ public class MapChooserPanel extends JPanel{
 		for (Map map : mapHandle.maps){
 			int displaySize = 4;
 			final Map buttonMap = map;
-			MapButton chooseMap = new MapButton(buttonMap, displaySize);
+			MapChooserButton chooseMap = new MapChooserButton(buttonMap, displaySize);
 			chooseMap.setBounds(xButtonOffset, yButtonOffset, map.getXSize()*displaySize+20, map.getYSize()*displaySize+20);
 			xButtonOffset += map.getXSize()*displaySize + 40;
 			chooseMap.addActionListener(new ActionListener(){
