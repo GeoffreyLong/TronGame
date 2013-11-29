@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import javax.swing.JLabel;
 
 import menuscreen.PlayerPanel;
-import menuscreen.ReadyActionListener;
+import menuscreen.PlayerStatusListener;
 
 import org.junit.Test;
 
@@ -33,7 +33,7 @@ public class ReadyTimerListenerTest{
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(ready);
 		playerPanelTwo.playerStatus.setText(ready);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
+		PlayerStatusListener testListener = new PlayerStatusListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(true, testListener.isReady());
 	}
@@ -46,7 +46,7 @@ public class ReadyTimerListenerTest{
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(ready);
 		playerPanelTwo.playerStatus.setText(unReady);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
+		PlayerStatusListener testListener = new PlayerStatusListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(false, testListener.isReady());
 	}
@@ -59,7 +59,7 @@ public class ReadyTimerListenerTest{
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(unReady);
 		playerPanelTwo.playerStatus.setText(ready);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
+		PlayerStatusListener testListener = new PlayerStatusListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(false, testListener.isReady());
 	}
@@ -72,7 +72,7 @@ public class ReadyTimerListenerTest{
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(unReady);
 		playerPanelTwo.playerStatus.setText(unReady);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
+		PlayerStatusListener testListener = new PlayerStatusListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(false, testListener.isReady());
 	}
