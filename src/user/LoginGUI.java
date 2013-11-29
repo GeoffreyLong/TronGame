@@ -81,6 +81,22 @@ public class LoginGUI extends JPanel implements ActionListener{
 		initLayout();
 	}
 	
+	
+	
+	/*
+	 * 
+	 * This method initializes the components of the JPanel used in the main GUI.
+	 * The bounds, text and font of the components are set and the ActionListener for the login button is registerd.
+	 * 
+	 * 
+	 * @param none
+	 * @return void
+	 * 
+	 * 
+	 */
+	
+	
+	
 	private void initComponents(){
 
 		title = new JLabel("Login to your account");
