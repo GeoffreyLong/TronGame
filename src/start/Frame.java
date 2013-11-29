@@ -1,10 +1,3 @@
-/**
- * @author Geoffrey Long
- * 
- * The purpose of this class is to provide the frame that will be used 
- * throughout the game.  All panels will be added to and removed from 
- * this frame.
- */
 package start;
 
 import java.awt.Toolkit;
@@ -12,6 +5,13 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * The purpose of this class is to provide the frame that will be used 
+ * throughout the game.  All panels will be added to and removed from 
+ * this frame.
+ */
 public class Frame extends JFrame {
 	private static int xSize;
 	private static int ySize;
@@ -20,10 +20,7 @@ public class Frame extends JFrame {
 	
 	/**
 	 * This is the constructor for the frame.  
-	 * It sets the bounds of the frame so that it takes up the entire screen.  
-	 * The xSize and ySize will hold the sizes for the x and the y,  
-	 * as these are expected to vary from screen to screen.  
-	 * Therefore, the panels can retrieve these sizes to construct a dynamic layout.
+	 * It sets the important behaviour for the Frame.
 	 */
 	public Frame(){
 		setTitle("Light Cycles");
@@ -55,7 +52,7 @@ public class Frame extends JFrame {
 	
 	/**
 	 * This method will allow classes to add panels to the frame
-	 * without creating a new instance (and therefore a new frame) of the frame
+	 * without creating a new instance of the frame
 	 * @param panel  The panel that is to be added
 	 * @param constraint 
 	 * @param location The panel's location in the MigLayout
@@ -65,24 +62,19 @@ public class Frame extends JFrame {
         validate();
         repaint();
 	}
-	/*public static MapPanel start(GameSetup gameSetup, GameMaster gameMaster){
-	    //MapPanel mapPanel = new MapPanel(gameSetup, gameMaster);
-		
-	    FrameDriver.hideAll();
-	    frame.add(mapPanel);
-	    frame.validate();
-	    frame.repaint();
-		
-	    return mapPanel;
-	}*/
-	public void removeAll(){
-		getContentPane().removeAll();
-		validate();
-		repaint();
-	}
+	
+	/**
+	 * Getter for the xCenter
+	 * @return xCenter  The x coordinate of the center of the Frame
+	 */
 	public static int getYCenter(){
 		return xCenter;
 	}
+	
+	/**
+	 * Getter for the yCenter
+	 * @return yCenter  The y coordinate of the center of the Frame
+	 */
 	public static int getXCenter(){
 		return yCenter;
 	}
