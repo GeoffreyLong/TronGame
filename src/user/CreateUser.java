@@ -21,8 +21,32 @@ import start.FrameDriver;
 import styleelements.StyledButton;
 import net.miginfocom.swing.MigLayout;
 
+
+/*
+ * 
+ * @author Rishabh Tandon
+ * @version v1.0
+ * 
+ * This class basically handles the JPanel using in the main GUI for creating a user.
+ * First a JLabels are created and then a JTextField and a JPasswordField is used to take in desired username and password of the player as 
+ * input respectively. Another JPasswordField is created to re-check password. If the re-entered password is same as the entered password the player can proceed.
+ * A JButton for submit is then created and an Action Listener is registered for it. When the submit button is pressed, an object 
+ * 'call' of type DatabaseCalls is created which is then used to call the method createUser to check if the username-password combination is correct.
+ * If it is correct then the player can go ahead, if not then a pop up is shown to warn the user about the wrong credentials.
+ * 
+ */
+
+
 public class CreateUser extends JPanel implements ActionListener{
   
+	
+
+	/*
+	 * Everything initialized here
+	 * 
+	 */
+	
+	
 	private JLabel title;
 	private JLabel username;
 	private JTextField usernameField;
@@ -35,11 +59,38 @@ public class CreateUser extends JPanel implements ActionListener{
 	private StyledButton back;
 	
 	
+
+	/*
+	 * 
+	 * Constructor for the class.
+	 * Initializes the components and the layout used in the JPanel.
+	 * 
+	 * @param player Player who wants to create an account
+	 * 
+	 */
+	
+	
 	public CreateUser(Player player){
+		setBackground(Color.BLACK);
 		this.player = player;
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		initComponents();
 		initLayout();		
 	}
+	
+	
+	/*
+	 * 
+	 * This method initializes the components of the JPanel used in the main GUI.
+	 * The bounds, text and font of the components are set and the ActionListener for the Create Account button is registered.
+	 * 
+	 * 
+	 * @param none
+	 * @return void
+	 * 
+	 * 
+	 */
+	
 	
 	private void initComponents(){
 		title = new JLabel("Create your account");
@@ -72,8 +123,6 @@ public class CreateUser extends JPanel implements ActionListener{
 	}
 	
 	private void initLayout(){
-		setBackground(Color.BLACK);
-		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(new MigLayout("", "[210px][10px][370px]", "[45px][25px][25px][25px][30px][30px][][]"));
 		add(title, "cell 0 0 3 1,alignx center,aligny top");
 		add(username, "cell 0 2,alignx left,growy");
@@ -86,6 +135,24 @@ public class CreateUser extends JPanel implements ActionListener{
 		add(back, "cell 0 7,alignx center,growy");
 		
 	}
+	
+	/*
+	 * 
+	 * This method checks if the password meets the specifications.
+	 * The method checks if the desired password of th player meets the standards which are:
+	 * 
+	 * At least 8 characters long
+	 * At least one uppercase
+	 * At least one lowercase
+	 * At least one number
+	 * At least one non-alphanumeric character
+	 * 
+	 * 
+	 * @param password The entered password is taken as String
+	 * 
+	 * @return boolean True if the password matches standards and false otherwise
+	 * 
+	 */
 	
 	public boolean checkPassword(String password){
 		boolean pass = false;
@@ -120,6 +187,22 @@ public class CreateUser extends JPanel implements ActionListener{
 		
 		return pass;
 	}
+	
+	
+	/*
+	 * 
+	 * This is the ActionListener for the class. 
+	 * When the login button is pressed a DatabaseCalls object 'call' is created which is then used to call method createUser to check 
+	 * if the username is unique. If that is the case the player object and username is updated for the respective Panel,
+	 * Player1 for Panel 1 and Player2 for Panel 2. If not then a pop appears showing that the username already exists in the database. 
+	 * A call is also made to the method checkPassword which checks if the desired password meets minimum standards. If true
+	 * then the user can proceed, else a pop up is shown informing the user about the password standards.
+	 * 
+	 * (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
+
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
