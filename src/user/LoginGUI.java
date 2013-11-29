@@ -124,17 +124,8 @@ public class LoginGUI extends JPanel implements ActionListener{
 	}
 	
 	
-	
-	/*
-	 * 
-	 * This is the ActionListener for the class. 
-	 * When the login button is pressed a DatabaseCalls object 'call' is created which is then used to call method login to check 
-	 * if the username-password combination exists. If the combination is correct the player object and username is updated for the respective Panel,
-	 * Player1 for Panel 1 and Player2 for Panel 2.
-	 * 
-	 * (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
+
+
 	 
 	
 	
@@ -149,6 +140,18 @@ public class LoginGUI extends JPanel implements ActionListener{
 		add(back, "cell 0 7,alignx right,growy");
 		
 	}
+	
+	
+	/*
+	 * 
+	 * This is the ActionListener for the class. 
+	 * When the login button is pressed a DatabaseCalls object 'call' is created which is then used to call method login to check 
+	 * if the username-password combination exists. If the combination is correct the player object and username is updated for the respective Panel,
+	 * Player1 for Panel 1 and Player2 for Panel 2.
+	 * 
+	 * (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
