@@ -146,17 +146,6 @@ public class EndScreen extends JPanel implements ActionListener{
    		 	winner.setText("");
    		 	endStatus.setText("");
    			FrameDriver.TopTen();
-   	}
-    	
+    	}	
     }
-    public void setPOneWins(int i){
-    	pOneWins = i;
-    }
-    public void setPTwoWins(int i){
-    	pTwoWins = i;
-    }
-    public void setGamesPlayed(int i){
-    	gamesPlayed = i;
-    }
-
 }
