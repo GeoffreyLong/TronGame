@@ -22,6 +22,7 @@ public class CreateUserTest {
 	private String missingChar = "1232sfdS";
 	private String acceptableString = "123bdwdSSF&^";
 	
+	// test for checking a valid password
 	@Test
 	public void checkPasswordTest() {
 		testPlayer = new Player(playerNum);
