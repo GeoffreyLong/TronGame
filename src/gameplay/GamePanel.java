@@ -24,7 +24,7 @@ import main.Frame;
  * Provides the graphical representation of the state of the game, 
  * and provides the user the ability to interface with the game.
  */
-public class MapPanel extends JPanel implements KeyListener, ActionListener {
+public class GamePanel extends JPanel implements KeyListener, ActionListener {
 	private Tile[][] map;
 	private int xSize;
 	private int ySize;
@@ -54,7 +54,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	 * Instantiate all the class variables that are necessary for game function.  
 	 * @param map
 	 */
-	public MapPanel(GameSetup gameSetup, GameMaster gameMaster, PlayerControl cont){
+	public GamePanel(GameSetup gameSetup, GameMaster gameMaster, PlayerControl cont){
 		this.gameSetup = gameSetup;
 		this.cont = cont;
 		

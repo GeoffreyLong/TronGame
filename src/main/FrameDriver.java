@@ -5,7 +5,7 @@ import game.GameSetup;
 import game.MapChooserPanel;
 import game.SetupPanel;
 import gameplay.ExplosionPanel;
-import gameplay.MapPanel;
+import gameplay.GamePanel;
 
 import java.awt.Component;
 import java.sql.Connection;
@@ -305,12 +305,12 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Hide everything and launch the MapPanel
-	 * @param mapPanel  The GUI for the actual Light Cycle gameplay
+	 * Hide everything and launch the GamePanel
+	 * @param GamePanel  The GUI for the actual Light Cycle gameplay
 	 */
-	public static void startGame(MapPanel mapPanel){
+	public static void startGame(GamePanel GamePanel){
 	    FrameDriver.hideAll();
-	    frame.addPanel(mapPanel);
+	    frame.addPanel(GamePanel);
 	}
 	
 	/**

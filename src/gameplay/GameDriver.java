@@ -19,7 +19,7 @@ import main.FrameDriver;
  * @author Geoffrey Long
  * 
  * Provides a means of separating the logic from the panel.  Serves to 
- * separate the logic of both the ExplosionPanel and the MapPanel.  
+ * separate the logic of both the ExplosionPanel and the GamePanel.  
  */
 public class GameDriver implements ActionListener{
 
@@ -28,7 +28,7 @@ public class GameDriver implements ActionListener{
 	private Map mapper;
 	private Tile[][] map;
 	private Cycle[] cycles;
-	private MapPanel mapPanel;
+	private GamePanel GamePanel;
 	private Timer explosionTimer;
 	
 	/**
@@ -62,14 +62,14 @@ public class GameDriver implements ActionListener{
 	
 	private void start(){
 		PlayerControl cont = new PlayerControl(cycles[0], cycles[1]);
-		mapPanel = new MapPanel(gameSetup, gameMaster, cont);
-		FrameDriver.startGame(mapPanel);
+		GamePanel = new GamePanel(gameSetup, gameMaster, cont);
+		FrameDriver.startGame(GamePanel);
 	}
 	
 	private void explosion(){
 		explosionTimer = new Timer(33, new ActionListener(){
 			int explosionCount = 0;
-			ExplosionPanel exp = new ExplosionPanel(cycles, MapPanel.getIncrement());
+			ExplosionPanel exp = new ExplosionPanel(cycles, GamePanel.getIncrement());
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (explosionCount == 0){
@@ -168,7 +168,7 @@ public class GameDriver implements ActionListener{
 		boolean cycleOne = true;
 		for (Cycle cycle : cycles){
 			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
-				mapPanel.disableButtons();
+				GamePanel.disableButtons();
 				cycle.travel();
 				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
@@ -187,7 +187,7 @@ public class GameDriver implements ActionListener{
 			cycleOne = false;
 		}
 		if (cycles[0].isAlive && cycles[1].isAlive){
-			mapPanel.updateMap(map);
+			GamePanel.updateMap(map);
 		}
 		else{
 			gameMaster.timer.stop();

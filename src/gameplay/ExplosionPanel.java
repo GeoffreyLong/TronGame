@@ -23,7 +23,7 @@ public class ExplosionPanel extends JPanel{
 	/**
 	 * Create the panel and save the class variables.
 	 * 
-	 * @param cycles  The cycles that were used in the MapPanel
+	 * @param cycles  The cycles that were used in the GamePanel
 	 * @param increment  The number of pixels which serves as a sizing reference
 	 */
 	public ExplosionPanel(Cycle[] cycles, int increment){
@@ -61,8 +61,8 @@ public class ExplosionPanel extends JPanel{
 	public void paintComponent(Graphics g){
 		for (Color color : explosionColors){
 			g.setColor(color);
-			g.fillOval(MapPanel.getXOffset() + curCycle.getXPos()*increment -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
-					MapPanel.getYOffset() + curCycle.getYPos()*increment -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+			g.fillOval(GamePanel.getXOffset() + curCycle.getXPos()*increment -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
+					GamePanel.getYOffset() + curCycle.getYPos()*increment -((int)(explosionCount/2))+(int)(explosionCount*Math.random()), 
 					(int)(explosionCount*Math.random()), 
 					(int)(explosionCount*Math.random()));
 		}
