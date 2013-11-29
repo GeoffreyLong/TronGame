@@ -147,8 +147,6 @@ public class FrameDriver {
 		endScreen = new EndScreen(pOneWins, pTwoWins, gamesPlayed);
 		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		frame.addPanel(endScreen);
-		frame.repaint();
-		frame.validate();
 		endScreen.setVisible(true);
 	}
 	
