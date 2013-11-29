@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import net.miginfocom.swing.MigLayout;
 import startscreen.PlayerOnePanel;
 import startscreen.PlayerTwoPanel;
 import startscreen.ReadyActionListener;
@@ -45,7 +44,7 @@ public class FrameDriver {
 	static CreateUser createTwo;
 	static LoginGUI loginOne;
 	static LoginGUI loginTwo;
-	static MapChooser choose;
+	static MapChooser mapChooser;
 	static EndScreen endScreen;
 	public static PlayerOnePanel pane1;
 	public static PlayerTwoPanel pane2;
@@ -54,8 +53,8 @@ public class FrameDriver {
 	 * Instantiate the Frame
 	 * @param frame  The Frame of the game
 	 */
-	public FrameDriver(Frame frame){
-		this.frame = frame;
+	public FrameDriver(Frame theFrame){
+		frame = theFrame;
 	}
 	
 	/**
@@ -77,9 +76,9 @@ public class FrameDriver {
 		setupPanel = new SetupPanel(Main.playerOne, Main.playerTwo, setup);
 		setupPanel.setVisible(false);
 		
-		choose = new MapChooser(setupPanel);
-		choose.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		choose.setVisible(false);
+		mapChooser = new MapChooser(setupPanel);
+		mapChooser.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		mapChooser.setVisible(false);
 		
 		createOne = new CreateUser(Main.playerOne);
 		createOne.setBounds(-1,Frame.getYSize()/6,Frame.getXSize()/2,5*Frame.getYSize()/6);
@@ -105,24 +104,36 @@ public class FrameDriver {
 		frame.addPanel(createTwo);
 		frame.addPanel(loginOne);
 		frame.addPanel(loginTwo);
-		frame.addPanel(choose);
+		frame.addPanel(mapChooser);
 	}
+	
+	/**
+	 * Hide all components on the frame
+	 */
+	public static void hideAll(){
+		for (Component i : frame.getContentPane().getComponents()){
+			i.setVisible(false);
+		}
+	}
+	
+	/**
+	 * Remove a panel from the frame
+	 * @param panel  Panel to be removed
+	 */
+	public static void removePanel(JPanel panel){
+			frame.remove(panel);
+			frame.repaint();
+	}
+	
+	/**
+	 * Set all panels of the mainMenu to visible
+	 */
 	public static void mainMenu(){
 		hideAll();
 		new ReadyActionListener(paneOne, paneTwo, true);
 		paneOne.setVisible(true);
 		paneTwo.setVisible(true);
 		welcome.setVisible(true);
-	}
-	
-	/**
-	 * Hide everything but the game setup panel
-	 */
-	public static void startGameSetup(){
-		hideAll();
-		setupPanel.setPlayerOne(Main.playerOne);
-		setupPanel.setPlayerTwo(Main.playerTwo);
-		setupPanel.setVisible(true);
 	}
 	
 	/**
@@ -175,22 +186,6 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Ends the game by setting the EndScreen
-	 * 
-	 * @param pOneWins  Number of player one's wins during that round
-	 * @param pTwoWins  Number of player two's wins during that round
-	 * @param gamesPlayed  Number of games played during that round
-	 */
-	public static void endTheGame(int pOneWins, int pTwoWins, int gamesPlayed){
-		hideAll();
-		setup.resetMap();
-		endScreen = new EndScreen(pOneWins, pTwoWins, gamesPlayed);
-		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		frame.addPanel(endScreen);
-		endScreen.setVisible(true);
-	}
-	
-	/**
 	 * Set the player one panel with this player after login
 	 * @param player
 	 */
@@ -212,6 +207,28 @@ public class FrameDriver {
 		
 		paneTwo.setUser(player);
 		paneTwo.setVisible(true);
+	}
+	
+	/**
+	 * Check to see if either player is currently logging in
+	 * @return
+	 */
+	public static boolean getLoginVisibility(){
+		if (loginOne.isVisible() || loginTwo.isVisible()){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Check to see if either player is currently creating a user
+	 * 	 * @return
+	 */
+	public static boolean getCreateVisibility(){
+		if (createOne.isVisible() || createTwo.isVisible()){
+			return true;
+		}
+		return false;
 	}
 	
 	/**
@@ -270,22 +287,21 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Open the MapChooser panel and hide the SetupPanel
+	 * Hide everything but the game setup panel
 	 */
-	public static void mapChooser(){
-		choose.setVisible(true);
-		setupPanel.setVisible(false);
+	public static void startGameSetup(){
+		hideAll();
+		setupPanel.setPlayerOne(Main.playerOne);
+		setupPanel.setPlayerTwo(Main.playerTwo);
+		setupPanel.setVisible(true);
 	}
 	
 	/**
-	 * Hide all components on the frame
+	 * Open the MapChooser panel and hide the SetupPanel
 	 */
-	public static void hideAll(){
-		//TODO may want to check to make sure that i is a jpanel
-		
-		for (Component i : frame.getContentPane().getComponents()){
-			i.setVisible(false);
-		}
+	public static void mapChooser(){
+		mapChooser.setVisible(true);
+		setupPanel.setVisible(false);
 	}
 	
 	/**
@@ -307,33 +323,18 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Remove a panel from the frame
-	 * @param panel  Panel to be removed
+	 * Ends the game by setting the EndScreen
+	 * 
+	 * @param pOneWins  Number of player one's wins during that round
+	 * @param pTwoWins  Number of player two's wins during that round
+	 * @param gamesPlayed  Number of games played during that round
 	 */
-	public static void removePanel(JPanel panel){
-			frame.remove(panel);
-			frame.repaint();
-	}
-	
-	/**
-	 * Check to see if either player is currently logging in
-	 * @return
-	 */
-	public static boolean getLoginVisibility(){
-		if (loginOne.isVisible() || loginTwo.isVisible()){
-			return true;
-		}
-		return false;
-	}
-	
-	/**
-	 * Check to see if either player is currently creating a user
-	 * 	 * @return
-	 */
-	public static boolean getCreateVisibility(){
-		if (createOne.isVisible() || createTwo.isVisible()){
-			return true;
-		}
-		return false;
+	public static void endTheGame(int pOneWins, int pTwoWins, int gamesPlayed){
+		hideAll();
+		setup.resetMap();
+		endScreen = new EndScreen(pOneWins, pTwoWins, gamesPlayed);
+		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		frame.addPanel(endScreen);
+		endScreen.setVisible(true);
 	}
 }
