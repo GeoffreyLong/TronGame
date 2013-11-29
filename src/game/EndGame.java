@@ -30,7 +30,12 @@ public class EndGame {
 		}
 		
 		DatabaseCalls call = new DatabaseCalls();
-		call.pushStatistics(LoginGUI.player1, updatePlayerOne, LoginGUI.player2, updatePlayerTwo);
+		
+		
+		if(!LoginGUI.player1.equals("") && !LoginGUI.player2.equals("")){
+			call.pushStatistics(LoginGUI.player1, updatePlayerOne, LoginGUI.player2, updatePlayerTwo);
+		}
+	
 	}
 	public void initPanel(){
 		FrameDriver.endTheGame(pOneWins, pTwoWins, gamesPlayed);
