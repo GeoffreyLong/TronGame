@@ -33,6 +33,7 @@ public class MapTest {
 	private final int setXStartAdjustment = 1;
 	private final int setYStartAdjustment = 2;
 	
+	// simple tests for the getters
 	@Test
 	public void testGenericGetters() {
 		
@@ -46,6 +47,7 @@ public class MapTest {
 		assertEquals(-1, map.getMapNumber());
 	}
 	
+	// simple tests for the setters
 	@Test	
 	public void testGenericSetters() {
 		
@@ -74,6 +76,7 @@ public class MapTest {
 		assertEquals(testChangeY + mapSetAdjustment, map.getYSize());
 	}
 	
+	// testing that the map border is set correctly
 	@Test
 	public void testSetMapBorder() {
 		// check to see if a border is created properly
@@ -110,15 +113,17 @@ public class MapTest {
 		}
 	}
 	
+	// test adding a rectangle to the map
 	@Test
 	public void testAddRectangle() {
 		Map map = new Map(xBorderSize, yBorderSize);
 		
+		// set some pre specified map
 		map.setBorder();
 		map.addRectObstacle(xLowRectangleTest, xHighRectangleTest, yLowRectangleTest, yHighRectangleTest);
 		Tile[][] tiles = map.getMap();
 		
-		
+		// make sure the reactangle is actually considered a WALL
 		for (int i=xLowRectangleTest+1; i<xHighRectangleTest+1; i++){
 			for (int j=yLowRectangleTest+1; j<yHighRectangleTest+1; j++){
 				assertEquals(Tile.WALL, tiles[i][map.getYSize()-j-1]);

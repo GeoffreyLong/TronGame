@@ -91,28 +91,29 @@ public class GameSetupTest {
 		testDifficulty = testGameSetup.getGameDifficulty();
 		checkDifficulty = 1;
 		assertEquals(testDifficulty, checkDifficulty);
-		// check 3
+		// check 2
 		testGameSetup.incrementGameDifficulty();
 		testDifficulty = testGameSetup.getGameDifficulty();
 		checkDifficulty = 2;
 		assertEquals(testDifficulty, checkDifficulty);
-		// check 2
+		// check 3
 		testGameSetup.incrementGameDifficulty();
 		testDifficulty = testGameSetup.getGameDifficulty();
 		checkDifficulty = 3;
 		assertEquals(testDifficulty, checkDifficulty);
-		// check 1
+		// check 4
 		testGameSetup.incrementGameDifficulty();
 		testDifficulty = testGameSetup.getGameDifficulty();
 		checkDifficulty = 4;
 		assertEquals(testDifficulty, checkDifficulty);
-		// check 0
+		// check 5
 		testGameSetup.incrementGameDifficulty();
 		testDifficulty = testGameSetup.getGameDifficulty();
 		checkDifficulty = 5;
 		assertEquals(testDifficulty, checkDifficulty);		
 	}
 	
+	// make sure the colours change when set
 	@Test
 	public void testColorChanging() {
 		playerOne = new Player(playerNumberOne);
@@ -128,6 +129,7 @@ public class GameSetupTest {
 		assertEquals(checkTwo, colorTwo.BLUE);
 	}
 	
+	// testing setting maps depending on the choice
 	@Test
 	public void testMapHandling() {
 		playerOne = new Player(playerNumberOne);

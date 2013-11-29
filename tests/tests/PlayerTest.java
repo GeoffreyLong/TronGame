@@ -19,6 +19,7 @@ public class PlayerTest {
 	private int testGetPlayerNum = 1;
 	private String testSetUsername = "testname";
 	
+	// simple tests for the getters
 	@Test
 	public void testGetters() {
 		testPlayer = new Player(playerNum);
@@ -27,6 +28,7 @@ public class PlayerTest {
 		assertEquals(testGetPlayerNum, testPlayer.getPlayerNumber());
 	}
 	
+	// simple tests for the setters
 	@Test
 	public void testSetters() {
 		testPlayer = new Player(playerNum);

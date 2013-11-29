@@ -22,6 +22,7 @@ public class PlayerControlTest {
 	private Color testColor;
 	private boolean testAlive = true;
 	
+	// simple tester to make sure key strokes will move the cycle
 	@Test
 	public void testSetHeading() {
 		// set two default cycles for testing
