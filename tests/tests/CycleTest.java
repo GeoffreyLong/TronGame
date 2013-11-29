@@ -15,17 +15,19 @@ import java.awt.Color;
 import org.junit.Test;
 
 public class CycleTest {
-	private int testXPos = 1;
-	private int testYPos = 1;
-	private Heading testHeading = Heading.LEFT;
-	private boolean testAliveCase = true;
-	private int testSetXPos = 2;
-	private int testSetYPos = 2;
+	private int testXPos = 1; // any valid position, pick 1
+	private int testYPos = 1; // and valid position, pick 1
+	private Heading testHeading = Heading.LEFT; // and random heading
+	private boolean testAliveCase = true; // testing if alive
+	private int testSetXPos = 2; // any valid testing position, pick 2
+	private int testSetYPos = 2; // and valid testing position, pick 2
+	// all possible headings
 	private Heading testSetRight = Heading.RIGHT;
 	private Heading testSetLeft = Heading.LEFT;
 	private Heading testSetUp = Heading.UP;
 	private Heading testSetDown = Heading.DOWN;
 	
+	// testing of the cycle getters, just a simple test that doesn't need to be tested exhaustively
 	@Test
 	public void testCycleGetters() {
 		 Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, Color.BLACK);
@@ -35,6 +37,7 @@ public class CycleTest {
 		 assertEquals(testCycle.getColor(), Color.BLACK);
 	}
 	
+	// testing the cycle setters, just a simple test that doesn't need to be tested extensively
 	@Test
 	public void testCycleSetters() {
 		 Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, Color.BLACK);
@@ -48,6 +51,7 @@ public class CycleTest {
 		 assertEquals(testCycle.getColor(), Color.BLUE);
 	}
 	
+	// testing the travel method, more important and requires more testing
 	@Test
 	public void testTravel() {
 		Cycle testCycle = new Cycle(testXPos, testYPos, testHeading, testAliveCase, Color.BLACK);
