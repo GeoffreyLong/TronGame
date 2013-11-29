@@ -12,17 +12,17 @@ import javax.swing.UIManager;
 import user.NullPlayer;
 import user.Player;
 
-/**
- * The main method will start the program by instantiating the GUI 
- * via the frame.
- * @param args
- * @throws java.lang.Exception if the GUI cannot be instantiated
- */
 public class Main {
 	public static Player playerOne;
 	public static Player playerTwo;
 	private static Frame frame;
 	
+	/**
+	 * The main method will start the program by instantiating the GUI 
+	 * and the players
+	 * @param args
+	 * @throws java.lang.Exception if the GUI cannot be instantiated
+	 */
 	public static void main (String[] args){
 		playerOne = new NullPlayer(1);
 		playerTwo = new NullPlayer(2);
@@ -31,7 +31,7 @@ public class Main {
 		start();
 	}
 	
-	public static void initializeLookAndFeel(){
+	private static void initializeLookAndFeel(){
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
 		} catch (Exception e) {
@@ -43,7 +43,7 @@ public class Main {
 		}
 	}
 	
-	public static void start(){
+	private static void start(){
 		new FrameDriver(frame);
 		FrameDriver.init();
 		FrameDriver.mainMenu();
