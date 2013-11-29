@@ -67,6 +67,10 @@ public class MapChooser extends JPanel{
 	}
 	
 	@Override
+	/**
+	 * Override the paintComponents
+	 * @param g  Graphics
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 	}
