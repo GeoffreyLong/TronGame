@@ -26,17 +26,19 @@ public class MapHandlerTest {
 	private final int setYStartAdjustment = 2;
 	private final int mapSetAdjustment = 3;
 	
+	// testing of set map one, check that it is the correct map
 	@Test
 	public void testSetMapOne() {
+		// needed for setting the map
 		MapHandler mapHandler = new MapHandler();
 		mapHandler.setMapOne();
 		testMap = mapHandler.getMap();
 		Tile[][] tiles = testMap.getMap();
 		
-		assertEquals(0, testMap.getMapNumber());
-		assertEquals(p1XStart+setXStartAdjustment, testMap.getPOneXStart());
-		assertEquals(testMap.getYSize()-p1YStart-setYStartAdjustment, testMap.getPOneYStart());
-		assertEquals(p2XStart+setXStartAdjustment, testMap.getPTwoXStart());
+		assertEquals(0, testMap.getMapNumber()); // set the map number
+		assertEquals(p1XStart+setXStartAdjustment, testMap.getPOneXStart()); // test the start position of p1
+		assertEquals(testMap.getYSize()-p1YStart-setYStartAdjustment, testMap.getPOneYStart()); 
+		assertEquals(p2XStart+setXStartAdjustment, testMap.getPTwoXStart()); // test the start position of p2
 		assertEquals(testMap.getYSize()-p2YStart-setYStartAdjustment, testMap.getPTwoYStart());
 		
 		// check that map is clean
@@ -47,8 +49,10 @@ public class MapHandlerTest {
 		}
 	}
 	
+	// testing of set map two, check that it is the correct map
 	@Test
 	public void testSetMapTwo() {
+		// needed for setting the map
 		MapHandler mapHandler = new MapHandler();
 		mapHandler.setMapTwo();
 		testMap = mapHandler.getMap();
@@ -69,8 +73,10 @@ public class MapHandlerTest {
 		}
 	}
 	
+	// testing the set map three, check that it is the correct map
 	@Test
 	public void testSetMapThree() {
+		// needed for setting the map
 		MapHandler mapHandler = new MapHandler();
 		mapHandler.setMapThree();
 		testMap = mapHandler.getMap();
@@ -97,8 +103,10 @@ public class MapHandlerTest {
 		}
 	}
 	
+	// test setting a specified map, for our purposes setting the first map
 	@Test
 	public void testSettingMap() {
+		// needed for setting the map
 		Map testMap = new Map(testXSize, testYSize);
 		testMap.setBorder();
 		MapHandler.setMap(testMap);
