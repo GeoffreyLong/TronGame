@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import user.CreateUser;
+import user.CreateUserPanel;
 import user.Player;
 
 public class CreateUserTest {
@@ -26,7 +26,7 @@ public class CreateUserTest {
 	@Test
 	public void checkPasswordTest() {
 		testPlayer = new Player(playerNum);
-		CreateUser testCreateUser = new CreateUser(testPlayer);
+		CreateUserPanel testCreateUser = new CreateUserPanel(testPlayer);
 		
 		// test missing char
 		assertEquals(false, testCreateUser.checkPassword(missingChar));
