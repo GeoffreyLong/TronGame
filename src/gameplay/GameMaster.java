@@ -17,7 +17,7 @@ import javax.swing.Timer;
  */
 public class GameMaster {
 	private Map map;
-	public static Timer timer;
+	public Timer timer;
 	public Timer explosionTimer;
 	private GameSetup gameSetup;
 	private int playerOneWins = 0;
