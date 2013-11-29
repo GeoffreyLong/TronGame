@@ -16,7 +16,7 @@ import javax.swing.JTable;
  * @author Rishabh Tandon
  * @version V1.0
  * 
- * This class creates the panel for all statistics for head to head.
+ * This class creates the panel for all statistics for head to head scores of the logged in players.
  * The class first connects to the database and then a JTable. The JTable is then populated with the data from the MySQL table. The column data is stored 
  * in Object[] and row data is stored in Object[][]. A loop is then run to populate the JTable with the data in the array.
  * 
