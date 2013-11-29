@@ -1,5 +1,6 @@
 package startscreen;
 
+import start.Frame;
 import user.NullPlayer;
 import user.Player;
 
@@ -26,7 +27,7 @@ public class PlayerTwoPanel extends PlayerPanel{
 	 * Instantiate the initial load of the player panel
 	 */
 	public void setLoadout(){
-		setLocation(-1);
+		setLocation(Frame.getXSize()/2-1);
 		setLabel("PLAYER TWO");
 		if(player.getClass().getName().equals("user.NullPlayer")){
 			setNull();
