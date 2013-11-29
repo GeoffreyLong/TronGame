@@ -11,7 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import start.FrameDriver;
@@ -122,9 +124,16 @@ public class EndScreen extends JPanel implements ActionListener{
 		}
     	
     	if(e.getActionCommand().equals("Matchup Stats")){
-    		winner.setText("");
-    		endStatus.setText("");
-    		FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+    		if(!LoginGUI.player1.equals("") && !LoginGUI.player2.equals("")){
+			FrameDriver.HeadToHead(LoginGUI.player1, LoginGUI.player2);
+			winner.setText("");
+		        endStatus.setText("");
+    		}
+			
+		else{
+			JFrame frame = new JFrame("Error");
+			JOptionPane.showMessageDialog(frame, "Both players must be logged in to view head to head score");
+		}
 	}
 	
     	if(e.getActionCommand().equals("Main Menu")){
