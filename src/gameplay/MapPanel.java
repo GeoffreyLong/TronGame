@@ -71,7 +71,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		initLayout();
 	}
 	
-	public void initComponents(){
+	private void initComponents(){
 		changeSize = new JLabel("Change the size of the map");
 		changeSize.setBounds(10,10,300,30);
 		
@@ -96,7 +96,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		playerTwoScore.setBounds(Frame.getXSize()/2 + 60,30,50,20);
 	}
 	
-	public void initLayout(){
+	private void initLayout(){
 		xOffset = (Frame.getXSize() - xSize*increment) / 2;
 		yOffset = (Frame.getYSize() - ySize*increment) / 2;
 		
@@ -124,14 +124,6 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	public void updateMap(Tile[][] map){
 		this.map = map;
 		this.requestFocusInWindow();
-		repaint();
-	}
-	
-	public void explosion(int explosionCount, List<Color> explosionColors, Cycle cycle){
-		this.explosionCount = explosionCount;
-		this.explosionColors = explosionColors;
-		isExplosion = true;
-		this.curCycle = cycle;
 		repaint();
 	}
 	
