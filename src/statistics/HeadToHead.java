@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-/*
+/**
  * 
  * 
  * @author Rishabh Tandon
@@ -25,7 +25,7 @@ import javax.swing.JTable;
 
 public class HeadToHead extends JPanel{
 	
-	/*
+	/**
 	 * Initializes everything.
 	 * 
 	 */
@@ -39,7 +39,7 @@ public class HeadToHead extends JPanel{
 	
 	
 
-	/*
+	/**
 	 * 
 	 * Constructor for the class.
 	 * Initializes the components and the layout for Panel
@@ -61,7 +61,7 @@ public class HeadToHead extends JPanel{
 	}
 	
 	
-	/*
+	/**
 	 * 
 	 * This method initializes the components for the JPanel.
 	 * The JTable is created and is populated with data. The column names are stored in an Object[] and the data of the rows is stored in an
@@ -111,7 +111,7 @@ public class HeadToHead extends JPanel{
 	}
 	
 	
-	/*
+	/**
 	 * 
 	 * Adds the JTable to the JPanel.
 	 * A JScrollPane is used in the JPanel since that is required to set the display in the right way.

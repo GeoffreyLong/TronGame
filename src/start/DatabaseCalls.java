@@ -128,7 +128,7 @@ public class DatabaseCalls {
 		boolean pass = false;
 		String check = "";
 		
-		String query = "SELECT * FROM authentication.login WHERE userName= \'" + userName + "\'";
+		String query = "SELECT * FROM authentication.login WHERE userName collate latin1_general_cs = \'" + userName + "\'";
 		
 		try{
 			Statement stmt = conn.createStatement();

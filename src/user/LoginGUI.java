@@ -26,7 +26,7 @@ import net.miginfocom.swing.MigLayout;
 
 
 
-/*
+/**
  * 
  * @author Rishabh Tandon
  * @version v1.0
@@ -45,7 +45,7 @@ import net.miginfocom.swing.MigLayout;
 public class LoginGUI extends JPanel implements ActionListener{
 	
 	
-	/*
+	/**
 	 * Everything initialized here
 	 * 
 	 */
@@ -63,7 +63,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	public static String player2 = "";
 	
 	
-	/*
+	/**
 	 * 
 	 * Constructor for the class.
 	 * Initializes the components and the layout used in the JPanel.
@@ -83,7 +83,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	
 	
 	
-	/*
+	/**
 	 * 
 	 * This method initializes the components of the JPanel used in the main GUI.
 	 * The bounds, text and font of the components are set and the ActionListener for the login button is registerd.
@@ -125,7 +125,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	
 	
 
-	/*
+	/**
 	 * 
 	 * This method initializes the layout of the JPanel used in the main GUI.
 	 * The layout is set as MigLayout and the components are added to the JPanel in this method.
@@ -151,7 +151,7 @@ public class LoginGUI extends JPanel implements ActionListener{
 	}
 	
 	
-	/*
+	/**
 	 * 
 	 * This is the ActionListener for the class. 
 	 * When the login button is pressed a DatabaseCalls object 'call' is created which is then used to call method login to check 
