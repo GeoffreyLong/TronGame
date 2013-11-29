@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -25,8 +24,6 @@ import net.miginfocom.swing.MigLayout;
 public class SetupPanel extends JPanel implements ActionListener{
 	Player playerOne;
 	Player playerTwo;
-	private int xCenter;
-	private int yCenter;
 	private int xSize;
 	private int ySize;
 	public GameSetup gameSetup;
@@ -53,8 +50,6 @@ public class SetupPanel extends JPanel implements ActionListener{
 		this.playerTwo = playerTwo;
 		this.gameSetup = gameSetup;
 		
-		xCenter = start.Frame.getXCenter();
-		yCenter = start.Frame.getYCenter();
 		xSize = start.Frame.getXSize();
 		ySize = start.Frame.getYSize();
 		

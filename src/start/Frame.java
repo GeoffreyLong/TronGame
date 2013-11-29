@@ -13,7 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Frame extends JFrame {
-	static JFrame frame = new JFrame();
 	private static int xSize;
 	private static int ySize;
 	private static int xCenter;
@@ -27,16 +26,16 @@ public class Frame extends JFrame {
 	 * Therefore, the panels can retrieve these sizes to construct a dynamic layout.
 	 */
 	public Frame(){
-		frame = new JFrame();
+		setTitle("Light Cycles");
 		Toolkit tk = Toolkit.getDefaultToolkit();  
 		xSize =  ((int) tk.getScreenSize().getWidth());
 		ySize =  ((int) tk.getScreenSize().getHeight());  
 		xCenter = xSize/2;
 		yCenter = ySize/2;
-		frame.setBounds(0,0,xSize,ySize);  
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(null);
-		frame.setVisible(true);
+		setBounds(0,0,xSize,ySize);  
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(null);
+		setVisible(true);
 	}
 	
 	/**
@@ -62,9 +61,9 @@ public class Frame extends JFrame {
 	 * @param location The panel's location in the MigLayout
 	 */
 	public void addPanel(JPanel panel){
-		frame.add(panel);
-        frame.validate();
-        frame.repaint();
+		add(panel);
+        validate();
+        repaint();
 	}
 	/*public static MapPanel start(GameSetup gameSetup, GameMaster gameMaster){
 	    //MapPanel mapPanel = new MapPanel(gameSetup, gameMaster);
@@ -77,13 +76,9 @@ public class Frame extends JFrame {
 	    return mapPanel;
 	}*/
 	public void removeAll(){
-		frame.getContentPane().removeAll();
-		frame.validate();
-		frame.repaint();
-	}
-	public static void removePanel(JPanel panel){
-		frame.remove(panel);
-		frame.repaint();
+		getContentPane().removeAll();
+		validate();
+		repaint();
 	}
 	public static int getYCenter(){
 		return xCenter;

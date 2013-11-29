@@ -2,7 +2,6 @@ package gameplay;
 
 import game.EndGame;
 import game.GameSetup;
-import game.Map;
 import game.WinCondition;
 
 import javax.swing.Timer;
@@ -16,8 +15,7 @@ import javax.swing.Timer;
  * starting the game, running the game, and ending the game.
  */
 public class GameMaster {
-	private Map map;
-	public static Timer timer;
+	public Timer timer;
 	public Timer explosionTimer;
 	private GameSetup gameSetup;
 	private int playerOneWins = 0;
