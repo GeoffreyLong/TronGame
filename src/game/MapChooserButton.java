@@ -14,7 +14,7 @@ import javax.swing.JButton;
  * This class provides a button that is painted with one of the 
  * map choices.
  */
-public class MapButton extends JButton{
+public class MapChooserButton extends JButton{
 	Tile[][] tiles;
 	private int xSize;
 	private int ySize;
@@ -27,7 +27,7 @@ public class MapButton extends JButton{
 	 * @param map
 	 * @param displaySize
 	 */
-	MapButton(Map map, int displaySize){
+	MapChooserButton(Map map, int displaySize){
 		this.displaySize = displaySize;
 		tiles = map.getMap();
 		xSize = map.getXSize();
