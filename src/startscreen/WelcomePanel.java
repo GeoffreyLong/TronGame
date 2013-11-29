@@ -9,10 +9,18 @@ import javax.swing.JPanel;
 
 import start.Frame;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides a title label for the start screen
+ */
 public class WelcomePanel extends JPanel {
 	private JLabel welcome;
 	private JLabel instructions;
 	
+	/**
+	 * Initialize the labels
+	 */
 	public WelcomePanel(){
 		initComponents();
 		initLayout();
