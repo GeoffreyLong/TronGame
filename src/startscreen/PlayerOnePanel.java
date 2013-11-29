@@ -3,14 +3,28 @@ package startscreen;
 import user.NullPlayer;
 import user.Player;
 
+/**
+ * @author Geoffrey Long
+ * 
+ * Provides a safer way to differentiate between the two player panels
+ */
 public class PlayerOnePanel extends PlayerPanel{
 	public Player player;
+	
+	/**
+	 * 
+	 * @param player  The player corresponding to Player One
+	 */
 	public PlayerOnePanel(Player player) {
 		super(player);
 		this.player = player;
 		
 		setLoadout();
 	}
+	
+	/**
+	 * Instantiate the initial load of the player panel
+	 */
 	public void setLoadout(){
 		setLocation(-1);
 		setLabel("PLAYER ONE");
@@ -21,14 +35,21 @@ public class PlayerOnePanel extends PlayerPanel{
 			setUser();
 		}
 	}
+	
+	/**
+	 * Load the panel for a Null Player.
+	 */
 	public void setNull(){
-		this.player = new NullPlayer(1);
 		setLabel("PLAYER ONE");
 		login.setVisible(true);
 		playerStats.setVisible(true);
 		createAccount.setVisible(true);
 		logout.setVisible(false);
 	}
+	
+	/**
+	 * Load the panel of a non-null player
+	 */
 	public void setUser(){
 		setLabel(player.getUserName());
 		login.setVisible(false);
@@ -37,13 +58,18 @@ public class PlayerOnePanel extends PlayerPanel{
 		playerHistory.setVisible(true);
 		logout.setVisible(true);
 	}
+	
+	/**
+	 * Receive the new player object and set the panel according the the object.
+	 * @param player  The new player corresponding to player One
+	 */
 	public void setUser(Player player){
 		this.player = player;
-		setLabel(player.getUserName());
-		login.setVisible(false);
-		createAccount.setVisible(false);
-		playerStats.setVisible(true);
-		playerHistory.setVisible(true);
-		logout.setVisible(true);
+		if (player.getClass().getName().equals("user.NullPlayer")){
+			setNull();
+		}
+		else{
+			setUser();
+		}
 	}
 }
