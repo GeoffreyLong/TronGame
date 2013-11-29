@@ -22,7 +22,7 @@ import styleelements.StyledButton;
 import net.miginfocom.swing.MigLayout;
 
 
-/*
+/**
  * 
  * @author Rishabh Tandon
  * @version v1.0
@@ -41,7 +41,7 @@ public class CreateUser extends JPanel implements ActionListener{
   
 	
 
-	/*
+	/**
 	 * Everything initialized here
 	 * 
 	 */
@@ -60,7 +60,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	
 	
 
-	/*
+	/**
 	 * 
 	 * Constructor for the class.
 	 * Initializes the components and the layout used in the JPanel.
@@ -79,7 +79,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	}
 	
 	
-	/*
+	/**
 	 * 
 	 * This method initializes the components of the JPanel used in the main GUI.
 	 * The bounds, text and font of the components are set and the ActionListener for the Create Account button is registered.
@@ -122,6 +122,20 @@ public class CreateUser extends JPanel implements ActionListener{
 		rePasswordField = new JPasswordField(40);
 	}
 	
+	
+	
+	/**
+	 * 
+	 * This method initializes the layout of the JPanel used in the main GUI.
+	 * The layout is set as MigLayout and the components are added to the JPanel in this method.
+	 * 
+	 * @param none
+	 * @return void
+	 * 
+	 * 
+	 */
+	
+	
 	private void initLayout(){
 		setLayout(new MigLayout("", "[210px][10px][370px]", "[45px][25px][25px][25px][30px][30px][][]"));
 		add(title, "cell 0 0 3 1,alignx center,aligny top");
@@ -136,7 +150,7 @@ public class CreateUser extends JPanel implements ActionListener{
 		
 	}
 	
-	/*
+	/**
 	 * 
 	 * This method checks if the password meets the specifications.
 	 * The method checks if the desired password of th player meets the standards which are:
@@ -189,7 +203,7 @@ public class CreateUser extends JPanel implements ActionListener{
 	}
 	
 	
-	/*
+	/**
 	 * 
 	 * This is the ActionListener for the class. 
 	 * When the login button is pressed a DatabaseCalls object 'call' is created which is then used to call method createUser to check 
