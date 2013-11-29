@@ -65,10 +65,8 @@ public class HeadToHead extends JPanel{
 	 * 
 	 * This method initializes the components for the JPanel.
 	 * The JTable is created and is populated with data. The column names are stored in an Object[] and the data of the rows is stored in an
-	 * a 2 D array Object[][] by running 2 indented for loops. This data is used in the JTable. The rank is calculated as follows:
-	 * 
-	 * totalGames = wins + losses
-	 * Rank = totalGames * (wins/losses)
+	 * a 2 D array Object[][] by running 2 indented for loops. This data is used in the JTable. 
+	 *
 	 * 
 	 * @param none
 	 * 
