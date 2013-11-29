@@ -26,6 +26,7 @@ public class Frame extends JFrame {
 	 * Therefore, the panels can retrieve these sizes to construct a dynamic layout.
 	 */
 	public Frame(){
+		setTitle("Light Cycles");
 		Toolkit tk = Toolkit.getDefaultToolkit();  
 		xSize =  ((int) tk.getScreenSize().getWidth());
 		ySize =  ((int) tk.getScreenSize().getHeight());  
