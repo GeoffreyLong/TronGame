@@ -15,8 +15,6 @@ import javax.swing.JPanel;
 public class Frame extends JFrame {
 	private static int xSize;
 	private static int ySize;
-	private static int xCenter;
-	private static int yCenter;
 	
 	/**
 	 * This is the constructor for the frame.  
@@ -27,8 +25,6 @@ public class Frame extends JFrame {
 		Toolkit tk = Toolkit.getDefaultToolkit();  
 		xSize =  ((int) tk.getScreenSize().getWidth());
 		ySize =  ((int) tk.getScreenSize().getHeight());  
-		xCenter = xSize/2;
-		yCenter = ySize/2;
 		setBounds(0,0,xSize,ySize);  
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
@@ -59,21 +55,5 @@ public class Frame extends JFrame {
 		add(panel);
         validate();
         repaint();
-	}
-	
-	/**
-	 * Getter for the xCenter
-	 * @return xCenter  The x coordinate of the center of the Frame
-	 */
-	public static int getYCenter(){
-		return xCenter;
-	}
-	
-	/**
-	 * Getter for the yCenter
-	 * @return yCenter  The y coordinate of the center of the Frame
-	 */
-	public static int getXCenter(){
-		return yCenter;
 	}
 }
