@@ -11,7 +11,26 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 
+/*
+ * 
+ * @author Rishabh Tandon
+ * @version V1.0
+ * 
+ * This class creates the panel to show the player's history of games with all other players.
+ * The class first connects to the database and then a JTable. The JTable is then populated with the data from the MySQL table. The column data is stored 
+ * in Object[] and row data is stored in Object[][]. A loop is then run to populate the JTable with the data in the array.
+ * 
+ * 
+ */
+
+
 public class PlayerHistoryPanel extends JPanel{
+	
+	/*
+	 * Initializes everything.
+	 * 
+	 */
+	
 	
 	private Connection conn;
 	private String username;
@@ -19,12 +38,41 @@ public class PlayerHistoryPanel extends JPanel{
 	JScrollPane pane = new JScrollPane();
 	JTable table;
 	
+	/*
+	 * 
+	 * Constructor for the class.
+	 * Initializes the components and the layout for Panel
+	 * 
+	 * @param conn Connection to the database
+	 * @param username Username of the player as a String
+	 * 
+	 * 
+	 */
+	
+	
 	public PlayerHistoryPanel(Connection conn, String username ){
 		this.conn = conn;
 		this.username = username;
 		initComponents();
 		initLayout();	
 	}
+	
+	
+	/*
+	 * 
+	 * This method initializes the components for the JPanel.
+	 * The JTable is created and is populated with data. The column names are stored in an Object[] and the data of the rows is stored in an
+	 * a 2 D array Object[][] by running 2 indented for loops. This data is used in the JTable. 
+	 * 
+	 * @param none
+	 * 
+	 * @return void 
+	 * 
+	 * 
+	 */
+	
+	
+	
 	
 	private void initComponents(){
 		try{  
@@ -59,6 +107,22 @@ public class PlayerHistoryPanel extends JPanel{
         }  
 		
 	}
+	
+	
+	/*
+	 * 
+	 * Adds the JTable to the JPanel.
+	 * A JScrollPane is used in the JPanel since that is required to set the display in the right way.
+	 * 
+	 * @param none
+	 * 
+	 * @return void
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
 	
 	private void initLayout(){
 		//setLayout(null);
