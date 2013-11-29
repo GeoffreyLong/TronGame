@@ -59,7 +59,7 @@ public class GameDriver implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (explosionCount == 0){
-					FrameDriver.explosion(exp, MapPanel.getXOffset()-buffer, MapPanel.getYOffset()-buffer);
+					FrameDriver.explosion(exp);
 				}
 				
 				if(explosionCount<80){
