@@ -31,6 +31,7 @@ public class GameDriver implements ActionListener{
 		map = mapper.getMap();
 		
 		initCycles();
+		start();
 	}
 	
 	public void initCycles(){
@@ -39,15 +40,15 @@ public class GameDriver implements ActionListener{
 		Cycle cycleTwo = new Cycle(mapper.getPTwoXStart(), mapper.getPTwoYStart(), 
 				null, true, gameSetup.getPlayerColor(2));
 		
-		PlayerControl cont = new PlayerControl(cycleOne, cycleTwo);
-		
-		mapPanel = new MapPanel(gameSetup, gameMaster, cont);
-		FrameDriver.startGame(mapPanel);
-		
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 
 		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
 		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
+	}
+	public void start(){
+		PlayerControl cont = new PlayerControl(cycles[0], cycles[1]);
+		mapPanel = new MapPanel(gameSetup, gameMaster, cont);
+		FrameDriver.startGame(mapPanel);
 	}
 	
 	private void explosion(){
