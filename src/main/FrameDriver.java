@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 
 import menuscreen.PlayerOnePanel;
 import menuscreen.PlayerTwoPanel;
-import menuscreen.ReadyActionListener;
+import menuscreen.PlayerStatusListener;
 import menuscreen.WelcomePanel;
 import statistics.AllStatsPanel;
 import statistics.HeadToHeadPanel;
@@ -130,7 +130,7 @@ public class FrameDriver {
 	 */
 	public static void mainMenu(){
 		hideAll();
-		new ReadyActionListener(paneOne, paneTwo, true);
+		new PlayerStatusListener(paneOne, paneTwo, true);
 		paneOne.setVisible(true);
 		paneTwo.setVisible(true);
 		welcome.setVisible(true);

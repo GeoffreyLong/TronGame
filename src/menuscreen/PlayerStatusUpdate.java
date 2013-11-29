@@ -15,7 +15,7 @@ import user.Player;
  * 
  * Provides an AbstractAction listener for the key bindings
  */
-public class ReadyAction extends AbstractAction{
+public class PlayerStatusUpdate extends AbstractAction{
 	private PlayerPanel pane;
 	private Player player;
 	
@@ -23,7 +23,7 @@ public class ReadyAction extends AbstractAction{
 	 * 
 	 * @param pane  The PlayerPanel for this specific action
 	 */
-	public ReadyAction(PlayerPanel pane){
+	public PlayerStatusUpdate(PlayerPanel pane){
 		this.pane = pane;
 	}
 	
