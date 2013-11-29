@@ -179,15 +179,32 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 		}
 	}
 	
+	/**
+	 * Get the xOffset
+	 * @return  The x coordinate of the start of the map
+	 */
 	public static int getXOffset(){
 		return xOffset;
 	}
+	/**
+	 * Get the yOffset
+	 * @return  The y coordinate of the start of the map
+	 */
 	public static int getYOffset(){
 		return yOffset;
 	}
+	/**
+	 * Return the increment
+	 * @return increment  A set number of pixels which serves to 
+	 * set the size of the objects and the travel distance of the cycle
+	 */
 	public static int getIncrement(){
 		return increment;
 	}
+	
+	/**
+	 * Disable the minus and plus buttons
+	 */
 	public void disableButtons(){
 		minus.setEnabled(false);
 		plus.setEnabled(false);
@@ -196,7 +213,7 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	 * This method will get the KeyEvents from the KeyListener and will pass 
 	 * them to the PlayerControl to make the appropriate changes 
 	 * to the player heading.
-	 * @param e
+	 * @param e  KeyEvent
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -212,6 +229,9 @@ public class MapPanel extends JPanel implements KeyListener, ActionListener {
 	}
 
 	@Override
+	/**
+	 * Resize the map according to input from the plus and minus buttons
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("+")){
 			if (xSize*(increment+1)<= this.getWidth()*0.8 && 
