@@ -24,6 +24,24 @@ import styleelements.StyledButton;
 import user.LoginGUI;
 import net.miginfocom.swing.MigLayout;
 
+
+
+/*
+ * 
+ * @author Rishabh Tandon
+ * @version v1.0
+ * 
+ * This class basically handles the JPanel using in the main GUI for login.
+ * First a JLabels are created and then a JTextField and a JPasswordField is used to take in username and password of the player as 
+ * input respectively. A JButton for submit is then created and an Action Listener is registered for it. When the submit button is pressed, 
+ * an object 'call' of type DatabaseCalls is created which is then used to call the method login to check if the username-password
+ * combination is correct. If it is correct then the player can go ahead, if not then a pop up is shown to warn the user about the wrong 
+ * combination.
+ * 
+ */
+
+
+
 public class LoginGUI extends JPanel implements ActionListener{
 	
 	private JLabel title;
