@@ -17,17 +17,21 @@ public class ReadyActionListener implements ActionListener{
 	private PlayerPanel paneOne;
 	private PlayerPanel paneTwo;
 
-	public ReadyActionListener(PlayerPanel paneOne, PlayerPanel paneTwo){
+	public ReadyActionListener(PlayerPanel paneOne, PlayerPanel paneTwo, boolean startRightAway){
 		this.paneOne = paneOne;
 		this.paneTwo = paneTwo;
 		
-		keyBind();
-		setTimer();
+		if (startRightAway) {
+			keyBind();
+			setTimer();
+		}
 	}
+	
 	public void start(){
 		keyBind();
 		setTimer();
 	}
+	
 	private void keyBind(){
 		InputMap imOne = paneOne.inputMap;
 		ActionMap amOne = paneOne.getActionMap();

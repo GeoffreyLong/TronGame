@@ -16,7 +16,7 @@ import startscreen.ReadyActionListener;
 import startscreen.PlayerPanel;
 import user.Player;
 
-public class ReadyTimerListenerTest {
+public class ReadyTimerListenerTest{
 	private int playerOneNumber = 1;
 	private int playerTwoNumber = 2;
 	private JLabel playerOneReady;
@@ -32,7 +32,7 @@ public class ReadyTimerListenerTest {
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(ready);
 		playerPanelTwo.playerStatus.setText(ready);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(true, testListener.isReady());
 	}
@@ -45,7 +45,7 @@ public class ReadyTimerListenerTest {
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(ready);
 		playerPanelTwo.playerStatus.setText(unReady);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(false, testListener.isReady());
 	}
@@ -58,7 +58,7 @@ public class ReadyTimerListenerTest {
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(unReady);
 		playerPanelTwo.playerStatus.setText(ready);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(false, testListener.isReady());
 	}
@@ -71,7 +71,7 @@ public class ReadyTimerListenerTest {
 		PlayerPanel playerPanelTwo = new PlayerPanel(playerTwo);
 		playerPanelOne.playerStatus.setText(unReady);
 		playerPanelTwo.playerStatus.setText(unReady);
-		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo);
+		ReadyActionListener testListener = new ReadyActionListener(playerPanelOne, playerPanelTwo, false);
 		
 		assertEquals(false, testListener.isReady());
 	}

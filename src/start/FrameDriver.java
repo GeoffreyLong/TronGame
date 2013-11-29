@@ -95,7 +95,7 @@ public class FrameDriver {
 	}
 	public static void mainMenu(){
 		hideAll();
-		new ReadyActionListener(paneOne, paneTwo);
+		new ReadyActionListener(paneOne, paneTwo, true);
 		paneOne.setVisible(true);
 		paneTwo.setVisible(true);
 		welcome.setVisible(true);
