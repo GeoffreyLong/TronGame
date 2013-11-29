@@ -32,7 +32,7 @@ public class PlayerHistoryPanel extends JPanel{
             ResultSet result = stmt.executeQuery("SELECT opponent, numberGames, numberWins, numberLosses FROM authentication.playerHistory WHERE userName = '" + username + "'");
             ResultSetMetaData md = result.getMetaData();
              
-            Object[] columns = {"Player 1", "Player2", "Games", "Player 1 Wins", "Player 2 Wins"};
+            Object[] columns = {"Opponent", "Games", "Wins", "Losses"};
             
             Object[][] data = new Object[100][100];
             
