@@ -11,7 +11,7 @@ import main.Frame;
 /**
  * @author Geoffrey Long
  * 
- * Provides a way to extract the explosion effect from the game mechanics
+ * Provides a way to extract the explosion effect from the game mechanics.
  */
 public class ExplosionPanel extends JPanel{
 	Cycle[] cycles;
@@ -24,7 +24,7 @@ public class ExplosionPanel extends JPanel{
 	 * Create the panel and save the class variables.
 	 * 
 	 * @param cycles  The cycles that were used in the GamePanel
-	 * @param increment  The number of pixels which serves as a sizing reference
+	 * @param increment  A number of pixels which serves as a sizing reference
 	 */
 	public ExplosionPanel(Cycle[] cycles, int increment){
 		this.cycles = cycles;
@@ -54,7 +54,7 @@ public class ExplosionPanel extends JPanel{
 	}
 	@Override
 	/**
-	 * Paint in a randomized pattern of ovals
+	 * Paint in a randomized pattern of ovals at the location of the cycle crash.
 	 * 
 	 * @param g  Graphics
 	 */

@@ -71,6 +71,9 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 		initLayout();
 	}
 	
+	/**
+	 * Standard panel method to initialize the components
+	 */
 	private void initComponents(){
 		changeSize = new JLabel("Change the size of the map");
 		changeSize.setBounds(10,10,300,30);
@@ -96,6 +99,9 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 		playerTwoScore.setBounds(Frame.getXSize()/2 + 60,30,50,20);
 	}
 	
+	/**
+	 * Standard panel method to initialize the layout and add the components
+	 */
 	private void initLayout(){
 		xOffset = (Frame.getXSize() - xSize*increment) / 2;
 		yOffset = (Frame.getYSize() - ySize*increment) / 2;
@@ -117,9 +123,11 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
         this.requestFocusInWindow();
 	}
 	/**
-	 * This method is set to execute on a timer.  
-	 * It checks the user's cycle location to see if it is valid 
-	 * and increments the location according to the current cycle heading.
+	 * This method refreshes the map with the map object that is passed in  
+	 * it then repaints the panel with that map.  
+	 * It also requests focus so that the keyListener functions.
+	 * 
+	 * @param map  New iteration of the Map object
 	 */
 	public void updateMap(Tile[][] map){
 		this.map = map;
@@ -127,31 +135,10 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 		repaint();
 	}
 	
-	/**
-	 * This method will paint the current state of the game.  
-	 */
 
-	/*
-	 *This method is standard in swing graphics.  It is called every time 
-	 * the panel is considered to be invalidated.  This is when the window has been 
-	 * resized or a painting function has been called.  Traditionally this would 
-	 * include a call to super.paintComponents(g), however, by omitting this call
-	 * bounds for the paintComponents do not have to be established, thereby eliminating
-	 * the need to handle extra cases.  
-	 * 
-	 * This method has several cases: 
-	 * 1) When the game has not started yet: This is the case where the players 
-	 * have yet to pick their position, or when the panel has first been painted.  
-	 * The panel is painted white with black borders.  The player objects are also 
-	 * painted at this time.  
-	 * 2) When the cycles are both alive: The trails will be painted behind the 
-	 * cycles at each movement.  
-	 * 3) When one or more cycles are no longer alive: The explosion method will be called. 
-	 * This will paint an expanding explosion on the map at the crashed player's location.  
-	 * The explosion colors are generated using the getExplosionColors method.  
-	 * The colors will then be painted on the map at randomized locations near the 
-	 * crashed cycle location.  These colors will fill random ellipse sizes and shapes.
-	 * @param g
+	/**
+	 * This method will paint the current state of the game. 
+	 * @param g  Graphics 
 	 */
 	@Override
 	public void paintComponent(Graphics g){
@@ -181,14 +168,14 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 	
 	/**
 	 * Get the xOffset
-	 * @return  The x coordinate of the start of the map
+	 * @return  The x coordinate of the start of the map (upper left corner)
 	 */
 	public static int getXOffset(){
 		return xOffset;
 	}
 	/**
 	 * Get the yOffset
-	 * @return  The y coordinate of the start of the map
+	 * @return  The y coordinate of the start of the map (upper left corner)
 	 */
 	public static int getYOffset(){
 		return yOffset;

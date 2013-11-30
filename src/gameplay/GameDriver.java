@@ -48,6 +48,9 @@ public class GameDriver implements ActionListener{
 		start();
 	}
 	
+	/**
+	 * Initialize the Csycle objects and place their location on the Map object
+	 */
 	private void initCycles(){
 		Cycle cycleOne = new Cycle(mapper.getPOneXStart(), mapper.getPOneYStart(), 
 				null, true, gameSetup.getPlayerColor(1));
@@ -60,12 +63,19 @@ public class GameDriver implements ActionListener{
 		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
 	}
 	
+	/**
+	 * Start the game by adding the game panel
+	 */
 	private void start(){
 		PlayerControl cont = new PlayerControl(cycles[0], cycles[1]);
 		GamePanel = new GamePanel(gameSetup, gameMaster, cont);
 		FrameDriver.startGame(GamePanel);
 	}
 	
+	/**
+	 * Start a timer which will create an ExplosionPanel and regulate its 
+	 * behavior.  When the explosion stops, the timer will call gameEnd().
+	 */
 	private void explosion(){
 		explosionTimer = new Timer(33, new ActionListener(){
 			int explosionCount = 0;
@@ -89,6 +99,9 @@ public class GameDriver implements ActionListener{
 		explosionTimer.start();
 	}
 
+	/**
+	 * Pass the win condition to gameMaster
+	 */
 	private void gameEnd(){
 		explosionTimer.stop();
 		if (cycles[0].isAlive){
@@ -102,16 +115,16 @@ public class GameDriver implements ActionListener{
 		}
 	}
 
+
 	/**
 	 * This method will generate colors for the explosion.  
 	 * @return LinkedList<Color> colors
 	 */
-	
-	/* This is done by using randomizers 
-	 * and distance from the player location.  When the timer has timed for a specific 
-	 * amount of time the colors will shift to greyscale and will slowly fade out.  
-	 */
 	private static List<Color> getExplosionColors(int explosionCount){
+		/* This is done by using randomizers 
+		 * and distance from the player location.  When the timer has timed for a specific 
+		 * amount of time the colors will shift to greyscale and will slowly fade out.  
+		 */
 		LinkedList<Color> colors = new LinkedList<Color>();
 		for (int i = 0; i<explosionCount; i++){
 			int iOffset = Math.abs(i-explosionCount/2);
@@ -165,17 +178,36 @@ public class GameDriver implements ActionListener{
 	 * Updates the map on a timer
 	 */
 	public void actionPerformed(ActionEvent e) {
+		/*
+		 * This method is responsible for tracking the cycle positions, 
+		 * updating them, and then updating the map according to the 
+		 * new positions.  
+		 */
+		
+		//allows the setting of specific PONE or PTWO tiles
 		boolean cycleOne = true;
+		
+		//Iterate through the cycles
 		for (Cycle cycle : cycles){
+			//This if statement stops the movement of the cycle 
+			//if an initial heading has not been chosen
 			if (cycles[0].getCurHeading()!=null && cycles[1].getCurHeading()!=null){
+				
+				//Disable the + and - buttons on the GamePanel so the map
+				//is not resized mid round
 				GamePanel.disableButtons();
+				
+				//Increment the cycle position
 				cycle.travel();
+				
+				//If the cycle is dead then set the isAlive to false
 				if (map[cycle.getXPos()][cycle.getYPos()]==Tile.WALL || 
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PONE ||
 						map[cycle.getXPos()][cycle.getYPos()]==Tile.PTWO){
 					cycle.isAlive = false;
 				}
 				else{
+					//else set the tile to be the cycle tail
 					if (cycleOne){
 						map[cycle.getXPos()][cycle.getYPos()]=Tile.PONE;
 					}
@@ -186,9 +218,12 @@ public class GameDriver implements ActionListener{
 			}
 			cycleOne = false;
 		}
+		//If both cycles are still alive then update the map with the 
+		//new map version
 		if (cycles[0].isAlive && cycles[1].isAlive){
 			GamePanel.updateMap(map);
 		}
+		//Else stop the game and trigger and explosion
 		else{
 			gameMaster.timer.stop();
 			explosion();

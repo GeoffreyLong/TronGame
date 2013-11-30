@@ -22,7 +22,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main (String[] args){
-		//These Player objects are actualy public static, 
+		//These Player objects are actually public static, 
 		//they are updated throughout the game
 		playerOne = new NullPlayer(1);
 		playerTwo = new NullPlayer(2);

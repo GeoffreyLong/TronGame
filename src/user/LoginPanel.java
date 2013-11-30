@@ -178,7 +178,6 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 				String password = passwordField.getPassword().toString();
 				boolean pass = call.login(usernameField.getText(), passwordField.getText());
 				
-				System.out.println(pass);
 				
 				if(pass){
 					
