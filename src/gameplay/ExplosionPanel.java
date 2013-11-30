@@ -14,11 +14,11 @@ import main.Frame;
  * Provides a way to extract the explosion effect from the game mechanics.
  */
 public class ExplosionPanel extends JPanel{
-	Cycle[] cycles;
+	private Cycle[] cycles;
 	private int increment;
 	private int explosionCount;
 	private List<Color> explosionColors;
-	Cycle curCycle;
+	private Cycle curCycle;
 	
 	/**
 	 * Create the panel and save parameters as class variables.
