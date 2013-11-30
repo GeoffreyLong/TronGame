@@ -13,7 +13,10 @@ import javax.swing.JLabel;
 
 public class StyledLabel extends JLabel {
 /**
- * Initializes the JLabel with @param labelName and @param fontSize
+ * Initializes the JLabel, sets default colors and font.
+ * 
+ * @param labelName
+ * @param fontSize
  */
 	public StyledLabel(String labelName, int fontSize){
 		new JLabel();
