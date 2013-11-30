@@ -1,9 +1,10 @@
+package styleelements;
+
 /**
  * @author Aziz Hanna
  *
+ * This class allows for faster, simplified implementation of styling for JButtons.
  */
-
-package styleelements;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,7 +12,9 @@ import java.awt.Font;
 import javax.swing.JButton;
 
 public class StyledButton extends JButton {
-	
+	/**
+	 * Initialize the JButton with @param buttonName
+	 */
 	public StyledButton(String buttonName){
 		new JButton(buttonName);
 		setForeground(Color.black);

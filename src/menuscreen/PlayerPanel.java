@@ -18,6 +18,7 @@ import main.Frame;
 import main.FrameDriver;
 import net.miginfocom.swing.MigLayout;
 import styleelements.StyledButton;
+import styleelements.StyledLabel;
 import user.LoginPanel;
 import user.Player;
 
@@ -37,6 +38,8 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public JLabel playerLabel;
 	public JButton playerStats;
 	public JButton head2head;
+	public JLabel instructionsTwo;
+	public JLabel instructionsOne;
 	
 	private JPanel panel;
 	
@@ -61,16 +64,22 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
 		playerLabel.setForeground(new Color(142,229,238));
 		
+		instructionsOne = new StyledLabel("Press 'W' button when you are ready to go...", 16);
+		instructionsOne.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 16));
+
+
+		instructionsTwo = new StyledLabel("Press '\u2191' button when you are ready to go...", 16);
+		instructionsTwo.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 16));
+
+		
 		panel = new JPanel();
 		panel.setBackground(Color.black);
 
 		login = new StyledButton("Login");
-		login.setBounds(0, 0, 399, 50);
 		login.addActionListener(this);
 		login.setVisible(false);
 
 		logout = new StyledButton("Logout");
-		logout.setBounds(0, 0, 399, 50);
 		logout.addActionListener(this);
 		logout.setVisible(false);
 
@@ -89,6 +98,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		playerHistory.addActionListener(this);
 		
 		playerStatus = new JLabel("NOT READY");
+		playerStatus.setFont(new Font("Apple Color Emoji", Font.BOLD, 89));
 		playerStatus.setForeground(Color.RED);
 		playerStatus.setBackground(Color.DARK_GRAY);
 		
@@ -104,11 +114,14 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		
 		
 		if(player.getPlayerNumber() == 1){
-			add(playerLabel, "cell 0 0 3 1,alignx left");						
+			add(playerLabel, "cell 0 0 3 1,alignx left");
+			add(instructionsOne, "cell 0 1 2 1, alignx left");
 			add(panel, "cell 1 2,grow");			
 			panel.setLayout(null);
 			panel.add(login, "center");
+			login.setBounds(0, 0, 390, 50);
 			panel.add(logout, "center");
+			logout.setBounds(0, 0, 390, 50);
 			add(createAccount, "cell 1 3,alignx right,grow");
 			add(playerStats, "cell 1 4,alignx right,grow");
 			add(playerStatus, "cell 0 7 3 1,alignx center,aligny baseline");
@@ -120,10 +133,13 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		if(player.getPlayerNumber() == 2){
 			
 			add(playerLabel, "cell 0 0 3 1,alignx right");
+			add(instructionsTwo, "cell 0 1 3 1, alignx right");
 			add(panel, "cell 1 2,grow");
 			panel.setLayout(null);
 			panel.add(login, "center");
+			login.setBounds(0, 0, 376, 50);
 			panel.add(logout, "center");
+			logout.setBounds(0, 0, 376, 50);
 			add(createAccount, "cell 1 3,alignx left,growx,growy");
 			add(playerStats, "cell 1 4,alignx left,growx, growy");
 			add(playerStatus, "cell 0 7 3 1,alignx center,aligny baseline, shrinky");

@@ -12,10 +12,10 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import main.Frame;
+import styleelements.StyledLabel;
+import styleelements.StyledPanel;
 
 /**
  * @author Geoffrey Long
@@ -23,7 +23,7 @@ import main.Frame;
  * Provides the graphical representation of the state of the game, 
  * and provides the user the ability to interface with the game.
  */
-public class GamePanel extends JPanel implements KeyListener, ActionListener {
+public class GamePanel extends StyledPanel implements KeyListener, ActionListener {
 	private Tile[][] map;
 	private int xSize;
 	private int ySize;
@@ -69,7 +69,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 	 * Standard panel method to initialize the components
 	 */
 	private void initComponents(){
-		changeSize = new JLabel("Change the size of the map");
+		changeSize = new StyledLabel("Change the size of the map", 15);
 		changeSize.setBounds(10,10,300,30);
 		
 		plus = new JButton("+");
@@ -80,16 +80,16 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 		minus.setBounds(110,50,50,30);
 		minus.addActionListener(this);
 		
-		playerOneLabel = new JLabel("Player One Wins");
+		playerOneLabel = new StyledLabel("Player One Wins", 11);
 		playerOneLabel.setBounds(Frame.getXSize()/2 - 110,10,150,20);
 		
-		playerOneScore = new JLabel(Integer.toString(gameMaster.getPlayerOneWins()));
+		playerOneScore = new StyledLabel(Integer.toString(gameMaster.getPlayerOneWins()), 13);
 		playerOneScore.setBounds(Frame.getXSize()/2 - 60,30,50,20);
 		
-		playerTwoLabel = new JLabel("Player Two Wins");
+		playerTwoLabel = new StyledLabel("Player Two Wins", 11);
 		playerTwoLabel.setBounds(Frame.getXSize()/2 + 15,10,150,20);
 		
-		playerTwoScore = new JLabel(Integer.toString(gameMaster.getPlayerTwoWins()));
+		playerTwoScore = new StyledLabel(Integer.toString(gameMaster.getPlayerTwoWins()), 13);
 		playerTwoScore.setBounds(Frame.getXSize()/2 + 60,30,50,20);
 	}
 	

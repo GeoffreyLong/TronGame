@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-/*
+/**
  * 
  * @author Rishabh Tandon
  * @version v1.0
@@ -35,7 +35,7 @@ public class DatabaseCalls {
 	private Connection conn = null;
 	
 	
-	/*
+	/**
 	 * 
 	 * Constructor for class DatabaseCalls. 
 	 * Initializes the connection to the database and pops up an error message if unable to connect to the database
@@ -60,7 +60,7 @@ public class DatabaseCalls {
 	}
 	
 	
-	/*
+	/**
 	 * 
 	 * This method creates an account in the database by running an update statement on the login and allStats table.
 	 * The method uses Connection 'conn' to create a statement which runs the update statement on the tables. The statements use
@@ -107,7 +107,7 @@ public class DatabaseCalls {
 	}
 	
 	
-	/*
+	/**
 	 * 
 	 * This method checks if the user records exists in the table login. 
 	 * This information is used to proceed further with the game. The method uses the COnnection 'conn' to create a statement which runs 
@@ -155,7 +155,7 @@ public class DatabaseCalls {
 		
 	}
 	
-	/*
+	/**
 	 * 
 	 * This method pushes the statistics to the database. 
 	 * The method takes as input both usernames of the logged in players and their respective scores and stores them in the tables allStats

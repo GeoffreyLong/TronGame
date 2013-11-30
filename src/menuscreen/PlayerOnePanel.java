@@ -30,7 +30,7 @@ public class PlayerOnePanel extends PlayerPanel{
 	 * the location of the panel and the title label.
 	 */
 	public void setLoadout(){
-		setLocation(-1);
+		setLocation(0);
 		setLabel("PLAYER ONE");
 		if(player.getClass().getName().equals("user.NullPlayer")){
 			setNull();
