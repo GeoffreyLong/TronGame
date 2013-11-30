@@ -25,7 +25,7 @@ import user.Player;
 /**
  * @author Geoffrey Long
  * 
- * Provides the Start screen panel layout for the players
+ * Provides the main menu layout for the players
  */
 public class PlayerPanel extends JPanel implements ActionListener{
 	public Player player;
@@ -56,6 +56,9 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		this.conn = Connect.connect();
 	}
 	
+	/**
+	 * Standard Panel method to initialize all the components
+	 */
 	private void initComponents(){		
 		playerLabel = new JLabel();
 		playerLabel.setFont(new Font("Times", Font.BOLD, 37));
@@ -95,6 +98,9 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		inputMap = this.getInputMap(WHEN_IN_FOCUSED_WINDOW);
 	}
 	
+	/**
+	 * Standard Panel method to initialize the layout
+	 */
 	private void initLayout(){
 		setBorder(BorderFactory.createLineBorder(new Color(0xD4FFFF)));
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[50px][50px][50px][50px][50px]"));
@@ -131,10 +137,12 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	}
 
 	/**
-	 * Set the location of the panel
+	 * Set the x location of the panel
 	 * @param x  The x coordinate of the start of the panel
 	 */
 	public void setLocation(int x){
+		//Only need to set the X location as both 
+		//PlayerOnePanel and PlayerTwoPanel are the same size and y coordinate
 		setBounds(x, Frame.getYSize()/6, Frame.getXSize()/2, 5*Frame.getYSize()/6);
 	}
 	
@@ -180,6 +188,9 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	}
 	
 	@Override
+	/**
+	 * Respond to the actions caught by the ActionListener
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Login")){
 			FrameDriver.login(player);
