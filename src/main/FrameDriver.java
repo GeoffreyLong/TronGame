@@ -35,22 +35,25 @@ import user.Player;
  * of the frame.  Responsible for updating the state of the frame.
  */
 public class FrameDriver {
-	static Frame frame;
-	static WelcomePanel welcome;
-	static PlayerOnePanel paneOne;
-	static PlayerTwoPanel paneTwo;
-	static GameSetup setup;
-	static SetupPanel setupPanel;
-	static CreateUserPanel createOne;
-	static CreateUserPanel createTwo;
-	static LoginPanel loginOne;
-	static LoginPanel loginTwo;
-	static MapChooserPanel mapChooser;
-	static EndPanel endPanel;
+	private static Frame frame;
+	
+	private static WelcomePanel welcome;
+	private static PlayerOnePanel paneOne;
+	private static PlayerTwoPanel paneTwo;
+	private static CreateUserPanel createOne;
+	private static CreateUserPanel createTwo;
+	private static LoginPanel loginOne;
+	private static LoginPanel loginTwo;
+	
 	public static JFrame statsFrame;
 	public static JFrame historyFrame;
 	public static JFrame headToHead;
 	public static JFrame topTen;
+	
+	private static GameSetup setup;
+	private static SetupPanel setupPanel;
+	private static MapChooserPanel mapChooser;
+	private static EndPanel endPanel;
 	
 	/**
 	 * Instantiate the Frame
