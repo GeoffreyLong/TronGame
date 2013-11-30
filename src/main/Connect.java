@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
  
 
-/*
+/**
  * 
  * @author Rishabh Tandon
  * @version v1.0
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  
 public class Connect{
 	
-	/*
+	/**
 	 * 
 	 * This method is used to connect to the database from any other class.
 	 * Method uses the Oracle MySQL J Connector as driver provided by Oracle to connect to the database hosted on Amazon Web Services 
