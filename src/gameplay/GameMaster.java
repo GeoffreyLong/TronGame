@@ -11,7 +11,7 @@ import javax.swing.Timer;
  * 
  * Provides control of the high-level game functions.
  * These functions include 
- * initializing the MapPanel, setting the game difficulty, 
+ * initializing the GamePanel, setting the game difficulty, 
  * starting the game, running the game, and ending the game.
  */
 public class GameMaster {
@@ -28,8 +28,8 @@ public class GameMaster {
 	}
 	
 	/**
-	 * This method will start the game by updating the MapPanel and game state 
-	 * via the use of a timer.  
+	 * This method will start the game by creating and starting a timer 
+	 * which will update GameDriver and therefore the GamePanel and game state  
 	 */
 	public void gameStart(){
 		/*
@@ -49,43 +49,45 @@ public class GameMaster {
 	 * Changes the speed of the timer and therefore the difficulty of the game.
 	 */
 	public void changeDifficulty() {
+		//Use a switch on the game difficulty to set a 
+		//speed at which the gameMaster timer will time out
 		switch(gameSetup.getGameDifficulty()){
-		case(0):
-			gameSpeed = 200;
-			break;
-		case(1):
-			gameSpeed = 150;
-			break;
-		case(2):
-			gameSpeed = 100;
-			break;
-		case(3):
-			gameSpeed = 75;
-			break;
-		case(4):
-			gameSpeed = 50;
-			break;
-		case(5):
-			gameSpeed = 33;
-			break;
-		case(6):
-			gameSpeed = 25;
-			break;
-		case(7):
-			gameSpeed = 20;
-			break;
-		case(8):
-			gameSpeed = 15;
-			break;
-		case(9):
-			gameSpeed = 8;
-			break;
-		case(10):
-			gameSpeed = 3;
-			break;
-		default:
-			gameSpeed = 33;
-			break;
+			case(0):
+				gameSpeed = 200;
+				break;
+			case(1):
+				gameSpeed = 150;
+				break;
+			case(2):
+				gameSpeed = 100;
+				break;
+			case(3):
+				gameSpeed = 75;
+				break;
+			case(4):
+				gameSpeed = 50;
+				break;
+			case(5):
+				gameSpeed = 33;
+				break;
+			case(6):
+				gameSpeed = 25;
+				break;
+			case(7):
+				gameSpeed = 20;
+				break;
+			case(8):
+				gameSpeed = 15;
+				break;
+			case(9):
+				gameSpeed = 8;
+				break;
+			case(10):
+				gameSpeed = 3;
+				break;
+			default:
+				gameSpeed = 33;
+				break;
 		}
 	}
 	
@@ -98,6 +100,8 @@ public class GameMaster {
 	public void endGame(WinCondition winCond){
 		endGameConditions(winCond);
 		
+		//Play best 2 out of 3 so a player must win at least 2
+		//before a winner is declared
 		if (playerOneWins >= 2 || playerTwoWins >= 2){
 			EndGame endScreen = new EndGame(playerOneWins, playerTwoWins, gamesPlayed);
 			endScreen.initPanel();
