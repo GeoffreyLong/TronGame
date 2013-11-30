@@ -13,7 +13,9 @@ import javax.swing.JButton;
 
 public class StyledButton extends JButton {
 	/**
-	 * Initialize the JButton with @param buttonName
+	 * Initializes the JButton and sets the default color and default font.
+	 * 
+	 * @param buttonName
 	 */
 	public StyledButton(String buttonName){
 		new JButton(buttonName);
