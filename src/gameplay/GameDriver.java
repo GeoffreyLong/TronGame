@@ -28,7 +28,7 @@ public class GameDriver implements ActionListener{
 	private Map mapper;
 	private Tile[][] map;
 	private Cycle[] cycles;
-	private GamePanel GamePanel;
+	private GamePanel gamePanel;
 	private Timer explosionTimer;
 	
 	/**
@@ -68,8 +68,8 @@ public class GameDriver implements ActionListener{
 	 */
 	private void start(){
 		PlayerControl cont = new PlayerControl(cycles[0], cycles[1]);
-		GamePanel = new GamePanel(gameSetup, gameMaster, cont);
-		FrameDriver.startGame(GamePanel);
+		gamePanel = new GamePanel(gameSetup, gameMaster, cont);
+		FrameDriver.startGame(gamePanel);
 	}
 	
 	/**
@@ -195,7 +195,7 @@ public class GameDriver implements ActionListener{
 				
 				//Disable the + and - buttons on the GamePanel so the map
 				//is not resized mid round
-				GamePanel.disableButtons();
+				gamePanel.disableButtons();
 				
 				//Increment the cycle position
 				cycle.travel();
@@ -221,7 +221,7 @@ public class GameDriver implements ActionListener{
 		//If both cycles are still alive then update the map with the 
 		//new map version
 		if (cycles[0].isAlive && cycles[1].isAlive){
-			GamePanel.updateMap(map);
+			gamePanel.updateMap(map);
 		}
 		//Else stop the game and trigger and explosion
 		else{

@@ -160,8 +160,6 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 		if(e.getSource() == login){
 			
 			if(this.player.getPlayerNumber() == 1){
@@ -175,7 +173,6 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 			if((this.player.getPlayerNumber() == 1 && !player1.equals(player2)) || (this.player.getPlayerNumber() == 2 && !player2.equals(player1))){
 				DatabaseCalls call = new DatabaseCalls();
 				
-				String password = passwordField.getPassword().toString();
 				boolean pass = call.login(usernameField.getText(), passwordField.getText());
 				
 				

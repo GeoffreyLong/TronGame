@@ -2,7 +2,6 @@ package statistics;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -78,7 +77,6 @@ public class AllStatsPanel extends JPanel{
 			
             	Statement stmt = conn.createStatement();  
         		ResultSet result = stmt.executeQuery("SELECT @rank := @rank + 1 AS Rank, userName, totalScore, numberWins, numberLosses FROM authentication.allStats ORDER BY totalScore DESC");
-          		ResultSetMetaData md = result.getMetaData();
             
          		Object[] columns = {"Rank", "Username", "Total Score", "Number of Wins", "Number of Losses"};
 

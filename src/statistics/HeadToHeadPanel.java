@@ -2,7 +2,6 @@ package statistics;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -80,7 +79,6 @@ public class HeadToHeadPanel extends JPanel{
 		try{  
             Statement stmt = conn.createStatement();  
             ResultSet result = stmt.executeQuery("SELECT userName, opponent, numberGames, numberWins, numberLosses FROM authentication.playerHistory WHERE userName = '" + username1 + "' AND opponent = '" + username2 + "'");
-            ResultSetMetaData md = result.getMetaData();
              
             Object[] columns = {"Player 1", "Player2", "Games", "Player 1 wins", "Player 2 wins"};
             

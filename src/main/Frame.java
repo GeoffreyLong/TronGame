@@ -3,7 +3,6 @@ package main;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  * @author Geoffrey Long
