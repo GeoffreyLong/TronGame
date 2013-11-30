@@ -1,5 +1,7 @@
 package menuscreen;
 
+import java.awt.Color;
+
 import main.Frame;
 import user.NullPlayer;
 import user.Player;
@@ -43,6 +45,10 @@ public class PlayerTwoPanel extends PlayerPanel{
 	 * Sets the panel setup for a null player (not logged in)
 	 */
 	public void setNull(){
+		//Reset the playerStatus label
+		this.playerStatus.setText("NOT READY");
+		this.playerStatus.setForeground(Color.RED);
+		
 		setLabel("PLAYER TWO");
 		login.setVisible(true);
 		playerStats.setVisible(true);

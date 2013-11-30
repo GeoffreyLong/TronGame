@@ -48,7 +48,7 @@ public class PlayerStatusUpdate extends AbstractAction{
 		if (!FrameDriver.getLoginVisibility() && !FrameDriver.getCreateVisibility()){
 	    	if (pane.playerStatus.getText().equals("NOT READY")){
 	    		if (!player.getClass().getName().equals("user.NullPlayer")){
-		    		pane.playerStatus.setText("READY");
+	    			pane.playerStatus.setText("READY");
 		    		pane.playerStatus.setForeground(Color.GREEN);
 	    		}
 	    	}
