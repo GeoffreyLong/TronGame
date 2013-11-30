@@ -46,7 +46,7 @@ public class FrameDriver {
 	static LoginPanel loginOne;
 	static LoginPanel loginTwo;
 	static MapChooserPanel mapChooser;
-	static EndPanel endScreen;
+	static EndPanel endPanel;
 	public static PlayerOnePanel pane1;
 	public static PlayerTwoPanel pane2;
 	
@@ -299,7 +299,7 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Hide everything but the game setup panel
+	 * Show the SetupPanel and remove all statistic Frames
 	 */
 	public static void startGameSetup(){
 		hideAll();
@@ -328,7 +328,7 @@ public class FrameDriver {
 	 * @param GamePanel  The GUI for the actual Light Cycle gameplay
 	 */
 	public static void startGame(GamePanel GamePanel){
-	    FrameDriver.hideAll();
+	    hideAll();
 	    frame.add(GamePanel);
 	    frame.validate();
 	    frame.repaint();
@@ -346,7 +346,7 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Ends the game by setting the EndScreen
+	 * Hide all panels, show the EndPanel 
 	 * 
 	 * @param pOneWins  Number of player one's wins during that round
 	 * @param pTwoWins  Number of player two's wins during that round
@@ -355,10 +355,10 @@ public class FrameDriver {
 	public static void endTheGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
 		setup.resetMap();
-		endScreen = new EndPanel(pOneWins, pTwoWins, gamesPlayed);
-		endScreen.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
-		frame.add(endScreen);
-		endScreen.setVisible(true);
+		endPanel = new EndPanel(pOneWins, pTwoWins, gamesPlayed);
+		endPanel.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
+		frame.add(endPanel);
+		endPanel.setVisible(true);
 	    frame.validate();
 	    frame.repaint();
 	}
