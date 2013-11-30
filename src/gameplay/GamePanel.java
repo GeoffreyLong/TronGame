@@ -24,25 +24,30 @@ import styleelements.StyledPanel;
  * and provides the user the ability to interface with the game.
  */
 public class GamePanel extends StyledPanel implements KeyListener, ActionListener {
+	private GameMaster gameMaster;
+	private Map mapper;
+	private GameSetup gameSetup;
 	private Tile[][] map;
+	
 	private int xSize;
 	private int ySize;
-	PlayerControl cont;
-	Cycle[] cycles;
 	private static int xOffset;
 	private static int yOffset;
+	
+	private PlayerControl cont;
+
+	private static int increment;
+	private boolean isExplosion = false;
+	
 	private JLabel changeSize;
 	private JButton minus;
 	private JButton plus;
-	private Map mapper;
-	private GameSetup gameSetup;
-	private static int increment;
-	private boolean isExplosion = false;
+	
 	private JLabel playerOneLabel;
 	private JLabel playerTwoLabel;
 	private JLabel playerOneScore;
 	private JLabel playerTwoScore;
-	private GameMaster gameMaster;
+
 	
 	/**
 	 * Instantiate all the class variables that are necessary for game function.  
