@@ -59,6 +59,7 @@ public class GamePanel extends StyledPanel implements KeyListener, ActionListene
 		
 		this.gameMaster = gameMaster;
 		
+		//Increment is what the size of each time is modelled after
 		increment = gameSetup.getIncrement();
 		
 		initComponents();
@@ -137,7 +138,11 @@ public class GamePanel extends StyledPanel implements KeyListener, ActionListene
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		
+		//If there is an explosion don't repaint the map
 		if (!isExplosion){
+			//Iterate through the map object and paint the corresponding tiles 
+			//the correct color
 			for (int i=0; i<xSize; i++){
 				for (int j=0; j<ySize; j++){
 					switch(map[i][j]){
@@ -215,12 +220,15 @@ public class GamePanel extends StyledPanel implements KeyListener, ActionListene
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("+")){
+			//If the map can get larger then enlarge the map by increasing the 
+			//increment.  Also enable the minus to ensure it is not disabled
 			if (xSize*(increment+1)<= this.getWidth()*0.8 && 
 					ySize*(increment+1)<= this.getHeight()*0.8){
 				increment++;
 				minus.setEnabled(true);
 				gameSetup.setIncrement(increment);
 			}
+			//If the map is as large as will fit on the frame then stop updating
 			else{
 				plus.setEnabled(false);
 			}
@@ -229,11 +237,17 @@ public class GamePanel extends StyledPanel implements KeyListener, ActionListene
 			repaint();
 		}
 		if (e.getActionCommand().equals("-")){
+			//If the increment is greater than 1 then it can get smaller
+			//Allow the user to decrement the increment
+			//Ensure that the plus is enabled when this happens as the map
+			//Can get bigger
 			if (increment>1){
 				increment --;
 				plus.setEnabled(true);
 				gameSetup.setIncrement(increment);
 			}
+			//If the increment is 1 then we don't want to make it 0 or else
+			//The map will disappear, so disable the minus
 			else{
 				minus.setEnabled(false);
 			}
