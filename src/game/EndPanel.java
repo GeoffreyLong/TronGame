@@ -1,5 +1,12 @@
 /**
- * @author: Rishabh Tandon 
+ * 
+ * This class is an extension of Jpanel.  It will output all the data regarding the game statistics including player wins, 
+ * who won, and the number of games played.  It will allow the users to replay the game (which sends them to the SetupPanel 
+ * already populated with the previous game settings), return to the Main Menu, view the latest top ten or see the Head to Head history.
+ * 
+ * 
+ * @author Rishabh Tandon 
+ * @version v1.0
  *
  */
 
@@ -25,6 +32,12 @@ import user.Player;
 
 
 public class EndPanel extends JPanel implements ActionListener{
+	
+	/*
+	 * 
+	 * Everything initialized
+	 * 
+	 */
     
     private JLabel title;
     private JButton replay;
@@ -37,6 +50,19 @@ public class EndPanel extends JPanel implements ActionListener{
     private JButton topTen;
     private JButton mainMenu;
     
+    /**
+     * 
+     * Constructor for the class,
+     * This initializes the components and the layout of the JPanel and sets the player 1 wins and player 2 wins
+     * 
+     * 
+     * @param playerOneWins
+     * @param playerTwoWins
+     * @param gamesPlayed
+     * 
+     * @return 
+     */
+    
     public EndPanel(int playerOneWins, int playerTwoWins, int gamesPlayed){
     	this.pOneWins = playerOneWins;
     	this.pTwoWins = playerTwoWins;
@@ -44,6 +70,14 @@ public class EndPanel extends JPanel implements ActionListener{
     	initComponents();
     	initLayout();
     }
+    
+    /**
+     * This method initializes the components of the JPanel.
+     * All components have already been initialized, and this method initializes them, sets their bounds and their font
+     * 
+     * @return 
+     * 
+     */
     
     public void initComponents(){
     	title = new JLabel("Thank you for playing Tron");
@@ -75,6 +109,16 @@ public class EndPanel extends JPanel implements ActionListener{
     	addWinLogic();
     }
     
+    
+    /**
+     * 
+     * This method adds the win logic to the class.
+     * 
+     * @return
+     * 
+     * 
+     */
+    
     public void addWinLogic(){
     	if (pOneWins > pTwoWins){
     		winner.setBounds(360, 200, 300, 40);
@@ -102,6 +146,16 @@ public class EndPanel extends JPanel implements ActionListener{
     	add(winner);
     }
     
+    
+    /**
+     * 
+     * This method initializes the layout of the JPanel.
+     * All the components have been initialized and set, all this method does is add them to the layout and the layout is set as null
+     * 
+     * 
+     * @return
+     * 
+     */
     public void initLayout(){
     	setLayout(null);
     	add(title);
@@ -113,10 +167,30 @@ public class EndPanel extends JPanel implements ActionListener{
     	add(topTen);
     }
     
+    /**
+     * This method gets the preferred size
+     * 
+     * @return Dimension
+     * 
+     */
+    
     public Dimension getPreferredSize() {
     	return new Dimension(main.Frame.getXSize(),main.Frame.getYSize());
     }
-	
+    
+    /*
+     * The ActionListener for the button clicks.
+     *  ---> The replay button, replays the game
+     *  ---> The main menu button navigates back to the main menu
+     *  ---> The top ten button shows the latest top ten
+     *  ---> The match up stats buttons shows the latest head to head scores
+     *  
+     * This also takes care that only one window of each type can be opened at a time. A for loop is run to get a list of all open windows
+     *  
+     * (non-Javadoc)
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 	    // TODO Auto-generated method stub
