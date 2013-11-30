@@ -19,7 +19,7 @@ public class WelcomePanel extends JPanel {
 	private JLabel instructions;
 	
 	/**
-	 * Initialize the labels
+	 * Initialize the panel with the appropriate labels
 	 */
 	public WelcomePanel(){
 		initComponents();
