@@ -29,11 +29,14 @@ public class GameMaster {
 	
 	/**
 	 * This method will start the game by updating the MapPanel and game state 
-	 * via the use of a timer.  The speed at which the timer times out, and 
-	 * therefore the speed of the gameplay is modulated by the gameDifficulty 
-	 * attribute of GameSetup.  
+	 * via the use of a timer.  
 	 */
 	public void gameStart(){
+		/*
+		 * The speed at which the timer times out, and 
+		 * therefore the speed of the gameplay is modulated by the gameDifficulty 
+		 * attribute of GameSetup.  
+		 */
 		gameSpeed = 33;
 		
 		changeDifficulty();
@@ -88,7 +91,9 @@ public class GameMaster {
 	
 	/** 
 	 * This method stops the timer which stops player movement 
-	 * and therefore the game
+	 * and therefore the game.
+	 * 
+	 * @param winCond  The end result of the game, either TIE, PONEWIN, or PTWOWIN
 	 */
 	public void endGame(WinCondition winCond){
 		endGameConditions(winCond);
