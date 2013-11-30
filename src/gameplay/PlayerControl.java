@@ -57,12 +57,20 @@ public class PlayerControl {
                 }
         }
         
-        // added to get cycleOne, Ashley
+        /**
+         * Gets the cycleOne int parameter
+         * 
+         * @return cycleOne
+         */
         public Cycle getCycleOne() {
         	return cycleOne;
         }
         
-        // added to get cycleTwo, Ashley
+        /**
+         * Gets the cycleTwo int parameter
+         * 
+         * @return cycleTwo
+         */
         public Cycle getCycleTwo() {
         	return cycleTwo;
         }
