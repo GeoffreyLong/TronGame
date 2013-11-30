@@ -103,7 +103,12 @@ public class GameMaster {
 		}
 	}
 
-	// Added by Ashley to seperate the logic from game initializations
+	/**
+	 * This method takes in a win condition and then increments the games played
+	 * and player wins according to the condition
+	 * 
+	 * @param winCond
+	 */
 	public void endGameConditions(WinCondition winCond) {
 		gamesPlayed++;
 		switch(winCond){
@@ -118,22 +123,38 @@ public class GameMaster {
 		}
 	}
 	
-	// getter for playerOneWins, Ashley testing
+	/**
+	 * Get the number of player one wins
+	 * 
+	 * @return playerOneWins
+	 */
 	public int getPlayerOneWins() {
 		return playerOneWins;
 	}
 	
-	// getter for playerTwoWins, Ashley testing
+	/**
+	 * Get the number of player two wins
+	 * 
+	 * @return playerTwoWins
+	 */
 	public int getPlayerTwoWins() {
 		return playerTwoWins;
 	}
 	
-	// getter for gamesPlayed, Ashley testing
+	/**
+	 * Get the number of games played
+	 * 
+	 * @return gamesPlayed
+	 */
 	public int getGamesPlayed() {
 		return gamesPlayed;
 	}
 	
-	// getter for the gameSpeed
+	/**
+	 * Get the game speed
+	 * 
+	 * @return gameSpeed
+	 */
 	public int getGameSpeed() {
 		return gameSpeed;
 	}
