@@ -3,7 +3,7 @@ package user;
 /**
  * @author Geoffrey Long
  * 
- * Provides an object for storing user information such as username, and player number
+ * Provides an object for storing user information such as username and player number
  */
 public class Player {
 	private int playerNumber;
