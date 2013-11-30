@@ -49,6 +49,10 @@ public class FrameDriver {
 	static EndPanel endPanel;
 	public static PlayerOnePanel pane1;
 	public static PlayerTwoPanel pane2;
+	public static JFrame statsFrame;
+	public static JFrame historyFrame;
+	public static JFrame headToHead;
+	public static JFrame topTen;
 	
 	/**
 	 * Instantiate the Frame
@@ -243,18 +247,21 @@ public class FrameDriver {
 		return false;
 	}
 	
+	
 	/**
 	 * 
 	 */
 	public static void Statistics(){
 		Connection conn = Connect.connect();
 		
-		JFrame newFrame = new JFrame("View All Statistics");
+		statsFrame = new JFrame("View All Statistics");
 		JScrollPane scrollPane = new JScrollPane(new AllStatsPanel(conn));  
-		newFrame.getContentPane().add(scrollPane);  
-		newFrame.setSize(500, 480);  
-		newFrame.setVisible(true); 
+		statsFrame.getContentPane().add(scrollPane);  
+		statsFrame.setSize(500, 480);  
+		statsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		statsFrame.setVisible(true); 
 	}
+	
 	
 	/**
 	 * 
@@ -263,12 +270,14 @@ public class FrameDriver {
 	public static void playerHistory(String username){
 		Connection conn = Connect.connect();
 		
-		JFrame newFrame = new JFrame("View Player History");
+		historyFrame = new JFrame("View Player History");
 		JScrollPane scrollPane = new JScrollPane(new PlayerHistoryPanel(conn, username));  
-		newFrame.getContentPane().add(scrollPane);  
-		newFrame.setSize(500, 480);  
-		newFrame.setVisible(true);
+		historyFrame.getContentPane().add(scrollPane);  
+		historyFrame.setSize(500, 480);
+		historyFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		historyFrame.setVisible(true);
 	}
+	
 	
 	/**
 	 * 
@@ -278,12 +287,14 @@ public class FrameDriver {
 	public static void HeadToHead(String username1, String username2){
 		Connection conn = Connect.connect();
 		
-		JFrame newFrame = new JFrame("View Head To Head Score");
+		headToHead = new JFrame("View Head To Head Score");
 		JScrollPane scrollPane = new JScrollPane(new HeadToHeadPanel(conn, username1, username2));  
-		newFrame.getContentPane().add(scrollPane);  
-		newFrame.setSize(500, 480);  
-		newFrame.setVisible(true);
+		headToHead.getContentPane().add(scrollPane);  
+		headToHead.setSize(500, 480); 
+		headToHead.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		headToHead.setVisible(true);
 	}
+	
 	
 	/**
 	 * 
@@ -291,12 +302,14 @@ public class FrameDriver {
 	public static void TopTen(){
 		Connection conn = Connect.connect();
 		
-		JFrame newFrame = new JFrame("View Top Ten");
+		topTen = new JFrame("View Top Ten");
 		JScrollPane scrollPane = new JScrollPane(new TopTenPanel(conn));  
-        	newFrame.getContentPane().add(scrollPane);  
-        	newFrame.setSize(500, 480);  
-        	newFrame.setVisible(true);
+        topTen.getContentPane().add(scrollPane);  
+        topTen.setSize(500, 480); 
+        topTen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        topTen.setVisible(true);
 	}
+	
 	
 	/**
 	 * Show the SetupPanel and remove all statistic Frames
