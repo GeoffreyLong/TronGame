@@ -25,7 +25,8 @@ public class PlayerStatusListener implements ActionListener{
 
 	
 	/**
-	 * Add the key bindings and start the timer.
+	 * If startRightAway is true then the key bindings and start the timer, 
+	 * else simply add the PlayerPanels as class variables.
 	 * 
 	 * 
 	 * @param paneOne  A PlayerOnePanel
@@ -57,18 +58,22 @@ public class PlayerStatusListener implements ActionListener{
 		InputMap imOne = paneOne.inputMap;
 		ActionMap amOne = paneOne.getActionMap();
 		
+		//Bind 'w' to the event in the actionPerfomed method 
+		//of paneOne's PlayerStatusUpdate
 		imOne.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "w");
 		amOne.put("w", new PlayerStatusUpdate(paneOne));
 
 		InputMap imTwo = paneTwo.inputMap;
 		ActionMap amTwo = paneTwo.getActionMap();
 		
+		//Bind the up arrow key to the event in the actionPerfomed method 
+		//of paneTwo's PlayerStatusUpdate
 		imTwo.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "up");
 		amTwo.put("up", new PlayerStatusUpdate(paneTwo));
 	}
 	
 	/**
-	 * Make this class a timer
+	 * Make this class a timer, trigger actionPerformed on each timeout
 	 */
 	private void setTimer(){
 		timer = new Timer(1000, this);
@@ -99,6 +104,9 @@ public class PlayerStatusListener implements ActionListener{
 	 */
 	public boolean isReady(){
     	boolean isReady = false;
+    	//Check if the labels match up and if one of the labels is "READY"
+    	//Don't need to check both labels because if one is "READY" and they are 
+    	//equal then both are "READY"
     	if (paneOne.playerStatus.getText().equals(paneTwo.playerStatus.getText()) && paneOne.playerStatus.getText().equals("READY")){
     		isReady = true;
     	}
