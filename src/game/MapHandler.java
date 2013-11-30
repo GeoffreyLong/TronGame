@@ -9,6 +9,8 @@ package game;
  */
 public class MapHandler {
 	public static Map map;
+	
+	//Array makes the maps iterable for the MapChooserPanel method initButtons
 	Map[] maps = new Map[3];
 	
 	/**
