@@ -21,7 +21,7 @@ public class ExplosionPanel extends JPanel{
 	Cycle curCycle;
 	
 	/**
-	 * Create the panel and save the class variables.
+	 * Create the panel and save parameters as class variables.
 	 * 
 	 * @param cycles  The cycles that were used in the GamePanel
 	 * @param increment  A number of pixels which serves as a sizing reference
