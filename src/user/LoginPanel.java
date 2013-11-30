@@ -4,24 +4,21 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import styleelements.StyledButton;
-import main.Connect;
 import main.DatabaseCalls;
 import main.FrameDriver;
 import main.Main;
 import net.miginfocom.swing.MigLayout;
+import styleelements.StyledButton;
+import styleelements.StyledLabel;
+import styleelements.StyledPanel;
 
 
 
@@ -41,7 +38,7 @@ import net.miginfocom.swing.MigLayout;
 
 
 
-public class LoginPanel extends JPanel implements ActionListener{
+public class LoginPanel extends StyledPanel implements ActionListener{
 	
 	
 	/**
@@ -98,7 +95,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 	
 	private void initComponents(){
 
-		title = new JLabel("Login to your account");
+		title = new StyledLabel("Login to your account", 18);
 		title.setFont(new Font("Times", Font.BOLD, 37));
 		title.setForeground(new Color(142,229,238));
 		
@@ -108,13 +105,13 @@ public class LoginPanel extends JPanel implements ActionListener{
 		login = new StyledButton("Login");
 		login.addActionListener(this);
 		
-		username = new JLabel("Username : ");
+		username = new StyledLabel("Username : ", 18);
 		username.setFont(new Font("Times", Font.BOLD, 18));
 		username.setForeground(new Color(142,229,238));
 
 		usernameField = new JTextField(40);
 
-		password = new JLabel("Password : ");
+		password = new StyledLabel("Password : ", 18);
 		password.setFont(new Font("Times", Font.BOLD, 18));
 		password.setForeground(new Color(142,229,238));
 

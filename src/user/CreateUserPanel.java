@@ -4,22 +4,20 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import styleelements.StyledButton;
-import main.Connect;
 import main.DatabaseCalls;
 import main.FrameDriver;
 import net.miginfocom.swing.MigLayout;
+import styleelements.StyledButton;
+import styleelements.StyledLabel;
+import styleelements.StyledPanel;
 
 
 /**
@@ -37,7 +35,7 @@ import net.miginfocom.swing.MigLayout;
  */
 
 
-public class CreateUserPanel extends JPanel implements ActionListener{
+public class CreateUserPanel extends StyledPanel implements ActionListener{
   
 	
 
@@ -93,9 +91,7 @@ public class CreateUserPanel extends JPanel implements ActionListener{
 	
 	
 	private void initComponents(){
-		title = new JLabel("Create your account");
-		title.setFont(new Font("Times", Font.BOLD, 37));
-		title.setForeground(new Color(142,229,238));
+		title = new StyledLabel("Create your account", 37);
 		
 		back = new StyledButton("Back");
 		back.addActionListener(this);
@@ -103,22 +99,14 @@ public class CreateUserPanel extends JPanel implements ActionListener{
 		createAccount = new StyledButton("Create Account");
 		createAccount.addActionListener(this);	
 				
-		username = new JLabel("Username : ");
-		username.setFont(new Font("Times", Font.BOLD, 18));
-		username.setForeground(new Color(142,229,238));
+		username = new StyledLabel("Username : ", 18);
 		usernameField = new JTextField(40);
 
 		
-		password = new JLabel("Password : ");
-		password.setFont(new Font("Times", Font.BOLD, 18));
-		password.setForeground(new Color(142,229,238));
-
+		password = new StyledLabel("Password : ", 18);
 		passwordField = new JPasswordField(40);
 		
-		rePassword = new JLabel("Verify Password : ");
-		rePassword.setFont(new Font("Times", Font.BOLD, 18));
-		rePassword.setForeground(new Color(142,229,238));
-
+		rePassword = new StyledLabel("Verify Password : ",18);
 		rePasswordField = new JPasswordField(40);
 	}
 	
