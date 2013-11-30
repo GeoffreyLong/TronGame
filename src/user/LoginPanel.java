@@ -78,7 +78,9 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 	}
 	
 	
-	
+	public void setPlayer(Player player){
+		this.player = player;
+	}
 	/**
 	 * 
 	 * This method initializes the components of the JPanel used in the main GUI.
@@ -205,8 +207,15 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 			}
 			
 			else{
-				JFrame frame = new JFrame("Error");
-				JOptionPane.showMessageDialog(frame, "Player already logged in !");
+				System.out.println(player.getUserName());
+				if (player.getClass().getName().equals("user.NullPlayer")){
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "Please enter a username !");
+				}
+				else{
+					JFrame frame = new JFrame("Error");
+					JOptionPane.showMessageDialog(frame, "Player already logged in !");
+				}
 			}
 		}
 		

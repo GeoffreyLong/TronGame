@@ -43,7 +43,7 @@ public class PlayerOnePanel extends PlayerPanel{
 	/**
 	 * Sets the panel setup for a null player (not logged in)
 	 */
-	public void setNull(){
+	private void setNull(){
 		//Reset the playerStatus label
 		this.playerStatus.setText("NOT READY");
 		this.playerStatus.setForeground(Color.RED);
@@ -58,7 +58,7 @@ public class PlayerOnePanel extends PlayerPanel{
 	/**
 	 * Sets the panel of a non-null player (logged in)
 	 */
-	public void setUser(){
+	private void setUser(){
 		setLabel(player.getUserName());
 		login.setVisible(false);
 		createAccount.setVisible(false);

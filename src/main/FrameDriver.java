@@ -195,13 +195,15 @@ public class FrameDriver {
 	public static void logout(Player player){
 		if(player.getPlayerNumber() == 1){
 			Main.playerOne = new NullPlayer(1);
+			paneOne.setUser(Main.playerOne);
+			loginOne.setPlayer(Main.playerOne);
 			LoginPanel.player1 = "";
-			paneOne.setNull();
 		}
 		else{
 			Main.playerTwo = new NullPlayer(2);
+			paneOne.setUser(Main.playerTwo);
+			loginTwo.setPlayer(Main.playerTwo);
 			LoginPanel.player2 = "";
-			paneTwo.setNull();
 		}
 	}
 	
