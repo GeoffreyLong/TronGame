@@ -49,7 +49,7 @@ public class GameDriver implements ActionListener{
 	}
 	
 	/**
-	 * Initialize the Csycle objects and place their location on the Map object
+	 * Initialize the Cycle objects and place their location on the Map object
 	 */
 	private void initCycles(){
 		Cycle cycleOne = new Cycle(mapper.getPOneXStart(), mapper.getPOneYStart(), 
@@ -57,8 +57,10 @@ public class GameDriver implements ActionListener{
 		Cycle cycleTwo = new Cycle(mapper.getPTwoXStart(), mapper.getPTwoYStart(), 
 				null, true, gameSetup.getPlayerColor(2));
 		
+		//Add the cycles into an array so that they can be iterated through
 		cycles = new Cycle[]{cycleOne, cycleTwo};
 
+		//Set the location of the cycles on the map
 		this.map[cycleOne.getXPos()][cycleOne.getYPos()] = Tile.PONE;
 		this.map[cycleTwo.getXPos()][cycleTwo.getYPos()] = Tile.PTWO;
 	}
@@ -67,6 +69,7 @@ public class GameDriver implements ActionListener{
 	 * Start the game by adding the game panel
 	 */
 	private void start(){
+		//Also add a PlayerControl to keep track of player movements
 		PlayerControl cont = new PlayerControl(cycles[0], cycles[1]);
 		gamePanel = new GamePanel(gameSetup, gameMaster, cont);
 		FrameDriver.startGame(gamePanel);
@@ -82,15 +85,17 @@ public class GameDriver implements ActionListener{
 			ExplosionPanel exp = new ExplosionPanel(cycles, GamePanel.getIncrement());
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//Instantiate the explosion panel
 				if (explosionCount == 0){
 					FrameDriver.explosion(exp);
 				}
-				
+				//Will paint the explosion until the count reaches 80
 				if(explosionCount<80){
 					explosionCount++;
 					exp.updatePanel(explosionCount, getExplosionColors(explosionCount));
 				}
 				else{
+					//Call gameEnd and remove the explosion panel
 					gameEnd();
 					FrameDriver.removePanel(exp);
 				}
@@ -103,7 +108,10 @@ public class GameDriver implements ActionListener{
 	 * Pass the win condition to gameMaster
 	 */
 	private void gameEnd(){
+		//Stop the explosionTimer
 		explosionTimer.stop();
+		
+		//Logic to determine the win condition
 		if (cycles[0].isAlive){
 			gameMaster.endGame(WinCondition.PONE_WIN);
 		}
@@ -127,12 +135,26 @@ public class GameDriver implements ActionListener{
 		 */
 		LinkedList<Color> colors = new LinkedList<Color>();
 		for (int i = 0; i<explosionCount; i++){
+			//Get the offset from the center of the explosion in the x direction
 			int iOffset = Math.abs(i-explosionCount/2);
 			for (int j=0; j<explosionCount; j++){
+				//Get the offset from the center of the explosion in the y direction
 				int jOffset = Math.abs(j-explosionCount/2);
+				
+				//Set color as an int between 0 and 20
 				int color = (int) (20*Math.random());
-				if (!((iOffset+jOffset)>explosionCount/5)){
+				
+				//if offset of both of the position of the pointer to the array
+				//is less than explosionCount/5 then run this
+				//this is to paint near the center of the explosion only
+				if ((iOffset+jOffset)<explosionCount/5){
+					
+					//If the explosionCount is less than 30
+					//Then paint reds and blacks and grays and oranges
 					if (explosionCount < 30){
+						//Randomize the color choice with mostly red and black
+						//Secondary is orange and gray
+						//Red and orange are near the center, grey and black are near the outside
 						if (color<15){
 							if (iOffset > explosionCount/6 || jOffset > explosionCount/6){
 								colors.add(Color.BLACK);
@@ -150,7 +172,11 @@ public class GameDriver implements ActionListener{
 							}
 						}
 					}
+					//Else only paint gray scales if the count is greater than 30
 					else{
+						//Set the hexDiffs as the maximum timer - the count - 20
+						//hexDiffs will be great to start out then will fade out
+						//So the color will be dark to start then will fade out to white
 						int hexDiffs = 62-explosionCount;
 						if(hexDiffs<=0){
 							hexDiffs = 0;
@@ -160,11 +186,19 @@ public class GameDriver implements ActionListener{
 						}
 						hexDiffs = (int) (Math.random()*hexDiffs);
 						int hex = 0;
+						
+						//Set the hex to the hexDiffs in base 16
+						//Repeated 6 times to get the structure of 0xYYYYYY
 						for (int k=0; k<6; k++){
 							hex += (int) (hexDiffs*Math.pow(16, k));
 						}
+						//Invert as the color will be the opposite of what we want
 						hex = ~hex;
+						
+						//Convert the hex to a color
 						Color smoke = new Color(hex);
+						
+						//Add the color
 						colors.add(smoke);
 					}
 				}
