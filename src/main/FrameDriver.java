@@ -145,6 +145,7 @@ public class FrameDriver {
 	 */
 	public static void mainMenu(){
 		hideAll();
+		//Create a new PlayerStatusListener
 		new PlayerStatusListener(paneOne, paneTwo, true);
 		paneOne.setVisible(true);
 		paneTwo.setVisible(true);
@@ -154,6 +155,8 @@ public class FrameDriver {
 	/**
 	 * Hide the player start panel and open the CreateUser panel  
 	 * corresponding to the player who invoked it.
+	 * 
+	 * @param player  The Player associated with the pane that create user button was located on
 	 */
 	public static void createAccount(Player player){
 		if (player.getPlayerNumber() == 1){
@@ -169,6 +172,8 @@ public class FrameDriver {
 	/**
 	 * Hide the player start panel and open the login panel 
 	 * corresponding to the player who invoked it.
+	 * 
+	 * @param player  The Player associated with the pane that the login button was located on
 	 */
 	public static void login(Player player){
 		if (player.getPlayerNumber() == 1){
@@ -184,7 +189,7 @@ public class FrameDriver {
 	/**
 	 * Reset the start panel of the player who invoked this method.  
 	 * Reset the player to a NullPlayer.
-	 * @param player
+	 * @param player  The Player associated with the pane that the logout button was located on
 	 */
 	public static void logout(Player player){
 		if(player.getPlayerNumber() == 1){
@@ -202,7 +207,7 @@ public class FrameDriver {
 	/**
 	 * After the CreateUser or Login is run, 
 	 * set the PlayerOnePanel player to this player
-	 * @param player
+	 * @param player  The Player associated with the paneOne
 	 */
 	public static void setPaneOne(Player player){
 		loginOne.setVisible(false);
@@ -215,7 +220,7 @@ public class FrameDriver {
 	/**
 	 * After the CreateUser or Login is run, 
 	 * set the PlayerTwoPanel player to this player
-	 * @param player
+	 * @param player  The Player associated with the paneTwo
 	 */
 	public static void setPaneTwo(Player player){
 		loginTwo.setVisible(false);
@@ -227,24 +232,26 @@ public class FrameDriver {
 	
 	/**
 	 * Check to see if either player is currently logging in
-	 * @return
+	 * @return isVisible  True if one or both of the players is logging in, false otherwise
 	 */
 	public static boolean getLoginVisibility(){
+		boolean isVisible = false;
 		if (loginOne.isVisible() || loginTwo.isVisible()){
-			return true;
+			isVisible = true;
 		}
-		return false;
+		return isVisible;
 	}
 	
 	/**
 	 * Check to see if either player is currently creating a user
-	 * 	 * @return
+	 * @return isVisible  True if one or both of the players is creating a user, false otherwise
 	 */
 	public static boolean getCreateVisibility(){
+		boolean isVisible = false;
 		if (createOne.isVisible() || createTwo.isVisible()){
-			return true;
+			isVisible = true;
 		}
-		return false;
+		return isVisible;
 	}
 	
 	
@@ -317,6 +324,8 @@ public class FrameDriver {
 	public static void startGameSetup(){
 		hideAll();
 		
+		
+		//Get all open windows, if the window is not a main.Frame, then close it
 		for(Window window : Window.getWindows()){
 			if(!window.getClass().getName().equals("main.Frame")){
 				window.dispose();
@@ -340,9 +349,9 @@ public class FrameDriver {
 	 * Hide everything and launch the GamePanel
 	 * @param GamePanel  The GUI for the actual Light Cycle gameplay
 	 */
-	public static void startGame(GamePanel GamePanel){
+	public static void startGame(GamePanel gamePanel){
 	    hideAll();
-	    frame.add(GamePanel);
+	    frame.add(gamePanel);
 	    frame.validate();
 	    frame.repaint();
 	}
@@ -367,7 +376,11 @@ public class FrameDriver {
 	 */
 	public static void endTheGame(int pOneWins, int pTwoWins, int gamesPlayed){
 		hideAll();
+		
+		//Reset the map so that the trails disappear 
 		setup.resetMap();
+		
+		//Create and add endPanel
 		endPanel = new EndPanel(pOneWins, pTwoWins, gamesPlayed);
 		endPanel.setBounds(0,0,Frame.getXSize(), Frame.getYSize());
 		frame.add(endPanel);
