@@ -13,13 +13,14 @@ import user.Player;
 /**
  * @author Geoffrey Long
  * 
- * Provides an AbstractAction listener for the key bindings
+ * Provides an AbstractAction listener for the key bindings made in PlayerStatusListener
  */
 public class PlayerStatusUpdate extends AbstractAction{
 	private PlayerPanel pane;
 	private Player player;
 	
 	/**
+	 * Set the class varaible pane to the passed pane
 	 * 
 	 * @param pane  The PlayerPanel for this specific action
 	 */
@@ -32,12 +33,18 @@ public class PlayerStatusUpdate extends AbstractAction{
 	 * AbstractAction listener which updates the player status labels
 	 */
 	public void actionPerformed(ActionEvent e) {
+		
+		//Update the player object
 		if (pane.getPlayerNumber() == 1){
 			player = Main.playerOne;
 		}
 		else{
 			player = Main.playerTwo;
 		}
+		
+		//Check to make sure the player is not currently 
+		//loggin in, creating a userName, or null 
+		//prior to changing the status.
 		if (!FrameDriver.getLoginVisibility() && !FrameDriver.getCreateVisibility()){
 	    	if (pane.playerStatus.getText().equals("NOT READY")){
 	    		if (!player.getClass().getName().equals("user.NullPlayer")){
