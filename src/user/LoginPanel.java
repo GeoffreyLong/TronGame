@@ -167,7 +167,7 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 		if(e.getSource() == login){
 			
 			
-			if(!usernameField.getText().equals("")){
+			if(!usernameField.getText().equals("") && !passwordField.getText().equals("")){
 				if(this.player.getPlayerNumber() == 1){
 					player1 = usernameField.getText();
 				}
