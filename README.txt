@@ -20,7 +20,7 @@ List of third party libraries:
 
 2) mysql-connector-java-5.1.27-bin.jar, URL: http://dev.mysql.com/downloads/connector/j/, Version: 5.1.27
 
-3) junit.jar, URL: http://junit.org/, Version: 4
+3) junit.jar, URL: http://junit.org/, Version: 4.11
 
 To install libraries, please download the jars and then add them in Eclipse with "Install new software..." and then select the jar locations on your personal computer.
 
