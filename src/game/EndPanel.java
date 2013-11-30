@@ -7,6 +7,7 @@
 package game;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -127,7 +128,22 @@ public class EndPanel extends JPanel implements ActionListener{
     	
     	if(e.getActionCommand().equals("Matchup Stats")){
     		if(!LoginPanel.player1.equals("") && !LoginPanel.player2.equals("")){
-				FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
+				
+    			FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);boolean open = false;
+				Window[] allWindows = Window.getWindows();
+			    
+				for(int i = 0; i < allWindows.length; i++){
+					if(allWindows[i].equals(FrameDriver.headToHead)){
+						allWindows[i].dispose();
+						FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
+						open = true;
+					}
+				}
+				
+				if(!open){
+					FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
+				}
+				
 				winner.setText("");
 			    endStatus.setText("");
     		}
@@ -147,7 +163,23 @@ public class EndPanel extends JPanel implements ActionListener{
     	if(e.getActionCommand().equals("Show Top Ten")){
    		 	winner.setText("");
    		 	endStatus.setText("");
-   			FrameDriver.TopTen();
+
+   		 	
+   		 boolean open = false;
+			Window[] allWindows = Window.getWindows();
+		    
+			for(int i = 0; i < allWindows.length; i++){
+				if(allWindows[i].equals(FrameDriver.topTen)){
+					allWindows[i].dispose();
+					FrameDriver.TopTen();
+					open = true;
+				}
+			}
+			
+			if(!open){
+				FrameDriver.TopTen();
+			}
+			
     	}	
     }
 }

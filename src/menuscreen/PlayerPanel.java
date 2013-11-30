@@ -2,6 +2,7 @@ package menuscreen;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -201,7 +202,23 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		
 		if (e.getActionCommand().equals("Show Top Ten")){
-		       FrameDriver.TopTen();
+			
+			boolean open = false;
+			Window[] allWindows = Window.getWindows();
+		    
+			for(int i = 0; i < allWindows.length; i++){
+				if(allWindows[i].equals(FrameDriver.topTen)){
+					allWindows[i].dispose();
+					FrameDriver.TopTen();
+					open = true;
+				}
+			}
+			
+			if(!open){
+				FrameDriver.TopTen();
+			}
+			
+			
 		}
 		
 		if(e.getActionCommand().equals("Create an Account")){
@@ -209,8 +226,25 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("Head to Head Score")){
-			if(!LoginPanel.player1.equals("") && !LoginPanel.player2.equals(""))
-				FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
+			if(!LoginPanel.player1.equals("") && !LoginPanel.player2.equals("")){
+				
+				boolean open = false;
+				Window[] allWindows = Window.getWindows();
+			    
+				for(int i = 0; i < allWindows.length; i++){
+					if(allWindows[i].equals(FrameDriver.headToHead)){
+						allWindows[i].dispose();
+						FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
+						open = true;
+					}
+				}
+				
+				if(!open){
+					FrameDriver.HeadToHead(LoginPanel.player1, LoginPanel.player2);
+				}
+			
+			}
+				
 			
 			else{
 				JFrame frame = new JFrame("Error");
@@ -221,7 +255,21 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		if(e.getActionCommand().equals("Show Player History")){
 			if(player.getPlayerNumber() == 1){
 				if(!LoginPanel.player1.equals("")){
-					FrameDriver.playerHistory(LoginPanel.player1);
+					
+					boolean open = false;
+					Window[] allWindows = Window.getWindows();
+					
+					for(int i = 0; i < allWindows.length; i++){
+						if(allWindows[i].equals(FrameDriver.historyFrame)){
+							allWindows[i].dispose();
+							FrameDriver.playerHistory(LoginPanel.player1);
+							open = true;
+						}
+					}
+					
+					if(!open){
+						FrameDriver.playerHistory(LoginPanel.player1);
+					}
 				}
 				
 				else{
@@ -231,8 +279,23 @@ public class PlayerPanel extends JPanel implements ActionListener{
 			}
 			
 			else{
-				if(!LoginPanel.player2.equals(""))
-					FrameDriver.playerHistory(LoginPanel.player2);
+				if(!LoginPanel.player2.equals("")){
+					
+					boolean open = false;
+					Window[] allWindows = Window.getWindows();
+					
+					for(int i = 0; i < allWindows.length; i++){
+						if(allWindows[i].equals(FrameDriver.historyFrame)){
+							allWindows[i].dispose();
+							FrameDriver.playerHistory(LoginPanel.player2);
+							open = true;
+						}
+					}
+					
+					if(!open){
+						FrameDriver.playerHistory(LoginPanel.player2);
+					}
+				}
 				
 				else{
 					JFrame frame = new JFrame("Error");
