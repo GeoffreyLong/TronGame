@@ -47,8 +47,6 @@ public class FrameDriver {
 	static LoginPanel loginTwo;
 	static MapChooserPanel mapChooser;
 	static EndPanel endPanel;
-	public static PlayerOnePanel pane1;
-	public static PlayerTwoPanel pane2;
 	public static JFrame statsFrame;
 	public static JFrame historyFrame;
 	public static JFrame headToHead;
