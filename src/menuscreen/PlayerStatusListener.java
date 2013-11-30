@@ -15,8 +15,8 @@ import main.FrameDriver;
 /**
  * @author Geoffrey Long
  * 
- * Provides a way to map key presses to actions and a way to 
- * listen to the ReadyActions for a signal to start the game.
+ * Provides a way to map key presses to actions, and a way to 
+ * listen to the PlayerStatusUpdate for a signal to start the game.
  */
 public class PlayerStatusListener implements ActionListener{
 	private static Timer timer;
@@ -42,11 +42,17 @@ public class PlayerStatusListener implements ActionListener{
 		}
 	}
 	
+	/**
+	 * Start method to facilitate testing
+	 */
 	public void start(){
 		keyBind();
 		setTimer();
 	}
 	
+	/**
+	 * Use the input and action maps to perform Swing KeyBindings
+	 */
 	private void keyBind(){
 		InputMap imOne = paneOne.inputMap;
 		ActionMap amOne = paneOne.getActionMap();
@@ -60,6 +66,10 @@ public class PlayerStatusListener implements ActionListener{
 		imTwo.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "up");
 		amTwo.put("up", new PlayerStatusUpdate(paneTwo));
 	}
+	
+	/**
+	 * Make this class a timer
+	 */
 	private void setTimer(){
 		timer = new Timer(1000, this);
 		timer.start();
@@ -67,7 +77,9 @@ public class PlayerStatusListener implements ActionListener{
 	
 	@Override
 	/**
-	 * If the timer times out this will check to see if the game is ready
+	 * If the timer times out this will check to see if the game is ready.  
+	 * If it is ready, then change revert the playerStatus labels back to 
+	 * initial conditions and start the game.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == timer && isReady()){
