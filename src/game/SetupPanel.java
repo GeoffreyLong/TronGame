@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 
 import main.FrameDriver;
+import net.miginfocom.swing.MigLayout;
 import styleelements.StyledButton;
 import styleelements.StyledPanel;
 import user.Player;
@@ -99,7 +100,7 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 	}
 	private void initLayout(){
 		setBounds(0,0,xSize,ySize);
-		
+		setLayout(new MigLayout("", "[][][]","[]100px[][][][]100px[]50px[]"));
 		add(pageTitle, "cell 0 0 6 1,alignx center,aligny top");
 		add(changeMap, "cell 1 2 5 1,alignx center,aligny top");
 		add(minusButton, "cell 1 3,alignx left, grow");
