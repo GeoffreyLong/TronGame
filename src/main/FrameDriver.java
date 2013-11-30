@@ -216,6 +216,7 @@ public class FrameDriver {
 		loginOne.setVisible(false);
 		createOne.setVisible(false);
 		
+		Main.playerOne = player;
 		paneOne.setUser(player);
 		paneOne.setVisible(true);
 	}
@@ -229,6 +230,7 @@ public class FrameDriver {
 		loginTwo.setVisible(false);
 		createTwo.setVisible(false);
 		
+		Main.playerTwo = player;
 		paneTwo.setUser(player);
 		paneTwo.setVisible(true);
 	}
