@@ -59,9 +59,13 @@ public class FrameDriver {
 	
 	/**
 	 * Initialize the majority of the panels that will be used throughout 
-	 * the game.
+	 * the game and add them to the Frame.
 	 */
 	public static void init(){
+		//Notice that all of these panels are set to invisible 
+		//We do most of the management of the gui by turning on and off 
+		//the visibility of the panel, except in certain situations where 
+		//we found it necessary to create a new Panel instead.
 		
 		welcome = new WelcomePanel();
 		welcome.setVisible(false);
@@ -113,6 +117,10 @@ public class FrameDriver {
 	 * Hide all components on the frame
 	 */
 	public static void hideAll(){
+		//Get all the Components of the Frame and turn them all invisible
+		//Although this is to turn off panel visibility, we are not checking 
+		//for component type, because if a non JPanel appeared on the Frame 
+		//we would want it to be invisible anyways.
 		for (Component i : frame.getContentPane().getComponents()){
 			i.setVisible(false);
 		}
@@ -179,7 +187,6 @@ public class FrameDriver {
 			LoginPanel.player1 = "";
 			paneOne.setNull();
 		}
-		
 		else{
 			Main.playerTwo = new NullPlayer(2);
 			LoginPanel.player2 = "";
@@ -188,7 +195,8 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Set the player one panel with this player after login
+	 * After the CreateUser or Login is run, 
+	 * set the PlayerOnePanel player to this player
 	 * @param player
 	 */
 	public static void setPaneOne(Player player){
@@ -200,7 +208,8 @@ public class FrameDriver {
 	}
 	
 	/**
-	 * Set the player two panel with this player after login
+	 * After the CreateUser or Login is run, 
+	 * set the PlayerTwoPanel player to this player
 	 * @param player
 	 */
 	public static void setPaneTwo(Player player){
