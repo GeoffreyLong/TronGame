@@ -37,7 +37,7 @@ public class EndGame {
 		
 		DatabaseCalls call = new DatabaseCalls();
 		
-		
+		//If the player names are not an empty string then allow a push of the stats
 		if(!LoginPanel.player1.equals("") && !LoginPanel.player2.equals("")){
 			call.pushStatistics(LoginPanel.player1, updatePlayerOne, LoginPanel.player2, updatePlayerTwo);
 		}
