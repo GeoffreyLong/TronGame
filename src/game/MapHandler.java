@@ -5,17 +5,27 @@ package game;
  * @author Geoffrey Long
  *
  * Provides the instantiation of each of the Map objects and the 
- * programmatic interface from which the map will be set and gotten.
+ * programmatic interface from which the map will be set and gotten.  
  */
 public class MapHandler {
 	public static Map map;
 	Map[] maps = new Map[3];
+	
+	/**
+	 * Set all the maps that are available
+	 */
     public MapHandler(){
     	setMapThree();
     	setMapTwo();
     	setMapOne();
     	setMapDefaults();
     }
+    
+    /**
+     * Return the current chosen map
+     * 
+     * @return map  The map that was chosen
+     */
     public Map getMap(){
     	return map;
     }
@@ -60,7 +70,7 @@ public class MapHandler {
      * <li> Player one start position <li>
      * <li> Player two start position <li>
      * <li> Map size <li>
-     * <li> Map border <li></ul>
+     * <li> Map border <li></ul><br>
      * For the provided maps these were all the same
      * so for maps one, two, and three.  Includes a call to setBorder 
      * method within the Map object which will provide a standard rectangular 

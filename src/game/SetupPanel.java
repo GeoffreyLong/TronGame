@@ -57,6 +57,9 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 		initLayout();
 	}
 
+	/**
+	 * Standard panel method which initializes the components
+	 */
 	private void initComponents(){				
 		pageTitle = new JLabel(playerOne.getUserName() + " VS " + playerTwo.getUserName());
 		pageTitle.setForeground(new Color(142,229,238));
@@ -98,6 +101,10 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 		changePTwoColor.addActionListener(this);
 		
 	}
+	
+	/**
+	 * Standard panel method which initializes the layout
+	 */
 	private void initLayout(){
 		setBounds(0,0,xSize,ySize);
 		setLayout(new MigLayout("", "[][][]","[]100px[][][][]100px[]50px[]"));
@@ -117,14 +124,18 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 		
 		setVisible(true);
 	}
+	
 	/**
 	 * Maps the button presses to the corresponding program action
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//Change the map will initialize the mapChooser panel
 		if(e.getActionCommand().equals("Change the Map")){
 			FrameDriver.mapChooser();
 		}
+		
+		//This will decrement the gameDifficulty
 		if(e.getActionCommand().equals("-")){
 			if (gameSetup.getGameDifficulty()>0){
 				gameSetup.decrementGameDifficulty();
@@ -133,6 +144,8 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 					+ "Change the Difficulty <br> Current difficulty is <br>"
 					+ gameSetup.getGameDifficulty() +"</div></html>");
 		}
+		
+		//This will increment the game difficulty
 		if(e.getActionCommand().equals("+")){
 			if (gameSetup.getGameDifficulty()<10){
 				gameSetup.incrementGameDifficulty();
@@ -141,6 +154,8 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 					+ "Change the Difficulty <br> Current difficulty is <br>"
 					+ gameSetup.getGameDifficulty() +"</div></html>");
 		}
+		
+		//This will change playerOne's cycle color
 		if(e.getActionCommand().equals("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerOne's LightCycle <br> "
 				+ "Current color is the button color </div><html>")){
@@ -149,6 +164,8 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 			gameSetup.setPOneColor(pOneColor.getColor());
 			repaint();
 		}
+		
+		//This will change player two's cycle color
 		if(e.getActionCommand().equals("<html> <div style='text-align:center'> "
 				+ "Change the Color of PlayerTwo's LightCycle <br> "
 				+ "Current color is the button color </div><html>")){
@@ -157,6 +174,8 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 			gameSetup.setPTwoColor(pTwoColor.getColor());
 			repaint();
 		}
+		
+		//This will start the game
 		if(e.getActionCommand().equals("START THE GAME")){
 			GameMaster master = new GameMaster(gameSetup);
 			master.gameStart();
@@ -171,6 +190,10 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 	 * @return color
 	 */
 	public Colors colorChange(Colors color){
+		//Will shift the color down the case statements, 
+		//If the player color's are equal at the end, the method is 
+		//recurred and the player's cycle color is changed again until the
+		//colors are no longer equal
 		switch(color){
 			case RED:
 				color = Colors.BLUE;
@@ -225,6 +248,7 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 	 */
 	public void setPlayerOne(Player playerOne) {
 		this.playerOne = playerOne;
+		//reupdate the page title to reflect the userName change
 		pageTitle.setText(playerOne.getUserName() + " VS " + playerTwo.getUserName());
 	}
 
@@ -234,6 +258,7 @@ public class SetupPanel extends StyledPanel implements ActionListener{
 	 */
 	public void setPlayerTwo(Player playerTwo) {
 		this.playerTwo = playerTwo;
+		//reupdate the page title to reflect the userName change
 		pageTitle.setText(playerOne.getUserName() + " VS " + playerTwo.getUserName());
 	}
 }

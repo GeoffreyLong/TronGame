@@ -36,15 +36,23 @@ public class MapChooserPanel extends JPanel{
 	 * placed dynamically according to the number of maps and the 
 	 * size of the maps.  Contains a nested ActionListener which 
 	 * will set the map in maphandler to the clicked map and will also 
-	 * reset the SetupPanel as the dominant panel. 
+	 * reset the SetupPanel as the dominant panel on click. 
 	 */
 	private void initButtons(){
 		for (Map map : mapHandle.maps){
+			//Default display size
 			int displaySize = 4;
 			final Map buttonMap = map;
 			MapChooserButton chooseMap = new MapChooserButton(buttonMap, displaySize);
+			
+			//Dynamically set the bounds based on the number of buttons that have been set and their size
 			chooseMap.setBounds(xButtonOffset, yButtonOffset, map.getXSize()*displaySize+20, map.getYSize()*displaySize+20);
+			
+			//Increment the button offset
 			xButtonOffset += map.getXSize()*displaySize + 40;
+			
+			//On button press the map on the button will be chosen, 
+			//MapChooserPanel will disappear and the setup panel will display
 			chooseMap.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
@@ -57,6 +65,9 @@ public class MapChooserPanel extends JPanel{
 		}
 	}
 	
+	/**
+	 * Standard panel method to initialize the layout
+	 */
 	private void initLayout(){
 		setBounds(0,0,main.Frame.getXSize(), main.Frame.getYSize());
 		setVisible(true);

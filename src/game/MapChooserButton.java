@@ -45,6 +45,7 @@ public class MapChooserButton extends JButton{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
+		//Paint the map one tile at a time
 		for (int i=0; i<xSize; i++){
 			for (int j=0; j<ySize; j++){
 				switch(tiles[i][j]){
@@ -57,6 +58,8 @@ public class MapChooserButton extends JButton{
 					default:
 						break;
 				}
+				//Add 10 to the location of drawing to ensure a buffer between 
+				//the edge of the button and the start of the map
 				g.fillRect(i*displaySize+10, j*displaySize+10, displaySize, displaySize);
 			}
 		}
