@@ -8,6 +8,7 @@ import gameplay.ExplosionPanel;
 import gameplay.GamePanel;
 
 import java.awt.Component;
+import java.awt.Window;
 import java.sql.Connection;
 
 import javax.swing.JFrame;
@@ -302,6 +303,13 @@ public class FrameDriver {
 	 */
 	public static void startGameSetup(){
 		hideAll();
+		
+		for(Window window : Window.getWindows()){
+			if(!window.getClass().getName().equals("main.Frame")){
+				window.dispose();
+			}
+		}
+		
 		setupPanel.setPlayerOne(Main.playerOne);
 		setupPanel.setPlayerTwo(Main.playerTwo);
 		setupPanel.setVisible(true);
