@@ -19,7 +19,7 @@ public class StyledPanel extends JPanel {
 	 */
 	public StyledPanel(){
 		setBorder(BorderFactory.createLineBorder(new Color(0xD4FFFF)));
-		setLayout(new MigLayout("","[]","[]"));
+		setLayout(new MigLayout("", "[]", "[]"));
 		setBackground(Color.black);
 	}
 }

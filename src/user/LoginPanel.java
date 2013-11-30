@@ -162,52 +162,63 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 		if(e.getSource() == login){
 			
-			if(this.player.getPlayerNumber() == 1){
-				player1 = usernameField.getText();;
-			}
 			
-			else{
-				player2 = usernameField.getText();
-			}
-			
-			if((this.player.getPlayerNumber() == 1 && !player1.equals(player2)) || (this.player.getPlayerNumber() == 2 && !player2.equals(player1))){
-				DatabaseCalls call = new DatabaseCalls();
+			if(!usernameField.getText().equals("")){
+				if(this.player.getPlayerNumber() == 1){
+					player1 = usernameField.getText();
+				}
 				
-				boolean pass = call.login(usernameField.getText(), passwordField.getText());
+				else{
+					player2 = usernameField.getText();
+				}
 				
-				
-				if(pass){
+				if((this.player.getPlayerNumber() == 1 && !player1.equals(player2)) || (this.player.getPlayerNumber() == 2 && !player2.equals(player1))){
+					DatabaseCalls call = new DatabaseCalls();
 					
-					if(this.player.getPlayerNumber() == 1){
-						player = new Player(1);
-						player.setUserName(usernameField.getText());
-						Main.playerOne = player;
-						FrameDriver.setPaneOne(player);
+					
+					String password = passwordField.getPassword().toString();
+					boolean pass = call.login(usernameField.getText(), passwordField.getText());
+					
+					
+					if(pass){
+						
+						if(this.player.getPlayerNumber() == 1){
+							player = new Player(1);
+							player.setUserName(usernameField.getText());
+							Main.playerOne = player;
+							FrameDriver.setPaneOne(player);
+						}
+						
+						else{
+							player = new Player(2);
+							player.setUserName(usernameField.getText());
+							Main.playerTwo = player;
+							FrameDriver.setPaneTwo(player);
+						}
+						
+						usernameField.setText("");
+						passwordField.setText("");
 					}
 					
 					else{
-						player = new Player(2);
-						player.setUserName(usernameField.getText());
-						Main.playerTwo = player;
-						FrameDriver.setPaneTwo(player);
+						JFrame frame = new JFrame("Error");
+						JOptionPane.showMessageDialog(frame, "Check your username/password");
+						usernameField.setText("");
+						passwordField.setText("");
 					}
-					
-					usernameField.setText("");
-					passwordField.setText("");
 				}
 				
 				else{
 					JFrame frame = new JFrame("Error");
-					JOptionPane.showMessageDialog(frame, "Check your username/password");
-					usernameField.setText("");
-					passwordField.setText("");
+					JOptionPane.showMessageDialog(frame, "Player already logged in !");
 				}
-			}
+		}
 			
 			else{
-				System.out.println(player.getUserName());
 				if (player.getClass().getName().equals("user.NullPlayer")){
 					JFrame frame = new JFrame("Error");
 					JOptionPane.showMessageDialog(frame, "Please enter a username !");
@@ -222,6 +233,7 @@ public class LoginPanel extends StyledPanel implements ActionListener{
 		if(e.getSource() == back){
 			FrameDriver.mainMenu();
 		}
+		
 		
 	}
 
