@@ -29,19 +29,22 @@ import user.Player;
  */
 public class PlayerPanel extends JPanel implements ActionListener{
 	public Player player;
+	
+	public JLabel playerStatus;
+	public InputMap inputMap;
+	private JLabel playerLabel;
+	public JButton playerStats;
+	private JButton head2head;
+	
+	private JLabel instructionsTwo;
+	private JLabel instructionsOne;
+	
+	private JPanel panel;
+	
 	public JButton logout;
 	public JButton login;
 	public JButton createAccount;
 	public JButton playerHistory;
-	public JLabel playerStatus;
-	public InputMap inputMap;
-	public JLabel playerLabel;
-	public JButton playerStats;
-	public JButton head2head;
-	public JLabel instructionsTwo;
-	public JLabel instructionsOne;
-	
-	private JPanel panel;
 	
 	/**
 	 * Constructor takes in a Player object and initializes the components 
@@ -51,7 +54,6 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	 */
 	public PlayerPanel(Player player){
 		this.player = player;
-		setBackground(Color.black);
 		initComponents();
 		initLayout();
 	}
@@ -109,6 +111,7 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	 * Standard Panel method to initialize the layout
 	 */
 	private void initLayout(){
+		setBackground(Color.black);
 		setBorder(BorderFactory.createLineBorder(new Color(0xD4FFFF)));
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[50px][50px][50px][50px][50px]"));
 		
