@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -30,19 +29,14 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 	private int ySize;
 	PlayerControl cont;
 	Cycle[] cycles;
-	private Timer explosionTimer;
-	private int explosionCount;
 	private static int xOffset;
 	private static int yOffset;
 	private JLabel changeSize;
 	private JButton minus;
 	private JButton plus;
-	private boolean haveExplosion = false;
 	private Map mapper;
 	private GameSetup gameSetup;
 	private static int increment;
-	private List<Color> explosionColors;
-	private Cycle curCycle;
 	private boolean isExplosion = false;
 	private JLabel playerOneLabel;
 	private JLabel playerTwoLabel;

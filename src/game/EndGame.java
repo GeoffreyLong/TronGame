@@ -1,8 +1,5 @@
 package game;
 
-import java.sql.Connection;
-
-import main.Connect;
 import main.DatabaseCalls;
 import main.FrameDriver;
 import user.LoginPanel;
@@ -29,8 +26,6 @@ public class EndGame {
 		this.pOneWins = pOneWins;
 		this.pTwoWins = pTwoWins;
 		this.gamesPlayed = gamesPlayed;
-		
-		Connection conn = Connect.connect();
 		
 		if(pOneWins == 2) {
 			updatePlayerOne = 1;

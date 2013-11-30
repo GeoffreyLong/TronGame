@@ -8,12 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import user.Player;
-import styleelements.StyledButton;
 import main.FrameDriver;
-import net.miginfocom.swing.MigLayout;
+import styleelements.StyledButton;
+import styleelements.StyledPanel;
+import user.Player;
 
 /**
  * @author Geoffrey Long
@@ -21,7 +20,7 @@ import net.miginfocom.swing.MigLayout;
  * Provides a graphical interface between the user and the GameSetup.  
  * This allows users to set the game difficulty, the map, and their cycle colors.
  */
-public class SetupPanel extends JPanel implements ActionListener{
+public class SetupPanel extends StyledPanel implements ActionListener{
 	Player playerOne;
 	Player playerTwo;
 	private int xSize;
@@ -99,13 +98,11 @@ public class SetupPanel extends JPanel implements ActionListener{
 		
 	}
 	private void initLayout(){
-		setBackground(Color.black);
 		setBounds(0,0,xSize,ySize);
-		setLayout(new MigLayout("", "[]50[]", "[]50[]50[]50[]50[]100[]100[][][]"));
 		
 		add(pageTitle, "cell 0 0 6 1,alignx center,aligny top");
 		add(changeMap, "cell 1 2 5 1,alignx center,aligny top");
-		add(minusButton, "cell 1 3,alignx right, grow");
+		add(minusButton, "cell 1 3,alignx left, grow");
 		
 		
 		add(changeDifficulty, "cell 2 3 3 1,alignx center,shrinkx,growy");

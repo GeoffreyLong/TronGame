@@ -13,7 +13,6 @@
 
 package game;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,22 +21,24 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 import main.FrameDriver;
 import main.Main;
+import net.miginfocom.swing.MigLayout;
 import styleelements.StyledButton;
+import styleelements.StyledLabel;
+import styleelements.StyledPanel;
 import user.LoginPanel;
-import user.Player;
 
 
-public class EndPanel extends JPanel implements ActionListener{
+public class EndPanel extends StyledPanel implements ActionListener{
 	
 	/*
 	 * 
 	 * Everything initialized
 	 * 
 	 */
+
     
     private JLabel title;
     private JButton replay;
@@ -80,30 +81,22 @@ public class EndPanel extends JPanel implements ActionListener{
      */
     
     public void initComponents(){
-    	title = new JLabel("Thank you for playing Tron");
-    	title.setFont(new Font("Times", Font.BOLD, 37));
-    	title.setBounds(430, 30, 700, 44);
+    	title = new StyledLabel("Thank you for playing Tron", 37);
     	
-    	winner = new JLabel();
-    	winner.setBounds(360, 200, 300, 40);
+		winner = new StyledLabel("Congratulations", 18);
     	
-    	endStatus = new JLabel();
-    	endStatus.setBounds(360, 250, 200, 200);
+    	endStatus = new StyledLabel("End of Game Stats", 18);
     	
     	replay = new StyledButton("Replay?");
-    	replay.setBounds(760, 166, 200, 60);
     	replay.addActionListener(this);
     	
     	headToHead = new StyledButton("Matchup Stats");
-    	headToHead.setBounds(760, 266, 200, 60);
     	headToHead.addActionListener(this);
     	
     	topTen = new StyledButton("Show Top Ten");
-    	topTen.setBounds(760, 366, 200, 60);
     	topTen.addActionListener(this);
     	
     	mainMenu = new StyledButton("Main Menu");
-    	mainMenu.setBounds(760, 366, 200, 60);
     	mainMenu.addActionListener(this); 
     	
     	addWinLogic();
@@ -121,18 +114,15 @@ public class EndPanel extends JPanel implements ActionListener{
     
     public void addWinLogic(){
     	if (pOneWins > pTwoWins){
-    		winner.setBounds(360, 200, 300, 40);
     		winner.setText("Congratulations " + Main.playerOne.getUserName() + "!!!");
     	}
     	
     	else{
-    		winner.setBounds(360, 200, 300, 40);
     		winner.setText("Congratulations " + Main.playerTwo.getUserName() + "!!!");
     	}
     	
     	endStatus.setOpaque(true);
     	winner.setOpaque(true);
-    	endStatus = new JLabel();
     	endStatus.setText("<html>"
     			+ "Number of... <br>"
     			+ "Games Played : "
@@ -141,9 +131,6 @@ public class EndPanel extends JPanel implements ActionListener{
     			+ pOneWins + "<br>"
     			+ "Player Two Wins : "
     			+ pTwoWins);
-    	endStatus.setBounds(360, 250, 200, 200);
-    	add(endStatus);
-    	add(winner);
     }
     
     
@@ -157,14 +144,14 @@ public class EndPanel extends JPanel implements ActionListener{
      * 
      */
     public void initLayout(){
-    	setLayout(null);
-    	add(title);
-    	add(replay);
-    	add(endStatus);
-    	add(winner);
-    	add(headToHead);
-    	add(mainMenu);
-    	add(topTen);
+    	setLayout(new MigLayout("","[grow][grow]", "[]200px[][][][][]"));
+    	add(title, "cell 0 0 2 1,alignx center,growy");
+    	add(replay, " cell 1 3, alignx center,grow");
+    	add(endStatus, "cell 0 5,alignx left,grow");
+    	add(winner, "cell 0 4, alignx left,grow");
+    	add(headToHead, "cell 1 4, alignx center,grow");
+    	add(mainMenu, "cell 1 5, alignx center,grow");
+    	add(topTen, "cell 1 6, alignx center,grow");
     }
     
     /**
