@@ -9,8 +9,8 @@ import gameplay.Cycle.Heading;
  * and makes the appropriate change on the cycle heading.
  */
 public class PlayerControl {
-        Cycle cycleOne;
-        Cycle cycleTwo;
+        private Cycle cycleOne;
+        private Cycle cycleTwo;
         
         /**
          * Instantiate both cycles as class variables.  
