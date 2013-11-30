@@ -21,7 +21,6 @@ import main.FrameDriver;
 import main.Main;
 import styleelements.StyledButton;
 import user.LoginPanel;
-import user.Player;
 
 
 public class EndPanel extends JPanel implements ActionListener{

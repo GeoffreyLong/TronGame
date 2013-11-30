@@ -3,7 +3,6 @@ package menuscreen;
 import java.awt.Color;
 
 import main.Frame;
-import user.NullPlayer;
 import user.Player;
 
 /**

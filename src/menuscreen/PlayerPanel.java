@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 
 import javax.swing.BorderFactory;
 import javax.swing.InputMap;
@@ -15,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import main.Connect;
 import main.Frame;
 import main.FrameDriver;
 import net.miginfocom.swing.MigLayout;
@@ -40,7 +38,6 @@ public class PlayerPanel extends JPanel implements ActionListener{
 	public JButton playerStats;
 	public JButton head2head;
 	
-	private Connection conn;
 	private JPanel panel;
 	
 	/**
@@ -54,7 +51,6 @@ public class PlayerPanel extends JPanel implements ActionListener{
 		setBackground(Color.black);
 		initComponents();
 		initLayout();
-		this.conn = Connect.connect();
 	}
 	
 	/**

@@ -2,7 +2,6 @@ package statistics;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -78,7 +77,6 @@ public class PlayerHistoryPanel extends JPanel{
 		try{  
             Statement stmt = conn.createStatement();  
             ResultSet result = stmt.executeQuery("SELECT opponent, numberGames, numberWins, numberLosses FROM authentication.playerHistory WHERE userName = '" + username + "'");
-            ResultSetMetaData md = result.getMetaData();
              
             Object[] columns = {"Opponent", "Games", "Wins", "Losses"};
             

@@ -1,7 +1,6 @@
 package user;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -208,8 +207,6 @@ public class CreateUserPanel extends StyledPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 		if(e.getSource() == back){
 			FrameDriver.mainMenu();
 		}
@@ -258,7 +255,6 @@ public class CreateUserPanel extends StyledPanel implements ActionListener{
 							rePasswordField.setText("");
 						}
 					} catch (Exception e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					

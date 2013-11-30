@@ -15,7 +15,6 @@ import main.Frame;
  * the map they want to play on.
  */
 public class MapChooserPanel extends JPanel{
-	private Map map;
 	private MapHandler mapHandle;
 	private SetupPanel setup;
 	private int xButtonOffset = 10;
