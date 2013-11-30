@@ -1,3 +1,8 @@
+/**
+ * @author Aziz Hanna
+ *
+ */
+
 package styleelements;
 
 import java.awt.Color;

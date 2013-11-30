@@ -1,17 +1,15 @@
 /**
- * 
+ * @author Aziz Hanna
+ *
  */
+
 package styleelements;
 
 import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.*;
+import javax.swing.JButton;
 
-/**
- * @author Aziz
- *
- */
 public class StyledButton extends JButton {
 	
 	public StyledButton(String buttonName){
