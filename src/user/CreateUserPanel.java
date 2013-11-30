@@ -236,55 +236,60 @@ public class CreateUserPanel extends JPanel implements ActionListener{
 				
 				if(checkPassword(passwordField.getText())){
 					pass = call.createUser(usernameField.getText(), passwordField.getText());
+					
+					try {
+						if(pass){
+							
+							if(this.player.getPlayerNumber() == 1){
+								player.setUserName(usernameField.getText());
+								LoginPanel.player1 = usernameField.getText();
+								
+								FrameDriver.setPaneOne(player);
+							}
+							
+							else{
+								player.setUserName(usernameField.getText());
+								LoginPanel.player2 = usernameField.getText();
+								
+								FrameDriver.setPaneTwo(player);
+							}
+							
+							passwordField.setText("");
+							rePasswordField.setText("");
+							
+						}
+						
+						else{
+							
+							JFrame frame = new JFrame("Error");
+							JOptionPane.showMessageDialog(frame, "Account Already Exists");
+						
+							
+							usernameField.setText("");
+							passwordField.setText("");
+							rePasswordField.setText("");
+						}
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
 				}
 				
 				else{
 					JFrame frame = new JFrame("Error");
 					JOptionPane.showMessageDialog(frame, "Your password must be at least 8 charecters long, and contain at least 1 Uppercase, 1 lowercase, 1 number and 1 non-alphanumeric character");
+					passwordField.setText("");
+					rePasswordField.setText("");
 				}
 				
-				try {
-					if(pass){
-						
-						if(this.player.getPlayerNumber() == 1){
-							player.setUserName(usernameField.getText());
-							LoginPanel.player1 = usernameField.getText();
-							
-							FrameDriver.setPaneOne(player);
-						}
-						
-						else{
-							player.setUserName(usernameField.getText());
-							LoginPanel.player2 = usernameField.getText();
-							
-							FrameDriver.setPaneTwo(player);
-						}
-						passwordField.setText("");
-						rePasswordField.setText("");
-						
-					}
-					
-					else{
-						
-						JFrame frame = new JFrame("Error");
-						JOptionPane.showMessageDialog(frame, "Account Already Exists");
-					
-						
-						usernameField.setText("");
-						passwordField.setText("");
-						rePasswordField.setText("");
-					}
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 			} 
+			
 			else{
 				if (!passwordField.getText().equals(rePasswordField.getText())) {
 					JFrame frame = new JFrame("Error");
 					JOptionPane.showMessageDialog(frame, "Please retype!");
 				}
-				usernameField.setText("");
 				passwordField.setText("");
 				rePasswordField.setText("");
 			}
